@@ -205,6 +205,19 @@ body::before{
 
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .concept-fraction-equation{display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}.concept-stacked-fraction{display:inline-grid;grid-template-rows:auto 2px auto;place-items:center;min-width:32px;line-height:1}.concept-stacked-fraction .concept-fraction-bar{width:100%;height:2px;background:currentColor;border-radius:2px;margin:3px 0}.concept-fraction-arrow{font-family:Trebuchet MS,sans-serif;font-style:normal;font-size:1.2em}
+
+/* Legal footer */
+.site-legal-footer{width:min(1180px,94vw);margin:34px auto 22px;padding:16px 18px;border-top:1px solid rgba(76,82,92,.28);display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;color:#555c66;font:700 .84rem/1.45 Arial,sans-serif;text-align:center}
+.site-legal-footer a{color:#3437d8;text-decoration:none}.site-legal-footer a:hover{text-decoration:underline}.site-legal-footer .dot{color:#9298a3}
+/* Privacy-first video cover */
+.privacy-video-cover{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#17212d;cursor:pointer;display:block;border:0;padding:0;color:#fff}
+.privacy-video-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.privacy-video-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18))}
+.privacy-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(0,0,0,.28);display:grid;place-items:center}
+.privacy-video-play::before{content:"";margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid #d83b36}
+.video-privacy-note{margin:8px 2px 0;color:#626975;font:700 .78rem/1.35 Arial,sans-serif;text-align:center}
+.video-privacy-note a{color:#3437d8}
+
 </style>
 <style>
 /* Responsive launch pass — preserves the approved desktop design */
@@ -742,5 +755,6 @@ cards.forEach(card=>card.querySelector('.area-button').addEventListener('click',
  setTimeout(()=>display.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
 }));
 </script>
+<footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer>
 </body>
 </html>

@@ -71,6 +71,19 @@ body::before{
   background-size:100% auto;
 }
 
+
+/* Legal footer */
+.site-legal-footer{width:min(1180px,94vw);margin:34px auto 22px;padding:16px 18px;border-top:1px solid rgba(76,82,92,.28);display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;color:#555c66;font:700 .84rem/1.45 Arial,sans-serif;text-align:center}
+.site-legal-footer a{color:#3437d8;text-decoration:none}.site-legal-footer a:hover{text-decoration:underline}.site-legal-footer .dot{color:#9298a3}
+/* Privacy-first video cover */
+.privacy-video-cover{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#17212d;cursor:pointer;display:block;border:0;padding:0;color:#fff}
+.privacy-video-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.privacy-video-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18))}
+.privacy-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(0,0,0,.28);display:grid;place-items:center}
+.privacy-video-play::before{content:"";margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid #d83b36}
+.video-privacy-note{margin:8px 2px 0;color:#626975;font:700 .78rem/1.35 Arial,sans-serif;text-align:center}
+.video-privacy-note a{color:#3437d8}
+
 </style>
 <style>
 /* Responsive launch pass — preserves the approved desktop design */
@@ -545,10 +558,11 @@ header .social-icon svg,
 <span class="alg-item alg-equation">y = x + c</span>
 </div></section>
 <section class="section"><div class="section-head"><div><h2>Watch Algebra Tutorials</h2><p>Start with a clear explanation or browse the complete Algebra video collection.</p></div><a class="all-link" href="videos.html?subject=algebra">View all Algebra videos →</a></div><div class="grid">
-<a class="card-link" href="https://www.youtube.com/watch?v=Cq2oGS5nmy0" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="Adding and subtracting algebraic expressions tutorial" src="https://img.youtube.com/vi/Cq2oGS5nmy0/hqdefault.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">ALGEBRA TUTORIAL</span><h3>How to Add and Subtract Algebraic Expressions</h3><p>Combine like terms and simplify expressions through clear step-by-step examples.</p></div></article></a>
+<a class="card-link" href="https://www.youtube.com/watch?v=Cq2oGS5nmy0" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="Adding and subtracting algebraic expressions tutorial" src="thumbnails/Cq2oGS5nmy0.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">ALGEBRA TUTORIAL</span><h3>How to Add and Subtract Algebraic Expressions</h3><p>Combine like terms and simplify expressions through clear step-by-step examples.</p></div></article></a>
 
-<a class="card-link" href="https://www.youtube.com/watch?v=jqdFTBkuPpk" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="Multiplying algebraic terms tutorial" src="https://img.youtube.com/vi/jqdFTBkuPpk/hqdefault.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">ALGEBRA TUTORIAL</span><h3>How to Multiply Algebraic Terms</h3><p>Multiply coefficients and variables while applying the laws of exponents.</p></div></article></a>
+<a class="card-link" href="https://www.youtube.com/watch?v=jqdFTBkuPpk" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="Multiplying algebraic terms tutorial" src="thumbnails/jqdFTBkuPpk.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">ALGEBRA TUTORIAL</span><h3>How to Multiply Algebraic Terms</h3><p>Multiply coefficients and variables while applying the laws of exponents.</p></div></article></a>
 </div></section>
 <section class="section"><div class="section-head"><div><h2>Practice Algebra</h2><p>Work through continuously generated questions and open the tutorial whenever you get stuck.</p></div></div><div class="practice-card"><div class="practice-preview">3x + 2y − x</div><div class="practice-copy"><h3>Adding and Subtracting Algebraic Expressions</h3><p>Practice combining like terms at your own pace using Student Mode or work against the clock in Timer Mode.</p></div><a class="start" href="adding-subtracting-algebraic-expressions.html">Start practicing →</a></div><div class="note">More Algebra practice activities coming soon.</div></section>
 </main>
+<footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer>
 </body></html>
