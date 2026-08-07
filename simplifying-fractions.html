@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1280">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simplifying Fractions | Mr. McLean Math</title>
 <style>
 
@@ -1781,6 +1781,30 @@ body > header.site-global-header .site-global-social svg{
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+
+<style id="mobile-orb-layout-fix">
+/* v92: true phone layout + collision-free level orbs. Desktop is unchanged. */
+@media (max-width:640px){
+  .card > .light.level-orb{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    margin:14px auto 2px !important;
+  }
+  .card .level-title{
+    padding-top:5px !important;
+  }
+  .card .problem{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+  .card.active .body > .start{
+    width:min(180px,100%) !important;
+    max-width:100% !important;
+    margin:20px auto !important;
+  }
+}
+</style>
 </head>
 <body>
 <h1 class="sr-only">Simplifying Fractions</h1>
