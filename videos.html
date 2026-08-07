@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="width=1280" name="viewport"/>
 <title>Videos | Mr. McLean Math</title>
 <style>
 :root{--ink:#252a31;--muted:#626873;--blue:#2218ff;--line:#5b6069;--panel:rgba(255,255,255,.96);--shadow:0 16px 36px rgba(45,52,68,.14)}
@@ -86,9 +86,9 @@ nav a:hover{transform:translateY(-2px); color:#2218ff}
 .practice-copy{display:flex;align-items:center;gap:13px}.practice-icon{width:48px;height:48px;border:2px solid #252a31;border-radius:50%;display:grid;place-items:center;background:#fff;font-size:1.45rem;flex:0 0 auto}.practice-copy strong{display:block;font-size:1.08rem;margin-bottom:3px}.practice-copy span{font-weight:700;color:#4c4a42}
 .practice-link{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;padding:12px 17px;border:2px solid #252a31;border-radius:12px;background:#2f9c55;color:#fff;text-decoration:none;font-weight:900;box-shadow:0 4px 0 #252a31;transition:.15s transform}.practice-link:hover{transform:translateY(-2px)}
 @media(max-width:900px){.filter-stack{align-items:flex-start;width:100%}.subchips{justify-content:flex-start}.practice-panel{align-items:flex-start;flex-direction:column}.practice-link{width:100%}}
-.subscribe-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 18px;border:2px solid #252a31;border-radius:16px;background:linear-gradient(135deg,#fff,#f3f4f7);box-shadow:0 5px 0 #252a31}
-.subscribe-copy{display:flex;align-items:center;gap:13px}.youtube-mark{width:48px;height:48px;border:2px solid #252a31;border-radius:14px;display:grid;place-items:center;background:#ff0033;color:#fff;flex:0 0 auto;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}.youtube-mark svg{width:28px;height:28px}.subscribe-copy strong{display:block;font-size:1.08rem;margin-bottom:3px}.subscribe-copy span{font-weight:700;color:#5b6069}
-.subscribe-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;white-space:nowrap;padding:12px 17px;border:2px solid #252a31;border-radius:12px;background:#ff0033;color:#fff;text-decoration:none;font-weight:900;box-shadow:0 4px 0 #252a31;transition:.15s transform,.15s background}.subscribe-link:hover{transform:translateY(-2px);background:#df002d}.subscribe-link svg{width:19px;height:19px;flex:0 0 auto}
+ .subscribe-panel{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:17px 20px;border:2px solid #252a31;border-radius:16px;background:linear-gradient(135deg,#fff,#f3f4f7);box-shadow:0 5px 0 #252a31}
+.subscribe-copy{display:flex;align-items:center;gap:15px}.youtube-mark{width:58px;height:42px;display:grid;place-items:center;flex:0 0 auto;filter:drop-shadow(0 4px 5px rgba(0,0,0,.18))}.youtube-mark svg{width:58px;height:42px;display:block}.subscribe-copy strong{display:block;font-size:1.13rem;margin-bottom:3px}.subscribe-copy span{font-weight:700;color:#5b6069}
+.subscribe-link{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-width:226px;padding:15px 24px;border:2px solid #252a31;border-radius:13px;background:#ff0000;color:#fff;text-decoration:none;font-size:1.12rem;line-height:1;font-weight:1000;letter-spacing:.01em;text-shadow:0 1px 1px rgba(0,0,0,.24);box-shadow:0 5px 0 #252a31,0 9px 20px rgba(255,0,0,.20);transition:.15s transform,.15s background,.15s box-shadow}.subscribe-link:hover{transform:translateY(-2px);background:#e00000;box-shadow:0 7px 0 #252a31,0 13px 24px rgba(255,0,0,.24)}.subscribe-link:active{transform:translateY(3px);box-shadow:0 2px 0 #252a31}
 @media(max-width:900px){.subscribe-panel{align-items:flex-start;flex-direction:column}.subscribe-link{width:100%}}
 
 
@@ -553,41 +553,185 @@ header .social-icon svg,
 }
 </style>
 
-  <link rel="icon" type="image/png" href="favicon.png"></head>
+  <link rel="icon" type="image/png" href="favicon.png">
+<style id="nav-consistency-v76">
+/* Shared site navigation: identical across Home, Videos, Practice, Games, and game pages. */
+header{background:rgba(255,255,255,.95);border-bottom:1px solid #d8e4ed;position:relative;z-index:50;backdrop-filter:blur(9px)}
+header .topbar,.topbar{max-width:1380px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 18px}
+header nav,.topbar nav{max-width:none;margin:0;display:grid;grid-template-columns:repeat(4,minmax(80px,1fr));gap:8px;padding:6px 2px}
+header nav a,.topbar nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.25rem;transition:.2s ease;white-space:nowrap}
+header nav a.active,.topbar nav a.active{color:#2218ff}
+header nav a:hover,.topbar nav a:hover{transform:translateY(-2px);color:#2218ff}
+header .social-links,.topbar .social-links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:nowrap}
+header .social-icon,.topbar .social-icon{width:46px;height:46px;min-width:46px;border-radius:50%;background:rgba(0,0,0,.07);color:#555a63;display:grid;place-items:center;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.72);transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+header .social-icon:hover,.topbar .social-icon:hover{transform:translateY(-2px) scale(1.04);background:rgba(0,0,0,.11);color:#2218ff;box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85)}
+header .social-icon svg,.topbar .social-icon svg{width:22px;height:22px;display:block}
+@media (min-width:901px){header nav,.topbar nav{display:grid!important;grid-template-columns:repeat(4,minmax(80px,1fr))!important;overflow:visible!important}header nav a,.topbar nav a{white-space:nowrap!important}}
+@media (max-width:900px){header .topbar,.topbar{width:min(100% - 24px,1460px);padding-left:0;padding-right:0;gap:12px}header nav,.topbar nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain;scrollbar-width:none;padding:4px 2px 8px!important;-webkit-overflow-scrolling:touch}header nav::-webkit-scrollbar,.topbar nav::-webkit-scrollbar{display:none}header nav a,.topbar nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px!important;white-space:nowrap!important;font-size:1rem!important}header .social-links,.topbar .social-links{gap:8px!important}header .social-icon,.topbar .social-icon{width:42px!important;height:42px!important;min-width:42px!important}header .social-icon svg,.topbar .social-icon svg{width:20px!important;height:20px!important}}
+@media (max-width:640px){header{position:relative!important}header .topbar,.topbar{width:100%;padding:10px 12px!important;grid-template-columns:1fr!important}header nav,.topbar nav{width:100%;order:1}header .social-links,.topbar .social-links{order:2;justify-content:center!important}}
+</style>
+<style id="site-global-header-inline">
+
+/* Mr. McLean Math — authoritative shared header. Do not override per page. */
+html{scrollbar-gutter:stable;}
+body{margin:0;}
+body > header.site-global-header{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:85px !important;
+  min-height:85px !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(7px) !important;
+  -webkit-backdrop-filter:blur(7px) !important;
+  border-top:6px solid #3d3f45 !important;
+  border-right:0 !important;
+  border-bottom:1px solid rgba(201,203,208,.9) !important;
+  border-left:0 !important;
+  border-radius:0 !important;
+  position:sticky !important;
+  top:0 !important;
+  z-index:1000 !important;
+  box-shadow:none !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+}
+body > header.site-global-header .site-global-topbar{
+  box-sizing:border-box !important;
+  width:min(100% - 36px,1380px) !important;
+  max-width:1380px !important;
+  height:78px !important;
+  min-height:78px !important;
+  margin:0 auto !important;
+  padding:10px 0 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 198px !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+body > header.site-global-header nav.site-global-nav{
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:none !important;
+  height:58px !important;
+  min-height:58px !important;
+  margin:0 !important;
+  padding:6px 2px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(80px,1fr)) !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  overflow:visible !important;
+  border:0 !important;
+  background:transparent !important;
+}
+body > header.site-global-header nav.site-global-nav > a{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#4a4e56 !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+  font-size:20px !important;
+  font-style:normal !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  transition:color .2s ease,transform .2s ease !important;
+}
+body > header.site-global-header nav.site-global-nav > a:hover{
+  color:#2218ff !important;
+  transform:translateY(-2px) !important;
+}
+body > header.site-global-header nav.site-global-nav > a.active{
+  color:#2218ff !important;
+}
+body > header.site-global-header .site-global-social{
+  box-sizing:border-box !important;
+  width:198px !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  flex-wrap:nowrap !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon{
+  box-sizing:border-box !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:rgba(0,0,0,.07) !important;
+  color:#555a63 !important;
+  text-decoration:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72) !important;
+  transform:none !important;
+  transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon:hover{
+  transform:translateY(-2px) scale(1.04) !important;
+  background:rgba(0,0,0,.11) !important;
+  color:#2218ff !important;
+  box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+body > header.site-global-header .site-global-social svg{
+  width:20px !important;
+  height:20px !important;
+  display:block !important;
+}
+@media(max-width:900px){
+  body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 198px !important;gap:12px !important;}
+  body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
+  body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+}
+@media(max-width:640px){
+  body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
+  body > header.site-global-header nav.site-global-nav{width:100% !important;order:1 !important;}
+  body > header.site-global-header .site-global-social{order:2 !important;width:100% !important;justify-content:center !important;}
+}
+
+</style>
+</head>
 <body>
 <h1 class="sr-only">Video Library</h1>
-<header>
-<div class="topbar">
-<nav>
+<header class="site-global-header">
+<div class="site-global-topbar">
+<nav class="site-global-nav" aria-label="Main navigation">
 <a href="index.html">Home</a>
 <a class="active" href="videos.html">Videos</a>
 <a href="practice.html">Practice</a>
 <a href="about.html">About</a>
 </nav>
-<div aria-label="Social media links" class="social-links">
-<a aria-label="YouTube" class="social-icon" href="https://www.youtube.com/@MrMcLeanMath" rel="noopener noreferrer" target="_blank" title="YouTube">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect fill="currentColor" height="11.6" opacity=".92" rx="3.2" width="17.6" x="3.2" y="6.2"></rect>
-<path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"></path>
-</svg>
-</a>
-<a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/mrmcleanmath/" onclick="event.preventDefault(); window.open('https://www.instagram.com/mrmcleanmath/', '_blank', 'noopener,noreferrer');" referrerpolicy="no-referrer" rel="noopener noreferrer" target="_blank" title="Instagram">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<rect height="15.4" rx="4.4" stroke="currentColor" stroke-width="2" width="15.4" x="4.3" y="4.3"></rect>
-<circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"></circle>
-<circle cx="17.2" cy="6.8" fill="currentColor" r="1.1"></circle>
-</svg>
-</a>
-<a aria-label="TikTok" class="social-icon" href="https://www.tiktok.com/@mrmcleanmath" rel="noopener noreferrer" target="_blank" title="TikTok">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"></path>
-</svg>
-</a>
-<a aria-label="Facebook" class="social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" rel="noopener noreferrer" target="_blank" title="Facebook">
-<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
-<path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"></path>
-</svg>
-</a>
+<div class="site-global-social" aria-label="Social media links">
+<a class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/></svg></a>
+<a class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/></svg></a>
 </div>
 </div>
 </header>
@@ -595,11 +739,11 @@ header .social-icon svg,
 <div class="breadcrumb">Videos</div>
 <section class="featured-section">
 <article class="featured">
-<div class="featured-media"><div class="featured-thumb"><img alt="How to Add and Subtract Algebraic Expressions (Simplifying) thumbnail" src="thumbnails/Cq2oGS5nmy0.jpg"/><button aria-label="Play featured video" class="play" data-practice="adding-subtracting-algebraic-expressions.html" data-title="How to Add and Subtract Algebraic Expressions (Simplifying)" data-video-id="Cq2oGS5nmy0" type="button"></button></div></div>
-<div class="featured-copy"><div class="kicker">FEATURED VIDEO</div><h2>How to Add and Subtract Algebraic Expressions (Simplifying)</h2><p>This tutorial explains how to add and subtract algebraic expressions by combining like terms, including examples with positive and negative terms and distribution.</p><div class="featured-meta"><span class="tag">ALGEBRA</span><span class="tag type">TUTORIAL</span></div></div>
+<div class="featured-media"><div class="featured-thumb"><img alt="How to Add and Subtract Algebraic Terms (Simplifying) thumbnail" src="thumbnails/Cq2oGS5nmy0.jpg"/><button aria-label="Play featured video" class="play" data-practice="adding-subtracting-algebraic-expressions.html" data-title="How to Add and Subtract Algebraic Terms (Simplifying)" data-video-id="Cq2oGS5nmy0" type="button"></button></div></div>
+<div class="featured-copy"><div class="kicker">FEATURED VIDEO</div><h2>How to Add and Subtract Algebraic Terms (Simplifying)</h2><p>This tutorial explains how to add and subtract algebraic terms by combining like terms, including examples with positive and negative terms and distribution.</p><div class="featured-meta"><span class="tag">ALGEBRA</span><span class="tag type">TUTORIAL</span></div></div>
 </article>
 </section>
-<div class="controls"><label class="search"><span>⌕</span><input aria-label="Search videos" id="search" placeholder="Search videos by topic..." type="search"/></label><div class="filter-stack"><div aria-label="Video types" class="chips" id="typeFilters"><button class="chip active" data-type-filter="all" type="button">All</button><button class="chip" data-type-filter="tutorial" type="button">Tutorials</button><button class="chip" data-type-filter="quiz" type="button">Quizzes</button><button class="chip" data-type-filter="teaching" type="button">Teaching Tips</button></div><div aria-label="Tutorial subjects" class="subchips" id="subjectFilters"><button class="subchip active" data-subject-filter="all" type="button">All Tutorials</button><button class="subchip" data-subject-filter="algebra" type="button">Algebra</button><button class="subchip" data-subject-filter="number" type="button">Number &amp; Operations</button><button class="subchip" data-subject-filter="geometry" type="button">Geometry</button><button class="subchip" data-subject-filter="statistics" type="button">Statistics &amp; Probability</button><button class="subchip" data-subject-filter="relationships" type="button">Ratio, Proportion &amp; Change</button></div></div></div>
+<div class="controls"><label class="search"><span>⌕</span><input aria-label="Search videos" id="search" placeholder="Search videos by topic..." type="search"/></label><div class="filter-stack"><div aria-label="Video types" class="chips" id="typeFilters"><button class="chip active" data-type-filter="all" type="button">All</button><button class="chip" data-type-filter="tutorial" type="button">Tutorials</button><button class="chip" data-type-filter="quiz" type="button">Quizzes</button></div><div aria-label="Tutorial subjects" class="subchips" id="subjectFilters"><button class="subchip active" data-subject-filter="all" type="button">All Tutorials</button><button class="subchip" data-subject-filter="algebra" type="button">Algebra</button><button class="subchip" data-subject-filter="number" type="button">Number &amp; Operations</button><button class="subchip" data-subject-filter="geometry" type="button">Geometry</button><button class="subchip" data-subject-filter="statistics" type="button">Statistics &amp; Probability</button><button class="subchip" data-subject-filter="relationships" type="button">Ratio, Proportion &amp; Change</button></div></div></div>
 <div class="section-title"><h2>Video Library</h2><span id="count">51 videos available</span></div>
 <section class="video-grid" id="videoGrid">
 <article class="video-card" data-category="algebra" data-search="how to evaluate algebraic expressions (substitution) learn how to evaluate algebraic expressions by substituting values for variables. this video walks through simple to more complex expressions using step-by-step examples. algebra tutorial" data-subject="algebra" data-type="tutorial">
@@ -611,9 +755,9 @@ header .social-icon svg,
 <div class="card-copy"><span class="tag">ALGEBRA</span> <span class="tag type">TUTORIAL</span><h3>How to Find the Pattern: Arithmetic vs Geometric Sequences</h3><p>Learn how to find the pattern in a sequence. This video explains the difference between arithmetic sequences with a common difference and geometric sequences with a common ratio.</p></div>
 </article>
 
-<article class="video-card" data-category="algebra" data-search="how to add and subtract algebraic expressions (simplifying) this tutorial explains how to add and subtract algebraic expressions by combining like terms, including examples with positive and negative terms and distribution. algebra tutorial" data-subject="algebra" data-type="tutorial">
-<div class="thumb"><img alt="How to Add and Subtract Algebraic Expressions (Simplifying) thumbnail" src="thumbnails/Cq2oGS5nmy0.jpg"/><button aria-label="Play How to Add and Subtract Algebraic Expressions (Simplifying)" class="mini-play" data-practice="adding-subtracting-algebraic-expressions.html" data-title="How to Add and Subtract Algebraic Expressions (Simplifying)" data-video-id="Cq2oGS5nmy0" type="button"></button></div>
-<div class="card-copy"><span class="tag">ALGEBRA</span> <span class="tag type">TUTORIAL</span><h3>How to Add and Subtract Algebraic Expressions (Simplifying)</h3><p>This tutorial explains how to add and subtract algebraic expressions by combining like terms, including examples with positive and negative terms and distribution.</p></div>
+<article class="video-card" data-category="algebra" data-search="how to add and subtract algebraic terms (simplifying) this tutorial explains how to add and subtract algebraic terms by combining like terms, including examples with positive and negative terms and distribution. algebra tutorial" data-subject="algebra" data-type="tutorial">
+<div class="thumb"><img alt="How to Add and Subtract Algebraic Terms (Simplifying) thumbnail" src="thumbnails/Cq2oGS5nmy0.jpg"/><button aria-label="Play How to Add and Subtract Algebraic Terms (Simplifying)" class="mini-play" data-practice="adding-subtracting-algebraic-expressions.html" data-title="How to Add and Subtract Algebraic Terms (Simplifying)" data-video-id="Cq2oGS5nmy0" type="button"></button></div>
+<div class="card-copy"><span class="tag">ALGEBRA</span> <span class="tag type">TUTORIAL</span><h3>How to Add and Subtract Algebraic Terms (Simplifying)</h3><p>This tutorial explains how to add and subtract algebraic terms by combining like terms, including examples with positive and negative terms and distribution.</p></div>
 </article>
 <article class="video-card" data-category="algebra" data-search="how to multiply algebraic terms (with coefficients and variables) learn how to multiply algebraic terms, including numerical coefficients and variables. the tutorial also covers exponents with the same base. algebra tutorial" data-subject="algebra" data-type="tutorial">
 <div class="thumb"><img alt="How to Multiply Algebraic Terms (With Coefficients and Variables) thumbnail" src="thumbnails/jqdFTBkuPpk.jpg"/><button aria-label="Play How to Multiply Algebraic Terms (With Coefficients and Variables)" class="mini-play" data-title="How to Multiply Algebraic Terms (With Coefficients and Variables)" data-video-id="jqdFTBkuPpk" type="button"></button></div>
@@ -699,7 +843,7 @@ header .social-icon svg,
 <article class="video-card" data-category="quiz" data-search="math quiz simplifying expressions combining like terms algebra quiz" data-subject="algebra" data-type="quiz"><div class="thumb"><img alt="Math Quiz: Simplifying Expressions by Combining Like Terms thumbnail" src="thumbnails/z86s-Wrr4Ik.jpg"/><button aria-label="Play Math Quiz: Simplifying Expressions by Combining Like Terms" class="mini-play" data-title="Math Quiz: Simplifying Expressions by Combining Like Terms" data-video-id="z86s-Wrr4Ik" type="button"></button></div><div class="card-copy"><span class="tag">ALGEBRA</span> <span class="tag type">QUIZ</span><h3>Math Quiz: Simplifying Expressions by Combining Like Terms</h3><p>Challenge yourself to simplify algebraic expressions by identifying and combining like terms. Keep track of your score as you work through each question.</p></div></article>
 <article class="video-card" data-category="quiz" data-search="math quiz fractions percentages finding the whole number operations quiz" data-subject="number" data-type="quiz"><div class="thumb"><img alt="Math Quiz: Fractions, Percentages, and Finding the Whole thumbnail" src="thumbnails/OV2-7DbNJ1Y.jpg"/><button aria-label="Play Math Quiz: Fractions, Percentages, and Finding the Whole" class="mini-play" data-title="Math Quiz: Fractions, Percentages, and Finding the Whole" data-video-id="OV2-7DbNJ1Y" type="button"></button></div><div class="card-copy"><span class="tag">NUMBER &amp; OPERATIONS</span> <span class="tag type">QUIZ</span><h3>Math Quiz: Fractions, Percentages, and Finding the Whole</h3><p>Test your understanding of fractions, percentages, and finding the whole from a given part. Keep track of your score and see how many questions you can answer correctly.</p></div></article><article class="video-card" data-category="relationships" data-search="how to calculate percent of change (increase or decrease) learn how to calculate percent of change by comparing the original value and the new value. this tutorial walks through percent increase and percent decrease using real-life examples. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Calculate Percent of Change (Increase or Decrease) thumbnail" src="thumbnails/dJtP0mnHpu8.jpg"/><button aria-label="Play How to Calculate Percent of Change (Increase or Decrease)" class="mini-play" data-title="How to Calculate Percent of Change (Increase or Decrease)" data-video-id="dJtP0mnHpu8" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Calculate Percent of Change (Increase or Decrease)</h3><p>Learn how to calculate percent of change by comparing the original value and the new value. This tutorial walks through percent increase and percent decrease using real-life examples.</p></div></article><article class="video-card" data-category="relationships" data-search="how to calculate the whole amount using percent and part this tutorial shows how to calculate the whole amount when given the percent and the part. you’ll learn the formula and how to apply it step by step with visual support. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Calculate the Whole Amount Using Percent and Part thumbnail" src="thumbnails/xp_41ljmng8.jpg"/><button aria-label="Play How to Calculate the Whole Amount Using Percent and Part" class="mini-play" data-title="How to Calculate the Whole Amount Using Percent and Part" data-video-id="xp_41ljmng8" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Calculate the Whole Amount Using Percent and Part</h3><p>This tutorial shows how to calculate the whole amount when given the percent and the part. You’ll learn the formula and how to apply it step by step with visual support.</p></div></article><article class="video-card" data-category="relationships" data-search="how to calculate the whole amount using part and fraction learn how to calculate the total amount when given a part and a fraction of the whole. this method is essential in proportional reasoning and everyday problem solving. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Calculate the Whole Amount Using Part and Fraction thumbnail" src="thumbnails/BcE6yOM4YaM.jpg"/><button aria-label="Play How to Calculate the Whole Amount Using Part and Fraction" class="mini-play" data-title="How to Calculate the Whole Amount Using Part and Fraction" data-video-id="BcE6yOM4YaM" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Calculate the Whole Amount Using Part and Fraction</h3><p>Learn how to calculate the total amount when given a part and a fraction of the whole. This method is essential in proportional reasoning and everyday problem solving.</p></div></article><article class="video-card" data-category="relationships" data-search="how to find the coordinates of a point on a coordinate plane this tutorial teaches how to identify and plot the coordinates of a point on a coordinate grid. you’ll learn how to read x- and y-values and understand quadrants through visual examples. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Find the Coordinates of a Point on a Coordinate Plane thumbnail" src="thumbnails/FksetVbJQIE.jpg"/><button aria-label="Play How to Find the Coordinates of a Point on a Coordinate Plane" class="mini-play" data-title="How to Find the Coordinates of a Point on a Coordinate Plane" data-video-id="FksetVbJQIE" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Find the Coordinates of a Point on a Coordinate Plane</h3><p>This tutorial teaches how to identify and plot the coordinates of a point on a coordinate grid. You’ll learn how to read x- and y-values and understand quadrants through visual examples.</p></div></article><article class="video-card" data-category="relationships" data-search="how to identify proportional relationships learn how to identify proportional relationships from tables, graphs, and equations. this tutorial breaks down how to tell if two quantities increase at a constant rate. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Identify Proportional Relationships thumbnail" src="thumbnails/D2PexQT5WVs.jpg"/><button aria-label="Play How to Identify Proportional Relationships" class="mini-play" data-title="How to Identify Proportional Relationships" data-video-id="D2PexQT5WVs" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Identify Proportional Relationships</h3><p>Learn how to identify proportional relationships from tables, graphs, and equations. This tutorial breaks down how to tell if two quantities increase at a constant rate.</p></div></article><article class="video-card" data-category="relationships" data-search="how to convert fractions to percents (with and without a calculator) this video shows how to convert fractions to percents both with and without a calculator, using clear examples and step-by-step methods. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Convert Fractions to Percents (With and Without a Calculator) thumbnail" src="thumbnails/5s08kF6nYlU.jpg"/><button aria-label="Play How to Convert Fractions to Percents (With and Without a Calculator)" class="mini-play" data-title="How to Convert Fractions to Percents (With and Without a Calculator)" data-video-id="5s08kF6nYlU" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Convert Fractions to Percents (With and Without a Calculator)</h3><p>This video shows how to convert fractions to percents both with and without a calculator, using clear examples and step-by-step methods.</p></div></article><article class="video-card" data-category="relationships" data-search="how to reduce fractions (various methods) learn how to reduce fractions to their simplest form using a factor tree diagram. this step-by-step tutorial helps visualize how to break down and simplify any fraction. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Reduce Fractions (Various Methods) thumbnail" src="thumbnails/hVeUhq7nqPc.jpg"/><button aria-label="Play How to Reduce Fractions (Various Methods)" class="mini-play" data-title="How to Reduce Fractions (Various Methods)" data-practice="simplifying-fractions.html" data-video-id="hVeUhq7nqPc" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Reduce Fractions (Various Methods)</h3><p>Learn how to reduce fractions to their simplest form using a factor tree diagram. This step-by-step tutorial helps visualize how to break down and simplify any fraction.</p></div></article><article class="video-card" data-category="relationships" data-search="how to expand fractions (concept explained clearly) this tutorial explains how to expand fractions using equivalent values. you’ll see how to multiply both the numerator and denominator to scale a fraction up. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Expand Fractions (Concept Explained Clearly) thumbnail" src="thumbnails/QEXxqMck-Zk.jpg"/><button aria-label="Play How to Expand Fractions (Concept Explained Clearly)" class="mini-play" data-title="How to Expand Fractions (Concept Explained Clearly)" data-video-id="QEXxqMck-Zk" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Expand Fractions (Concept Explained Clearly)</h3><p>This tutorial explains how to expand fractions using equivalent values. You’ll see how to multiply both the numerator and denominator to scale a fraction up.</p></div></article><article class="video-card" data-category="relationships" data-search="how to compare fractions (quick visual method) need to compare two fractions fast? this tutorial shows a quick and effective way to compare fractions visually and mentally—no cross-multiplying needed. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Compare Fractions (Quick Visual Method) thumbnail" src="thumbnails/d8A_ovDA-d8.jpg"/><button aria-label="Play How to Compare Fractions (Quick Visual Method)" class="mini-play" data-title="How to Compare Fractions (Quick Visual Method)" data-video-id="d8A_ovDA-d8" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Compare Fractions (Quick Visual Method)</h3><p>Need to compare two fractions fast? This tutorial shows a quick and effective way to compare fractions visually and mentally—no cross-multiplying needed.</p></div></article><article class="video-card" data-category="relationships" data-search="how to convert decimals to fractions (step-by-step) this tutorial teaches how to convert decimals into fractions using place value and simplification. you’ll learn how to read decimals, write them as fractions, and reduce them clearly. ratio proportion change tutorial" data-subject="relationships" data-type="tutorial"><div class="thumb"><img alt="How to Convert Decimals to Fractions (Step-by-Step) thumbnail" src="thumbnails/DOQ7geUDKOQ.jpg"/><button aria-label="Play How to Convert Decimals to Fractions (Step-by-Step)" class="mini-play" data-title="How to Convert Decimals to Fractions (Step-by-Step)" data-video-id="DOQ7geUDKOQ" type="button"></button></div><div class="card-copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE</span> <span class="tag type">TUTORIAL</span><h3>How to Convert Decimals to Fractions (Step-by-Step)</h3><p>This tutorial teaches how to convert decimals into fractions using place value and simplification. You’ll learn how to read decimals, write them as fractions, and reduce them clearly.</p></div></article></section>
 </main>
-<div aria-hidden="true" class="modal" id="modal"><div aria-modal="true" class="modal-card" role="dialog"><div class="modal-head"><strong id="modalTitle">Video Tutorial</strong><button aria-label="Close video" class="close" id="close" type="button">×</button></div><div class="modal-body"><div class="player"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" id="player" src="" title="Video tutorial"></iframe></div><div class="practice-panel" id="practicePanel"><div class="practice-copy"><div aria-hidden="true" class="practice-icon">✎</div><div><strong>Ready to practice?</strong><span>Try the interactive activity for this lesson.</span></div></div><a class="practice-link" href="adding-subtracting-algebraic-expressions.html" id="practiceLink">Practice This Concept →</a></div><div class="subscribe-panel"><div class="subscribe-copy"><div aria-hidden="true" class="youtube-mark"><svg fill="none" viewbox="0 0 24 24"><rect fill="currentColor" height="13.4" rx="4" width="19" x="2.5" y="5.3"></rect><path d="M10 8.8 16 12l-6 3.2V8.8Z" fill="#fff"></path></svg></div><div><strong>Enjoying the lessons?</strong><span>Subscribe for more math tutorials, quizzes, and teaching ideas.</span></div></div><a class="subscribe-link" href="https://www.youtube.com/@MrMcLeanMath?sub_confirmation=1" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><rect fill="currentColor" height="13.4" opacity=".24" rx="4" width="19" x="2.5" y="5.3"></rect><path d="M10 8.8 16 12l-6 3.2V8.8Z" fill="#fff"></path></svg>Subscribe on YouTube</a></div></div></div></div>
+<div aria-hidden="true" class="modal" id="modal"><div aria-modal="true" class="modal-card" role="dialog"><div class="modal-head"><strong id="modalTitle">Video Tutorial</strong><button aria-label="Close video" class="close" id="close" type="button">×</button></div><div class="modal-body"><div class="player"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" id="player" src="" title="Video tutorial"></iframe></div><div class="practice-panel" id="practicePanel"><div class="practice-copy"><div aria-hidden="true" class="practice-icon">✎</div><div><strong>Ready to practice?</strong><span>Try the interactive activity for this lesson.</span></div></div><a class="practice-link" href="adding-subtracting-algebraic-expressions.html" id="practiceLink">Practice This Concept →</a></div><div class="subscribe-panel"><div class="subscribe-copy"><div aria-hidden="true" class="youtube-mark"><svg viewBox="0 0 68 48" fill="none"><rect x="1" y="4" width="66" height="40" rx="12" fill="#FF0000"/><path d="M29 15.5 47 24 29 32.5v-17Z" fill="#fff"/></svg></div><div><strong>Enjoying the lessons?</strong><span>Subscribe for more math tutorials, quizzes, and teaching ideas.</span></div></div><a class="subscribe-link" href="https://www.youtube.com/@MrMcLeanMath?sub_confirmation=1" rel="noopener noreferrer" target="_blank">Subscribe on YouTube</a></div></div></div></div>
 <script>
 const modal=document.getElementById('modal');
 const player=document.getElementById('player');

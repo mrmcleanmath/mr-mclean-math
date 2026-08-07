@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=1280">
 <title>Practice | Mr. McLean Math</title>
 <style>
 :root{
@@ -668,44 +668,200 @@ header .social-icon svg,
 .probability-thumb img{display:block;width:88%;height:88%;object-fit:contain}
 </style>
 
-  <link rel="icon" type="image/png" href="favicon.png"></head>
+  <link rel="icon" type="image/png" href="favicon.png">
+<style id="nav-consistency-v76">
+/* Shared site navigation: identical across Home, Videos, Practice, Games, and game pages. */
+header{background:rgba(255,255,255,.95);border-bottom:1px solid #d8e4ed;position:relative;z-index:50;backdrop-filter:blur(9px)}
+header .topbar,.topbar{max-width:1380px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 18px}
+header nav,.topbar nav{max-width:none;margin:0;display:grid;grid-template-columns:repeat(4,minmax(80px,1fr));gap:8px;padding:6px 2px}
+header nav a,.topbar nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.25rem;transition:.2s ease;white-space:nowrap}
+header nav a.active,.topbar nav a.active{color:#2218ff}
+header nav a:hover,.topbar nav a:hover{transform:translateY(-2px);color:#2218ff}
+header .social-links,.topbar .social-links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:nowrap}
+header .social-icon,.topbar .social-icon{width:46px;height:46px;min-width:46px;border-radius:50%;background:rgba(0,0,0,.07);color:#555a63;display:grid;place-items:center;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.72);transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+header .social-icon:hover,.topbar .social-icon:hover{transform:translateY(-2px) scale(1.04);background:rgba(0,0,0,.11);color:#2218ff;box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85)}
+header .social-icon svg,.topbar .social-icon svg{width:22px;height:22px;display:block}
+@media (min-width:901px){header nav,.topbar nav{display:grid!important;grid-template-columns:repeat(4,minmax(80px,1fr))!important;overflow:visible!important}header nav a,.topbar nav a{white-space:nowrap!important}}
+@media (max-width:900px){header .topbar,.topbar{width:min(100% - 24px,1460px);padding-left:0;padding-right:0;gap:12px}header nav,.topbar nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain;scrollbar-width:none;padding:4px 2px 8px!important;-webkit-overflow-scrolling:touch}header nav::-webkit-scrollbar,.topbar nav::-webkit-scrollbar{display:none}header nav a,.topbar nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px!important;white-space:nowrap!important;font-size:1rem!important}header .social-links,.topbar .social-links{gap:8px!important}header .social-icon,.topbar .social-icon{width:42px!important;height:42px!important;min-width:42px!important}header .social-icon svg,.topbar .social-icon svg{width:20px!important;height:20px!important}}
+@media (max-width:640px){header{position:relative!important}header .topbar,.topbar{width:100%;padding:10px 12px!important;grid-template-columns:1fr!important}header nav,.topbar nav{width:100%;order:1}header .social-links,.topbar .social-links{order:2;justify-content:center!important}}
+</style>
+<style id="exact-shared-header-v85">
+header{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(7px)!important;border-top:6px solid #3d3f45!important;border-bottom:1px solid rgba(201,203,208,.9)!important;position:sticky!important;top:0!important;z-index:50!important}
+header .topbar,.topbar{width:100%!important;max-width:1380px!important;min-height:72px!important;margin:0 auto!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:18px!important;padding:10px 18px!important}
+header nav,.topbar nav{max-width:none!important;margin:0!important;display:grid!important;grid-template-columns:repeat(4,minmax(80px,1fr))!important;gap:8px!important;padding:6px 2px!important;overflow:visible!important}
+header nav a,.topbar nav a{color:#4a4e56!important;text-decoration:none!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-weight:900!important;font-size:1.25rem!important;line-height:1.2!important;min-height:32px!important;padding:0!important;border:0!important;display:flex!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;transition:transform .2s ease,color .2s ease!important}
+header nav a.active,.topbar nav a.active{color:#2218ff!important}
+header nav a:hover,.topbar nav a:hover{transform:translateY(-2px)!important;color:#2218ff!important}
+header .social-links,.topbar .social-links{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:10px!important;flex-wrap:nowrap!important}
+header .social-icon,.topbar .social-icon{width:42px!important;height:42px!important;min-width:42px!important;border-radius:50%!important;background:rgba(0,0,0,.07)!important;color:#555a63!important;display:grid!important;place-items:center!important;text-decoration:none!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.72)!important}
+header .social-icon svg,.topbar .social-icon svg{width:20px!important;height:20px!important;display:block!important}
+@media(max-width:900px){header .topbar,.topbar{width:min(100% - 24px,1380px)!important;min-height:0!important;padding:8px 0!important;gap:12px!important}header nav,.topbar nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto!important;scrollbar-width:none!important;padding:4px 2px 8px!important}header nav::-webkit-scrollbar,.topbar nav::-webkit-scrollbar{display:none}header nav a,.topbar nav a{flex:0 0 auto!important;min-height:44px!important;padding:10px 14px!important;font-size:1rem!important}header .social-links,.topbar .social-links{gap:8px!important}}
+@media(max-width:640px){header{position:relative!important}header .topbar,.topbar{width:100%!important;padding:10px 12px!important;grid-template-columns:1fr!important}header nav,.topbar nav{width:100%!important;order:1!important}header .social-links,.topbar .social-links{order:2!important;justify-content:center!important}}
+</style>
+<style id="site-global-header-inline">
+
+/* Mr. McLean Math — authoritative shared header. Do not override per page. */
+html{scrollbar-gutter:stable;}
+body{margin:0;}
+body > header.site-global-header{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:85px !important;
+  min-height:85px !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(7px) !important;
+  -webkit-backdrop-filter:blur(7px) !important;
+  border-top:6px solid #3d3f45 !important;
+  border-right:0 !important;
+  border-bottom:1px solid rgba(201,203,208,.9) !important;
+  border-left:0 !important;
+  border-radius:0 !important;
+  position:sticky !important;
+  top:0 !important;
+  z-index:1000 !important;
+  box-shadow:none !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+}
+body > header.site-global-header .site-global-topbar{
+  box-sizing:border-box !important;
+  width:min(100% - 36px,1380px) !important;
+  max-width:1380px !important;
+  height:78px !important;
+  min-height:78px !important;
+  margin:0 auto !important;
+  padding:10px 0 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 198px !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+body > header.site-global-header nav.site-global-nav{
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:none !important;
+  height:58px !important;
+  min-height:58px !important;
+  margin:0 !important;
+  padding:6px 2px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(80px,1fr)) !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  overflow:visible !important;
+  border:0 !important;
+  background:transparent !important;
+}
+body > header.site-global-header nav.site-global-nav > a{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#4a4e56 !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+  font-size:20px !important;
+  font-style:normal !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  transition:color .2s ease,transform .2s ease !important;
+}
+body > header.site-global-header nav.site-global-nav > a:hover{
+  color:#2218ff !important;
+  transform:translateY(-2px) !important;
+}
+body > header.site-global-header nav.site-global-nav > a.active{
+  color:#2218ff !important;
+}
+body > header.site-global-header .site-global-social{
+  box-sizing:border-box !important;
+  width:198px !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  flex-wrap:nowrap !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon{
+  box-sizing:border-box !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:rgba(0,0,0,.07) !important;
+  color:#555a63 !important;
+  text-decoration:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72) !important;
+  transform:none !important;
+  transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon:hover{
+  transform:translateY(-2px) scale(1.04) !important;
+  background:rgba(0,0,0,.11) !important;
+  color:#2218ff !important;
+  box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+body > header.site-global-header .site-global-social svg{
+  width:20px !important;
+  height:20px !important;
+  display:block !important;
+}
+@media(max-width:900px){
+  body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 198px !important;gap:12px !important;}
+  body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
+  body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+}
+@media(max-width:640px){
+  body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
+  body > header.site-global-header nav.site-global-nav{width:100% !important;order:1 !important;}
+  body > header.site-global-header .site-global-social{order:2 !important;width:100% !important;justify-content:center !important;}
+}
+
+</style>
+</head>
 <body>
 <h1 class="sr-only">Math Practice</h1>
-<header>
-  <div class="topbar">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a class="active" href="practice.html">Practice</a>
-      <a href="about.html">About</a>
-    </nav>
-
-    <div class="social-links" aria-label="Social media links">
-      <a class="social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/>
-          <path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" onclick="event.preventDefault(); window.open('https://www.instagram.com/mrmcleanmath/', '_blank', 'noopener,noreferrer');">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/>
-          <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/>
-          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/>
-        </svg>
-      </a>
-    </div>
-  </div>
+<header class="site-global-header">
+<div class="site-global-topbar">
+<nav class="site-global-nav" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="videos.html">Videos</a>
+<a class="active" href="practice.html">Practice</a>
+<a href="about.html">About</a>
+</nav>
+<div class="site-global-social" aria-label="Social media links">
+<a class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/></svg></a>
+<a class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/></svg></a>
+</div>
+</div>
 </header>
 <main>
 <section class="intro">
@@ -739,8 +895,8 @@ header .social-icon svg,
 </main>
 <script>
 const areaData={
- number:{title:'Number & Operations',accent:'#fce5cd',html:`<a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.12rem;white-space:nowrap">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
- algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Expressions</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ number:{title:'Number & Operations',accent:'#fce5cd',html:`<a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Terms</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  stats:{title:'Statistics & Probability',accent:'#8a6ac6',html:`<a class="concept-card" href="basic-probability.html"><div class="concept-symbol probability-thumb"><img src="probability-coin-flip.png" alt="Hand flipping a coin"></div><div class="concept-copy"><h3>Basic Probability</h3><p>Find probabilities using favorable outcomes and total outcomes.</p></div><span class="practice-pill">Start Practice →</span></a>`}

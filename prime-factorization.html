@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=1280">
 <title>Prime Factorization | Mr. McLean Math</title>
 <style>
 
@@ -40,7 +40,7 @@ header{
   gap:18px;
   padding:10px 18px;
 }
-nav{display:grid;grid-template-columns:repeat(5,minmax(76px,1fr));gap:8px}
+nav{display:grid;grid-template-columns:repeat(4,minmax(76px,1fr));gap:8px}
 nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.05rem;transition:.2s ease}
 nav a.active{color:var(--blue)}
 nav a:hover{transform:translateY(-2px);color:var(--blue)}
@@ -141,6 +141,7 @@ button{border:0;border-radius:8px;padding:9px 15px;font-weight:900;cursor:pointe
 .stat{border:1.5px solid #c5cad1;border-radius:11px;background:#fafafa;padding:10px;text-align:center}
 .stat strong{display:block;font-size:1.3rem}.stat span{font-size:.76rem;color:#666c75;font-weight:700}
 .report-note{text-align:center;margin:10px 0 0;font-weight:700;color:#555c66}
+.live-session{margin:8px 0 0;text-align:center;font-weight:800;color:#414853;font-size:.95rem}.live-session.hidden{display:none}
 .restart{display:block;margin:12px auto 2px;background:var(--blue);color:#fff}
 .banner{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);background:#fff8d8;border:2px solid #e3b100;border-radius:18px;padding:18px 28px;font-size:1.5rem;font-weight:1000;opacity:0;pointer-events:none;z-index:60;box-shadow:0 20px 50px rgba(0,0,0,.22)}
 .banner.show{animation:banner 1.6s ease both}
@@ -859,8 +860,8 @@ body.tutorial-open .expand-tutorial{
   background-color:rgba(255,251,245,.95) !important;
   background-image:
     linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.22)),
-    linear-gradient(rgba(132,172,214,.17) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(132,172,214,.17) 1px, transparent 1px) !important;
+    linear-gradient(rgba(132,172,214,.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(132,172,214,.25) 1px, transparent 1px) !important;
   background-size:auto, 30px 30px, 30px 30px !important;
   border:2px solid rgba(157,163,173,.88) !important;
   border-radius:24px !important;
@@ -1110,6 +1111,12 @@ body::before{
 .privacy-video-play::before{content:"";margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid #d83b36}
 .video-privacy-note{margin:8px 2px 0;color:#626975;font:700 .78rem/1.35 Arial,sans-serif;text-align:center}
 .video-privacy-note a{color:#3437d8}
+/* v88: make the tutorial thumbnail/player completely fill the monitor screen */
+.monitor-screen .privacy-video-cover{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;aspect-ratio:auto!important;margin:0!important;border:0!important;padding:0!important;background:#111!important}
+.monitor-screen .privacy-video-cover img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;object-position:center!important}
+.monitor-screen .video-privacy-note{display:none!important}
+.monitor-screen > iframe{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;border:0!important}
+
 
 </style>
 <style>
@@ -1616,44 +1623,187 @@ header .social-icon svg,
 .math-fraction{display:inline-grid;grid-template-rows:auto 3px auto;align-items:center;justify-items:center;vertical-align:middle;min-width:82px;margin:.05em .18em;font-family:"Trebuchet MS",Arial,sans-serif;font-weight:900;line-height:1.05}.math-fraction .num,.math-fraction .den{padding:.08em .35em}.math-fraction .bar{width:100%;height:3px;background:currentColor;border-radius:999px}.problem .math-fraction{font-size:1.2em}.already-note{font-size:.72em;font-weight:700;color:#5b6470;margin-top:.45rem}
 </style>
 
-  <link rel="icon" type="image/png" href="favicon.png"></head>
+  <link rel="icon" type="image/png" href="favicon.png">
+<style id="nav-consistency-v76">
+/* Shared site navigation: identical across Home, Videos, Practice, Games, and game pages. */
+header{background:rgba(255,255,255,.95);border-bottom:1px solid #d8e4ed;position:relative;z-index:50;backdrop-filter:blur(9px)}
+header .topbar,.topbar{max-width:1380px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 18px}
+header nav,.topbar nav{max-width:none;margin:0;display:grid;grid-template-columns:repeat(4,minmax(80px,1fr));gap:8px;padding:6px 2px}
+header nav a,.topbar nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.25rem;transition:.2s ease;white-space:nowrap}
+header nav a.active,.topbar nav a.active{color:#2218ff}
+header nav a:hover,.topbar nav a:hover{transform:translateY(-2px);color:#2218ff}
+header .social-links,.topbar .social-links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:nowrap}
+header .social-icon,.topbar .social-icon{width:46px;height:46px;min-width:46px;border-radius:50%;background:rgba(0,0,0,.07);color:#555a63;display:grid;place-items:center;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.72);transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+header .social-icon:hover,.topbar .social-icon:hover{transform:translateY(-2px) scale(1.04);background:rgba(0,0,0,.11);color:#2218ff;box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85)}
+header .social-icon svg,.topbar .social-icon svg{width:22px;height:22px;display:block}
+@media (min-width:901px){header nav,.topbar nav{display:grid!important;grid-template-columns:repeat(4,minmax(80px,1fr))!important;overflow:visible!important}header nav a,.topbar nav a{white-space:nowrap!important}}
+@media (max-width:900px){header .topbar,.topbar{width:min(100% - 24px,1460px);padding-left:0;padding-right:0;gap:12px}header nav,.topbar nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain;scrollbar-width:none;padding:4px 2px 8px!important;-webkit-overflow-scrolling:touch}header nav::-webkit-scrollbar,.topbar nav::-webkit-scrollbar{display:none}header nav a,.topbar nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px!important;white-space:nowrap!important;font-size:1rem!important}header .social-links,.topbar .social-links{gap:8px!important}header .social-icon,.topbar .social-icon{width:42px!important;height:42px!important;min-width:42px!important}header .social-icon svg,.topbar .social-icon svg{width:20px!important;height:20px!important}}
+@media (max-width:640px){header{position:relative!important}header .topbar,.topbar{width:100%;padding:10px 12px!important;grid-template-columns:1fr!important}header nav,.topbar nav{width:100%;order:1}header .social-links,.topbar .social-links{order:2;justify-content:center!important}}
+</style>
+<style id="site-global-header-inline">
+
+/* Mr. McLean Math — authoritative shared header. Do not override per page. */
+html{scrollbar-gutter:stable;}
+body{margin:0;}
+body > header.site-global-header{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:85px !important;
+  min-height:85px !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(7px) !important;
+  -webkit-backdrop-filter:blur(7px) !important;
+  border-top:6px solid #3d3f45 !important;
+  border-right:0 !important;
+  border-bottom:1px solid rgba(201,203,208,.9) !important;
+  border-left:0 !important;
+  border-radius:0 !important;
+  position:sticky !important;
+  top:0 !important;
+  z-index:1000 !important;
+  box-shadow:none !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+}
+body > header.site-global-header .site-global-topbar{
+  box-sizing:border-box !important;
+  width:min(100% - 36px,1380px) !important;
+  max-width:1380px !important;
+  height:78px !important;
+  min-height:78px !important;
+  margin:0 auto !important;
+  padding:10px 0 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 198px !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+body > header.site-global-header nav.site-global-nav{
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:none !important;
+  height:58px !important;
+  min-height:58px !important;
+  margin:0 !important;
+  padding:6px 2px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(80px,1fr)) !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  overflow:visible !important;
+  border:0 !important;
+  background:transparent !important;
+}
+body > header.site-global-header nav.site-global-nav > a{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#4a4e56 !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+  font-size:20px !important;
+  font-style:normal !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  transition:color .2s ease,transform .2s ease !important;
+}
+body > header.site-global-header nav.site-global-nav > a:hover{
+  color:#2218ff !important;
+  transform:translateY(-2px) !important;
+}
+body > header.site-global-header nav.site-global-nav > a.active{
+  color:#2218ff !important;
+}
+body > header.site-global-header .site-global-social{
+  box-sizing:border-box !important;
+  width:198px !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  flex-wrap:nowrap !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon{
+  box-sizing:border-box !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:rgba(0,0,0,.07) !important;
+  color:#555a63 !important;
+  text-decoration:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72) !important;
+  transform:none !important;
+  transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon:hover{
+  transform:translateY(-2px) scale(1.04) !important;
+  background:rgba(0,0,0,.11) !important;
+  color:#2218ff !important;
+  box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+body > header.site-global-header .site-global-social svg{
+  width:20px !important;
+  height:20px !important;
+  display:block !important;
+}
+@media(max-width:900px){
+  body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 198px !important;gap:12px !important;}
+  body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
+  body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+}
+@media(max-width:640px){
+  body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
+  body > header.site-global-header nav.site-global-nav{width:100% !important;order:1 !important;}
+  body > header.site-global-header .site-global-social{order:2 !important;width:100% !important;justify-content:center !important;}
+}
+
+</style>
+</head>
 <body>
 <h1 class="sr-only">Prime Factorization</h1>
-<header>
-  <div class="topbar">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a class="active" href="practice.html">Practice</a>
-      <a href="about.html">About</a>
-    </nav>
-
-    <div class="social-links" aria-label="Social media links">
-      <a class="social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/>
-          <path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" onclick="event.preventDefault(); window.open('https://www.instagram.com/mrmcleanmath/', '_blank', 'noopener,noreferrer');">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/>
-          <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/>
-          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/>
-        </svg>
-      </a>
-      <a class="social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/>
-        </svg>
-      </a>
-    </div>
-  </div>
+<header class="site-global-header">
+<div class="site-global-topbar">
+<nav class="site-global-nav" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="videos.html">Videos</a>
+<a class="active" href="practice.html">Practice</a>
+<a href="about.html">About</a>
+</nav>
+<div class="site-global-social" aria-label="Social media links">
+<a class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/></svg></a>
+<a class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/></svg></a>
+<a class="site-global-social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/></svg></a>
+</div>
+</div>
 </header>
 <div class="page">
 <div class="breadcrumb">Practice › Number &amp; Operations</div>
@@ -1776,7 +1926,25 @@ const studentBtn=$("studentMode"),timerBtn=$("timerMode"),durationWrap=$("durati
 const modeTip=$("modeTip"),banner=$("banner");
 const resetProgressButton=$("resetProgressButton"),resetModalBackdrop=$("resetModalBackdrop"),resetCancelButton=$("resetCancelButton"),resetConfirmButton=$("resetConfirmButton");
 let mode="student",active="easy",timerId=null,timeLeft=0,finished=false;
-let progress={easy:0,medium:0,hard:0},unlocked={easy:true,medium:false,hard:false},sessions={easy:null,medium:null,hard:null};
+let progress={easy:0,medium:0,hard:0},unlocked={easy:true,medium:false,hard:false},sessions={easy:null,medium:null,hard:null},notices={easy:"",medium:"",hard:""};
+const levelDisplayNames={easy:"Foundation Mode",medium:"Core Mode",hard:"Challenge Mode"};
+function sessionReportNote(level,unlockCount){
+ const modeName=levelDisplayNames[level];
+ if(unlockCount>=3){
+  return level==="hard"
+   ? `Challenge Mode complete — you can keep practicing ${modeName} whenever you like.`
+   : `Next level unlocked — you can keep practicing ${modeName} whenever you like.`;
+ }
+ return `${unlockCount} of 3 correct toward the next level.`;
+}
+function updateLiveStats(level){
+ const box=$(level+"LiveStats"),session=sessions[level];
+ if(!box||!session)return;
+ if(progress[level]>=3){
+  box.textContent=`This session: ${session.correct} correct · ${session.incorrect} incorrect`;
+  box.classList.remove("hidden");
+ }else box.classList.add("hidden");
+}
 let current={easy:null,medium:null,hard:null};
 let recent={easy:[],medium:[],hard:[]},familyQueues={easy:[],medium:[],hard:[]},candidateBanks=null;
 const primes=[2,3,5,7,11,13,17,19,23,29,31];
@@ -1812,7 +1980,7 @@ function buildFactors(level,fam){
   if(fam==="threeDistinctLarge")return shuffle([3,5,7,11,13]).slice(0,3);
   return shuffle([2,2,3,3,5,7]).slice(0,randInt(4,6));
  }
- if(fam==="largeSemiprime")return shuffle([11,13,17,19,23,29,31]).slice(0,2);
+ if(fam==="largeSemiprime")return [choice([11,13,17,19]),choice([17,19,23,29,31])];
  if(fam==="smallTimesLarge")return [choice([2,3,5,7]),choice([17,19,23,29,31])];
  if(fam==="hiddenSquare"){const p=choice([5,7,11,13]);const q=choice([2,3,5,7].filter(x=>x!==p));return [p,p,q]}
  if(fam==="twoPrimePowers"){const [p,q]=shuffle([2,3,5,7]).slice(0,2);return [...Array(randInt(2,4)).fill(p),...Array(randInt(2,3)).fill(q)]}
@@ -1823,7 +1991,7 @@ function buildFactors(level,fam){
 function validFor(level,n,f){
  if(level==="easy")return n>=4&&n<=60&&f.length>=2&&f.length<=4&&Math.max(...f)<=7;
  if(level==="medium")return n>=30&&n<=250&&f.length>=3&&f.length<=6&&Math.max(...f)<=13;
- return n>=100&&n<=1000&&f.length>=2&&f.length<=7&&Math.max(...f)<=31;
+ return n>=100&&n<=1000&&f.length>=2&&f.length<=7&&Math.max(...f)<=31&&Math.min(...f)<=19;
 }
 function buildCandidateBanks(){
  const banks={easy:[],medium:[],hard:[]};
@@ -1865,11 +2033,13 @@ function promptAnimation(node){node.classList.remove("fade-in");void node.offset
 function makeLevelBody(level){
  const q=current[level];
  bodies[level].innerHTML=`<div class="problem">What is the prime factorization of ${q.n}?</div>
- <div class="prime-answer-wrap"><input class="prime-expression" id="${level}Input" type="text" autocomplete="off" inputmode="text" placeholder="Example: 2 × 2 × 2 × 3 × 3" aria-label="Prime factorization answer">
+ <div class="prime-answer-wrap"><input class="prime-expression" id="${level}Input" type="text" autocomplete="off" inputmode="text" placeholder="Example: 2 × 2 × 2 × 3 × 3" aria-label="Prime factorization answer" enterkeyhint="done">
  <div class="prime-buttons">${primes.map(p=>`<button type="button" class="prime-chip" data-prime="${p}">${p}</button>`).join("")}</div>
  <div class="answer-help">Type each prime factor separately using ×, x, *, or spaces. Factors may be entered in any order.</div></div>
  <div class="actions"><button class="primary" id="${level}Check">Check</button><button class="done" id="${level}Done">Done</button></div>
  <div class="feedback" id="${level}Feedback"></div>
+ <div class="live-session hidden" id="${level}LiveStats" aria-live="polite"></div>
+ ${notices[level]?`<div class="unlock-guidance">${notices[level]}</div>`:""}
  <div class="bubble hidden" id="${level}Bubble"><div class="bubble-title">Let’s think about it</div><div id="${level}Hint"></div></div>`;
  const problem=bodies[level].querySelector(".problem");promptAnimation(problem);
  const input=$(level+"Input"),check=$(level+"Check"),done=$(level+"Done");
@@ -1877,10 +2047,11 @@ function makeLevelBody(level){
  bodies[level].querySelectorAll(".prime-chip").forEach(btn=>btn.addEventListener("click",()=>{input.value+=(input.value.trim()?" × ":"")+btn.dataset.prime;input.focus()}));
  check.addEventListener("click",()=>checkAnswer(level));
  input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();e.stopPropagation();checkAnswer(level)}});
+ updateLiveStats(level);
  setTimeout(()=>input.focus(),50);
 }
 function renderStart(level){
- bodies[level].innerHTML=`<button class="start" type="button">Start</button>`;
+ bodies[level].innerHTML=`<button class="start" type="button">Start</button>${notices[level]?`<div class="unlock-guidance">${notices[level]}</div>`:""}`;
  bodies[level].querySelector("button").addEventListener("click",()=>startLevel(level));
 }
 function renderLocked(level){cards[level].classList.add("locked");bodies[level].innerHTML='<div class="lock"><div class="shackle"></div><div class="lockbody"></div></div>';progresses[level].classList.add("hidden")}
@@ -1914,7 +2085,15 @@ function showNext(level){
 }
 function checkAnswer(level){
  if(finished||level!==active)return;
- const input=$(level+"Input"),parsed=parseExpression(input.value);
+ const input=$(level+"Input");
+ if(!input.value.trim()){
+  const feedback=$(level+"Feedback");
+  feedback.textContent="Please enter an answer first.";
+  feedback.className="feedback";
+  input.focus();
+  return;
+ }
+ const parsed=parseExpression(input.value);
  if(!parsed.ok){setFeedback(level,parsed.message,false);return}
  const q=current[level],right=parsed.factors.length===q.factors.length&&parsed.factors.every((v,i)=>v===q.factors[i]);
  const session=sessions[level];
@@ -1928,6 +2107,7 @@ function checkAnswer(level){
   setFeedback(level,`Incorrect. Correct answer: <strong>${expanded(q.factors)}</strong><br><span class="answer-help">It can also be written: ${exponential(q.factors)}</span>`,false);
   showPrimeHint(level,q);
  }
+ updateLiveStats(level);
  if(right&&mode==="timer")setTimeout(()=>next(level),1100);else showNext(level);
 }
 function finishSession(level){
@@ -1942,7 +2122,7 @@ function finishSession(level){
     <div class="stat"><strong>${session.incorrect}</strong><span>Incorrect</span></div>
     <div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>
    </div>
-   <div class="report-note">${progress[level]>=3?"Next level unlocked — keep practicing whenever you like.":`${progress[level]} of 3 correct toward the next level.`}</div>
+   <div class="report-note">${sessionReportNote(level,progress[level])}</div>
    <button class="restart" id="${level}Restart">Start Again</button>
   </div>`;
  $(level+"Restart").addEventListener("click",()=>startLevel(level));
@@ -1953,6 +2133,15 @@ function next(level){if(level!==active)return;finished=false;current[level]=gene
 function unlockNext(level){
  const nextLevel=level==="easy"?"medium":level==="medium"?"hard":null;if(!nextLevel||unlocked[nextLevel])return;
  unlocked[nextLevel]=true;cards[nextLevel].classList.remove("locked");progresses[nextLevel].classList.remove("hidden");progresses[nextLevel].textContent="0 / 3";renderStart(nextLevel);
+ const unlockedName=levelDisplayNames[nextLevel];
+ const previousName=levelDisplayNames[level];
+ notices[level]=`${unlockedName} is now available. You can continue practicing in ${previousName} until you feel ready to move on.`;
+ const currentBody=bodies[level];
+ if(currentBody){
+  const existing=currentBody.querySelector(".unlock-guidance");
+  if(existing)existing.textContent=notices[level];
+  else{const notice=document.createElement("div");notice.className="unlock-guidance";notice.textContent=notices[level];currentBody.appendChild(notice)}
+ }
  banner.textContent=`🎉 ${nextLevel==="medium"?"Core":"Challenge"} Mode unlocked!`;banner.classList.add("show");setTimeout(()=>banner.classList.remove("show"),2400);
 }
 function clearOrbTimers(){
@@ -1989,6 +2178,7 @@ function startTimer(level){
    showOrbTimer(level,0,"finished",0);
    if(!finished){
     const session=sessions[level];if(session){session.total++;session.incorrect++;}
+    updateLiveStats(level);
     finished=true;lockQuestion(level);const q=current[level];
     setFeedback(level,`Time is up. Correct answer: <strong>${expanded(q.factors)}</strong><br><span class="answer-help">It can also be written: ${exponential(q.factors)}</span>`,false);
     showPrimeHint(level,q);
@@ -2013,7 +2203,7 @@ function setMode(newMode){
 studentBtn.addEventListener("click",()=>setMode("student"));timerBtn.addEventListener("click",()=>setMode("timer"));durationSel.addEventListener("change",()=>{if(mode==="timer"&&current[active]&&!finished)startTimer(active)});
 function openResetModal(){resetModalBackdrop.classList.add("show")}
 function closeResetModal(){resetModalBackdrop.classList.remove("show")}
-function resetAllProgress(){stopTimer();progress={easy:0,medium:0,hard:0};unlocked={easy:true,medium:false,hard:false};sessions={easy:null,medium:null,hard:null};recent={easy:[],medium:[],hard:[]};familyQueues={easy:[],medium:[],hard:[]};candidateBanks=null;current={easy:null,medium:null,hard:null};finished=false;active="easy";Object.keys(progresses).forEach(l=>{progresses[l].textContent="0 / 3"});progresses.easy.classList.remove("hidden");renderStart("easy");renderLocked("medium");renderLocked("hard");closeResetModal();setMode("student")}
+function resetAllProgress(){stopTimer();progress={easy:0,medium:0,hard:0};unlocked={easy:true,medium:false,hard:false};sessions={easy:null,medium:null,hard:null};notices={easy:"",medium:"",hard:""};recent={easy:[],medium:[],hard:[]};familyQueues={easy:[],medium:[],hard:[]};candidateBanks=null;current={easy:null,medium:null,hard:null};finished=false;active="easy";Object.keys(progresses).forEach(l=>{progresses[l].textContent="0 / 3"});progresses.easy.classList.remove("hidden");renderStart("easy");renderLocked("medium");renderLocked("hard");closeResetModal();setMode("student")}
 resetProgressButton.addEventListener("click",openResetModal);resetCancelButton.addEventListener("click",closeResetModal);resetConfirmButton.addEventListener("click",resetAllProgress);resetModalBackdrop.addEventListener("click",e=>{if(e.target===resetModalBackdrop)closeResetModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&resetModalBackdrop.classList.contains("show"))closeResetModal()});
 renderStart("easy");renderLocked("medium");renderLocked("hard");setMode("student");
 })();
