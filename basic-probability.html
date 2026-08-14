@@ -1107,6 +1107,257 @@ body::before{
 .monitor-screen > iframe{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;border:0!important}
 
 
+
+/* Combined Print Results — shown only after a completed session. */
+.report-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px
+}
+.report-actions .restart{margin:0}
+.print-results-button{
+  border:2px solid #33404d;
+  background:#fff;
+  color:#33404d;
+  border-radius:10px;
+  padding:10px 15px;
+  min-height:42px;
+  font:inherit;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 5px 12px rgba(45,52,68,.09)
+}
+.print-results-button:hover{transform:translateY(-1px);background:#f7f8fa}
+.combined-print-results{display:none}
+@media(max-width:520px){
+  .report-actions{flex-direction:column;align-items:stretch}
+  .report-actions .restart,.print-results-button{width:100%}
+}
+@media print{
+  @page{margin:16mm}
+  body.printing-results{background:#fff!important;background-image:none!important}
+  body.printing-results > *{display:none!important}
+  body.printing-results > #combinedPrintResults{
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    color:#20242a!important;
+    background:#fff!important
+  }
+  #combinedPrintResults *{box-sizing:border-box}
+  #combinedPrintResults .print-brand{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:10px
+  }
+  #combinedPrintResults h1{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:25px;
+    line-height:1.15;
+    margin:0 0 4px
+  }
+  #combinedPrintResults .print-subtitle{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:6px
+  }
+  #combinedPrintResults .print-meta{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:11px;
+    color:#666;
+    margin-bottom:20px
+  }
+  #combinedPrintResults .print-mode{
+    border:1.5px solid #8b929a;
+    border-radius:12px;
+    padding:14px 16px;
+    margin:0 0 12px;
+    break-inside:avoid
+  }
+  #combinedPrintResults .print-mode h2{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:17px;
+    margin:0 0 10px
+  }
+  #combinedPrintResults .print-stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px
+  }
+  #combinedPrintResults .print-stat{
+    border:1px solid #c8cdd2;
+    border-radius:9px;
+    text-align:center;
+    padding:9px 6px
+  }
+  #combinedPrintResults .print-stat strong{
+    display:block;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:20px
+  }
+  #combinedPrintResults .print-stat span{
+    display:block;
+    margin-top:2px;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:#60656c
+  }
+  #combinedPrintResults .print-foot{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    color:#6a7077;
+    margin-top:16px
+  }
+}
+
+
+/* Stronger success feedback + polished mode-unlock celebration. */
+.correct-callout{
+  display:inline-block;
+  font-size:1.36rem;
+  line-height:1.05;
+  font-weight:1000;
+  letter-spacing:.01em;
+  margin-right:.18em;
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+  animation:correctCalloutPop .34s cubic-bezier(.2,.85,.28,1.25) both
+}
+@keyframes correctCalloutPop{
+  0%{opacity:0;transform:scale(.72)}
+  70%{opacity:1;transform:scale(1.08)}
+  100%{opacity:1;transform:scale(1)}
+}
+.banner{
+  position:fixed;
+  left:50%;
+  top:50%;
+  width:min(430px,88vw);
+  transform:translate(-50%,-50%) scale(.78);
+  padding:24px 28px 22px;
+  border:2px solid #efc44b;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.98),rgba(255,255,255,.76) 34%,transparent 35%),
+    linear-gradient(145deg,#fffdf3 0%,#fff3bd 58%,#ffe7a2 100%);
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  z-index:80;
+  overflow:hidden;
+  box-shadow:
+    0 26px 70px rgba(42,45,54,.28),
+    0 0 0 7px rgba(255,218,93,.16)
+}
+.banner::before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  left:50%;
+  top:-150px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,211,77,.42),rgba(255,211,77,0) 68%);
+  pointer-events:none
+}
+.banner::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-65%;
+  width:42%;
+  height:180%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+  opacity:0;
+  pointer-events:none
+}
+.banner.show{animation:unlockCelebration 4.75s cubic-bezier(.18,.82,.24,1) both}
+.banner.show::after{animation:unlockShimmer 1.05s ease .35s both}
+.unlock-celebration-icon{
+  position:relative;
+  z-index:1;
+  width:62px;
+  height:62px;
+  margin:0 auto 9px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid #f0c64d;
+  color:#d99b00;
+  font-size:2rem;
+  line-height:1;
+  box-shadow:0 8px 20px rgba(179,129,0,.18),inset 0 1px 0 rgba(255,255,255,.95);
+  animation:unlockIconPop .62s cubic-bezier(.18,.89,.32,1.35) .08s both
+}
+.unlock-celebration-kicker{
+  position:relative;
+  z-index:1;
+  display:block;
+  margin-bottom:4px;
+  color:#8d6a11;
+  font-size:.72rem;
+  font-weight:1000;
+  letter-spacing:.16em;
+  text-transform:uppercase
+}
+.unlock-celebration-title{
+  position:relative;
+  z-index:1;
+  display:block;
+  color:#30343b;
+  font-size:clamp(1.75rem,5vw,2.25rem);
+  line-height:1.05;
+  font-weight:1000;
+  letter-spacing:-.025em
+}
+.unlock-celebration-sub{
+  position:relative;
+  z-index:1;
+  display:block;
+  margin-top:7px;
+  color:#6b5b29;
+  font-size:.9rem;
+  line-height:1.35;
+  font-weight:850
+}
+@keyframes unlockCelebration{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.72)}
+  13%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+  22%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  80%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-48%) scale(.96)}
+}
+@keyframes unlockIconPop{
+  0%{opacity:0;transform:scale(.28) rotate(-22deg)}
+  72%{opacity:1;transform:scale(1.14) rotate(7deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes unlockShimmer{
+  0%{left:-65%;opacity:0}
+  24%{opacity:.72}
+  100%{left:125%;opacity:0}
+}
+@media(max-width:520px){
+  .correct-callout{font-size:1.28rem}
+  .banner{width:min(390px,90vw);padding:21px 20px 20px;border-radius:22px}
+  .unlock-celebration-icon{width:56px;height:56px;font-size:1.8rem}
+  .unlock-celebration-sub{font-size:.84rem}
+}
+
 </style>
 <style>
 /* Responsive launch pass — preserves the approved desktop design */
@@ -2374,6 +2625,106 @@ function generateHard(){return generateVaried('hard',[
 
 const generators={easy:generateEasy,medium:generateMedium,hard:generateHard};
 const levelDisplayNames={easy:"Foundation Mode",medium:"Core Mode",hard:"Challenge Mode"};
+
+
+const appSoundFiles={
+  correct:'sounds/correct.wav',
+  incorrect:'sounds/incorrect.wav',
+  lock:'sounds/unlock-click.wav',
+  unlock:'sounds/achievement.wav'
+};
+const appSoundVolumes={correct:1,incorrect:.48,lock:.44,unlock:.35};
+const appSounds={
+  correct:new Audio(appSoundFiles.correct),
+  incorrect:new Audio(appSoundFiles.incorrect),
+  lock:new Audio(appSoundFiles.lock),
+  unlock:new Audio(appSoundFiles.unlock)
+};
+Object.entries(appSounds).forEach(([type,audio])=>{
+  audio.preload='auto';
+  audio.volume=appSoundVolumes[type]??1;
+  try{audio.load()}catch(_){}
+});
+function playAppSound(type,delay=0){
+  const run=()=>{
+    try{
+      const audio=appSounds[type];
+      if(!audio)return;
+      audio.pause();
+      audio.currentTime=0;
+      audio.volume=appSoundVolumes[type]??1;
+      const p=audio.play();
+      if(p&&typeof p.catch==='function')p.catch(()=>{});
+    }catch(_){}
+  };
+  if(delay>0)setTimeout(run,delay);else run();
+}
+
+function showUnlockCelebration(modeName){
+  const banner=document.getElementById('banner');
+  if(!banner)return;
+  banner.innerHTML=`<span class="unlock-celebration-icon" aria-hidden="true">✦</span><span class="unlock-celebration-kicker">Level unlocked</span><strong class="unlock-celebration-title">${modeName}</strong><span class="unlock-celebration-sub">You can now practice this mode whenever you’re ready.</span>`;
+  banner.classList.remove('show');
+  void banner.offsetWidth;
+  banner.classList.add('show');
+  playAppSound('unlock');
+  clearTimeout(banner._unlockCelebrationTimer);
+  banner._unlockCelebrationTimer=setTimeout(()=>banner.classList.remove('show'),4900);
+}
+
+
+const completedResults={easy:null,medium:null,hard:null};
+const printModeNames={easy:'Foundation',medium:'Core',hard:'Challenge'};
+function recordCompletedResult(level,session,accuracy){
+  completedResults[level]={
+    correct:Number(session.correct)||0,
+    incorrect:Number(session.incorrect)||0,
+    total:Number(session.total)||0,
+    accuracy:Number(accuracy)||0,
+    completedAt:new Date()
+  };
+}
+function clearCompletedResults(){
+  completedResults.easy=null;
+  completedResults.medium=null;
+  completedResults.hard=null;
+}
+function printCombinedResults(){
+  const ordered=['easy','medium','hard'].filter(level=>completedResults[level]);
+  if(!ordered.length)return;
+  let sheet=document.getElementById('combinedPrintResults');
+  if(!sheet){
+    sheet=document.createElement('section');
+    sheet.id='combinedPrintResults';
+    sheet.className='combined-print-results';
+    document.body.appendChild(sheet);
+  }
+  const appTitle=(document.querySelector('h1.sr-only')?.textContent||document.title.split('|')[0]||'Math Practice').trim();
+  const generated=new Date().toLocaleString(undefined,{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  sheet.innerHTML=`
+    <div class="print-brand">Mr. McLean Math</div>
+    <h1>${appTitle}</h1>
+    <div class="print-subtitle">Practice Results</div>
+    <div class="print-meta">Most recent completed result for each mode • ${generated}</div>
+    ${ordered.map(level=>{
+      const r=completedResults[level];
+      return `<section class="print-mode">
+        <h2>${printModeNames[level]} Mode</h2>
+        <div class="print-stat-grid">
+          <div class="print-stat"><strong>${r.correct}</strong><span>Correct</span></div>
+          <div class="print-stat"><strong>${r.incorrect}</strong><span>Incorrect</span></div>
+          <div class="print-stat"><strong>${r.accuracy}%</strong><span>Accuracy</span></div>
+        </div>
+      </section>`;
+    }).join('')}
+    <div class="print-foot">Generated from Mr. McLean Math practice.</div>`;
+  document.body.classList.add('printing-results');
+  const cleanup=()=>document.body.classList.remove('printing-results');
+  window.addEventListener('afterprint',cleanup,{once:true});
+  requestAnimationFrame(()=>window.print());
+  setTimeout(cleanup,4000);
+}
+
 function sessionReportNote(level,unlockCount){
   const modeName=levelDisplayNames[level];
   if(unlockCount>=3){
@@ -2541,13 +2892,13 @@ function check(level){
   if(correct){
     session.correct++;
     if(state[level].unlock<3){state[level].unlock++;el(level+"Progress").textContent=state[level].unlock+" / 3"}
-    el(level+"Feedback").textContent="Correct!";el(level+"Feedback").className="feedback correct";
+    playAppSound('correct');el(level+"Feedback").innerHTML='<span class="correct-callout">Correct!</span>';el(level+"Feedback").className="feedback correct";
     if(level==="easy"&&state[level].unlock===3&&!state.medium.unlocked)setTimeout(()=>unlock("medium"),350);
     if(level==="medium"&&state[level].unlock===3&&!state.hard.unlocked)setTimeout(()=>unlock("hard"),350);
     setTimeout(()=>nextQuestion(level),state.mode==="timer"?220:550);
   }else{
     session.incorrect++;
-    el(level+"Feedback").textContent=`Incorrect — correct probability: ${correctAnswerDisplay(state[level].q)}`;el(level+"Feedback").className="feedback incorrect";
+    el(level+"Feedback").textContent=`Incorrect — correct probability: ${correctAnswerDisplay(state[level].q)}`;el(level+"Feedback").className="feedback incorrect";playAppSound('incorrect');
     el(level+"Answer").disabled=true;
     el(level+"Check").disabled=true;
     el(level+"Hint").textContent=hintFor(state[level].q);
@@ -2567,6 +2918,7 @@ function finishSession(level){
   if(!level||!state[level].session)return;
   clearInterval(state.timerId);
   const s=state[level].session,acc=s.total?Math.round(s.correct/s.total*100):0;
+  recordCompletedResult(level,s,acc);
   el(level+"Body").innerHTML=`
     <div class="report">
       <div class="report-title">Session Report</div>
@@ -2576,9 +2928,10 @@ function finishSession(level){
         <div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>
       </div>
       <div class="report-note">${sessionReportNote(level,state[level].unlock)}</div>
-      <button class="restart" id="${level}Restart">Start Again</button>
+      <div class="report-actions"><button class="restart" id="${level}Restart">Start Again</button><button class="print-results-button" id="${level}PrintResults" type="button">Print Results</button></div>
     </div>`;
   el(level+"Restart").onclick=()=>newSession(level);
+  el(level+"PrintResults").onclick=printCombinedResults;
   state[level].session=null;
   if(state.mode==="timer"){showOrbTimer(level,0,"finished",0);setTimeout(()=>clearOrbTimer(level,{animate:true}),700)}else clearAllOrbTimers();
   requestAnimationFrame(()=>updateTimerPosition(level));
@@ -2586,7 +2939,7 @@ function finishSession(level){
 function unlock(level){
   const card=el(level+"Card"),lock=el(level+"Lock"),banner=el("banner");
   lock.classList.add("shake");
-  setTimeout(()=>{lock.classList.remove("shake");lock.classList.add("open");card.classList.add("card-unlock")},450);
+  setTimeout(()=>{lock.classList.remove("shake");lock.classList.add("open");card.classList.add("card-unlock");playAppSound('lock')},450);
   setTimeout(()=>{
     state[level].unlocked=true;card.classList.remove("locked");card.classList.add("active");el(level+"Progress").classList.remove("hidden");renderStart(level);
 
@@ -2607,7 +2960,7 @@ function unlock(level){
       }
     }
 
-    banner.textContent=`🎉 ${levelDisplayNames[level]} unlocked!`;banner.classList.remove("show");void banner.offsetWidth;banner.classList.add("show");
+    showUnlockCelebration(levelDisplayNames[level]);
     requestAnimationFrame(()=>updateTimerPosition(previousLevel||level));
   },1200);
 }
@@ -2643,6 +2996,7 @@ function openResetModal(){
   resetCancelButton.focus();
 }
 function resetAllProgress(){
+  clearCompletedResults();
   clearInterval(state.timerId);
   state.timerId=null;
   state.timeLeft=0;

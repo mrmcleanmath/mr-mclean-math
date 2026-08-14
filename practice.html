@@ -81,7 +81,7 @@ main{width:min(1460px,96vw);margin:0 auto;padding:42px 12px 70px}
 .concept-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .concept-card{display:grid;grid-template-columns:150px minmax(0,1fr) auto;align-items:center;gap:24px;padding:18px 20px;background:#fff;border:1px solid #dfe2e7;border-radius:15px;text-decoration:none;color:inherit;box-shadow:0 6px 15px rgba(0,0,0,.05);transition:.2s}
 .concept-card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 65%,#bbb);box-shadow:0 11px 23px rgba(0,0,0,.09)}
-.concept-symbol{width:140px;height:82px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--accent) 13%,white);color:color-mix(in srgb,var(--accent) 82%,#222);font-family:Georgia,serif;font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}.concept-symbol.algebra-mini{font-family:"Arial Black","Trebuchet MS",Arial,sans-serif;font-size:1.55rem;letter-spacing:-.5px;line-height:1;color:#4d8c44;text-shadow:0 1px 0 rgba(255,255,255,.85);gap:10px;white-space:nowrap}.concept-symbol.algebra-mini .plus{padding:0;color:#5e9554;font-size:1.7rem}.concept-copy h3{margin:0 0 4px;font-size:1.03rem}.concept-copy p{margin:0;color:#6a707a;font-size:.87rem;line-height:1.35;font-weight:700}.practice-pill{white-space:nowrap;border-radius:999px;padding:9px 12px;background:var(--blue);color:#fff;font-size:.8rem;font-weight:900;box-shadow:0 7px 16px rgba(34,24,255,.18)}
+.concept-symbol{width:140px;height:82px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--accent) 13%,white);color:var(--symbol-ink,color-mix(in srgb,var(--accent) 82%,#222));font-family:Georgia,serif;font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}.concept-symbol.algebra-mini{font-family:"Arial Black","Trebuchet MS",Arial,sans-serif;font-size:1.55rem;letter-spacing:-.5px;line-height:1;color:#4d8c44;text-shadow:0 1px 0 rgba(255,255,255,.85);gap:10px;white-space:nowrap}.concept-symbol.algebra-mini .plus{padding:0;color:#5e9554;font-size:1.7rem}.concept-copy h3{margin:0 0 4px;font-size:1.03rem}.concept-copy p{margin:0;color:#6a707a;font-size:.87rem;line-height:1.35;font-weight:700}.practice-pill{white-space:nowrap;border-radius:999px;padding:9px 12px;background:var(--blue);color:#fff;font-size:.8rem;font-weight:900;box-shadow:0 7px 16px rgba(34,24,255,.18)}
 .empty-note{padding:18px;border:1px dashed #c7cbd2;border-radius:14px;color:#777d87;font-weight:800;text-align:center;background:rgba(255,255,255,.65);grid-column:1/-1}
 .tip{margin:34px auto 0;max-width:760px;background:rgba(255,255,255,.83);border:1px solid rgba(170,174,183,.65);border-radius:17px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 9px 20px rgba(45,52,68,.08)}.tip-icon{font-size:1.5rem}.tip strong{display:block;margin-bottom:4px}.tip span{color:#666c77;font-weight:700;line-height:1.45}
 
@@ -217,6 +217,208 @@ body::before{
 .privacy-video-play::before{content:"";margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid #d83b36}
 .video-privacy-note{margin:8px 2px 0;color:#626975;font:700 .78rem/1.35 Arial,sans-serif;text-align:center}
 .video-privacy-note a{color:#3437d8}
+
+
+/* Practice-page release badges and "more coming" callout. */
+.concept-card{position:relative}
+.practice-new-badge{
+  position:absolute;
+  top:-15px;
+  right:-12px;
+  z-index:12;
+  width:66px;
+  height:66px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-family:"Arial Black",Arial,sans-serif;
+  font-size:.68rem;
+  line-height:1;
+  letter-spacing:.5px;
+  text-align:center;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#ff5b7f,#ff8f54);
+  clip-path:polygon(50% 0%,60% 15%,78% 6%,80% 24%,96% 22%,88% 38%,100% 50%,88% 62%,96% 78%,80% 76%,78% 94%,60% 85%,50% 100%,40% 85%,22% 94%,20% 76%,4% 78%,12% 62%,0% 50%,12% 38%,4% 22%,20% 24%,22% 6%,40% 15%);
+  box-shadow:0 10px 22px rgba(255,91,127,.28);
+  animation:practice-new-pop .85s cubic-bezier(.18,.89,.32,1.28) both,practice-new-breathe 2.8s ease-in-out 1s infinite,practice-new-drift 4s ease-in-out 1.2s infinite
+}
+.practice-new-badge::after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,118,118,.34),rgba(255,118,118,0) 68%);
+  z-index:-1;
+  animation:practice-new-radiate 2.8s ease-in-out 1s infinite
+}
+.practice-new-badge span{transform:translateY(1px);text-shadow:0 1px 2px rgba(0,0,0,.22)}
+@keyframes practice-new-pop{0%{transform:scale(.18) rotate(-26deg);opacity:0}65%{transform:scale(1.14) rotate(9deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes practice-new-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes practice-new-drift{0%,100%{translate:0 0}50%{translate:0 -3px}}
+@keyframes practice-new-radiate{0%,100%{transform:scale(.84);opacity:.3}50%{transform:scale(1.12);opacity:.52}}
+.more-apps-callout{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:15px;
+  align-items:center;
+  padding:17px 18px;
+  border:2px solid color-mix(in srgb,var(--accent) 62%,#aab0b8);
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff,color-mix(in srgb,var(--accent) 13%,#fff));
+  box-shadow:0 9px 22px rgba(45,52,68,.09)
+}
+.more-apps-icon{
+  width:52px;height:52px;border-radius:50%;
+  display:grid;place-items:center;
+  background:color-mix(in srgb,var(--accent) 22%,#fff);
+  border:2px solid color-mix(in srgb,var(--accent) 70%,#999);
+  color:color-mix(in srgb,var(--accent) 62%,#3e4650);
+  font-size:1.45rem;font-weight:1000;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)
+}
+.more-apps-copy strong{
+  display:block;
+  margin-bottom:3px;
+  font-size:1.05rem;
+  color:#30353d
+}
+.more-apps-copy span{
+  display:block;
+  color:#5f6670;
+  font-size:.88rem;
+  line-height:1.4;
+  font-weight:750
+}
+.more-apps-pill{
+  white-space:nowrap;
+  border-radius:999px;
+  padding:8px 11px;
+  background:#fff;
+  border:1.5px solid color-mix(in srgb,var(--accent) 65%,#aaa);
+  color:#454c55;
+  font-size:.72rem;
+  font-weight:1000;
+  letter-spacing:.04em
+}
+@media(max-width:760px){
+  .practice-new-badge{width:58px;height:58px;font-size:.6rem;top:-12px;right:-8px}
+  .more-apps-callout{grid-template-columns:auto 1fr}
+  .more-apps-pill{grid-column:1/-1;justify-self:start}
+}
+
+
+/* Stronger, more intentional Practice-page growth message. */
+.more-apps-callout{
+  position:relative;
+  overflow:hidden;
+  width:min(640px,100%);
+  margin:28px auto 6px;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:17px;
+  align-items:center;
+  padding:23px 25px 22px;
+  border:1.5px solid #cfc4f5;
+  border-left:5px solid #7057cf;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fcfbff 0%,#f3efff 58%,#eef7ff 100%);
+  box-shadow:0 14px 30px rgba(59,48,103,.13)
+}
+.more-apps-callout::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#765ce0 0%,#438ecb 58%,#ff8a70 100%)
+}
+.more-apps-callout::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  right:-105px;
+  bottom:-125px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(112,87,207,.12),rgba(112,87,207,0) 70%);
+  pointer-events:none
+}
+.more-apps-icon{
+  position:relative;
+  z-index:1;
+  width:58px;
+  height:58px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1.5px solid #d5cbf6;
+  color:#7057cf;
+  font-size:1.65rem;
+  font-weight:1000;
+  box-shadow:0 7px 17px rgba(77,60,139,.13),inset 0 1px 0 rgba(255,255,255,.95)
+}
+.more-apps-copy{
+  position:relative;
+  z-index:1;
+  min-width:0
+}
+.more-apps-kicker{
+  display:block;
+  margin-bottom:5px;
+  color:#7057cf!important;
+  font-size:.7rem!important;
+  line-height:1.2!important;
+  font-weight:1000!important;
+  letter-spacing:.15em;
+  text-transform:uppercase
+}
+.more-apps-copy strong{
+  display:block;
+  margin:0 0 5px;
+  color:#2e3340;
+  font-size:1.22rem;
+  line-height:1.16;
+  font-weight:1000;
+  letter-spacing:-.012em
+}
+.more-apps-body{
+  display:block;
+  color:#5c6470!important;
+  font-size:.88rem!important;
+  line-height:1.45!important;
+  font-weight:780!important
+}
+.more-apps-pill{display:none!important}
+@media(max-width:680px){
+  .more-apps-callout{
+    width:100%;
+    grid-template-columns:48px minmax(0,1fr);
+    gap:13px;
+    margin-top:22px;
+    padding:19px 18px 18px;
+    border-radius:17px
+  }
+  .more-apps-icon{width:48px;height:48px;border-radius:14px;font-size:1.4rem}
+  .more-apps-copy strong{font-size:1.08rem}
+  .more-apps-body{font-size:.82rem!important}
+}
+
+
+.surface-area-thumb{padding:0;overflow:hidden}
+.surface-area-thumb svg{width:118px;height:72px;display:block}
+.surface-area-thumb .sa-face-top{fill:#fff5bf}
+.surface-area-thumb .sa-face-front{fill:#f2ce55}
+.surface-area-thumb .sa-face-side{fill:#ddb13a}
+.surface-area-thumb .sa-edge{fill:none;stroke:#7e651d;stroke-width:2.5;stroke-linejoin:round}
+.surface-area-thumb .sa-label{
+  fill:#6e5512;
+  font-family:"Arial Black","Trebuchet MS",Arial,sans-serif;
+  font-size:19px;
+  font-weight:900
+}
 
 </style>
 <style>
@@ -901,9 +1103,9 @@ body > header.site-global-header .site-global-social svg{
 </main>
 <script>
 const areaData={
- number:{title:'Number & Operations',accent:'#fce5cd',html:`<a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ number:{title:'Number & Operations',accent:'#fce5cd',symbolInk:'#8f5b34',html:`<a class="concept-card new-app" href="adding-subtracting-fractions.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.06rem"><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span><span class="concept-fraction-arrow">+</span><span class="concept-stacked-fraction"><span>3</span><span class="concept-fraction-bar"></span><span>4</span></span></div><div class="concept-copy"><h3>Adding &amp; Subtracting Fractions with Different Denominators</h3><p>Practice different denominators through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Terms</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
- geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card new-app" href="surface-area-cuboids.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol surface-area-thumb" aria-hidden="true"><svg viewBox="0 0 130 78" focusable="false"><polygon class="sa-face-top" points="28,24 80,24 103,12 51,12"></polygon><polygon class="sa-face-front" points="28,24 80,24 80,59 28,59"></polygon><polygon class="sa-face-side" points="80,24 103,12 103,47 80,59"></polygon><polyline class="sa-edge" points="28,24 51,12 103,12 103,47 80,59 28,59 28,24 80,24 103,12"></polyline><line class="sa-edge" x1="80" y1="24" x2="80" y2="59"></line><text class="sa-label" x="39" y="48">m²</text></svg></div><div class="concept-copy"><h3>Surface Area of Cuboids</h3><p>Calculate total surface area, reason about which faces count, then tackle square-unit conversions.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  stats:{title:'Statistics & Probability',accent:'#8a6ac6',html:`<a class="concept-card" href="basic-probability.html"><div class="concept-symbol probability-thumb"><img src="probability-coin-flip.png" alt="Hand flipping a coin"></div><div class="concept-copy"><h3>Basic Probability</h3><p>Find probabilities using favorable outcomes and total outcomes.</p></div><span class="practice-pill">Start Practice →</span></a>`}
 };
@@ -913,7 +1115,10 @@ cards.forEach(card=>card.querySelector('.area-button').addEventListener('click',
  cards.forEach(c=>{c.classList.remove('open');c.querySelector('.area-button').setAttribute('aria-expanded','false')});
  if(!opening){display.classList.remove('visible');return}
  card.classList.add('open');card.querySelector('.area-button').setAttribute('aria-expanded','true');
- const data=areaData[key];panel.style.setProperty('--accent',data.accent);panel.innerHTML=`<div class="concept-heading"><h2>${data.title} Practice</h2><span>Choose a concept to begin</span></div><div class="concept-list">${data.html}</div>`;
+ const data=areaData[key];
+ panel.style.setProperty('--accent',data.accent);
+ if(data.symbolInk)panel.style.setProperty('--symbol-ink',data.symbolInk);else panel.style.removeProperty('--symbol-ink');
+ panel.innerHTML=`<div class="concept-heading"><h2>${data.title} Practice</h2><span>Choose a concept to begin</span></div><div class="concept-list">${data.html}</div><div class="more-apps-callout"><div class="more-apps-icon" aria-hidden="true">✦</div><div class="more-apps-copy"><span class="more-apps-kicker">MORE IS COMING</span><strong>More interactive math practice is on the way</strong><span class="more-apps-body">New practice tools are being added regularly. Check back to see what’s new.</span></div></div>`;
  display.classList.add('visible');
  setTimeout(()=>display.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
 }));
