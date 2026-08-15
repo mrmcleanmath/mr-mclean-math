@@ -1,1 +1,6 @@
-v119 - Protected Pi Memory Challenge release candidate
+v118
+Monitor screen fit refinement:
+- Fixed the thin cream-colored seam visible underneath tutorial thumbnails.
+- Root cause was the monitor-screen viewport ending slightly above the bottom of the illustrated screen opening.
+- Extended only the monitor-screen height from 58.6% to 59.05%; top, left, and right alignment are unchanged.
+- Preserved the v117 thumbnail crop, mixed-fraction answer fields, unlock wording, all sounds, Print Results, and other features.
