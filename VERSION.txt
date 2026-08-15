@@ -1,6 +1,1 @@
-v118
-Monitor screen fit refinement:
-- Fixed the thin cream-colored seam visible underneath tutorial thumbnails.
-- Root cause was the monitor-screen viewport ending slightly above the bottom of the illustrated screen opening.
-- Extended only the monitor-screen height from 58.6% to 59.05%; top, left, and right alignment are unchanged.
-- Preserved the v117 thumbnail crop, mixed-fraction answer fields, unlock wording, all sounds, Print Results, and other features.
+v119 - Pi Memory Challenge live performance test added from v189 AUDIO_CONTROLS; game and assets included, no links added to existing site navigation.
