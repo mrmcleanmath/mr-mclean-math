@@ -333,7 +333,7 @@ button{border:0;border-radius:8px;padding:9px 15px;font-weight:900;cursor:pointe
   left:12.1%;
   top:13.45%;
   width:75.55%;
-  height:58.6%;
+  height:59.05%;
   z-index:3;
   overflow:hidden;
   border-radius:2.5%;
@@ -432,7 +432,7 @@ button{border:0;border-radius:8px;padding:9px 15px;font-weight:900;cursor:pointe
   left:12.1%;
   top:13.45%;
   width:75.55%;
-  height:58.6%;
+  height:59.05%;
   z-index:3;
   overflow:hidden;
   border-radius:2.5%;
@@ -1102,7 +1102,7 @@ body::before{
 .video-privacy-note a{color:#3437d8}
 /* v88: make the tutorial thumbnail/player completely fill the monitor screen */
 .monitor-screen .privacy-video-cover{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;aspect-ratio:auto!important;margin:0!important;border:0!important;padding:0!important;background:#111!important}
-.monitor-screen .privacy-video-cover img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;object-position:center!important}
+.monitor-screen .privacy-video-cover img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;object-position:center!important;transform:scale(1.04)!important}
 .monitor-screen .video-privacy-note{display:none!important}
 .monitor-screen > iframe{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;border:0!important}
 
@@ -2056,6 +2056,113 @@ body > header.site-global-header .site-global-social svg{
   }
 }
 </style>
+
+<style id="simplifying-fractions-answer-fields-v117">
+/* v117: answer entry matches Adding & Subtracting Fractions. */
+.mixed-number{
+  display:inline-flex;
+  align-items:center;
+  gap:.08em;
+  white-space:nowrap;
+}
+.mixed-number .mixed-whole{
+  font-size:1.16em;
+  font-weight:1000;
+  line-height:1;
+}
+.answer-display-inline{
+  display:inline-flex;
+  align-items:center;
+  vertical-align:middle;
+}
+.fraction-answer-entry{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:12px 0 2px;
+}
+.mixed-answer-input{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:8px 11px;
+  border:2px solid rgba(105,112,123,.7);
+  border-radius:16px;
+  background:rgba(255,255,255,.92);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 5px 12px rgba(45,52,68,.08);
+}
+.mixed-answer-input:focus-within{
+  border-color:#4c55d9;
+  box-shadow:0 0 0 3px rgba(76,85,217,.13),0 5px 12px rgba(45,52,68,.08);
+}
+.answer-field{
+  appearance:textfield;
+  -moz-appearance:textfield;
+  margin:0!important;
+  padding:7px 6px!important;
+  border:1.8px solid #777e88!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  text-align:center!important;
+  font-family:"Trebuchet MS",Arial,sans-serif!important;
+  font-size:1.15rem!important;
+  font-weight:1000!important;
+  line-height:1!important;
+  color:#252a31!important;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.05)!important;
+}
+.answer-field::-webkit-outer-spin-button,
+.answer-field::-webkit-inner-spin-button{appearance:none;margin:0}
+.answer-whole{
+  width:72px!important;
+  height:54px!important;
+}
+.answer-fraction-stack{
+  width:86px;
+  display:grid;
+  grid-template-rows:46px 3px 46px;
+  align-items:center;
+  justify-items:stretch;
+  gap:4px;
+}
+.answer-fraction-stack .answer-field{
+  width:86px!important;
+  height:46px!important;
+}
+.answer-fraction-bar{
+  height:3px;
+  width:100%;
+  border-radius:999px;
+  background:#252a31;
+}
+.answer-field::placeholder{
+  color:#89909a;
+  font-size:.72rem;
+  font-weight:800;
+  opacity:1;
+}
+.answer-format-note{
+  width:100%;
+  text-align:center;
+  color:#616875;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.35;
+  margin-top:1px;
+}
+@media(max-width:520px){
+  .fraction-answer-entry{gap:10px}
+  .mixed-answer-input{gap:7px;padding:7px 8px}
+  .answer-whole{width:62px!important}
+  .answer-fraction-stack{width:76px;grid-template-rows:43px 3px 43px}
+  .answer-fraction-stack .answer-field{width:76px!important;height:43px!important}
+}
+</style>
+
 </head>
 <body>
 <h1 class="sr-only">Simplifying Fractions</h1>
@@ -2199,21 +2306,18 @@ function niceFraction(n,d){const g=gcd(n,d);return `${n/g}/${d/g}`}
 function stripZeros(s){return String(s).replace(/(\.\d*?[1-9])0+$/,'$1').replace(/\.0+$/,'')}
 function percentOf(v){const p=v*100;return Math.abs(p-Math.round(p))<1e-10?`${Math.round(p)}%`:`${stripZeros(p.toFixed(4))}%`}
 function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){const t=b;b=a%b;a=t}return a||1}
-function parseFraction(raw){
-  if(typeof raw!=="string"||!raw.trim())return null;
-  let s=raw.trim().replace(/−/g,'-').replace(/\s+/g,'');
-  if(/^\d+$/.test(s))return{n:Number(s),d:1};
-  const m=s.match(/^(\d+)\/(\d+)$/);
-  if(!m)return null;
-  const n=Number(m[1]),d=Number(m[2]);
-  if(!Number.isInteger(n)||!Number.isInteger(d)||d<=0)return null;
-  return{n,d};
-}
-function equivalent(input,answer){
-  const p=parseFraction(input);
-  return !!p&&p.n===answer.n&&p.d===answer.d;
-}
 function fracHTML(n,d){return `<span class="math-fraction" aria-label="${n} over ${d}"><span class="num">${n}</span><span class="bar"></span><span class="den">${d}</span></span>`}
+function toMixed(n,d){
+  const g=gcd(n,d),rn=n/g,rd=d/g;
+  return{w:Math.floor(rn/rd),n:rn%rd,d:rd};
+}
+function mixedHTML(v){
+  if(!v.w)return fracHTML(v.n,v.d);
+  return `<span class="mixed-number" aria-label="${v.w} and ${v.n} over ${v.d}"><span class="mixed-whole">${v.w}</span>${fracHTML(v.n,v.d)}</span>`;
+}
+function answerHTML(a){return `<span class="answer-display-inline">${mixedHTML(a)}</span>`}
+function answerText(a){return a.w?`${a.w} ${a.n}/${a.d}`:`${a.n}/${a.d}`}
+function sameMixed(a,b){return a.w===b.w&&a.n===b.n&&a.d===b.d}
 function coprimePair(maxN,maxD,proper){
   for(let i=0;i<200;i++){
     let n=randInt(1,maxN),d=randInt(2,maxD);
@@ -2244,13 +2348,15 @@ function makeReducible(level,opts){
     const key=`${n}/${d}`;
     if(recentFractionQuestions[level].includes(key))continue;
     remember(level,key,factor);
+    const answer=toMixed(base.n,base.d);
     return{
       expression:`Simplify ${fracHTML(n,d)} completely.`,
-      answer:{n:base.n,d:base.d},preferredAnswer:`${base.n}/${base.d}`,
+      answer,
+      preferredAnswer:answerText(answer),
       hint:`The greatest common factor of ${n} and ${d} is ${factor}. Divide the numerator and denominator by ${factor}: ${n} ÷ ${factor} = ${base.n} and ${d} ÷ ${factor} = ${base.d}.`
     };
   }
-  return{expression:`Simplify ${fracHTML(18,24)} completely.`,answer:{n:3,d:4},preferredAnswer:'3/4',hint:'The greatest common factor of 18 and 24 is 6. Divide both by 6.'};
+  return{expression:`Simplify ${fracHTML(18,24)} completely.`,answer:{w:0,n:3,d:4},preferredAnswer:'3/4',hint:'The greatest common factor of 18 and 24 is 6. Divide both by 6.'};
 }
 function generateEasy(){return makeReducible('easy',{factors:[2,3,4,5,10],maxValue:50,proper:true})}
 function generateMedium(){return makeReducible('medium',{factors:[2,3,4,5,6,7,8,9,10,11,12],maxValue:120,proper:Math.random()<0.65})}
@@ -2295,7 +2401,7 @@ function playAppSound(type,delay=0){
 function showUnlockCelebration(modeName){
   const banner=document.getElementById('banner');
   if(!banner)return;
-  banner.innerHTML=`<span class="unlock-celebration-icon" aria-hidden="true">✦</span><span class="unlock-celebration-kicker">Level unlocked</span><strong class="unlock-celebration-title">${modeName}</strong><span class="unlock-celebration-sub">You can now practice this mode whenever you’re ready.</span>`;
+  banner.innerHTML=`<span class="unlock-celebration-icon" aria-hidden="true">✦</span><span class="unlock-celebration-kicker">Level unlocked</span><strong class="unlock-celebration-title">${modeName} Unlocked</strong><span class="unlock-celebration-sub">You can now practice this mode whenever you’re ready.</span>`;
   banner.classList.remove('show');
   void banner.offsetWidth;
   banner.classList.add('show');
@@ -2479,7 +2585,18 @@ function renderQuestion(level){
   const q=state[level].q;
   el(level+"Body").innerHTML=`
     <div class="problem question-fade-in" id="${level}Problem">${q.expression}</div>
-    <div class="row"><input id="${level}Answer" placeholder="Enter the simplified fraction" inputmode="text" enterkeyhint="done"><button class="primary" id="${level}Check">Check</button></div>
+    <div class="fraction-answer-entry">
+      <div class="mixed-answer-input" role="group" aria-label="Mixed number answer">
+        <input class="answer-field answer-whole" id="${level}Whole" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="whole" aria-label="Whole number" enterkeyhint="next">
+        <div class="answer-fraction-stack" aria-label="Fractional part">
+          <input class="answer-field answer-num" id="${level}Numerator" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="numerator" aria-label="Numerator" enterkeyhint="next">
+          <span class="answer-fraction-bar" aria-hidden="true"></span>
+          <input class="answer-field answer-den" id="${level}Denominator" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="denominator" aria-label="Denominator" enterkeyhint="done">
+        </div>
+      </div>
+      <button class="primary" id="${level}Check">Check</button>
+      <div class="answer-format-note">Leave the whole-number box blank for a proper fraction. Answers must be simplified.</div>
+    </div>
     <div class="actions"><button class="primary hidden" id="${level}Next">Next</button><button class="done" id="${level}Done">Done</button></div>
     <div class="feedback" id="${level}Feedback"></div>
     <div class="live-session hidden" id="${level}LiveStats" aria-live="polite"></div>
@@ -2488,47 +2605,67 @@ function renderQuestion(level){
   el(level+"Check").onclick=()=>check(level);
   el(level+"Next").onclick=()=>nextQuestion(level);
   el(level+"Done").onclick=()=>finishSession(level);
-  el(level+"Answer").addEventListener("keydown",e=>{
-    if(e.key==="Enter"){
+  const fields=[el(level+"Whole"),el(level+"Numerator"),el(level+"Denominator")];
+  fields.forEach((field,index)=>{
+    field.addEventListener('input',()=>{field.value=field.value.replace(/[^0-9]/g,'').slice(0,3)});
+    field.addEventListener("keydown",e=>{
+      if(e.key!=="Enter")return;
       e.preventDefault();
       if(e.repeat)return;
-      if(!el(level+"Next").classList.contains("hidden"))nextQuestion(level);else check(level);
-    }
+      if(!el(level+"Next").classList.contains("hidden")){nextQuestion(level);return}
+      if(index<fields.length-1){fields[index+1].focus();return}
+      check(level);
+    });
   });
   updateLiveStats(level);
-  el(level+"Answer").focus();
+  el(level+"Whole").focus();
   requestAnimationFrame(()=>updateTimerPosition(level));
 }
 function hintFor(q){return q.hint||"Find the greatest common factor, then divide the numerator and denominator by it."
 }
+function readMixedAnswer(level){
+  const wholeRaw=el(level+"Whole").value.trim();
+  const numRaw=el(level+"Numerator").value.trim();
+  const denRaw=el(level+"Denominator").value.trim();
+  if(!numRaw||!denRaw)return{error:"Enter both the numerator and denominator. The whole-number box may be left blank."};
+  if((wholeRaw&&!/^\d+$/.test(wholeRaw))||!/^\d+$/.test(numRaw)||!/^\d+$/.test(denRaw))return{error:"Use whole numbers only in the answer boxes."};
+  const w=wholeRaw?Number(wholeRaw):0,n=Number(numRaw),d=Number(denRaw);
+  if(!Number.isInteger(w)||!Number.isInteger(n)||!Number.isInteger(d)||d<=0)return{error:"The denominator must be a positive whole number."};
+  if(n<=0)return{error:"Enter a positive numerator for the fractional part."};
+  if(n>=d)return{error:"Write an improper fraction as a mixed number using the whole-number box."};
+  if(gcd(n,d)!==1)return{error:"Reduce the fractional part to simplest form before checking."};
+  return{value:{w,n,d}};
+}
+function disableAnswerFields(level,disabled=true){
+  ["Whole","Numerator","Denominator"].forEach(part=>{const node=el(level+part);if(node)node.disabled=disabled});
+}
 function check(level){
   const session=state[level].session;if(!session)return;
-  const answerInput=el(level+"Answer");
-  const input=answerInput?answerInput.value:"";
-  if(!input.trim()){
-    const feedback=el(level+"Feedback");
-    feedback.textContent="Please enter an answer first.";
+  const feedback=el(level+"Feedback"),checkButton=el(level+"Check");
+  const parsed=readMixedAnswer(level);
+  if(parsed.error){
+    feedback.textContent=parsed.error;
     feedback.className="feedback";
-    if(answerInput)answerInput.focus();
     return;
   }
-  const correct=equivalent(input,state[level].q.answer);
+  disableAnswerFields(level,true);
+  if(checkButton)checkButton.disabled=true;
+  const correct=sameMixed(parsed.value,state[level].q.answer);
   session.total++;
   if(correct){
     session.correct++;
     if(state[level].unlock<3){state[level].unlock++;el(level+"Progress").textContent=state[level].unlock+" / 3"}
-    playAppSound('correct');el(level+"Feedback").innerHTML='<span class="correct-callout">Correct!</span>';el(level+"Feedback").className="feedback correct";
+    playAppSound('correct');feedback.innerHTML='<span class="correct-callout">Correct!</span>';feedback.className="feedback correct";
     if(level==="easy"&&state[level].unlock===3&&!state.medium.unlocked)setTimeout(()=>unlock("medium"),350);
     if(level==="medium"&&state[level].unlock===3&&!state.hard.unlocked)setTimeout(()=>unlock("hard"),350);
     setTimeout(()=>nextQuestion(level),state.mode==="timer"?220:550);
   }else{
     session.incorrect++;
-    el(level+"Feedback").textContent=`Incorrect — correct answer: ${state[level].q.preferredAnswer||state[level].q.answer}`;el(level+"Feedback").className="feedback incorrect";playAppSound('incorrect');
-    el(level+"Answer").disabled=true;
-    el(level+"Check").disabled=true;
+    feedback.innerHTML=`Incorrect — correct answer: ${answerHTML(state[level].q.answer)}`;feedback.className="feedback incorrect";playAppSound('incorrect');
     el(level+"Hint").textContent=hintFor(state[level].q);
     el(level+"Bubble").classList.remove("hidden");
     el(level+"Next").classList.remove("hidden");
+    el(level+"Next").focus();
   }
   updateLiveStats(level);
 }

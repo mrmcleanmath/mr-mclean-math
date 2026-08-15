@@ -1,6 +1,6 @@
-v116
-User-recorded unlock sound update:
-- Replaced the synthetic lock click with the cleaned user-recorded unlock sound.
-- Kept the same timing sequence: lock sound at the lock-opening moment, then achievement celebration later.
-- Slightly reduced the lock-sound playback volume so it sits comfortably under the achievement sound.
-- Preserved all v115 functionality, including correct/incorrect sounds, Print Results, and the Surface Area thumbnail.
+v118
+Monitor screen fit refinement:
+- Fixed the thin cream-colored seam visible underneath tutorial thumbnails.
+- Root cause was the monitor-screen viewport ending slightly above the bottom of the illustrated screen opening.
+- Extended only the monitor-screen height from 58.6% to 59.05%; top, left, and right alignment are unchanged.
+- Preserved the v117 thumbnail crop, mixed-fraction answer fields, unlock wording, all sounds, Print Results, and other features.
