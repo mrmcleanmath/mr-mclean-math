@@ -460,6 +460,7 @@ button{border:0;border-radius:8px;padding:9px 15px;font-weight:900;cursor:pointe
 
 .practice-main-column{
   min-width:0;
+  position:relative;
 }
 
 .compact-topic-title{
@@ -1240,34 +1241,42 @@ body::before{
   100%{opacity:1;transform:scale(1)}
 }
 .banner{
-  position:fixed;
-  left:50%;
-  top:50%;
-  width:min(430px,88vw);
-  transform:translate(-50%,-50%) scale(.78);
-  padding:24px 28px 22px;
+  position:absolute;
+  left:0;
+  right:auto;
+  top:0;
+  width:min(330px,calc(100vw - 48px));
+  transform:translateX(24px) scale(.95);
+  padding:14px 16px 13px;
   border:2px solid #efc44b;
-  border-radius:25px;
+  border-radius:21px;
   background:
-    radial-gradient(circle at 50% 0%,rgba(255,255,255,.98),rgba(255,255,255,.76) 34%,transparent 35%),
+    radial-gradient(circle at 20% 0%,rgba(255,255,255,.98),rgba(255,255,255,.76) 34%,transparent 35%),
     linear-gradient(145deg,#fffdf3 0%,#fff3bd 58%,#ffe7a2 100%);
-  text-align:center;
+  text-align:left;
   opacity:0;
   pointer-events:none;
   z-index:80;
   overflow:hidden;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  grid-template-areas:
+    "icon kicker"
+    "icon title"
+    "icon sub";
+  column-gap:12px;
+  align-items:center;
   box-shadow:
-    0 26px 70px rgba(42,45,54,.28),
-    0 0 0 7px rgba(255,218,93,.16)
+    0 20px 48px rgba(42,45,54,.24),
+    0 0 0 6px rgba(255,218,93,.14)
 }
 .banner::before{
   content:"";
   position:absolute;
-  width:260px;
-  height:260px;
-  left:50%;
-  top:-150px;
-  transform:translateX(-50%);
+  width:210px;
+  height:210px;
+  left:-68px;
+  top:-132px;
   border-radius:50%;
   background:radial-gradient(circle,rgba(255,211,77,.42),rgba(255,211,77,0) 68%);
   pointer-events:none
@@ -1284,21 +1293,22 @@ body::before{
   opacity:0;
   pointer-events:none
 }
-.banner.show{animation:unlockCelebration 4.75s cubic-bezier(.18,.82,.24,1) both}
+.banner.show{animation:unlockToastDesktop 4.75s cubic-bezier(.18,.82,.24,1) both}
 .banner.show::after{animation:unlockShimmer 1.05s ease .35s both}
 .unlock-celebration-icon{
   position:relative;
   z-index:1;
-  width:62px;
-  height:62px;
-  margin:0 auto 9px;
+  grid-area:icon;
+  width:46px;
+  height:46px;
+  margin:0;
   display:grid;
   place-items:center;
   border-radius:50%;
   background:#fff;
   border:2px solid #f0c64d;
   color:#d99b00;
-  font-size:2rem;
+  font-size:1.72rem;
   line-height:1;
   box-shadow:0 8px 20px rgba(179,129,0,.18),inset 0 1px 0 rgba(255,255,255,.95);
   animation:unlockIconPop .62s cubic-bezier(.18,.89,.32,1.35) .08s both
@@ -1306,20 +1316,22 @@ body::before{
 .unlock-celebration-kicker{
   position:relative;
   z-index:1;
+  grid-area:kicker;
   display:block;
-  margin-bottom:4px;
+  margin:0 0 2px;
   color:#8d6a11;
-  font-size:.72rem;
+  font-size:.67rem;
   font-weight:1000;
-  letter-spacing:.16em;
+  letter-spacing:.15em;
   text-transform:uppercase
 }
 .unlock-celebration-title{
   position:relative;
   z-index:1;
+  grid-area:title;
   display:block;
   color:#30343b;
-  font-size:clamp(1.75rem,5vw,2.25rem);
+  font-size:1.24rem;
   line-height:1.05;
   font-weight:1000;
   letter-spacing:-.025em
@@ -1327,19 +1339,27 @@ body::before{
 .unlock-celebration-sub{
   position:relative;
   z-index:1;
+  grid-area:sub;
   display:block;
-  margin-top:7px;
+  margin-top:3px;
   color:#6b5b29;
-  font-size:.9rem;
-  line-height:1.35;
+  font-size:.73rem;
+  line-height:1.3;
   font-weight:850
 }
-@keyframes unlockCelebration{
-  0%{opacity:0;transform:translate(-50%,-50%) scale(.72)}
-  13%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
-  22%{opacity:1;transform:translate(-50%,-50%) scale(1)}
-  80%{opacity:1;transform:translate(-50%,-50%) scale(1)}
-  100%{opacity:0;transform:translate(-50%,-48%) scale(.96)}
+@keyframes unlockToastDesktop{
+  0%{opacity:0;transform:translateX(34px) scale(.92)}
+  13%{opacity:1;transform:translateX(-7px) scale(1.035)}
+  22%{opacity:1;transform:translateX(0) scale(1)}
+  80%{opacity:1;transform:translateX(0) scale(1)}
+  100%{opacity:0;transform:translateX(22px) scale(.97)}
+}
+@keyframes unlockToastMobile{
+  0%{opacity:0;transform:translate(-50%,-18px) scale(.96)}
+  13%{opacity:1;transform:translate(-50%,4px) scale(1.025)}
+  22%{opacity:1;transform:translate(-50%,0) scale(1)}
+  80%{opacity:1;transform:translate(-50%,0) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-12px) scale(.98)}
 }
 @keyframes unlockIconPop{
   0%{opacity:0;transform:scale(.28) rotate(-22deg)}
@@ -1351,11 +1371,54 @@ body::before{
   24%{opacity:.72}
   100%{left:125%;opacity:0}
 }
-@media(max-width:520px){
-  .correct-callout{font-size:1.28rem}
-  .banner{width:min(390px,90vw);padding:21px 20px 20px;border-radius:22px}
-  .unlock-celebration-icon{width:56px;height:56px;font-size:1.8rem}
-  .unlock-celebration-sub{font-size:.84rem}
+@media(max-width:900px){
+  .banner{
+    position:fixed;
+    left:50%;
+    right:auto;
+    top:12px;
+    width:min(540px,calc(100vw - 24px));
+    transform:translate(-50%,-18px) scale(.96);
+    padding:11px 14px;
+    border-radius:17px;
+    grid-template-columns:42px minmax(0,1fr);
+    column-gap:11px;
+    box-shadow:0 14px 34px rgba(42,45,54,.22),0 0 0 5px rgba(255,218,93,.13)
+  }
+  .banner.show{animation:unlockToastMobile 4.75s cubic-bezier(.18,.82,.24,1) both}
+  .unlock-celebration-icon{width:42px;height:42px;font-size:1.38rem}
+  .unlock-celebration-kicker{font-size:.59rem;margin-bottom:1px}
+  .unlock-celebration-title{font-size:1.14rem}
+  .unlock-celebration-sub{margin-top:2px;font-size:.71rem;line-height:1.2}
+}
+@media(max-width:390px){
+  .banner{width:calc(100vw - 16px);padding:10px 12px;grid-template-columns:38px minmax(0,1fr);column-gap:9px}
+  .unlock-celebration-icon{width:38px;height:38px;font-size:1.22rem}
+  .unlock-celebration-title{font-size:1.02rem}
+  .unlock-celebration-sub{font-size:.66rem}
+}
+
+
+/* Timed-session reporting. */
+.report-grid.has-time{grid-template-columns:repeat(4,minmax(0,1fr))}
+.report-timing{
+  margin:10px 0 0;
+  text-align:center;
+  color:#3f4853;
+  font-size:.82rem;
+  line-height:1.35;
+  font-weight:900
+}
+@media(max-width:620px){.report-grid.has-time{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{
+  #combinedPrintResults .print-stat-grid.has-time{grid-template-columns:repeat(4,1fr)}
+  #combinedPrintResults .print-timing{
+    margin-top:8px;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    font-weight:800;
+    color:#555d66
+  }
 }
 
 </style>
@@ -2631,14 +2694,18 @@ const appSoundFiles={
   correct:'sounds/correct.wav',
   incorrect:'sounds/incorrect.wav',
   lock:'sounds/unlock-click.wav',
-  unlock:'sounds/achievement.wav'
+  unlock:'sounds/achievement.wav',
+  timerTick:'sounds/timer-tick.wav',
+  timerFinished:'sounds/timer-finished.wav'
 };
-const appSoundVolumes={correct:1,incorrect:.48,lock:.44,unlock:.35};
+const appSoundVolumes={correct:1,incorrect:.48,lock:.44,unlock:.35,timerTick:.38,timerFinished:.72};
 const appSounds={
   correct:new Audio(appSoundFiles.correct),
   incorrect:new Audio(appSoundFiles.incorrect),
   lock:new Audio(appSoundFiles.lock),
-  unlock:new Audio(appSoundFiles.unlock)
+  unlock:new Audio(appSoundFiles.unlock),
+  timerTick:new Audio(appSoundFiles.timerTick),
+  timerFinished:new Audio(appSoundFiles.timerFinished)
 };
 Object.entries(appSounds).forEach(([type,audio])=>{
   audio.preload='auto';
@@ -2660,11 +2727,36 @@ function playAppSound(type,delay=0){
   if(delay>0)setTimeout(run,delay);else run();
 }
 
-function showUnlockCelebration(modeName){
+function positionUnlockCelebration(anchorLevel){
+  const banner=document.getElementById('banner');
+  if(!banner)return;
+  if(window.innerWidth<=900){
+    banner.style.left='';
+    banner.style.top='';
+    return;
+  }
+  const card=document.getElementById(anchorLevel+'Card');
+  const column=document.querySelector('.practice-main-column');
+  if(!card||!column)return;
+  if(banner.parentElement!==column)column.appendChild(banner);
+  const cardRect=card.getBoundingClientRect();
+  const columnRect=column.getBoundingClientRect();
+  const bannerWidth=banner.offsetWidth||330;
+  const bannerHeight=banner.offsetHeight||92;
+  const inset=14;
+  const gap=10;
+  const left=Math.max(inset,Math.min(cardRect.right-columnRect.left-bannerWidth-inset,columnRect.width-bannerWidth-inset));
+  const top=Math.max(8,cardRect.top-columnRect.top-bannerHeight-gap);
+  banner.style.left=`${Math.round(left)}px`;
+  banner.style.top=`${Math.round(top)}px`;
+}
+
+function showUnlockCelebration(modeName,anchorLevel){
   const banner=document.getElementById('banner');
   if(!banner)return;
   banner.innerHTML=`<span class="unlock-celebration-icon" aria-hidden="true">✦</span><span class="unlock-celebration-kicker">Level unlocked</span><strong class="unlock-celebration-title">${modeName} Unlocked</strong><span class="unlock-celebration-sub">You can now practice this mode whenever you’re ready.</span>`;
   banner.classList.remove('show');
+  positionUnlockCelebration(anchorLevel);
   void banner.offsetWidth;
   banner.classList.add('show');
   playAppSound('unlock');
@@ -2675,12 +2767,51 @@ function showUnlockCelebration(modeName){
 
 const completedResults={easy:null,medium:null,hard:null};
 const printModeNames={easy:'Foundation',medium:'Core',hard:'Challenge'};
+function formatSessionTime(seconds){
+  const total=Math.max(0,Math.round(Number(seconds)||0));
+  if(total<60)return `${total} sec`;
+  const minutes=Math.floor(total/60),remaining=total%60;
+  return remaining?`${minutes}m ${remaining}s`:`${minutes} min`;
+}
+function timingLimitText(result){
+  if(!result||!result.timeLimit)return '';
+  return result.timerScope==='question'
+    ? `${result.timeLimit} ${result.timeLimit===1?'second':'seconds'} per question`
+    : `${result.timeLimit}-second session timer`;
+}
+function finalizeTimedSession(session,{timerExpired=false}={}){
+  if(!session||session.mode!=='timer')return null;
+  const timeLimit=Math.max(0,Number(session.timeLimit)||0);
+  const timerScope=session.timerScope==='question'?'question':'session';
+  let elapsedSeconds=Number(session.elapsedSeconds);
+  if(!Number.isFinite(elapsedSeconds)){
+    if(timerScope==='session'&&timerExpired&&timeLimit){
+      elapsedSeconds=timeLimit;
+    }else if(Number.isFinite(Number(session.elapsedMilliseconds))){
+      elapsedSeconds=Math.ceil(Math.max(0,Number(session.elapsedMilliseconds))/1000);
+    }else if(Number.isFinite(Number(session.startedAt))){
+      elapsedSeconds=Math.ceil(Math.max(0,Date.now()-Number(session.startedAt))/1000);
+    }else{
+      elapsedSeconds=timeLimit;
+    }
+  }
+  if(timerScope==='session'&&timeLimit)elapsedSeconds=Math.min(timeLimit,elapsedSeconds);
+  elapsedSeconds=Math.max(0,Math.round(elapsedSeconds));
+  session.elapsedSeconds=elapsedSeconds;
+  session.timeLimit=timeLimit;
+  session.timerScope=timerScope;
+  return {elapsedSeconds,timeLimit,timerScope};
+}
 function recordCompletedResult(level,session,accuracy){
   completedResults[level]={
     correct:Number(session.correct)||0,
     incorrect:Number(session.incorrect)||0,
     total:Number(session.total)||0,
     accuracy:Number(accuracy)||0,
+    mode:session.mode==='timer'?'timer':'student',
+    timeLimit:Number(session.timeLimit)||0,
+    elapsedSeconds:Number(session.elapsedSeconds)||0,
+    timerScope:session.timerScope==='question'?'question':'session',
     completedAt:new Date()
   };
 }
@@ -2707,14 +2838,16 @@ function printCombinedResults(){
     <div class="print-subtitle">Practice Results</div>
     <div class="print-meta">Most recent completed result for each mode • ${generated}</div>
     ${ordered.map(level=>{
-      const r=completedResults[level];
+      const r=completedResults[level],timed=r.mode==='timer'&&r.timeLimit>0;
       return `<section class="print-mode">
         <h2>${printModeNames[level]} Mode</h2>
-        <div class="print-stat-grid">
+        <div class="print-stat-grid${timed?' has-time':''}">
           <div class="print-stat"><strong>${r.correct}</strong><span>Correct</span></div>
           <div class="print-stat"><strong>${r.incorrect}</strong><span>Incorrect</span></div>
           <div class="print-stat"><strong>${r.accuracy}%</strong><span>Accuracy</span></div>
+          ${timed?`<div class="print-stat"><strong>${formatSessionTime(r.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}
         </div>
+        ${timed?`<div class="print-timing">Timer Mode • ${timingLimitText(r)}</div>`:''}
       </section>`;
     }).join('')}
     <div class="print-foot">Generated from Mr. McLean Math practice.</div>`;
@@ -2813,7 +2946,7 @@ function newSession(level){
   if(state.activeLevel && state.activeLevel!==level && state[state.activeLevel].session)finishSession(state.activeLevel);
   clearAllOrbTimers();
   state.activeLevel=level;
-  state[level].session={correct:0,incorrect:0,total:0};
+  state[level].session={correct:0,incorrect:0,total:0,mode:state.mode,timeLimit:state.mode==='timer'?Number(el('duration').value):0,timerScope:'session',startedAt:Date.now()};
   state[level].resolved=false;
   state[level].transitioning=false;
   state[level].q=generators[level]();
@@ -2822,21 +2955,26 @@ function newSession(level){
   requestAnimationFrame(()=>updateTimerPosition(level));
 }
 function startTimer(){
-  clearInterval(state.timerId);
+  clearInterval(state.timerId);state.timerId=null;
   if(state.mode!=="timer"){clearAllOrbTimers({animate:true});return}
+  const activeLevel=state.activeLevel;
+  const session=state[activeLevel]?.session;
   state.timeLeft=Number(el("duration").value);
   const total=state.timeLeft;
-  showOrbTimer(state.activeLevel,state.timeLeft,"ready",1);
+  if(session){session.mode='timer';session.timeLimit=total;session.timerScope='session';session.startedAt=Date.now()}
+  showOrbTimer(activeLevel,state.timeLeft,"ready",1);
   setTimeout(()=>{
-    if(state.mode==="timer"&&state[state.activeLevel]?.session)showOrbTimer(state.activeLevel,state.timeLeft,"running",1);
+    if(state.mode==="timer"&&state[activeLevel]?.session)showOrbTimer(activeLevel,state.timeLeft,"running",1);
   },620);
   state.timerId=setInterval(()=>{
     state.timeLeft--;
-    showOrbTimer(state.activeLevel,Math.max(0,state.timeLeft),"running",total?state.timeLeft/total:0);
+    showOrbTimer(activeLevel,Math.max(0,state.timeLeft),"running",total?state.timeLeft/total:0);
+    if(state.timeLeft>0&&state.timeLeft<=5)playAppSound('timerTick');
     if(state.timeLeft<=0){
-      clearInterval(state.timerId);
-      showOrbTimer(state.activeLevel,0,"finished",0);
-      setTimeout(()=>finishSession(state.activeLevel),520);
+      clearInterval(state.timerId);state.timerId=null;
+      showOrbTimer(activeLevel,0,"finished",0);
+      playAppSound('timerFinished');
+      setTimeout(()=>finishSession(activeLevel,{timerExpired:true}),520);
     }
   },1000);
 }
@@ -2914,19 +3052,22 @@ function nextQuestion(level){
   p.className="problem question-fade-out";
   setTimeout(()=>{state[level].q=generators[level]();renderQuestion(level)},190);
 }
-function finishSession(level){
+function finishSession(level,{timerExpired=false}={}){
   if(!level||!state[level].session)return;
-  clearInterval(state.timerId);
+  clearInterval(state.timerId);state.timerId=null;
   const s=state[level].session,acc=s.total?Math.round(s.correct/s.total*100):0;
+  const timing=finalizeTimedSession(s,{timerExpired});
   recordCompletedResult(level,s,acc);
   el(level+"Body").innerHTML=`
     <div class="report">
       <div class="report-title">Session Report</div>
-      <div class="report-grid">
+      <div class="report-grid${timing?' has-time':''}">
         <div class="stat"><strong>${s.correct}</strong><span>Correct</span></div>
         <div class="stat"><strong>${s.incorrect}</strong><span>Incorrect</span></div>
         <div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>
+        ${timing?`<div class="stat"><strong>${formatSessionTime(timing.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}
       </div>
+      ${timing?`<div class="report-timing">Timer Mode • ${timingLimitText(timing)}</div>`:''}
       <div class="report-note">${sessionReportNote(level,state[level].unlock)}</div>
       <div class="report-actions"><button class="restart" id="${level}Restart">Start Again</button><button class="print-results-button" id="${level}PrintResults" type="button">Print Results</button></div>
     </div>`;
@@ -2960,7 +3101,7 @@ function unlock(level){
       }
     }
 
-    showUnlockCelebration(levelDisplayNames[level]);
+    showUnlockCelebration(levelDisplayNames[level],previousLevel||level);
     requestAnimationFrame(()=>updateTimerPosition(previousLevel||level));
   },1200);
 }
@@ -3036,7 +3177,7 @@ resetModalBackdrop.addEventListener("click",event=>{if(event.target===resetModal
 document.addEventListener("keydown",event=>{if(event.key==="Escape"&&resetModalBackdrop.classList.contains("show"))closeResetModal()});
 
 renderStart("easy");
-requestAnimation(()=>updateTimerPosition("easy"));
+requestAnimationFrame(()=>updateTimerPosition("easy"));
 })();
 </script>
 

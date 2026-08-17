@@ -407,6 +407,49 @@ body::before{
 }
 
 
+.more-apps-classroom-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  width:max-content;
+  max-width:100%;
+  margin-top:13px;
+  padding:10px 15px;
+  border-radius:10px;
+  background:#267a4d;
+  color:#fff;
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:1000;
+  line-height:1.2;
+  box-shadow:0 8px 18px rgba(38,122,77,.2);
+  transition:transform .2s ease,background .2s ease,box-shadow .2s ease
+}
+.more-apps-classroom-btn:hover{
+  transform:translateY(-2px);
+  background:#206840;
+  box-shadow:0 10px 22px rgba(38,122,77,.24)
+}
+.more-apps-classroom-btn:focus-visible{outline:3px solid rgba(38,122,77,.28);outline-offset:3px}
+.more-apps-classroom-mark{
+  width:24px;
+  height:24px;
+  flex:0 0 24px;
+  display:grid!important;
+  place-items:center;
+  border-radius:7px;
+  background:rgba(255,255,255,.18);
+  color:#fff!important;
+  font-family:"Arial Black",Arial,sans-serif;
+  font-size:.85rem!important;
+  line-height:1!important
+}
+@media(max-width:680px){
+  .more-apps-classroom-btn{width:100%;white-space:normal;text-align:center}
+}
+
+
 .surface-area-thumb{padding:0;overflow:hidden}
 .surface-area-thumb svg{width:118px;height:72px;display:block}
 .surface-area-thumb .sa-face-top{fill:#fff5bf}
@@ -1118,7 +1161,7 @@ cards.forEach(card=>card.querySelector('.area-button').addEventListener('click',
  const data=areaData[key];
  panel.style.setProperty('--accent',data.accent);
  if(data.symbolInk)panel.style.setProperty('--symbol-ink',data.symbolInk);else panel.style.removeProperty('--symbol-ink');
- panel.innerHTML=`<div class="concept-heading"><h2>${data.title} Practice</h2><span>Choose a concept to begin</span></div><div class="concept-list">${data.html}</div><div class="more-apps-callout"><div class="more-apps-icon" aria-hidden="true">✦</div><div class="more-apps-copy"><span class="more-apps-kicker">MORE IS COMING</span><strong>More interactive math practice is on the way</strong><span class="more-apps-body">New practice tools are being added regularly. Check back to see what’s new.</span></div></div>`;
+ panel.innerHTML=`<div class="concept-heading"><h2>${data.title} Practice</h2><span>Choose a concept to begin</span></div><div class="concept-list">${data.html}</div><div class="more-apps-callout"><div class="more-apps-icon" aria-hidden="true">✦</div><div class="more-apps-copy"><span class="more-apps-kicker">MORE IS COMING</span><strong>More interactive math practice is on the way</strong><span class="more-apps-body">Want to know when new resources are added? Join the <b>Mr. McLean Math Google Classroom</b> for updates.</span><a class="more-apps-classroom-btn" href="https://classroom.google.com/c/NzcyODA0OTI1NTkz?cjc=agy4gloz" target="_blank" rel="noopener noreferrer"><span class="more-apps-classroom-mark" aria-hidden="true">G</span>Join the Google Classroom</a></div></div>`;
  display.classList.add('visible');
  setTimeout(()=>display.scrollIntoView({behavior:'smooth',block:'nearest'}),120);
 }));

@@ -1,6 +1,8 @@
-v118
-Monitor screen fit refinement:
-- Fixed the thin cream-colored seam visible underneath tutorial thumbnails.
-- Root cause was the monitor-screen viewport ending slightly above the bottom of the illustrated screen opening.
-- Extended only the monitor-screen height from 58.6% to 59.05%; top, left, and right alignment are unchanged.
-- Preserved the v117 thumbnail crop, mixed-fraction answer fields, unlock wording, all sounds, Print Results, and other features.
+v121
+Contextual unlock notification placement update:
+- Moved the level-unlocked celebration from the far-right page corner to the practice area on desktop.
+- The notification now appears just above the active mode card, aligned toward the card's right side, so it stays visually connected to the level where the unlock occurred.
+- Slightly compacted the desktop notification while preserving its achievement styling, wording, sound, animation, and display duration.
+- Kept the compact top-banner behavior for tablets and phones.
+- The notification remains non-blocking and does not cover the active problem, answer field, or timer orb.
+- Preserved all v120/v119 features, including Google Classroom placements, timed-session reports, countdown ticks, timer-finish sound, and practice content.
