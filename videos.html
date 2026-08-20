@@ -722,6 +722,63 @@ body > header.site-global-header .site-global-social svg{
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+
+<style id="v124-games-launch-nav">
+/* v124 Games launch refinement: keep all five primary tabs identical in size/position, with a clearer premium NEW badge on Games. */
+@media (min-width:901px){
+  body > header.site-global-header nav.site-global-nav{
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
+    gap:8px !important;
+  }
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]{
+  position:relative !important;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+  content:"NEW";
+  position:absolute;
+  top:4px;
+  right:18px;
+  z-index:4;
+  padding:4px 8px 3px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
+  border:1px solid #c57a00;
+  color:#5c3100;
+  font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;
+  letter-spacing:.09em;
+  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92);
+  pointer-events:none;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+  content:"";
+  position:absolute;
+  top:11px;
+  right:51px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff7c9;
+  box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+    top:2px;
+    right:10px;
+    padding:3px 6px 2px;
+    font-size:8px;
+  }
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+    top:8px;
+    right:41px;
+    width:5px;
+    height:5px;
+  }
+}
+</style>
+
 </head>
 <body>
 <h1 class="sr-only">Video Library</h1>
@@ -731,6 +788,7 @@ body > header.site-global-header .site-global-social svg{
 <a href="index.html">Home</a>
 <a class="active" href="videos.html">Videos</a>
 <a href="practice.html">Practice</a>
+<a href="games.html">Games</a>
 <a href="about.html">About</a>
 </nav>
 <div class="site-global-social" aria-label="Social media links">

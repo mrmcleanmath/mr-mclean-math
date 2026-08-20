@@ -1095,6 +1095,67 @@ body > header.site-global-header .site-global-social svg{
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<style id="pi-memory-practice-thumb">
+.pi-memory-thumb{padding:0!important;overflow:hidden!important;background:#11184d!important}
+.pi-memory-thumb img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+</style>
+
+<style id="v124-games-launch-nav">
+/* v124 Games launch refinement: keep all five primary tabs identical in size/position, with a clearer premium NEW badge on Games. */
+@media (min-width:901px){
+  body > header.site-global-header nav.site-global-nav{
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
+    gap:8px !important;
+  }
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]{
+  position:relative !important;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+  content:"NEW";
+  position:absolute;
+  top:4px;
+  right:18px;
+  z-index:4;
+  padding:4px 8px 3px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
+  border:1px solid #c57a00;
+  color:#5c3100;
+  font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;
+  letter-spacing:.09em;
+  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92);
+  pointer-events:none;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+  content:"";
+  position:absolute;
+  top:11px;
+  right:51px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff7c9;
+  box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+    top:2px;
+    right:10px;
+    padding:3px 6px 2px;
+    font-size:8px;
+  }
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+    top:8px;
+    right:41px;
+    width:5px;
+    height:5px;
+  }
+}
+</style>
+
 </head>
 <body>
 <h1 class="sr-only">Math Practice</h1>
@@ -1104,6 +1165,7 @@ body > header.site-global-header .site-global-social svg{
 <a href="index.html">Home</a>
 <a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
+<a href="games.html">Games</a>
 <a href="about.html">About</a>
 </nav>
 <div class="site-global-social" aria-label="Social media links">
@@ -1146,9 +1208,9 @@ body > header.site-global-header .site-global-social svg{
 </main>
 <script>
 const areaData={
- number:{title:'Number & Operations',accent:'#fce5cd',symbolInk:'#8f5b34',html:`<a class="concept-card new-app" href="adding-subtracting-fractions.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.06rem"><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span><span class="concept-fraction-arrow">+</span><span class="concept-stacked-fraction"><span>3</span><span class="concept-fraction-bar"></span><span>4</span></span></div><div class="concept-copy"><h3>Adding &amp; Subtracting Fractions with Different Denominators</h3><p>Practice different denominators through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ number:{title:'Number & Operations',accent:'#fce5cd',symbolInk:'#8f5b34',html:`<a class="concept-card" href="adding-subtracting-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.06rem"><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span><span class="concept-fraction-arrow">+</span><span class="concept-stacked-fraction"><span>3</span><span class="concept-fraction-bar"></span><span>4</span></span></div><div class="concept-copy"><h3>Adding &amp; Subtracting Fractions with Different Denominators</h3><p>Practice different denominators through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Terms</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
- geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card new-app" href="surface-area-cuboids.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol surface-area-thumb" aria-hidden="true"><svg viewBox="0 0 130 78" focusable="false"><polygon class="sa-face-top" points="28,24 80,24 103,12 51,12"></polygon><polygon class="sa-face-front" points="28,24 80,24 80,59 28,59"></polygon><polygon class="sa-face-side" points="80,24 103,12 103,47 80,59"></polygon><polyline class="sa-edge" points="28,24 51,12 103,12 103,47 80,59 28,59 28,24 80,24 103,12"></polyline><line class="sa-edge" x1="80" y1="24" x2="80" y2="59"></line><text class="sa-label" x="39" y="48">m²</text></svg></div><div class="concept-copy"><h3>Surface Area of Cuboids</h3><p>Calculate total surface area, reason about which faces count, then tackle square-unit conversions.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card new-app" href="pi-memory-challenge.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol pi-memory-thumb"><img src="assets/pi-memory-game-cover.png" alt="Pi Memory Challenge"></div><div class="concept-copy"><h3>Pi Memory Challenge</h3><p>Build memory and concentration by recalling digits of pi in Practice or Challenge Mode.</p></div><span class="practice-pill">Play Game →</span></a><a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="surface-area-cuboids.html"><div class="concept-symbol surface-area-thumb" aria-hidden="true"><svg viewBox="0 0 130 78" focusable="false"><polygon class="sa-face-top" points="28,24 80,24 103,12 51,12"></polygon><polygon class="sa-face-front" points="28,24 80,24 80,59 28,59"></polygon><polygon class="sa-face-side" points="80,24 103,12 103,47 80,59"></polygon><polyline class="sa-edge" points="28,24 51,12 103,12 103,47 80,59 28,59 28,24 80,24 103,12"></polyline><line class="sa-edge" x1="80" y1="24" x2="80" y2="59"></line><text class="sa-label" x="39" y="48">m²</text></svg></div><div class="concept-copy"><h3>Surface Area of Cuboids</h3><p>Calculate total surface area, reason about which faces count, then tackle square-unit conversions.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  stats:{title:'Statistics & Probability',accent:'#8a6ac6',html:`<a class="concept-card" href="basic-probability.html"><div class="concept-symbol probability-thumb"><img src="probability-coin-flip.png" alt="Hand flipping a coin"></div><div class="concept-copy"><h3>Basic Probability</h3><p>Find probabilities using favorable outcomes and total outcomes.</p></div><span class="practice-pill">Start Practice →</span></a>`}
 };

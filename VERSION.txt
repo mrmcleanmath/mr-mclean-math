@@ -1,8 +1,1 @@
-v121
-Contextual unlock notification placement update:
-- Moved the level-unlocked celebration from the far-right page corner to the practice area on desktop.
-- The notification now appears just above the active mode card, aligned toward the card's right side, so it stays visually connected to the level where the unlock occurred.
-- Slightly compacted the desktop notification while preserving its achievement styling, wording, sound, animation, and display duration.
-- Kept the compact top-banner behavior for tablets and phones.
-- The notification remains non-blocking and does not cover the active problem, answer field, or timer orb.
-- Preserved all v120/v119 features, including Google Classroom placements, timed-session reports, countdown ticks, timer-finish sound, and practice content.
+v123 — Games launch announcement + NEW navigation badge + five-tab consistency

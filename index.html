@@ -375,7 +375,7 @@ main{width:min(1500px,96vw); margin:0 auto; padding:16px 12px 44px;}
   line-height:1.45;
   color:#5d626c;
   font-weight:700;
-  max-width:240px;
+  max-width:180px;
 }
 .explore{
   position:relative;
@@ -1548,6 +1548,209 @@ body > header.site-global-header .site-global-social svg{
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+
+<style id="v124-games-launch-nav">
+/* v124 Games launch refinement: keep all five primary tabs identical in size/position, with a clearer premium NEW badge on Games. */
+@media (min-width:901px){
+  body > header.site-global-header nav.site-global-nav{
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
+    gap:8px !important;
+  }
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]{
+  position:relative !important;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+  content:"NEW";
+  position:absolute;
+  top:4px;
+  right:18px;
+  z-index:4;
+  padding:4px 8px 3px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
+  border:1px solid #c57a00;
+  color:#5c3100;
+  font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;
+  letter-spacing:.09em;
+  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92);
+  pointer-events:none;
+}
+body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+  content:"";
+  position:absolute;
+  top:11px;
+  right:51px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff7c9;
+  box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
+    top:2px;
+    right:10px;
+    padding:3px 6px 2px;
+    font-size:8px;
+  }
+  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
+    top:8px;
+    right:41px;
+    width:5px;
+    height:5px;
+  }
+}
+</style>
+
+
+<style id="v125-games-launch-banner-style">
+.games-launch-banner{
+  position:relative;
+  overflow:hidden;
+  width:min(1180px,calc(100% - 36px));
+  margin:26px auto 10px;
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  border:2px solid #71dfff;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 14% 18%,rgba(89,245,255,.18),transparent 26%),
+    radial-gradient(circle at 86% 18%,rgba(255,96,214,.18),transparent 28%),
+    linear-gradient(135deg,#0c1237 0%,#1a2267 44%,#38177b 100%);
+  box-shadow:0 16px 34px rgba(16,22,76,.28),0 0 0 2px rgba(125,92,255,.14),0 0 24px rgba(84,223,255,.12),inset 0 1px 0 rgba(255,255,255,.08);
+}
+.games-launch-banner::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:16px;
+  border:1px solid rgba(152,222,255,.18);
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px);
+  pointer-events:none;
+}
+.games-launch-copy{position:relative;z-index:1;min-width:0;max-width:60%}
+.games-launch-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 10px;
+  padding:7px 12px;
+  color:#ffe7a8;
+  background:linear-gradient(180deg,rgba(255,224,122,.18),rgba(255,176,62,.06));
+  border:1px solid rgba(255,211,98,.46);
+  border-radius:999px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.05),0 0 12px rgba(255,210,92,.12);
+  font:1000 .78rem/1 "Trebuchet MS",Arial,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.games-launch-kicker::before{content:"★";color:#fff2b8;text-shadow:0 0 10px rgba(255,237,157,.45)}
+.games-launch-banner h2{margin:0;color:#ffffff;font:1000 clamp(1.32rem,2.3vw,1.8rem)/1.12 "Trebuchet MS",Arial,sans-serif;text-shadow:0 0 12px rgba(101,225,255,.18),0 0 24px rgba(151,103,255,.14)}
+.games-launch-banner p{margin:8px 0 0;color:#d8e6ff;font-weight:700;line-height:1.5}
+.games-launch-decor{
+  position:absolute;
+  right:214px;
+  top:50%;
+  width:180px;
+  height:118px;
+  transform:translateY(-50%);
+  pointer-events:none;
+  z-index:0;
+}
+.gl-pixel{position:absolute;width:10px;height:10px;border-radius:2px;background:linear-gradient(180deg,#95eeff,#58bfff);box-shadow:0 0 10px rgba(111,234,255,.45)}
+.gl-pixel.p1{top:6px;right:172px}
+.gl-pixel.p2{top:20px;right:152px;width:8px;height:8px;background:linear-gradient(180deg,#ffd776,#ffa53d);box-shadow:0 0 10px rgba(255,198,80,.42)}
+.gl-pixel.p3{top:86px;right:160px;width:12px;height:12px;background:linear-gradient(180deg,#ff9cf0,#cb73ff);box-shadow:0 0 12px rgba(231,120,255,.36)}
+.gl-pixel.p4{top:70px;right:24px;width:8px;height:8px}
+.gl-pixel.p5{top:14px;right:34px;width:6px;height:6px;background:linear-gradient(180deg,#ffd776,#ffa53d);box-shadow:0 0 10px rgba(255,198,80,.42)}
+.gl-controller{
+  position:absolute;
+  right:0;
+  top:14px;
+  width:176px;
+  height:90px;
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01)),linear-gradient(135deg,#111b4e,#25338c 60%,#461875 100%);
+  border:1px solid rgba(138,231,255,.34);
+  box-shadow:0 10px 18px rgba(7,10,38,.24),0 0 18px rgba(103,230,255,.12),inset 0 1px 0 rgba(255,255,255,.11);
+}
+.gl-controller::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:22px;
+  border:1px solid rgba(160,215,255,.1);
+}
+.gl-dpad{
+  position:absolute;
+  left:28px;
+  top:30px;
+  width:34px;
+  height:34px;
+}
+.gl-dpad::before,.gl-dpad::after{
+  content:"";
+  position:absolute;
+  left:50%;top:50%;transform:translate(-50%,-50%);
+  background:linear-gradient(180deg,#8af2ff,#58bfff);
+  box-shadow:0 0 8px rgba(117,231,255,.38);
+  border-radius:3px;
+}
+.gl-dpad::before{width:34px;height:10px}
+.gl-dpad::after{width:10px;height:34px}
+.gl-stick{
+  position:absolute;
+  left:74px;
+  top:28px;
+  width:28px;height:28px;border-radius:50%;
+  border:2px solid rgba(140,232,255,.5);
+  background:radial-gradient(circle at 35% 30%,#213481,#0e173f 72%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 10px rgba(101,224,255,.16);
+}
+.gl-btn{position:absolute;width:18px;height:18px;border-radius:50%;box-shadow:0 0 12px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.38)}
+.gl-btn-a{right:28px;top:34px;background:linear-gradient(180deg,#ffd772,#ffa42c)}
+.gl-btn-b{right:50px;top:52px;background:linear-gradient(180deg,#ff9ae8,#d76cff)}
+.gl-btn-x{right:50px;top:16px;background:linear-gradient(180deg,#9cf4ff,#59bfff)}
+.gl-btn-y{right:72px;top:34px;background:linear-gradient(180deg,#9bffbf,#48d97f)}
+.games-launch-action{
+  position:relative;
+  z-index:1;
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 20px;
+  border-radius:14px;
+  border:1px solid #b27900;
+  background:linear-gradient(180deg,#ffe57b 0%,#ffc83e 56%,#ffa927 100%);
+  color:#502800 !important;
+  text-decoration:none;
+  font-weight:1000;
+  white-space:nowrap;
+  box-shadow:0 5px 0 #b36900,0 10px 18px rgba(54,31,0,.22),inset 0 1px 0 rgba(255,255,255,.82);
+}
+.games-launch-action:hover{transform:translateY(-1px);filter:brightness(1.04)}
+@media(max-width:860px){
+  .games-launch-copy{max-width:100%}
+  .games-launch-decor{right:150px;opacity:.9;transform:translateY(-50%) scale(.88);transform-origin:center right}
+}
+@media(max-width:700px){
+  .games-launch-banner{width:calc(100% - 24px);margin-top:18px;padding:18px 16px;display:block;text-align:center}
+  .games-launch-copy{max-width:100%}
+  .games-launch-decor{position:relative;right:auto;top:auto;transform:none;width:210px;height:88px;margin:12px auto 8px;display:block}
+  .gl-controller{right:16px;top:6px;transform:scale(.9);transform-origin:center right}
+  .games-launch-action{margin-top:8px;width:100%}
+  .games-launch-kicker{justify-content:center}
+}
+</style>
+
 </head>
 <body>
 <h1 class="sr-only">Mr. McLean Math</h1>
@@ -1557,6 +1760,7 @@ body > header.site-global-header .site-global-social svg{
 <a class="active" href="index.html">Home</a>
 <a href="videos.html">Videos</a>
 <a href="practice.html">Practice</a>
+<a href="games.html">Games</a>
 <a href="about.html">About</a>
 </nav>
 <div class="site-global-social" aria-label="Social media links">
@@ -1721,11 +1925,46 @@ body > header.site-global-header .site-global-social svg{
 
 
   
+
+<section class="games-launch-banner" aria-label="New Games section announcement">
+  <div class="games-launch-copy">
+    <div class="games-launch-kicker">New on Mr. McLean Math</div>
+    <h2>NEW: Games are now on Mr. McLean Math!</h2>
+    <p>Explore our brand-new Games section, starting with Pi Memory Challenge.</p>
+  </div>
+  <div class="games-launch-decor" aria-hidden="true">
+    <span class="gl-pixel p1"></span>
+    <span class="gl-pixel p2"></span>
+    <span class="gl-pixel p3"></span>
+    <span class="gl-pixel p4"></span>
+    <span class="gl-pixel p5"></span>
+    <div class="gl-controller">
+      <span class="gl-dpad"></span>
+            <span class="gl-btn gl-btn-a"></span>
+      <span class="gl-btn gl-btn-b"></span>
+      <span class="gl-btn gl-btn-x"></span>
+      <span class="gl-btn gl-btn-y"></span>
+    </div>
+  </div>
+  <a class="games-launch-action" href="games.html">Explore Games →</a>
+</section>
+
 <section class="section" id="latest-content">
     <h2>Latest Content</h2>
     <div class="new-grid">
       <article class="new-card">
         <div class="latest-badge"><span>NEW!</span></div>
+        <div class="new-strip" style="background:#7b54f4"></div>
+        <div class="new-content">
+          <span class="tag">Geometry</span>
+          <h3>Pi Memory Challenge</h3>
+          <p>How many digits of pi can you remember? Build your score, climb levels, and protect your hearts in Practice or Challenge Mode.</p>
+          <div class="latest-note">New math game</div>
+          <a class="link-btn" href="pi-memory-challenge.html">Play game →</a>
+        </div>
+      </article>
+
+      <article class="new-card">
         <div class="new-strip" style="background:#e4c456"></div>
         <div class="new-content">
           <span class="tag">Geometry</span>
@@ -1737,7 +1976,6 @@ body > header.site-global-header .site-global-social svg{
       </article>
 
       <article class="new-card">
-        <div class="latest-badge"><span>NEW!</span></div>
         <div class="new-strip" style="background:#f0d7b8"></div>
         <div class="new-content">
           <span class="tag">Number &amp; Operations</span>
