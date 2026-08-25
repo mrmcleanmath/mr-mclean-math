@@ -2779,19 +2779,20 @@ function renderStart(level){
 }
 function renderQuestion(level){
   const q=state[level].q;
+  const needsWhole=Boolean(q.answer&&q.answer.w>0);
   el(level+"Body").innerHTML=`
     <div class="problem question-fade-in" id="${level}Problem">${q.expression}</div>
     <div class="fraction-answer-entry">
-      <div class="mixed-answer-input" role="group" aria-label="Mixed number answer">
-        <input class="answer-field answer-whole" id="${level}Whole" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="whole" aria-label="Whole number" enterkeyhint="next">
-        <div class="answer-fraction-stack" aria-label="Fractional part">
+      <div class="mixed-answer-input" role="group" aria-label="${needsWhole?'Mixed number answer':'Fraction answer'}">
+        ${needsWhole?`<input class="answer-field answer-whole" id="${level}Whole" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="whole" aria-label="Whole number" enterkeyhint="next">`:''}
+        <div class="answer-fraction-stack" aria-label="${needsWhole?'Fractional part':'Fraction answer'}">
           <input class="answer-field answer-num" id="${level}Numerator" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="numerator" aria-label="Numerator" enterkeyhint="next">
           <span class="answer-fraction-bar" aria-hidden="true"></span>
           <input class="answer-field answer-den" id="${level}Denominator" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="denominator" aria-label="Denominator" enterkeyhint="done">
         </div>
       </div>
       <button class="primary" id="${level}Check">Check</button>
-      <div class="answer-format-note">Leave the whole-number box blank for a proper fraction. Answers must be simplified.</div>
+      <div class="answer-format-note">Answers must be simplified.</div>
     </div>
     <div class="actions"><button class="primary hidden" id="${level}Next">Next</button><button class="done" id="${level}Done">Done</button></div>
     <div class="feedback" id="${level}Feedback"></div>
@@ -2801,7 +2802,7 @@ function renderQuestion(level){
   el(level+"Check").onclick=()=>check(level);
   el(level+"Next").onclick=()=>nextQuestion(level);
   el(level+"Done").onclick=()=>finishSession(level);
-  const fields=[el(level+"Whole"),el(level+"Numerator"),el(level+"Denominator")];
+  const fields=[el(level+"Whole"),el(level+"Numerator"),el(level+"Denominator")].filter(Boolean);
   fields.forEach((field,index)=>{
     field.addEventListener('input',()=>{field.value=field.value.replace(/[^0-9]/g,'').slice(0,3)});
     field.addEventListener("keydown",e=>{
@@ -2814,21 +2815,22 @@ function renderQuestion(level){
     });
   });
   updateLiveStats(level);
-  el(level+"Whole").focus();
+  fields[0]?.focus();
   requestAnimationFrame(()=>updateTimerPosition(level));
 }
 function hintFor(q){return q.hint||"Find the greatest common factor, then divide the numerator and denominator by it."
 }
 function readMixedAnswer(level){
-  const wholeRaw=el(level+"Whole").value.trim();
+  const wholeField=el(level+"Whole");
+  const wholeRaw=wholeField?wholeField.value.trim():"";
   const numRaw=el(level+"Numerator").value.trim();
   const denRaw=el(level+"Denominator").value.trim();
-  if(!numRaw||!denRaw)return{error:"Enter both the numerator and denominator. The whole-number box may be left blank."};
+  if(!numRaw||!denRaw)return{error:"Enter both the numerator and denominator."};
   if((wholeRaw&&!/^\d+$/.test(wholeRaw))||!/^\d+$/.test(numRaw)||!/^\d+$/.test(denRaw))return{error:"Use whole numbers only in the answer boxes."};
   const w=wholeRaw?Number(wholeRaw):0,n=Number(numRaw),d=Number(denRaw);
   if(!Number.isInteger(w)||!Number.isInteger(n)||!Number.isInteger(d)||d<=0)return{error:"The denominator must be a positive whole number."};
   if(n<=0)return{error:"Enter a positive numerator for the fractional part."};
-  if(n>=d)return{error:"Write an improper fraction as a mixed number using the whole-number box."};
+  if(n>=d)return{error:wholeField?"Write an improper fraction as a mixed number using the whole-number box.":"Your answer should be a proper fraction. Simplify it completely."};
   if(gcd(n,d)!==1)return{error:"Reduce the fractional part to simplest form before checking."};
   return{value:{w,n,d}};
 }
