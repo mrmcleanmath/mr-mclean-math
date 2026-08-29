@@ -1,4 +1,1 @@
-MrMcLeanMath v134 — ORDER OF OPERATIONS LINK PREVIEW TEST
-Built from v133 protected public wording + Search Console sitemap.
-Test change only: Order of Operations now has a 1200×630 preview image and Open Graph/Twitter link-preview metadata.
-All app logic, protection, sitemap, homepage, Practice page, and other site files remain unchanged.
+MrMcLeanMath v134 - Teacher Classroom stable join link
