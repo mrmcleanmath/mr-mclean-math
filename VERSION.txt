@@ -1,4 +1,4 @@
-MrMcLeanMath v133 — GOOGLE SEARCH CONSOLE SITEMAP
-Built from v132 site-wide app protection.
-Added sitemap.xml for 20 public content pages and robots.txt pointing search engines to the sitemap.
-No app, layout, protection, or math logic changed.
+MrMcLeanMath v134 — ORDER OF OPERATIONS LINK PREVIEW TEST
+Built from v133 protected public wording + Search Console sitemap.
+Test change only: Order of Operations now has a 1200×630 preview image and Open Graph/Twitter link-preview metadata.
+All app logic, protection, sitemap, homepage, Practice page, and other site files remain unchanged.
