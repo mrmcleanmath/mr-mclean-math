@@ -1,4 +1,4 @@
-MrMcLeanMath v133 — PROTECTED PUBLIC WORDING UPDATE
+MrMcLeanMath v133 — GOOGLE SEARCH CONSOLE SITEMAP
 Built from v132 site-wide app protection.
-Order of Operations public descriptions now say “optional exponent questions” without curriculum/year-level labeling.
-Protection: Pi-style casual source deterrents preserved on all 10 app pages.
+Added sitemap.xml for 20 public content pages and robots.txt pointing search engines to the sitemap.
+No app, layout, protection, or math logic changed.
