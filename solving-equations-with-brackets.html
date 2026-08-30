@@ -2960,7 +2960,7 @@ function makeLevelBody(level){
 }
 function renderStart(level){bodies[level].innerHTML=`<button class="start" type="button">Start</button>${notices[level]?`<div class="unlock-guidance">${notices[level]}</div>`:''}`;bodies[level].querySelector('button').addEventListener('click',()=>startLevel(level))}
 function renderLocked(level){cards[level].classList.add('locked');bodies[level].innerHTML='<div class="lock"><div class="shackle"></div><div class="lockbody"></div></div>';progresses[level].classList.add('hidden')}
-function startLevel(level){if(!unlocked[level])return;if(active&&active!==level&&sessions[active])finishSession(active);active=level;finished=false;sessions[level]={correct:0,incorrect:0,total:0,mode,timeLimit:mode==='timer'?Number(durationSel.value):0,timerScope:'question',elapsedMilliseconds:0};cards[level].classList.add('active');current[level]=generate(level);makeLevelBody(level);startTimer(level)}
+function startLevel(level){if(!unlocked[level])return;if(active&&active!==level&&sessions[active])finishSession(active);active=level;finished=false;sessions[level]={correct:0,incorrect:0,total:0,mode,timeLimit:mode==='timer'?Number(durationSel.value):0,timerScope:'session',elapsedMilliseconds:0,startedAt:Date.now()};cards[level].classList.add('active');current[level]=generate(level);makeLevelBody(level);startTimer(level)}
 function setFeedback(level,html,good){const f=$(level+'Feedback');f.innerHTML=html;f.className='feedback '+(good?'correct':'incorrect')}
 function showEquationHint(level,q){
   const hint=$(level+'Hint'),bubble=$(level+'Bubble');
@@ -2986,7 +2986,7 @@ function checkAnswer(level){
     return;
   }
   const q=current[level],right=approxEqual(val,q.solution),s=sessions[level];
-  s.total++;finished=true;stopTimer();lockQuestion(level);
+  s.total++;finished=true;lockQuestion(level);
   if(right){
     playAppSound('correct');recordCorrect(level);
     setFeedback(level,'<span class="correct-callout">Correct!</span>',true);
@@ -2998,8 +2998,8 @@ function checkAnswer(level){
   updateLiveStats(level);
   if(right&&mode==='timer')setTimeout(()=>next(level),1100);else showNext(level);
 }
-function finishSession(level){const session=sessions[level];if(!session)return;stopTimer();finished=true;const acc=session.total?Math.round(session.correct/session.total*100):0,timing=finalizeTimedSession(session);recordCompletedResult(level,session,acc);bodies[level].innerHTML=`<div class="report"><div class="report-title">Session Report</div><div class="report-grid${timing?' has-time':''}"><div class="stat"><strong>${session.correct}</strong><span>Correct</span></div><div class="stat"><strong>${session.incorrect}</strong><span>Incorrect</span></div><div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>${timing?`<div class="stat"><strong>${formatSessionTime(timing.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}</div>${timing?`<div class="report-timing">Timer Mode • ${timingLimitText(timing)}</div>`:''}<div class="report-note">${sessionReportNote(level,progress[level])}</div><div class="report-actions"><button class="restart" id="${level}Restart">Start Again</button><button class="print-results-button" id="${level}PrintResults" type="button">Print Results</button></div></div>`;$(level+'Restart').addEventListener('click',()=>startLevel(level));$(level+'PrintResults').addEventListener('click',printCombinedResults);sessions[level]=null;if(mode==='timer'){showOrbTimer(level,0,'finished',0);setTimeout(()=>clearOrbTimers(),700)}else clearOrbTimers()}
-function next(level){if(level!==active)return;finished=false;current[level]=generate(level);makeLevelBody(level);startTimer(level)}
+function finishSession(level,{timerExpired=false}={}){const session=sessions[level];if(!session)return;stopTimer({expired:timerExpired});finished=true;const acc=session.total?Math.round(session.correct/session.total*100):0,timing=finalizeTimedSession(session,{timerExpired});recordCompletedResult(level,session,acc);bodies[level].innerHTML=`<div class="report"><div class="report-title">Session Report</div><div class="report-grid${timing?' has-time':''}"><div class="stat"><strong>${session.correct}</strong><span>Correct</span></div><div class="stat"><strong>${session.incorrect}</strong><span>Incorrect</span></div><div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>${timing?`<div class="stat"><strong>${formatSessionTime(timing.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}</div>${timing?`<div class="report-timing">Timer Mode • ${timingLimitText(timing)}</div>`:''}<div class="report-note">${sessionReportNote(level,progress[level])}</div><div class="report-actions"><button class="restart" id="${level}Restart">Start Again</button><button class="print-results-button" id="${level}PrintResults" type="button">Print Results</button></div></div>`;$(level+'Restart').addEventListener('click',()=>startLevel(level));$(level+'PrintResults').addEventListener('click',printCombinedResults);sessions[level]=null;if(mode==='timer'){showOrbTimer(level,0,'finished',0);setTimeout(()=>clearOrbTimers(),700)}else clearOrbTimers()}
+function next(level){if(level!==active||!sessions[level])return;finished=false;current[level]=generate(level);makeLevelBody(level)}
 function unlockNext(level){const nextLevel=level==='easy'?'medium':level==='medium'?'hard':null;if(!nextLevel||unlocked[nextLevel])return;unlocked[nextLevel]=true;const card=cards[nextLevel],lock=card.querySelector('.lock');if(lock){lock.classList.add('shake');setTimeout(()=>{lock.classList.remove('shake');lock.classList.add('open');card.classList.add('card-unlock');playAppSound('lock')},450)}else setTimeout(()=>playAppSound('lock'),450);setTimeout(()=>{card.classList.remove('locked');progresses[nextLevel].classList.remove('hidden');progresses[nextLevel].textContent='0 / 3';renderStart(nextLevel);const unlockedName=levelDisplayNames[nextLevel],previousName=levelDisplayNames[level];notices[level]=`${unlockedName} is now available. You can continue practicing in ${previousName} until you feel ready to move on.`;const currentBody=bodies[level];if(currentBody){const existing=currentBody.querySelector('.unlock-guidance');if(existing)existing.textContent=notices[level];else{const notice=document.createElement('div');notice.className='unlock-guidance';notice.textContent=notices[level];currentBody.appendChild(notice)}}showUnlockCelebration(levelDisplayNames[nextLevel],level)},1200)}
 function clearOrbTimers(){orbs.forEach(orb=>{orb.classList.remove('timer-ready','timer-running','timer-finished','power-down');orb.style.removeProperty('--progress');const value=orb.querySelector('.orb-timer-value');if(value)value.textContent=''})}
 function showOrbTimer(level,seconds,stateName='running',progressRatio=1){clearOrbTimers();const orb=document.querySelector(`.level-orb[data-level="${level}"]`);if(!orb)return;const value=orb.querySelector('.orb-timer-value');orb.classList.add(`timer-${stateName}`);orb.style.setProperty('--progress',Math.max(0,Math.min(1,progressRatio)));if(value)value.textContent=seconds}
@@ -3008,7 +3008,7 @@ function startTimer(level){
   if(mode!=='timer'){clearOrbTimers();return}
   timeLeft=Number(durationSel.value);
   const total=timeLeft,session=sessions[level];
-  if(session){session.mode='timer';session.timeLimit=total;session.timerScope='question'}
+  if(session){session.mode='timer';session.timeLimit=total;session.timerScope='session';session.startedAt=Date.now();session.elapsedMilliseconds=0}
   timerStartedAt=Date.now();
   showOrbTimer(level,timeLeft,'ready',1);
   setTimeout(()=>{if(mode==='timer'&&active===level&&!finished)showOrbTimer(level,timeLeft,'running',1)},620);
@@ -3018,13 +3018,7 @@ function startTimer(level){
     if(timeLeft>0&&timeLeft<=5)playAppSound('timerTick');
     if(timeLeft<=0){
       stopTimer({expired:true});showOrbTimer(level,0,'finished',0);playAppSound('timerFinished');
-      if(!finished){
-        const s=sessions[level];if(s){s.total++;s.incorrect++}
-        updateLiveStats(level);finished=true;lockQuestion(level);
-        const q=current[level];
-        setFeedback(level,`Time is up. <strong>${q.variable} = ${formatNum(q.solution)}</strong>.`,false);
-        showEquationHint(level,q);showNext(level);
-      }
+      setTimeout(()=>finishSession(level,{timerExpired:true}),520);
     }
   },1000);
 }
@@ -3036,7 +3030,7 @@ function setMode(newMode){
   durationWrap.classList.toggle('show',mode==='timer');
   modeTip.textContent=mode==='student'
     ?'Student Mode has no countdown. After an incorrect answer, the correct value and step-by-step help stay visible until you choose Next or press Enter.'
-    :'Timer Mode uses the selected countdown. After an incorrect answer, the correct value and step-by-step help stay visible until you choose Next or press Enter.';
+    :'Timer Mode uses one countdown for the whole session. After an incorrect answer, the correct value and step-by-step help stay visible until you choose Next or press Enter.';
   stopTimer();
   if(mode==='timer'){showOrbTimer(active||'easy',durationSel.value,'ready',1);if(current[active]&&!finished)startTimer(active)}
   else clearOrbTimers();

@@ -2637,7 +2637,7 @@ function renderLocked(level){cards[level].classList.add("locked");bodies[level].
 function startLevel(level){
  if(!unlocked[level])return;
  if(active&&active!==level&&sessions[active])finishSession(active);
- active=level;finished=false;sessions[level]={correct:0,incorrect:0,total:0,mode,timeLimit:mode==="timer"?Number(durationSel.value):0,timerScope:"question",elapsedMilliseconds:0};
+ active=level;finished=false;sessions[level]={correct:0,incorrect:0,total:0,mode,timeLimit:mode==="timer"?Number(durationSel.value):0,timerScope:"session",elapsedMilliseconds:0,startedAt:Date.now()};
  cards[level].classList.add("active");current[level]=generate(level);makeLevelBody(level);startTimer(level)
 }
 function setFeedback(level,html,good){const f=$(level+"Feedback");f.innerHTML=html;f.className="feedback "+(good?"correct":"incorrect")}
@@ -2677,7 +2677,7 @@ function checkAnswer(level){
  const q=current[level],right=parsed.factors.length===q.factors.length&&parsed.factors.every((v,i)=>v===q.factors[i]);
  const session=sessions[level];
  if(session){session.total++;if(right)session.correct++;else session.incorrect++;}
- finished=true;stopTimer();lockQuestion(level);
+ finished=true;lockQuestion(level);
  if(right){
   progress[level]++;progresses[level].textContent=`${Math.min(progress[level],3)} / 3`;
   playAppSound('correct');setFeedback(level,`<span class="correct-callout">Correct!</span> <strong>${q.n} = ${expanded(q.factors)}</strong><br><span class="answer-help">It can also be written: ${exponential(q.factors)}</span>`,true);
@@ -2689,11 +2689,11 @@ function checkAnswer(level){
  updateLiveStats(level);
  if(right&&mode==="timer")setTimeout(()=>next(level),1100);else showNext(level);
 }
-function finishSession(level){
+function finishSession(level,{timerExpired=false}={}){
  const session=sessions[level];if(!session)return;
- stopTimer();finished=true;
+ stopTimer({expired:timerExpired});finished=true;
  const acc=session.total?Math.round(session.correct/session.total*100):0;
- const timing=finalizeTimedSession(session);
+ const timing=finalizeTimedSession(session,{timerExpired});
  recordCompletedResult(level,session,acc);
  bodies[level].innerHTML=`
   <div class="report">
@@ -2713,7 +2713,7 @@ function finishSession(level){
  sessions[level]=null;
  if(mode==="timer"){showOrbTimer(level,0,"finished",0);setTimeout(()=>clearOrbTimers(),700)}else clearOrbTimers();
 }
-function next(level){if(level!==active)return;finished=false;current[level]=generate(level);makeLevelBody(level);startTimer(level)}
+function next(level){if(level!==active||!sessions[level])return;finished=false;current[level]=generate(level);makeLevelBody(level)}
 function unlockNext(level){
  const nextLevel=level==="easy"?"medium":level==="medium"?"hard":null;if(!nextLevel||unlocked[nextLevel])return;
  unlocked[nextLevel]=true;
@@ -2760,7 +2760,7 @@ function startTimer(level){
  if(mode!=="timer"){clearOrbTimers();return;}
  timeLeft=Number(durationSel.value);
  const total=timeLeft,session=sessions[level];
- if(session){session.mode='timer';session.timeLimit=total;session.timerScope='question'}
+ if(session){session.mode='timer';session.timeLimit=total;session.timerScope='session';session.startedAt=Date.now();session.elapsedMilliseconds=0}
  timerStartedAt=Date.now();
  showOrbTimer(level,timeLeft,"ready",1);
  setTimeout(()=>{
@@ -2774,14 +2774,7 @@ function startTimer(level){
    stopTimer({expired:true});
    showOrbTimer(level,0,"finished",0);
    playAppSound('timerFinished');
-   if(!finished){
-    const session=sessions[level];if(session){session.total++;session.incorrect++;}
-    updateLiveStats(level);
-    finished=true;lockQuestion(level);const q=current[level];
-    setFeedback(level,`Time is up. Correct answer: <strong>${expanded(q.factors)}</strong><br><span class="answer-help">It can also be written: ${exponential(q.factors)}</span>`,false);
-    showPrimeHint(level,q);
-    showNext(level);
-   }
+   setTimeout(()=>finishSession(level,{timerExpired:true}),520);
   }
  },1000);
 }
@@ -2801,7 +2794,7 @@ function setMode(newMode){
  studentBtn.classList.toggle("active",mode==="student");
  timerBtn.classList.toggle("active",mode==="timer");
  durationWrap.classList.toggle("show",mode==="timer");
- modeTip.textContent=mode==="student"?"Student Mode has no countdown. After an incorrect answer, the correct answer and hint stay visible until you choose Next or press Enter.":"Timer Mode uses the selected countdown. After an incorrect answer, the correct answer and hint stay visible until you choose Next or press Enter.";
+ modeTip.textContent=mode==="student"?"Student Mode has no countdown. After an incorrect answer, the correct answer and hint stay visible until you choose Next or press Enter.":"Timer Mode uses one countdown for the whole session. After an incorrect answer, the correct answer and hint stay visible until you choose Next or press Enter.";
  stopTimer();
  if(mode==="timer"){
   showOrbTimer(active||"easy",durationSel.value,"ready",1);
