@@ -7,3 +7,13 @@ v137 PHONE GAMEPLAY REFINEMENT
 - How to Play / Tips / About hide when a mode is selected and return when the run ends.
 - Corrected phone scoreboard top-label clipping.
 - Desktop, Chromebook and tablet behavior left unchanged.
+
+
+v138 PHONE SPACE-BALANCED GAMEPLAY
+- Replaced the tall 3-column phone keypad with a 2-row 5+5 keypad using large finger-friendly keys.
+- During an active phone run, the selected mode button collapses into a small badge and the unused mode button disappears.
+- Phone title art shrinks slightly during active play.
+- Music / Sound / Full Screen controls hide only while an active phone run is in progress, then return afterward.
+- Gameplay console padding was tightened without reducing the scoreboard or Start/Stop controls.
+- Challenge Pi now sits immediately after the active console and keeps a strong 280-310px phone presence.
+- Existing digit-flight, faint digit-tap sound, help-button timing, scoreboard clipping fix, desktop, Chromebook, and tablet behavior remain unchanged.
