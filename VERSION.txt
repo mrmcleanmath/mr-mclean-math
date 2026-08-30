@@ -1,1 +1,1 @@
-v135 - Timer continuity fix
+v136 - Smartphone touch digit row
