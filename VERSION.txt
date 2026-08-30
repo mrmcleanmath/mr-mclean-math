@@ -1,3 +1,1 @@
-v137 - Phone visible keypad + compact one-screen Challenge layout
-
-v136 - Smartphone touch digit row
+MrMcLeanMath v139 - Phone Classic Two-Row
