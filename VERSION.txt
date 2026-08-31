@@ -1,4 +1,1 @@
-MrMcLeanMath v142 — TABLET PERFORMANCE STABILITY
-Based on v141. Keeps approved phone and Chromebook layouts.
-Tablet touch devices start in a lighter ambient-effects mode; adaptive ultra fallback remains available.
-Digit flight and Pi fill effects remain enabled.
+v144_DEVICE_SPECIFIC_STABLE_LAYOUTS
