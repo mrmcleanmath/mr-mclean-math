@@ -1,0 +1,14 @@
+/* Mr. McLean Math compact touch keypad — phones/tablets only. */
+#mmmMobileKeypad{position:fixed;left:50%;bottom:max(8px,env(safe-area-inset-bottom));z-index:10050;width:min(520px,calc(100vw - 16px));transform:translate(-50%,calc(100% + 28px));opacity:0;pointer-events:none;transition:transform .16s ease,opacity .12s ease;background:rgba(255,255,255,.97);border:2px solid rgba(125,145,168,.72);border-radius:16px;padding:8px;box-shadow:0 14px 36px rgba(20,34,54,.25);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+#mmmMobileKeypad.mmm-keypad-visible{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+#mmmMobileKeypad .mmm-keypad-grid{display:grid;grid-template-columns:repeat(var(--mmm-keypad-cols,4),minmax(0,1fr));gap:6px}
+#mmmMobileKeypad .mmm-key{appearance:none;-webkit-appearance:none;min-width:0;min-height:43px;border:1.5px solid #9ba7b5;border-radius:10px;background:linear-gradient(180deg,#fff,#eef3f8);color:#172b43;font:900 1.05rem/1 "Trebuchet MS",Arial,sans-serif;box-shadow:0 2px 0 rgba(66,83,105,.18);padding:7px 5px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+#mmmMobileKeypad .mmm-key:active,#mmmMobileKeypad .mmm-key.is-pressed{transform:translateY(1px);box-shadow:0 1px 0 rgba(66,83,105,.14);background:#e7eef6}
+#mmmMobileKeypad .mmm-key.mmm-key-action{background:linear-gradient(180deg,#eef6ff,#dbe9fa);color:#17476f}
+#mmmMobileKeypad .mmm-key.mmm-key-enter{background:linear-gradient(180deg,#1f8dff,#176bd0);border-color:#125eb9;color:white;box-shadow:0 2px 0 #0d4c97}
+#mmmMobileKeypad .mmm-key.mmm-key-wide{grid-column:span 2}
+#mmmMobileKeypad .mmm-keypad-caption{text-align:center;color:#5f6d7d;font:800 .72rem/1.1 "Trebuchet MS",Arial,sans-serif;margin:0 0 6px;letter-spacing:.02em}
+html.mmm-touch-keypad-on body{padding-bottom:0}
+html.mmm-touch-keypad-on body.mmm-keypad-open{padding-bottom:var(--mmm-keypad-space,210px)!important}
+@media (prefers-reduced-motion:reduce){#mmmMobileKeypad{transition:none}}
+@media (min-width:1201px){#mmmMobileKeypad{display:none!important}html.mmm-touch-keypad-on body.mmm-keypad-open{padding-bottom:0!important}}
