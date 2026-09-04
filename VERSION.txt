@@ -1,1 +1,10 @@
-v153_MOBILE_INPUT_AUDIO_POLISH
+Mr. McLean Math v154 — DESKTOP KEYBOARD HOTFIX
+
+Fixes a regression in the v153 mobile-input polish where touch-capable computers could be treated as mobile devices and answer fields could be made read-only.
+
+Changes:
+- Windows and ChromeOS/X11 desktop computers are excluded from mobile readonly keypad mode.
+- Physical keyboard typing remains enabled on computers, including touch-capable laptops/desktops.
+- Added a trusted hardware-keyboard failsafe that restores normal input if a touch-prepared field receives a real keyboard key.
+- Phone/tablet on-screen math keypad behavior remains intact.
+- Added a v154 cache-buster so browsers do not reuse the broken v153 keypad JavaScript after deployment.

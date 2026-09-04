@@ -6,11 +6,18 @@
   const touchSize=()=>Math.min(window.screen?.width||window.innerWidth,window.screen?.height||window.innerHeight);
   const isTouchTarget=()=>{
     const ua=navigator.userAgent||'';
-    if(/CrOS/i.test(ua))return false;
+    const platform=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||'';
     const touch=(navigator.maxTouchPoints||0)>0;
+    if(!touch)return false;
+
+    // Never force desktop-class computers into readonly/mobile-keypad mode merely
+    // because they also have a touchscreen. Physical keyboards must always work.
+    const desktopComputer=/CrOS|Windows NT|Windows|X11/i.test(ua+' '+platform)&&!/Android/i.test(ua);
+    if(desktopComputer)return false;
+
     const appleTablet=(navigator.platform==='MacIntel'&&touch);
     const mobileUa=/Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-    return touchSize()<=1200&&touch&&(coarse()||anyCoarse()||mobileUa||appleTablet);
+    return touchSize()<=1200&&(mobileUa||appleTablet)&&(coarse()||anyCoarse()||mobileUa||appleTablet);
   };
 
   const positiveDecimal=['1','2','3','⌫','4','5','6','Clear','7','8','9','.','0','Enter'];
@@ -147,6 +154,20 @@
     if(key==='−'){insert('-');return}
     insert(key);
   }
+
+  // Hardware-keyboard failsafe: if a real key is pressed while an input was
+  // prepared for the touch keypad, restore normal typing before the browser's
+  // default key action runs. This also supports tablets used with keyboards.
+  document.addEventListener('keydown',e=>{
+    if(!e.isTrusted)return;
+    const input=e.target;
+    if(!eligible(input)||input.dataset.mmmTouchKeypad!=='1')return;
+    const key=e.key||'';
+    const hardwareInputKey=key.length===1||['Backspace','Delete','Enter','ArrowLeft','ArrowRight','Home','End'].includes(key);
+    if(!hardwareInputKey)return;
+    restoreInput(input);
+    hide();
+  },true);
 
   document.addEventListener('pointerdown',e=>{
     const input=e.target.closest?.(cfg.selector);
