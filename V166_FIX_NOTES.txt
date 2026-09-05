@@ -1,0 +1,6 @@
+v166 focused fix
+
+- Fixed phone Practice Mode console collapse caused by the legacy v178 dynamic card trim routine.
+- The trim routine now exits only for phone Practice Mode and removes any inline height/min-height/max-height it previously applied.
+- Practice Digits remains below the console and may require scrolling.
+- No tablet, desktop, Chromebook, keypad, Pi-symbol, console-size, report, audio, or fullscreen geometry changes were made.

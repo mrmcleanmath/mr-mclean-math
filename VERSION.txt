@@ -1,2 +1,1 @@
-v161
-Pi Memory Challenge: compact phone results + roomier large-touch layout
+v166 — Phone Practice console trim fix. Preserves v165 geometry; disables old dynamic card trim only in phone Practice Mode.
