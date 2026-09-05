@@ -1,3 +1,2 @@
-v160 — Silent digit input + unified touchscreen phone layout
-Based on v158 seamless theme loop.
-Touch devices retain their performance/orientation profile but use the approved phone UI.
+v161
+Pi Memory Challenge: compact phone results + roomier large-touch layout

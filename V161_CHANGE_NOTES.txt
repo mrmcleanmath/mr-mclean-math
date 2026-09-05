@@ -1,0 +1,20 @@
+v161
+
+PHONE RESULTS
+- Results stats are 2 x 2: Level reached / Lives lost, then Best streak / Time.
+- Time keeps its gold standout styling and matches the Best streak box size.
+- The result message is hidden on phones.
+- Print Results is hidden on phones.
+- Back to Game sits directly beneath the four stats.
+
+TABLET / NON-PHONE TOUCHSCREENS
+- Keeps the approved phone-style interaction/structure.
+- Uses a larger 106px Practice/Challenge <-> Score/Level/Lives bay.
+- Larger full scoreboard, taller console, larger digit display and keypad.
+- Larger gear/fullscreen controls in the console strip.
+- Challenge Pi enlarged to 382px while staying in the same vertical flow.
+
+UNCHANGED
+- Phone gameplay layout.
+- Silent digit buttons + haptic feedback.
+- Seamless Web Audio music loop.
