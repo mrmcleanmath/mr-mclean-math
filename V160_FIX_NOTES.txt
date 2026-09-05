@@ -1,0 +1,13 @@
+Pi Memory Challenge v160
+
+1. Digit input sound fully removed:
+   - playDigitTick() is silent.
+   - global button UI sound binding explicitly excludes .phone-digit-key.
+   - haptic feedback remains on touchscreen digit entry.
+
+2. Unified touchscreen layout:
+   - every touch-capable device is given the approved phone-layout alias at first paint.
+   - tablets keep tablet performance/orientation handling, but inherit the same phone HUD/mode/settings/fullscreen/title geometry and behavior.
+   - fine-pointer touchscreen devices also receive the same layout and touch-input mechanics.
+
+3. v158 sample-accurate seamless theme loop retained.

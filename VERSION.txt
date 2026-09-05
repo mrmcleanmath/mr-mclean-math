@@ -1,1 +1,3 @@
-v159 — Digit-entry tap sound removed; haptic feedback retained on touch keys. The approved phone fixed-stage interface is now used on tablets and other touch-capable devices. Seamless Web Audio theme loop retained.
+v160 — Silent digit input + unified touchscreen phone layout
+Based on v158 seamless theme loop.
+Touch devices retain their performance/orientation profile but use the approved phone UI.
