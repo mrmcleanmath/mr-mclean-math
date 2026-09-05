@@ -1,1 +1,1 @@
-v156 — Phone console utility bar: gear + fullscreen moved beneath keypad; visible status copy removed on phone.
+v157 — Phone refinement: Challenge pi lifted closer to console; gear aligned under 6 and fullscreen aligned under 0.
