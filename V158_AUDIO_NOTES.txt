@@ -1,0 +1,16 @@
+v158 audio changes only
+
+Digit tap response
+- AudioContext requests latencyHint: interactive.
+- Digit tap waveform is pre-rendered into a tiny AudioBuffer.
+- The context is warmed on the user's earliest pointer gesture.
+- Phone tap sound is scheduled first on pointerdown, before vibration and game logic.
+- Physical keyboard tap sound fires on keydown rather than waiting for input.
+
+Theme loop
+- Background WAV is preloaded and decoded to an AudioBuffer.
+- Gameplay uses AudioBufferSourceNode with loop=true and an exact loopEnd at the final PCM sample.
+- This avoids the media-element end/restart gap that can occur on mobile browsers.
+- Existing HTML <audio> remains as a fallback if buffer fetch/decode is unavailable.
+
+No layout/CSS changes were made in v158.
