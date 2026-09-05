@@ -1,5 +1,5 @@
 <!--
-  Pi Memory Challenge — v162 phone polish + restored desktop routing
+  Pi Memory Challenge — v163 practice panel fix + safe phone fullscreen title
   © 2026 Mr. McLean Math. All rights reserved.
   Original game design and implementation by Mr. McLean Math.
   Unauthorized copying, redistribution, republication, or derivative publication
@@ -1991,11 +1991,55 @@ html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-lay
   align-self:center!important;
 }
 
-/* v162 PHONE FULLSCREEN ONLY — the remaining fullscreen stage must start at the top,
-   so the console sits directly beneath the title instead of being vertically centered
-   in the leftover viewport. Regular phone mode is untouched. */
-html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.is-game-fullscreen .game-stage{
-  justify-content:flex-start!important;
+/* v163 PHONE FULLSCREEN ONLY — move the title artwork itself instead of changing
+   the game-stage alignment. This keeps the approved console/practice-panel geometry intact. */
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.is-game-fullscreen .title-art-heading{
+  transform:translateY(clamp(54px,9dvh,104px))!important;
+  position:relative!important;
+  z-index:8!important;
+}
+
+/* v163 PHONE PRACTICE SAFETY — Practice Digits always lives BELOW the console.
+   It may never become an overlay over Start, the digit window, or the keypad. */
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.mode-practice .game-stage{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+}
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.mode-practice .game-card{
+  order:1!important;
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  z-index:2!important;
+}
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.mode-practice .pi-side-column{
+  order:2!important;
+  position:relative!important;
+  inset:auto!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  z-index:1!important;
+  width:100%!important;
+  max-width:620px!important;
+  margin:12px auto 0!important;
+}
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout) body.phone-touch-input.mode-practice .practice-side-card{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  width:100%!important;
+  max-width:620px!important;
+  margin:0 auto!important;
+  z-index:1!important;
 }
 </style>
 </head><body><script id="v143-device-profile-body-sync">(function(){var p=window.__PI_PROFILE__;if(!p)return;var b=document.body;b.classList.add('device-'+p.profile,'graphics-'+p.graphics);if(p.profile==='phone'){b.classList.add('phone-touch-input','touch-uses-phone-layout');}else if(p.profile==='tablet'){b.classList.add('phone-touch-input','touch-uses-phone-layout','device-tablet-touch','auto-performance-lite');}else if(p.profile==='chromebook'){b.classList.add('device-chromeos','chromeos-compact','performance-balanced');}else if(p.hasTouch){b.classList.add('touch-capable-desktop');}if(p.lowSpec)b.classList.add('device-low-spec');})();</script><div aria-label="Tablet portrait mode required" aria-live="polite" id="tabletPortraitGate"><div class="tablet-portrait-message"><span aria-hidden="true" class="tablet-rotate-icon">↻</span><strong>Portrait Mode</strong><span>Rotate your tablet upright to play Pi Memory Challenge.</span></div></div><audio id="gameMusic" loop="" preload="auto" src="assets/pi-memory-background-music.wav"></audio><audio id="modeSelectSound" preload="auto" src="assets/mode-select.ogg"></audio><audio id="menuHighlightSound" preload="auto" src="assets/vgmenuhighlight.ogg"></audio><audio id="reportCardSound" preload="auto" src="assets/report-card.ogg"></audio><audio id="heartEarnedSound" preload="auto" src="assets/heart-earned.ogg"></audio><audio id="hundredDigitsSound" preload="auto" src="assets/hundred-digits.wav"></audio><div aria-hidden="true" class="bg-transition"><div class="bg-dim"></div><div class="bg-galaxy"></div><div class="bg-stars stars-a"></div><div class="bg-stars stars-b"></div><span class="twinkle-star" style="--x:12%;--y:20%;--size:10px;--dur:4.6s;--delay:.2s"></span><span class="twinkle-star" style="--x:22%;--y:34%;--size:9px;--dur:5.4s;--delay:1.3s"></span><span class="twinkle-star" style="--x:35%;--y:16%;--size:11px;--dur:6.1s;--delay:.8s"></span><span class="twinkle-star" style="--x:48%;--y:28%;--size:8px;--dur:4.9s;--delay:2.1s"></span><span class="twinkle-star" style="--x:61%;--y:18%;--size:9px;--dur:5.8s;--delay:1.8s"></span><span class="twinkle-star" style="--x:72%;--y:30%;--size:12px;--dur:6.3s;--delay:.4s"></span><span class="twinkle-star" style="--x:82%;--y:42%;--size:8px;--dur:4.8s;--delay:2.6s"></span><span class="twinkle-star" style="--x:16%;--y:60%;--size:10px;--dur:5.7s;--delay:3.2s"></span><span class="twinkle-star" style="--x:42%;--y:70%;--size:11px;--dur:6.4s;--delay:1.4s"></span><span class="twinkle-star" style="--x:76%;--y:68%;--size:9px;--dur:5.2s;--delay:2.9s"></span><span class="twinkle-star brilliant" style="--x:7%;--y:12%;--size:7px;--dur:3.9s;--delay:1.1s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:18%;--y:48%;--size:9px;--dur:4.7s;--delay:.6s;--star:#9fe9ff"></span><span class="twinkle-star brilliant" style="--x:29%;--y:10%;--size:8px;--dur:5.1s;--delay:2.2s;--star:#d9c7ff"></span><span class="twinkle-star brilliant" style="--x:31%;--y:58%;--size:6px;--dur:3.7s;--delay:1.7s;--star:#fff0aa"></span><span class="twinkle-star brilliant" style="--x:40%;--y:41%;--size:8px;--dur:4.3s;--delay:2.7s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:52%;--y:11%;--size:10px;--dur:5.6s;--delay:.3s;--star:#8de5ff"></span><span class="twinkle-star brilliant" style="--x:57%;--y:52%;--size:7px;--dur:4.1s;--delay:1.2s;--star:#c8b1ff"></span><span class="twinkle-star brilliant" style="--x:67%;--y:40%;--size:9px;--dur:4.9s;--delay:2.3s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:74%;--y:12%;--size:7px;--dur:3.8s;--delay:1.5s;--star:#ffe69a"></span><span class="twinkle-star brilliant" style="--x:88%;--y:22%;--size:9px;--dur:5.2s;--delay:.9s;--star:#9edfff"></span><span class="twinkle-star brilliant" style="--x:91%;--y:57%;--size:6px;--dur:4.4s;--delay:2.6s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:9%;--y:78%;--size:9px;--dur:5.0s;--delay:2.0s;--star:#cbb7ff"></span><span class="twinkle-star brilliant" style="--x:25%;--y:83%;--size:7px;--dur:4.0s;--delay:.2s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:49%;--y:86%;--size:8px;--dur:5.5s;--delay:1.6s;--star:#9deaff"></span><span class="twinkle-star brilliant" style="--x:63%;--y:77%;--size:10px;--dur:4.6s;--delay:2.4s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:87%;--y:84%;--size:8px;--dur:5.3s;--delay:1.0s;--star:#ffe8a3"></span><div aria-hidden="true" class="tron-scene"><div class="tron-sky"></div><div aria-hidden="true" class="tron-sky-stars"><span class="tron-star" style="--x:8%;--y:10%;--size:7px;--dur:4.7s;--delay:.2s;--star:#ffffff"></span><span class="tron-star" style="--x:16%;--y:18%;--size:8px;--dur:5.4s;--delay:1.1s;--star:#89ebff"></span><span class="tron-star" style="--x:24%;--y:8%;--size:6px;--dur:4.1s;--delay:2.0s;--star:#cbb8ff"></span><span class="tron-star" style="--x:33%;--y:20%;--size:9px;--dur:5.9s;--delay:.8s;--star:#ffffff"></span><span class="tron-star" style="--x:41%;--y:12%;--size:7px;--dur:4.8s;--delay:2.4s;--star:#9ee8ff"></span><span class="tron-star" style="--x:52%;--y:7%;--size:8px;--dur:5.2s;--delay:1.5s;--star:#ffe59d"></span><span class="tron-star" style="--x:61%;--y:19%;--size:6px;--dur:4.3s;--delay:3.0s;--star:#ffffff"></span><span class="tron-star" style="--x:69%;--y:11%;--size:9px;--dur:5.7s;--delay:.5s;--star:#b9a8ff"></span><span class="tron-star" style="--x:77%;--y:23%;--size:8px;--dur:4.9s;--delay:2.7s;--star:#8ce6ff"></span><span class="tron-star" style="--x:86%;--y:13%;--size:7px;--dur:5.0s;--delay:1.9s;--star:#ffffff"></span><span class="tron-star" style="--x:93%;--y:28%;--size:10px;--dur:6.2s;--delay:.7s;--star:#ffe59d"></span><span class="tron-star" style="--x:12%;--y:34%;--size:6px;--dur:4.5s;--delay:3.2s;--star:#c9b4ff"></span><span class="tron-star" style="--x:27%;--y:31%;--size:7px;--dur:5.1s;--delay:2.3s;--star:#ffffff"></span><span class="tron-star" style="--x:46%;--y:29%;--size:8px;--dur:4.6s;--delay:1.2s;--star:#96e8ff"></span><span class="tron-star" style="--x:58%;--y:36%;--size:7px;--dur:5.8s;--delay:2.9s;--star:#ffffff"></span><span class="tron-star" style="--x:72%;--y:33%;--size:6px;--dur:4.2s;--delay:1.6s;--star:#c3adff"></span><span class="tron-star" style="--x:84%;--y:31%;--size:9px;--dur:5.6s;--delay:2.1s;--star:#8ee4ff"></span><span class="tron-star" style="--x:20%;--y:26%;--size:7px;--dur:5.3s;--delay:3.4s;--star:#8fe8ff"></span><span class="tron-star" style="--x:37%;--y:35%;--size:8px;--dur:4.8s;--delay:.9s;--star:#ffffff"></span><span class="tron-star" style="--x:55%;--y:22%;--size:6px;--dur:5.9s;--delay:2.6s;--star:#c5b0ff"></span><span class="tron-star" style="--x:74%;--y:17%;--size:7px;--dur:4.5s;--delay:1.4s;--star:#98e9ff"></span><span class="tron-star" style="--x:89%;--y:38%;--size:8px;--dur:5.5s;--delay:3.0s;--star:#ffe4a0"></span><span class="tron-star" style="--x:5%;--y:29%;--size:6px;--dur:5.7s;--delay:1.8s;--star:#9deaff"></span><span class="tron-star" style="--x:31%;--y:14%;--size:7px;--dur:4.9s;--delay:3.1s;--star:#ffffff"></span><span class="tron-star" style="--x:49%;--y:38%;--size:6px;--dur:5.4s;--delay:.6s;--star:#c8b4ff"></span><span class="tron-star" style="--x:64%;--y:27%;--size:8px;--dur:6.0s;--delay:2.2s;--star:#8de7ff"></span><span class="tron-star" style="--x:80%;--y:8%;--size:6px;--dur:4.6s;--delay:3.5s;--star:#ffffff"></span><span class="tron-star" style="--x:96%;--y:17%;--size:7px;--dur:5.2s;--delay:1.0s;--star:#ffe6a4"></span><span class="tron-star extra-star" style="--x:4%;--y:16%;--size:4px;--dur:3.8s;--delay:.9s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:11%;--y:24%;--size:5px;--dur:4.6s;--delay:2.8s;--star:#8de9ff"></span><span class="tron-star extra-star" style="--x:19%;--y:6%;--size:4px;--dur:5.1s;--delay:1.7s;--star:#d1bdff"></span><span class="tron-star extra-star" style="--x:28%;--y:24%;--size:5px;--dur:4.2s;--delay:.3s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:35%;--y:6%;--size:4px;--dur:4.9s;--delay:2.5s;--star:#96eaff"></span><span class="tron-star extra-star" style="--x:44%;--y:18%;--size:5px;--dur:5.3s;--delay:1.2s;--star:#ffe7a5"></span><span class="tron-star extra-star" style="--x:50%;--y:26%;--size:4px;--dur:4.0s;--delay:3.1s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:57%;--y:10%;--size:5px;--dur:4.7s;--delay:.6s;--star:#bca8ff"></span><span class="tron-star extra-star" style="--x:64%;--y:34%;--size:4px;--dur:5.5s;--delay:2.0s;--star:#8ce8ff"></span><span class="tron-star extra-star" style="--x:71%;--y:5%;--size:5px;--dur:4.4s;--delay:1.6s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:78%;--y:29%;--size:4px;--dur:5.0s;--delay:3.3s;--star:#d0baff"></span><span class="tron-star extra-star" style="--x:83%;--y:19%;--size:5px;--dur:4.1s;--delay:.8s;--star:#91eaff"></span><span class="tron-star extra-star" style="--x:90%;--y:7%;--size:4px;--dur:5.4s;--delay:2.4s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:97%;--y:33%;--size:5px;--dur:4.8s;--delay:1.1s;--star:#ffe49b"></span><span class="tron-star extra-star" style="--x:14%;--y:40%;--size:4px;--dur:4.3s;--delay:3.6s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:39%;--y:39%;--size:5px;--dur:5.2s;--delay:1.9s;--star:#8be7ff"></span><span class="tron-star extra-star" style="--x:68%;--y:42%;--size:4px;--dur:4.5s;--delay:.4s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:92%;--y:43%;--size:5px;--dur:5.6s;--delay:2.7s;--star:#c8b0ff"></span></div><div class="tron-horizon-glow"></div><div class="tron-grid-floor"></div><div class="tron-grid-bloom"></div></div><div class="bg-flare"></div><div class="bg-impact"></div></div><header class="site-global-header"><div class="site-global-topbar"><nav aria-label="Main navigation" class="site-global-nav">

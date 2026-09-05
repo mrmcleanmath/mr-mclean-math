@@ -1,0 +1,8 @@
+Pi Memory Challenge v163
+
+- Phone Practice Mode: Practice Digits panel is explicitly kept below the console and cannot overlay Start, digit display, or keypad.
+- Phone fullscreen: reverted the broad game-stage alignment change from v162. The title artwork itself is moved downward instead, leaving console geometry untouched.
+- Phone Run Report heading centering from v162 retained.
+- Tablet layout from v161/v162 unchanged.
+- Desktop/Windows/Chromebook routing fix from v162 retained.
+- Silent digit keys, haptics, and seamless Web Audio music loop retained.
