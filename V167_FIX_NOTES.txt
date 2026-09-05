@@ -1,0 +1,13 @@
+v167 — phone Practice console height lock
+
+ONLY behavior changed:
+- Phone Practice Mode now locks .game-card to the exact console height measured before mode selection.
+- Disabled the v165 margin positioning helper; normal phone flex flow places Practice Digits after the console once the console no longer collapses.
+
+UNCHANGED:
+- keypad / controls geometry
+- Pi size and position
+- fullscreen title adjustment
+- tablet layout
+- desktop / Chromebook routing and layout
+- audio behavior and seamless music loop

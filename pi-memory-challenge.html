@@ -1,5 +1,5 @@
 <!--
-  Pi Memory Challenge — v166 phone practice console trim fix
+  Pi Memory Challenge — v167 phone practice console height lock
   © 2026 Mr. McLean Math. All rights reserved.
   Original game design and implementation by Mr. McLean Math.
   Unauthorized copying, redistribution, republication, or derivative publication
@@ -2274,7 +2274,7 @@ html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-lay
   z-index:8!important;
 }
 </style>
-<script id="v165-practice-panel-below-console">
+<script id="v165-practice-panel-below-console" type="application/x-disabled">
 (function(){
   'use strict';
   var raf=0;
@@ -2326,4 +2326,57 @@ html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-lay
 })();
 </script>
 
+
+<style id="v167-phone-practice-match-console-height">
+/* v167 — PHONE ONLY: Practice must keep the exact already-approved console height.
+   The value is captured from the untouched console immediately before mode selection.
+   No child geometry is changed; Practice Digits simply follows after the fixed console. */
+html.device-profile-phone:not(.device-profile-tablet):not(.touchscreen-large-layout)
+body.phone-touch-input.mode-practice .game-card{
+  height:var(--v167-phone-console-height)!important;
+  min-height:var(--v167-phone-console-height)!important;
+  max-height:var(--v167-phone-console-height)!important;
+  overflow:visible!important;
+}
+</style>
+<script id="v167-phone-practice-match-console-height-js">
+(function(){
+  'use strict';
+  var root=document.documentElement;
+  function isRealPhone(){
+    var body=document.body;
+    return !!(root&&body&&
+      root.classList.contains('device-profile-phone')&&
+      !root.classList.contains('device-profile-tablet')&&
+      !root.classList.contains('touchscreen-large-layout')&&
+      body.classList.contains('phone-touch-input'));
+  }
+  function captureApprovedConsoleHeight(){
+    var body=document.body;
+    if(!isRealPhone()||!body||body.classList.contains('mode-selected'))return;
+    var card=document.querySelector('.game-card');
+    if(!card)return;
+    var h=card.getBoundingClientRect().height;
+    if(h>100)root.style.setProperty('--v167-phone-console-height',Math.ceil(h)+'px');
+  }
+  function captureSoon(){
+    captureApprovedConsoleHeight();
+    requestAnimationFrame(captureApprovedConsoleHeight);
+    setTimeout(captureApprovedConsoleHeight,60);
+    setTimeout(captureApprovedConsoleHeight,180);
+  }
+  /* Capture before the mode click can change any classes. */
+  document.addEventListener('pointerdown',function(e){
+    if(e.target.closest('.mode-btn'))captureApprovedConsoleHeight();
+  },true);
+  document.addEventListener('touchstart',function(e){
+    if(e.target.closest('.mode-btn'))captureApprovedConsoleHeight();
+  },{capture:true,passive:true});
+  window.addEventListener('resize',function(){
+    if(!document.body.classList.contains('mode-selected'))captureSoon();
+  },{passive:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',captureSoon,{once:true});
+  else captureSoon();
+})();
+</script>
 </body></html>

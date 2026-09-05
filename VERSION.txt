@@ -1,1 +1,1 @@
-v166 — Phone Practice console trim fix. Preserves v165 geometry; disables old dynamic card trim only in phone Practice Mode.
+v167
