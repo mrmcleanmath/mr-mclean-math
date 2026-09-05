@@ -1,0 +1,17 @@
+v159 focused update
+
+Digit entry
+- Removed the audible digit/key tap effect entirely.
+- Touch keypad haptic feedback remains.
+- Other sound effects remain controlled by the existing Sound toggle.
+- v158 sample-accurate background-theme loop is unchanged.
+
+Touchscreen layout
+- The approved phone fixed-stage layout now applies to tablets and other touch-capable devices.
+- Pi Memory Challenge title remains visible.
+- Practice / Challenge occupy the scoreboard bay until Start.
+- Start cross-zooms the mode controls out and Score / Level / Lives into the same fixed bay.
+- Gear menu contains Music, Sound, How to Play, Tips and About.
+- Gear and Full Screen stay in the console utility strip under the keypad.
+- Challenge Pi behavior and lifted position are preserved.
+- Non-touch desktop / non-touch Chromebook layouts remain on their existing presentation.

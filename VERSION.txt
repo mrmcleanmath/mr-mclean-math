@@ -1,1 +1,1 @@
-v158 — Audio-only refinement: low-latency digit press feedback and sample-accurate Web Audio background-music looping. Phone/desktop/tablet layouts unchanged.
+v159 — Digit-entry tap sound removed; haptic feedback retained on touch keys. The approved phone fixed-stage interface is now used on tablets and other touch-capable devices. Seamless Web Audio theme loop retained.
