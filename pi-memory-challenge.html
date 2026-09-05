@@ -1069,6 +1069,407 @@ html.device-profile-tablet body.phone-touch-input .pixel-heart{width:clamp(26px,
   body.phone-touch-input .phone-digit-key:active:not(:disabled){transform:translateY(2px) scale(.985)!important}
 }
 </style>
+
+<style id="v155-phone-fixed-stage-settings">
+/* v155 — phone fixed-stage controls + compact settings hub.
+   Phone only. Tablet / Chromebook / desktop contracts remain untouched. */
+html.device-profile-phone body.phone-touch-input .title-art-heading,
+html.device-profile-phone body.phone-touch-input.mode-challenge .title-art-heading,
+html.device-profile-phone body.phone-touch-input.mode-practice .title-art-heading,
+html.device-profile-phone body.phone-touch-input.run-live .title-art-heading{
+  display:block!important;
+  position:relative!important;
+  margin:2px auto 7px!important;
+  padding:0 44px!important;
+  min-height:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+html.device-profile-phone body.phone-touch-input .pi-title-art{
+  display:block!important;
+  width:min(86vw,420px)!important;
+  max-width:100%!important;
+  height:auto!important;
+  margin:0 auto!important;
+}
+
+/* The phone console becomes a fixed stage. The opening mode controls and live
+   scoreboard share the exact same grid cell so swapping them never reflows it. */
+html.device-profile-phone body.phone-touch-input .game-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  position:relative!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .hud,
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row{
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:start!important;
+  width:100%!important;
+  height:74px!important;
+  min-height:74px!important;
+  max-height:74px!important;
+  margin:0!important;
+  transform-origin:50% 50%!important;
+  will-change:transform,opacity,filter!important;
+  transition:
+    opacity .32s ease,
+    transform .46s cubic-bezier(.16,.84,.28,1),
+    filter .38s ease,
+    visibility 0s linear .46s!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:scale(1)!important;
+  filter:blur(0)!important;
+  pointer-events:auto!important;
+  z-index:3!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .hud{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:scale(.72)!important;
+  filter:blur(5px)!important;
+  pointer-events:none!important;
+  z-index:2!important;
+}
+html.device-profile-phone body.phone-touch-input.phone-scoreboard-live .game-card > .mode-row{
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:scale(.72)!important;
+  filter:blur(5px)!important;
+  pointer-events:none!important;
+  transition:
+    opacity .25s ease,
+    transform .38s cubic-bezier(.4,0,.7,.2),
+    filter .30s ease,
+    visibility 0s linear .38s!important;
+}
+html.device-profile-phone body.phone-touch-input.phone-scoreboard-live .game-card > .hud{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:scale(1)!important;
+  filter:blur(0)!important;
+  pointer-events:none!important;
+  z-index:4!important;
+  transition:
+    opacity .32s ease .10s,
+    transform .48s cubic-bezier(.14,.9,.18,1.12) .06s,
+    filter .38s ease .06s,
+    visibility 0s!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-btn{
+  height:74px!important;
+  min-height:74px!important;
+  margin:0!important;
+  padding:7px 7px!important;
+  gap:7px!important;
+  font-size:clamp(.59rem,2.85vw,.74rem)!important;
+  line-height:1.08!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon{
+  width:38px!important;
+  height:38px!important;
+  flex:0 0 38px!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon img,
+html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon svg{
+  width:36px!important;
+  height:36px!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > .play-core{
+  grid-column:1!important;
+  grid-row:2!important;
+}
+
+/* The previous standalone control rows are gone on phone. Their actual controls
+   are moved by JS into the gear popover so all original game behavior is retained. */
+html.device-profile-phone body.phone-touch-input .audio-control-panel,
+html.device-profile-phone body.phone-touch-input .info-launchers{
+  display:none!important;
+}
+
+.phone-settings-btn,
+.phone-settings-panel{display:none}
+html.device-profile-phone body.phone-touch-input .phone-settings-btn{
+  appearance:none;
+  -webkit-appearance:none;
+  display:grid!important;
+  place-items:center;
+  position:absolute;
+  z-index:22;
+  top:50%;
+  right:5px;
+  width:38px;
+  height:38px;
+  margin:0;
+  padding:0;
+  border:1.5px solid rgba(100,227,255,.92);
+  border-radius:50%;
+  color:#dffcff;
+  background:linear-gradient(180deg,#172b69 0%,#102154 48%,#0a1236 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 3px 0 #07102d,0 0 12px rgba(63,221,255,.30);
+  transform:translateY(-50%);
+  cursor:pointer;
+  touch-action:manipulation;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-btn svg{
+  width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 5px rgba(72,229,255,.52));
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-btn:active{
+  transform:translateY(calc(-50% + 2px));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 1px 0 #07102d,0 0 15px rgba(72,229,255,.52);
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-btn[aria-expanded="true"]{
+  background:linear-gradient(180deg,#2355a8,#17377c 52%,#0c1b4d);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 2px 0 #07102d,0 0 18px rgba(72,229,255,.62),0 0 25px rgba(139,83,255,.22);
+}
+
+html.device-profile-phone body.phone-touch-input .phone-settings-panel{
+  display:block!important;
+  position:fixed;
+  z-index:2147480200;
+  top:max(8px,env(safe-area-inset-top));
+  right:8px;
+  width:min(310px,calc(100vw - 16px));
+  max-height:calc(100dvh - 16px);
+  overflow:auto;
+  padding:11px;
+  color:#dffcff;
+  background:linear-gradient(180deg,rgba(19,32,91,.985),rgba(5,12,38,.99));
+  border:1.5px solid #63dcff;
+  border-radius:16px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 0 2px rgba(58,84,188,.26),0 8px 28px rgba(0,0,0,.48),0 0 24px rgba(72,222,255,.22);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(-8px) scale(.94);
+  transform-origin:top right;
+  transition:opacity .20s ease,transform .28s cubic-bezier(.16,.84,.28,1),visibility 0s linear .28s;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+  transition:opacity .20s ease,transform .28s cubic-bezier(.16,.84,.28,1),visibility 0s;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 9px;padding:2px 3px 8px;border-bottom:1px solid rgba(99,220,255,.25);
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-title{
+  font:900 .72rem/1 "Orbitron","Arial Black",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#aeeeff;text-shadow:0 0 8px rgba(76,229,255,.32);
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-close{
+  appearance:none;border:1px solid rgba(112,220,255,.55);border-radius:9px;width:31px;height:31px;padding:0;cursor:pointer;color:#e9fcff;background:#10194b;font:900 1.25rem/1 Arial,sans-serif;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-audio{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .audio-toggle{
+  display:flex!important;min-width:0!important;padding:8px 7px 7px!important;gap:6px!important;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .audio-toggle-copy{font-size:.54rem!important;letter-spacing:.03em!important}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .audio-toggle-track{height:24px!important}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .audio-toggle-knob{height:16px!important;top:3px!important}
+html.device-profile-phone body.phone-touch-input .phone-settings-links{display:grid;grid-template-columns:1fr;gap:7px}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .info-btn{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;width:100%!important;min-width:0!important;min-height:49px!important;margin:0!important;padding:7px 10px!important;text-align:left!important;font-size:.58rem!important;line-height:1.1!important;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .info-btn .icon-shell{
+  flex:0 0 32px!important;width:32px!important;height:32px!important;margin:0!important;
+}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .info-btn .icon-shell svg{width:21px!important;height:21px!important}
+html.device-profile-phone body.phone-touch-input .phone-settings-panel .info-label{
+  display:block!important;min-height:0!important;text-align:left!important;white-space:normal!important;font-size:.58rem!important;line-height:1.1!important;
+}
+
+/* Fullscreen is now a tiny hardware-style button docked to the console frame. */
+html.device-profile-phone body.phone-touch-input .game-card > #fullscreenGameBtn{
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  z-index:14!important;
+  top:-15px!important;
+  right:8px!important;
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:50%!important;
+  clip-path:none!important;
+  border:1.5px solid rgba(108,218,255,.86)!important;
+  background:linear-gradient(180deg,#15265e,#0b153e)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 3px 0 #050a20,0 0 12px rgba(60,222,255,.24)!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > #fullscreenGameBtn .fullscreen-game-icon{
+  width:18px!important;height:18px!important;margin:0!important;display:grid!important;place-items:center!important;
+}
+html.device-profile-phone body.phone-touch-input .game-card > #fullscreenGameBtn .fullscreen-game-icon svg{width:18px!important;height:18px!important}
+html.device-profile-phone body.phone-touch-input .game-card > #fullscreenGameBtn #fullscreenGameLabel{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+
+/* Keep Start -> live from hiding the permanent logo or our fixed swap bay. */
+html.device-profile-phone body.phone-touch-input.run-live .game-card > .mode-row{display:grid!important}
+html.device-profile-phone body.phone-touch-input.run-live .title-art-heading{display:block!important}
+
+@media (max-width:350px){
+  html.device-profile-phone body.phone-touch-input .title-art-heading{padding-left:40px!important;padding-right:40px!important;margin-bottom:5px!important}
+  html.device-profile-phone body.phone-touch-input .pi-title-art{width:min(84vw,360px)!important}
+  html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-btn{font-size:.56rem!important;gap:4px!important;padding-left:4px!important;padding-right:4px!important}
+  html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon{width:32px!important;height:32px!important;flex-basis:32px!important}
+  html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon img,
+  html.device-profile-phone body.phone-touch-input .game-card > .mode-row .mode-icon svg{width:31px!important;height:31px!important}
+}
+
+/* v155 fixed-run geometry: establish the live phone footprint as soon as a mode
+   is selected. Start can then change game state without moving the stage. */
+html.device-profile-phone body.phone-touch-input > main.page,
+html.device-profile-phone body.phone-touch-input.run-live > main.page{
+  padding:6px 8px 10px!important;
+}
+html.device-profile-phone body.phone-touch-input .game-stage,
+html.device-profile-phone body.phone-touch-input.run-live .game-stage{
+  gap:6px!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .game-card,
+html.device-profile-phone body.phone-touch-input.run-live .game-card{
+  width:100%!important;
+  max-width:600px!important;
+  margin:0 auto!important;
+  padding:7px!important;
+  border-width:2px!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .play-core,
+html.device-profile-phone body.phone-touch-input.run-live .play-core{
+  width:100%!important;
+  max-width:none!important;
+  margin:5px 0 0!important;
+  padding:6px 9px 6px!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .play-core > .section-label,
+html.device-profile-phone body.phone-touch-input.run-live .play-core > .section-label{
+  width:max-content!important;
+  max-width:96%!important;
+  height:auto!important;
+  margin:0 auto 5px!important;
+  padding:4px 13px 5px!important;
+  font-size:.68rem!important;
+  line-height:1!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .digits-box,
+html.device-profile-phone body.phone-touch-input.run-live .digits-box{
+  min-height:58px!important;
+  height:58px!important;
+  padding:7px 45px 7px 12px!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .digits-text,
+html.device-profile-phone body.phone-touch-input.run-live .digits-text{font-size:clamp(1.7rem,8.6vw,2.25rem)!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .custom-pi-digit,
+html.device-profile-phone body.phone-touch-input.run-live .custom-pi-digit{max-height:40px!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .expand-digits-btn,
+html.device-profile-phone body.phone-touch-input.run-live .expand-digits-btn{width:36px!important;height:36px!important;min-width:36px!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .entry-row,
+html.device-profile-phone body.phone-touch-input.run-live .entry-row{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-height:0!important;
+  height:48px!important;
+  margin-top:5px!important;
+  padding:2px!important;
+  overflow:visible!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .entry-row > div:first-child{display:none!important}
+html.device-profile-phone body.phone-touch-input.mode-selected #startBtn,
+html.device-profile-phone body.phone-touch-input.mode-selected #quitBtn{
+  width:100%!important;
+  max-width:none!important;
+  height:44px!important;
+  min-height:44px!important;
+  margin:0!important;
+  padding:7px 10px!important;
+  border-radius:11px!important;
+  font-size:.82rem!important;
+  line-height:1!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected:not(.run-live) #startBtn{display:block!important}
+html.device-profile-phone body.phone-touch-input.mode-selected:not(.run-live) #quitBtn{display:none!important}
+html.device-profile-phone body.phone-touch-input.run-live #startBtn{display:none!important}
+html.device-profile-phone body.phone-touch-input.run-live #quitBtn{display:block!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .phone-digit-pad,
+html.device-profile-phone body.phone-touch-input.run-live .phone-digit-pad{margin-top:5px!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .phone-digit-key,
+html.device-profile-phone body.phone-touch-input.run-live .phone-digit-key{height:42px!important;min-height:42px!important}
+html.device-profile-phone body.phone-touch-input.mode-selected .status,
+html.device-profile-phone body.phone-touch-input.run-live .status{
+  min-height:28px!important;
+  height:28px!important;
+  margin-top:5px!important;
+  padding:6px 8px 6px 32px!important;
+  font-size:.63rem!important;
+  line-height:1.05!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-selected .pi-side-column,
+html.device-profile-phone body.phone-touch-input.run-live .pi-side-column{
+  width:100%!important;
+  max-width:600px!important;
+  gap:3px!important;
+  margin:0 auto!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-challenge .pi-tank-card,
+html.device-profile-phone body.phone-touch-input.run-live.mode-challenge .pi-tank-card{
+  order:2!important;
+  width:100%!important;
+  max-width:222px!important;
+  min-height:0!important;
+  height:210px!important;
+  margin:0 auto!important;
+  padding:1px!important;
+  overflow:hidden!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-challenge .pi-vessel,
+html.device-profile-phone body.phone-touch-input.run-live.mode-challenge .pi-vessel{
+  width:202px!important;
+  height:202px!important;
+  max-width:202px!important;
+  max-height:202px!important;
+  margin:0 auto!important;
+  top:auto!important;
+  transform:none!important;
+}
+html.device-profile-phone body.phone-touch-input.mode-challenge .pi-hover-shell,
+html.device-profile-phone body.phone-touch-input.run-live.mode-challenge .pi-hover-shell{
+  width:100%!important;height:100%!important;transform:none!important;
+}
+@media (max-width:360px){
+  html.device-profile-phone body.phone-touch-input.mode-challenge .pi-tank-card,
+  html.device-profile-phone body.phone-touch-input.run-live.mode-challenge .pi-tank-card{max-width:198px!important;height:186px!important}
+  html.device-profile-phone body.phone-touch-input.mode-challenge .pi-vessel,
+  html.device-profile-phone body.phone-touch-input.run-live.mode-challenge .pi-vessel{width:180px!important;height:180px!important;max-width:180px!important;max-height:180px!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html.device-profile-phone body.phone-touch-input .game-card > .hud,
+  html.device-profile-phone body.phone-touch-input .game-card > .mode-row,
+  html.device-profile-phone body.phone-touch-input .phone-settings-panel{transition-duration:.01ms!important;transition-delay:0s!important}
+}
+
+</style>
 </head><body><script id="v143-device-profile-body-sync">(function(){var p=window.__PI_PROFILE__;if(!p)return;var b=document.body;b.classList.add('device-'+p.profile,'graphics-'+p.graphics);if(p.profile==='phone'){b.classList.add('phone-touch-input');}else if(p.profile==='tablet'){b.classList.add('phone-touch-input','device-tablet-touch','auto-performance-lite');}else if(p.profile==='chromebook'){b.classList.add('device-chromeos','chromeos-compact','performance-balanced');}if(p.lowSpec)b.classList.add('device-low-spec');})();</script><div aria-label="Tablet portrait mode required" aria-live="polite" id="tabletPortraitGate"><div class="tablet-portrait-message"><span aria-hidden="true" class="tablet-rotate-icon">↻</span><strong>Portrait Mode</strong><span>Rotate your tablet upright to play Pi Memory Challenge.</span></div></div><audio id="gameMusic" loop="" preload="auto" src="assets/pi-memory-background-music.wav"></audio><audio id="modeSelectSound" preload="auto" src="assets/mode-select.ogg"></audio><audio id="menuHighlightSound" preload="auto" src="assets/vgmenuhighlight.ogg"></audio><audio id="reportCardSound" preload="auto" src="assets/report-card.ogg"></audio><audio id="heartEarnedSound" preload="auto" src="assets/heart-earned.ogg"></audio><audio id="hundredDigitsSound" preload="auto" src="assets/hundred-digits.wav"></audio><div aria-hidden="true" class="bg-transition"><div class="bg-dim"></div><div class="bg-galaxy"></div><div class="bg-stars stars-a"></div><div class="bg-stars stars-b"></div><span class="twinkle-star" style="--x:12%;--y:20%;--size:10px;--dur:4.6s;--delay:.2s"></span><span class="twinkle-star" style="--x:22%;--y:34%;--size:9px;--dur:5.4s;--delay:1.3s"></span><span class="twinkle-star" style="--x:35%;--y:16%;--size:11px;--dur:6.1s;--delay:.8s"></span><span class="twinkle-star" style="--x:48%;--y:28%;--size:8px;--dur:4.9s;--delay:2.1s"></span><span class="twinkle-star" style="--x:61%;--y:18%;--size:9px;--dur:5.8s;--delay:1.8s"></span><span class="twinkle-star" style="--x:72%;--y:30%;--size:12px;--dur:6.3s;--delay:.4s"></span><span class="twinkle-star" style="--x:82%;--y:42%;--size:8px;--dur:4.8s;--delay:2.6s"></span><span class="twinkle-star" style="--x:16%;--y:60%;--size:10px;--dur:5.7s;--delay:3.2s"></span><span class="twinkle-star" style="--x:42%;--y:70%;--size:11px;--dur:6.4s;--delay:1.4s"></span><span class="twinkle-star" style="--x:76%;--y:68%;--size:9px;--dur:5.2s;--delay:2.9s"></span><span class="twinkle-star brilliant" style="--x:7%;--y:12%;--size:7px;--dur:3.9s;--delay:1.1s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:18%;--y:48%;--size:9px;--dur:4.7s;--delay:.6s;--star:#9fe9ff"></span><span class="twinkle-star brilliant" style="--x:29%;--y:10%;--size:8px;--dur:5.1s;--delay:2.2s;--star:#d9c7ff"></span><span class="twinkle-star brilliant" style="--x:31%;--y:58%;--size:6px;--dur:3.7s;--delay:1.7s;--star:#fff0aa"></span><span class="twinkle-star brilliant" style="--x:40%;--y:41%;--size:8px;--dur:4.3s;--delay:2.7s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:52%;--y:11%;--size:10px;--dur:5.6s;--delay:.3s;--star:#8de5ff"></span><span class="twinkle-star brilliant" style="--x:57%;--y:52%;--size:7px;--dur:4.1s;--delay:1.2s;--star:#c8b1ff"></span><span class="twinkle-star brilliant" style="--x:67%;--y:40%;--size:9px;--dur:4.9s;--delay:2.3s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:74%;--y:12%;--size:7px;--dur:3.8s;--delay:1.5s;--star:#ffe69a"></span><span class="twinkle-star brilliant" style="--x:88%;--y:22%;--size:9px;--dur:5.2s;--delay:.9s;--star:#9edfff"></span><span class="twinkle-star brilliant" style="--x:91%;--y:57%;--size:6px;--dur:4.4s;--delay:2.6s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:9%;--y:78%;--size:9px;--dur:5.0s;--delay:2.0s;--star:#cbb7ff"></span><span class="twinkle-star brilliant" style="--x:25%;--y:83%;--size:7px;--dur:4.0s;--delay:.2s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:49%;--y:86%;--size:8px;--dur:5.5s;--delay:1.6s;--star:#9deaff"></span><span class="twinkle-star brilliant" style="--x:63%;--y:77%;--size:10px;--dur:4.6s;--delay:2.4s;--star:#ffffff"></span><span class="twinkle-star brilliant" style="--x:87%;--y:84%;--size:8px;--dur:5.3s;--delay:1.0s;--star:#ffe8a3"></span><div aria-hidden="true" class="tron-scene"><div class="tron-sky"></div><div aria-hidden="true" class="tron-sky-stars"><span class="tron-star" style="--x:8%;--y:10%;--size:7px;--dur:4.7s;--delay:.2s;--star:#ffffff"></span><span class="tron-star" style="--x:16%;--y:18%;--size:8px;--dur:5.4s;--delay:1.1s;--star:#89ebff"></span><span class="tron-star" style="--x:24%;--y:8%;--size:6px;--dur:4.1s;--delay:2.0s;--star:#cbb8ff"></span><span class="tron-star" style="--x:33%;--y:20%;--size:9px;--dur:5.9s;--delay:.8s;--star:#ffffff"></span><span class="tron-star" style="--x:41%;--y:12%;--size:7px;--dur:4.8s;--delay:2.4s;--star:#9ee8ff"></span><span class="tron-star" style="--x:52%;--y:7%;--size:8px;--dur:5.2s;--delay:1.5s;--star:#ffe59d"></span><span class="tron-star" style="--x:61%;--y:19%;--size:6px;--dur:4.3s;--delay:3.0s;--star:#ffffff"></span><span class="tron-star" style="--x:69%;--y:11%;--size:9px;--dur:5.7s;--delay:.5s;--star:#b9a8ff"></span><span class="tron-star" style="--x:77%;--y:23%;--size:8px;--dur:4.9s;--delay:2.7s;--star:#8ce6ff"></span><span class="tron-star" style="--x:86%;--y:13%;--size:7px;--dur:5.0s;--delay:1.9s;--star:#ffffff"></span><span class="tron-star" style="--x:93%;--y:28%;--size:10px;--dur:6.2s;--delay:.7s;--star:#ffe59d"></span><span class="tron-star" style="--x:12%;--y:34%;--size:6px;--dur:4.5s;--delay:3.2s;--star:#c9b4ff"></span><span class="tron-star" style="--x:27%;--y:31%;--size:7px;--dur:5.1s;--delay:2.3s;--star:#ffffff"></span><span class="tron-star" style="--x:46%;--y:29%;--size:8px;--dur:4.6s;--delay:1.2s;--star:#96e8ff"></span><span class="tron-star" style="--x:58%;--y:36%;--size:7px;--dur:5.8s;--delay:2.9s;--star:#ffffff"></span><span class="tron-star" style="--x:72%;--y:33%;--size:6px;--dur:4.2s;--delay:1.6s;--star:#c3adff"></span><span class="tron-star" style="--x:84%;--y:31%;--size:9px;--dur:5.6s;--delay:2.1s;--star:#8ee4ff"></span><span class="tron-star" style="--x:20%;--y:26%;--size:7px;--dur:5.3s;--delay:3.4s;--star:#8fe8ff"></span><span class="tron-star" style="--x:37%;--y:35%;--size:8px;--dur:4.8s;--delay:.9s;--star:#ffffff"></span><span class="tron-star" style="--x:55%;--y:22%;--size:6px;--dur:5.9s;--delay:2.6s;--star:#c5b0ff"></span><span class="tron-star" style="--x:74%;--y:17%;--size:7px;--dur:4.5s;--delay:1.4s;--star:#98e9ff"></span><span class="tron-star" style="--x:89%;--y:38%;--size:8px;--dur:5.5s;--delay:3.0s;--star:#ffe4a0"></span><span class="tron-star" style="--x:5%;--y:29%;--size:6px;--dur:5.7s;--delay:1.8s;--star:#9deaff"></span><span class="tron-star" style="--x:31%;--y:14%;--size:7px;--dur:4.9s;--delay:3.1s;--star:#ffffff"></span><span class="tron-star" style="--x:49%;--y:38%;--size:6px;--dur:5.4s;--delay:.6s;--star:#c8b4ff"></span><span class="tron-star" style="--x:64%;--y:27%;--size:8px;--dur:6.0s;--delay:2.2s;--star:#8de7ff"></span><span class="tron-star" style="--x:80%;--y:8%;--size:6px;--dur:4.6s;--delay:3.5s;--star:#ffffff"></span><span class="tron-star" style="--x:96%;--y:17%;--size:7px;--dur:5.2s;--delay:1.0s;--star:#ffe6a4"></span><span class="tron-star extra-star" style="--x:4%;--y:16%;--size:4px;--dur:3.8s;--delay:.9s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:11%;--y:24%;--size:5px;--dur:4.6s;--delay:2.8s;--star:#8de9ff"></span><span class="tron-star extra-star" style="--x:19%;--y:6%;--size:4px;--dur:5.1s;--delay:1.7s;--star:#d1bdff"></span><span class="tron-star extra-star" style="--x:28%;--y:24%;--size:5px;--dur:4.2s;--delay:.3s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:35%;--y:6%;--size:4px;--dur:4.9s;--delay:2.5s;--star:#96eaff"></span><span class="tron-star extra-star" style="--x:44%;--y:18%;--size:5px;--dur:5.3s;--delay:1.2s;--star:#ffe7a5"></span><span class="tron-star extra-star" style="--x:50%;--y:26%;--size:4px;--dur:4.0s;--delay:3.1s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:57%;--y:10%;--size:5px;--dur:4.7s;--delay:.6s;--star:#bca8ff"></span><span class="tron-star extra-star" style="--x:64%;--y:34%;--size:4px;--dur:5.5s;--delay:2.0s;--star:#8ce8ff"></span><span class="tron-star extra-star" style="--x:71%;--y:5%;--size:5px;--dur:4.4s;--delay:1.6s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:78%;--y:29%;--size:4px;--dur:5.0s;--delay:3.3s;--star:#d0baff"></span><span class="tron-star extra-star" style="--x:83%;--y:19%;--size:5px;--dur:4.1s;--delay:.8s;--star:#91eaff"></span><span class="tron-star extra-star" style="--x:90%;--y:7%;--size:4px;--dur:5.4s;--delay:2.4s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:97%;--y:33%;--size:5px;--dur:4.8s;--delay:1.1s;--star:#ffe49b"></span><span class="tron-star extra-star" style="--x:14%;--y:40%;--size:4px;--dur:4.3s;--delay:3.6s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:39%;--y:39%;--size:5px;--dur:5.2s;--delay:1.9s;--star:#8be7ff"></span><span class="tron-star extra-star" style="--x:68%;--y:42%;--size:4px;--dur:4.5s;--delay:.4s;--star:#ffffff"></span><span class="tron-star extra-star" style="--x:92%;--y:43%;--size:5px;--dur:5.6s;--delay:2.7s;--star:#c8b0ff"></span></div><div class="tron-horizon-glow"></div><div class="tron-grid-floor"></div><div class="tron-grid-bloom"></div></div><div class="bg-flare"></div><div class="bg-impact"></div></div><header class="site-global-header"><div class="site-global-topbar"><nav aria-label="Main navigation" class="site-global-nav">
 <a href="index.html">Home</a>
 <a href="videos.html">Videos</a>
@@ -1224,4 +1625,87 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
-</script></body></html>
+</script>
+<script id="v155-phone-fixed-stage-settings-js">
+(function(){
+  'use strict';
+  function isPhoneProfile(){return document.documentElement.classList.contains('device-profile-phone');}
+  function init(){
+    if(!isPhoneProfile())return;
+    var body=document.body;
+    var heading=document.querySelector('.title-art-heading');
+    var gameCard=document.querySelector('.game-card');
+    var audioPanel=document.querySelector('.audio-control-panel');
+    var infoPanel=document.querySelector('.info-launchers');
+    var fullscreen=document.getElementById('fullscreenGameBtn');
+    var start=document.getElementById('startBtn');
+    var closeReport=document.getElementById('closeReport');
+    var report=document.getElementById('reportBackdrop');
+    if(!heading||!gameCard)return;
+
+    /* Permanent gear control beside the phone title. */
+    var gear=document.createElement('button');
+    gear.type='button';
+    gear.id='phoneSettingsBtn';
+    gear.className='phone-settings-btn';
+    gear.setAttribute('aria-label','Game settings and help');
+    gear.setAttribute('aria-expanded','false');
+    gear.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"></circle><path d="M19.2 13.2a7.7 7.7 0 0 0 .05-2.4l2-1.55-2-3.45-2.45 1a8.1 8.1 0 0 0-2.05-1.2L14.4 3h-4.0l-.35 2.6A8.1 8.1 0 0 0 8 6.8l-2.45-1-2 3.45 2 1.55a7.7 7.7 0 0 0 .05 2.4l-2.05 1.55 2 3.45 2.5-1a8.1 8.1 0 0 0 2 1.15l.35 2.65h4l.35-2.65a8.1 8.1 0 0 0 2-1.15l2.5 1 2-3.45-2.05-1.55z"></path></svg>';
+    heading.appendChild(gear);
+
+    var panel=document.createElement('section');
+    panel.id='phoneSettingsPanel';
+    panel.className='phone-settings-panel';
+    panel.setAttribute('aria-label','Game settings and help');
+    panel.innerHTML='<div class="phone-settings-head"><div class="phone-settings-title">Settings</div><button type="button" class="phone-settings-close" aria-label="Close settings">×</button></div><div class="phone-settings-audio"></div><div class="phone-settings-links"></div>';
+    document.body.appendChild(panel);
+    var audioSlot=panel.querySelector('.phone-settings-audio');
+    var linksSlot=panel.querySelector('.phone-settings-links');
+
+    /* Move — do not clone — the original working controls. Their original event
+       listeners, localStorage preferences, sounds and info modal behavior survive. */
+    if(audioPanel){
+      var music=document.getElementById('musicToggle');
+      var sound=document.getElementById('soundToggle');
+      if(music&&music.closest('.audio-toggle'))audioSlot.appendChild(music.closest('.audio-toggle'));
+      if(sound&&sound.closest('.audio-toggle'))audioSlot.appendChild(sound.closest('.audio-toggle'));
+    }
+    if(infoPanel){
+      Array.from(infoPanel.querySelectorAll('.info-btn')).forEach(function(btn){linksSlot.appendChild(btn);});
+    }
+    if(fullscreen&&fullscreen.parentElement!==gameCard)gameCard.appendChild(fullscreen);
+
+    function setPanel(open){
+      panel.classList.toggle('open',!!open);
+      gear.setAttribute('aria-expanded',open?'true':'false');
+      if(open){var first=panel.querySelector('input,button');if(first)setTimeout(function(){try{first.focus({preventScroll:true});}catch(e){}},40);}
+    }
+    gear.addEventListener('click',function(e){e.stopPropagation();setPanel(!panel.classList.contains('open'));});
+    panel.querySelector('.phone-settings-close').addEventListener('click',function(){setPanel(false);gear.focus();});
+    panel.querySelectorAll('.info-btn').forEach(function(btn){btn.addEventListener('click',function(){setPanel(false);});});
+    document.addEventListener('pointerdown',function(e){if(panel.classList.contains('open')&&!panel.contains(e.target)&&!gear.contains(e.target))setPanel(false);},{capture:true});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')){setPanel(false);gear.focus();}});
+
+    /* Fixed-bay swap. Registered after the game's own Start handler, so the game
+       validates the selected mode/reset first; then the visual cross-zoom begins. */
+    function showModes(){body.classList.remove('phone-scoreboard-live');var hud=gameCard.querySelector('.hud'),modes=gameCard.querySelector('.mode-row');if(hud)hud.setAttribute('aria-hidden','true');if(modes)modes.removeAttribute('aria-hidden');}
+    function showScoreboard(){body.classList.add('phone-scoreboard-live');var hud=gameCard.querySelector('.hud'),modes=gameCard.querySelector('.mode-row');if(hud)hud.removeAttribute('aria-hidden');if(modes)modes.setAttribute('aria-hidden','true');setPanel(false);}
+    showModes();
+    if(start)start.addEventListener('click',function(){if(body.classList.contains('mode-selected'))showScoreboard();});
+
+    /* After a finished run/report, return to the mode bay for the next run. */
+    var reportWasOpen=false;
+    if(report&&window.MutationObserver){
+      new MutationObserver(function(){
+        var open=report.classList.contains('open');
+        if(reportWasOpen&&!open)setTimeout(showModes,30);
+        reportWasOpen=open;
+      }).observe(report,{attributes:true,attributeFilter:['class']});
+    }
+    if(closeReport)closeReport.addEventListener('click',function(){setTimeout(showModes,60);});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+
+</script>
+</body></html>
