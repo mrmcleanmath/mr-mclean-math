@@ -1,0 +1,17 @@
+Pi Memory Challenge v162
+
+PHONE ONLY
+- Centered: Run Report Card / Pi Memory Challenge / mode label.
+- Fullscreen only: console now starts directly beneath the title instead of being vertically centered lower on the page.
+- Regular phone gameplay remains unchanged.
+
+TABLET
+- Approved v161 tablet presentation is intentionally unchanged.
+
+PC / LAPTOP / CHROMEBOOK
+- Restored desktop routing. Windows touchscreens no longer inherit phone/tablet classes.
+- Touch input alone no longer changes desktop/laptop gameplay structure.
+- Chromebook keeps its dedicated Chromebook profile.
+
+AUDIO
+- Silent digit presses and the seamless Web Audio music loop are retained.
