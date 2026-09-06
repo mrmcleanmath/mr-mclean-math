@@ -463,6 +463,107 @@ body::before{
   font-weight:900
 }
 
+
+/* v172 Practice App Finder — integrated Mr. McLean Math visual treatment */
+.practice-finder{
+  position:relative;
+  z-index:20;
+  margin:22px 0 29px;
+  padding:28px 27px 25px;
+  border:1.5px solid rgba(151,157,170,.78);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 2% 5%, rgba(91,159,194,.18) 0 72px, transparent 73px),
+    radial-gradient(circle at 98% 100%, rgba(138,106,198,.14) 0 94px, transparent 95px),
+    linear-gradient(135deg,rgba(255,255,255,.985),rgba(255,253,247,.97));
+  box-shadow:0 15px 34px rgba(45,52,68,.13),0 3px 0 rgba(255,255,255,.88) inset;
+}
+.practice-finder::before{
+  content:"";
+  position:absolute;
+  left:22px;right:22px;top:-4px;
+  height:8px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#e8ba45 0 20%,#72ad61 20% 40%,#5b9fc2 40% 60%,#8a6ac6 60% 80%,#f0b36b 80% 100%);
+  box-shadow:0 3px 9px rgba(66,71,84,.16)
+}
+.practice-finder-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+.practice-finder-title-group{display:flex;align-items:center;gap:14px;min-width:0}
+.practice-finder-title-icon{
+  width:54px;height:54px;flex:0 0 54px;display:grid;place-items:center;
+  border-radius:17px;
+  background:linear-gradient(145deg,#3731ff,#665ff4 54%,#8a6ac6);
+  border:2px solid rgba(255,255,255,.9);
+  box-shadow:0 9px 20px rgba(52,46,226,.24),0 0 0 1px rgba(76,72,190,.18)
+}
+.practice-finder-title-icon svg{width:30px;height:30px;color:#fff;filter:drop-shadow(0 2px 2px rgba(0,0,0,.16))}
+.practice-finder-title-icon circle,.practice-finder-title-icon path{stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round}
+.practice-finder-head h2{margin:0;font-size:clamp(1.42rem,2vw,1.68rem);line-height:1.08;color:#343741;letter-spacing:-.025em}
+.practice-finder-head p{margin:6px 0 0;color:#626975;font-size:.95rem;line-height:1.45;font-weight:700}
+.practice-finder-badge{
+  flex:0 0 auto;padding:9px 13px;border-radius:999px;
+  background:linear-gradient(135deg,#fff6bf,#ffe27a);
+  border:1px solid #d7b23a;color:#69520e;
+  box-shadow:0 5px 12px rgba(184,145,23,.18),0 1px 0 rgba(255,255,255,.9) inset;
+  font-size:.72rem;font-weight:1000;letter-spacing:.06em;text-transform:uppercase
+}
+.practice-finder-controls{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:16px;align-items:stretch}
+.finder-field{
+  min-width:0;padding:14px 14px 15px;
+  border:1px solid rgba(181,186,197,.72);border-radius:16px;
+  background:rgba(255,255,255,.76);
+  box-shadow:0 6px 14px rgba(45,52,68,.06),0 1px 0 rgba(255,255,255,.96) inset
+}
+.finder-label{display:flex;align-items:center;gap:7px;margin:0 0 8px;font-size:.82rem;font-weight:1000;color:#444a55}
+.finder-label::before{content:"";width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#5b9fc2;box-shadow:0 0 0 4px rgba(91,159,194,.12)}
+.finder-field:last-child .finder-label::before{background:#8a6ac6;box-shadow:0 0 0 4px rgba(138,106,198,.12)}
+.practice-search-wrap{position:relative}
+.practice-search-shell{
+  height:52px;display:flex;align-items:center;gap:11px;padding:0 14px;
+  border:2px solid #b9c7d5;border-radius:13px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  box-shadow:0 3px 9px rgba(67,91,111,.06) inset,0 2px 5px rgba(45,52,68,.04);
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease
+}
+.practice-search-shell:hover{border-color:#8fb4ca}
+.practice-search-shell:focus-within{border-color:#4f96bd;box-shadow:0 0 0 4px rgba(91,159,194,.16),0 5px 12px rgba(45,52,68,.07);transform:translateY(-1px)}
+.practice-search-icon{width:23px;height:23px;flex:0 0 23px;color:#4c89aa}
+.practice-search-icon circle,.practice-search-icon path{stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round}
+#practiceSearch{width:100%;min-width:0;height:100%;border:0;outline:0;background:transparent;color:#343741;font:inherit;font-size:1rem;font-weight:700}
+#practiceSearch::placeholder{color:#9298a3;font-weight:600}
+.practice-browse-select{
+  width:100%;height:52px;padding:0 44px 0 14px;
+  border:2px solid #c4b8dd;border-radius:13px;
+  background:linear-gradient(180deg,#fff,#fdfbff);
+  color:#343741;font:inherit;font-size:.96rem;font-weight:900;cursor:pointer;outline:0;
+  box-shadow:0 3px 9px rgba(94,71,141,.05) inset,0 2px 5px rgba(45,52,68,.04);
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease
+}
+.practice-browse-select:hover{border-color:#9d88ca}
+.practice-browse-select:focus{border-color:#8065bb;box-shadow:0 0 0 4px rgba(138,106,198,.15),0 5px 12px rgba(45,52,68,.07);transform:translateY(-1px)}
+.practice-search-results{position:absolute;top:calc(100% + 8px);left:14px;right:14px;z-index:80;padding:8px;border:1px solid #cfd5de;border-radius:14px;background:rgba(255,255,255,.99);box-shadow:0 17px 36px rgba(45,52,68,.21);max-height:340px;overflow:auto}
+.practice-search-results[hidden]{display:none}
+.practice-search-result{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:11px 12px;border-radius:10px;color:#343741;text-decoration:none;transition:background .15s ease,transform .15s ease,box-shadow .15s ease}
+.practice-search-result:hover,.practice-search-result:focus-visible{background:linear-gradient(90deg,rgba(91,159,194,.10),rgba(138,106,198,.08));outline:0;transform:translateX(2px);box-shadow:inset 3px 0 #5b9fc2}
+.practice-search-result strong{display:block;font-size:.94rem;line-height:1.25}
+.practice-search-result small{display:block;margin-top:3px;color:#737985;font-size:.76rem;font-weight:800}
+.practice-search-result .result-arrow{color:#5149db;font-weight:1000;font-size:1.05rem}
+.practice-search-empty{padding:13px 12px;color:#737985;font-size:.9rem;text-align:center}
+@media(max-width:760px){
+  .practice-finder{padding:24px 17px 18px;margin:19px 0 24px;border-radius:20px}
+  .practice-finder::before{left:16px;right:16px;height:7px}
+  .practice-finder-head{align-items:flex-start;margin-bottom:16px}
+  .practice-finder-title-group{gap:11px;align-items:flex-start}
+  .practice-finder-title-icon{width:46px;height:46px;flex-basis:46px;border-radius:14px}
+  .practice-finder-title-icon svg{width:26px;height:26px}
+  .practice-finder-head h2{font-size:1.34rem}
+  .practice-finder-head p{font-size:.88rem;margin-top:4px}
+  .practice-finder-badge{display:none}
+  .practice-finder-controls{grid-template-columns:1fr;gap:12px}
+  .finder-field{padding:12px}
+  .practice-search-results{left:12px;right:12px;max-height:300px}
+}
+
 </style>
 <style>
 /* Responsive launch pass — preserves the approved desktop design */
@@ -1191,6 +1292,38 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
   </div>
 </section>
 
+
+<section class="practice-finder" aria-labelledby="practiceFinderTitle">
+  <div class="practice-finder-head">
+    <div class="practice-finder-title-group">
+      <span class="practice-finder-title-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><circle cx="10.3" cy="10.3" r="6.3"></circle><path d="M15 15 21 21"></path><path d="M8 10.3h4.6M10.3 8v4.6"></path></svg>
+      </span>
+      <div>
+        <h2 id="practiceFinderTitle">Find a Practice App</h2>
+        <p>Search by concept or browse all current apps by subject.</p>
+      </div>
+    </div>
+    <span class="practice-finder-badge">Quick Find</span>
+  </div>
+  <div class="practice-finder-controls">
+    <div class="finder-field practice-search-wrap" id="practiceSearchWrap">
+      <label class="finder-label" for="practiceSearch">Search practice apps</label>
+      <div class="practice-search-shell">
+        <svg class="practice-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.4 15.4 21 21"></path></svg>
+        <input id="practiceSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Try fractions, area, probability..." aria-controls="practiceSearchResults" aria-expanded="false">
+      </div>
+      <div class="practice-search-results" id="practiceSearchResults" aria-live="polite" hidden></div>
+    </div>
+    <div class="finder-field">
+      <label class="finder-label" for="practiceBrowse">Browse by subject</label>
+      <select class="practice-browse-select" id="practiceBrowse" aria-label="Browse practice apps by subject">
+        <option value="">Choose a practice app...</option>
+      </select>
+    </div>
+  </div>
+</section>
+
 <section class="area-grid" aria-label="Math practice areas">
 <article class="area-card number" data-area="number"><div class="area-top"></div><button class="area-button" type="button" aria-expanded="false">
 <div class="icon-wrap number-stage"><span class="number-item num-ops"><span class="op-badge op-plus"><svg viewBox="0 0 28 28" aria-hidden="true"><circle class="badge-bg" cx="14" cy="14" r="12"></circle><circle class="badge-ring" cx="14" cy="14" r="12"></circle><ellipse class="badge-highlight" cx="11" cy="8.6" rx="5.8" ry="3.2"></ellipse><path class="badge-mark" d="M14 8.2 V19.8 M8.2 14 H19.8"></path></svg></span><span class="op-badge op-minus"><svg viewBox="0 0 28 28" aria-hidden="true"><circle class="badge-bg" cx="14" cy="14" r="12"></circle><circle class="badge-ring" cx="14" cy="14" r="12"></circle><ellipse class="badge-highlight" cx="11" cy="8.6" rx="5.8" ry="3.2"></ellipse><path class="badge-mark" d="M8.2 14 H19.8"></path></svg></span><span class="op-badge op-times"><svg viewBox="0 0 28 28" aria-hidden="true"><circle class="badge-bg" cx="14" cy="14" r="12"></circle><circle class="badge-ring" cx="14" cy="14" r="12"></circle><ellipse class="badge-highlight" cx="11" cy="8.6" rx="5.8" ry="3.2"></ellipse><path class="badge-mark" d="M9.6 9.6 L18.4 18.4 M18.4 9.6 L9.6 18.4"></path></svg></span><span class="op-badge op-divide"><svg viewBox="0 0 28 28" aria-hidden="true"><circle class="badge-bg" cx="14" cy="14" r="12"></circle><circle class="badge-ring" cx="14" cy="14" r="12"></circle><ellipse class="badge-highlight" cx="11" cy="8.6" rx="5.8" ry="3.2"></ellipse><circle class="badge-dot" cx="14" cy="9.4" r="1.7"></circle><path class="badge-mark" d="M8.4 14 H19.6"></path><circle class="badge-dot" cx="14" cy="18.6" r="1.7"></circle></svg></span></span><span class="number-item num-exp">x²</span><span class="number-item num-sci">3 × 10³</span><span class="number-item num-fracexpr"><span class="frac-stack"><span class="top">2</span><span class="bar"></span><span class="bottom">3</span></span><span class="plus-inline">+</span><span class="frac-stack"><span class="top">3</span><span class="bar"></span><span class="bottom">4</span></span></span></div><h2>Number &amp; Operations</h2><p>Number sense, calculation, fractions, percentages and proportional thinking.</p><span class="chevron">⌄</span></button></article>
@@ -1219,6 +1352,124 @@ const areaData={
  ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  stats:{title:'Statistics & Probability',accent:'#8a6ac6',html:`<a class="concept-card new-app" href="expected-frequency.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol expected-frequency-thumb"><img src="assets/expected-frequency-cover.svg" alt="Colorful spinner and expected frequency calculation"></div><div class="concept-copy"><h3>Expected Frequency</h3><p>Use probability to predict how often events should occur across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="basic-probability.html"><div class="concept-symbol probability-thumb"><img src="probability-coin-flip.png" alt="Hand flipping a coin"></div><div class="concept-copy"><h3>Basic Probability</h3><p>Find probabilities using favorable outcomes and total outcomes.</p></div><span class="practice-pill">Start Practice →</span></a>`}
 };
+
+// v171: Build both quick-find controls from the same areaData used by the visible Practice page.
+// This keeps the finder automatically synchronized whenever a concept card is added or removed.
+const practiceSearch=document.getElementById('practiceSearch');
+const practiceSearchWrap=document.getElementById('practiceSearchWrap');
+const practiceSearchResults=document.getElementById('practiceSearchResults');
+const practiceBrowse=document.getElementById('practiceBrowse');
+const practiceSearchAliases={
+  'order-of-operations.html':'pemdas bodmas bedmas order operations ordningsregler prioriteringsregler',
+  'adding-subtracting-fractions.html':'fractions fraction bråk addition subtraction denominators nämnare',
+  'prime-factorization.html':'prime factors primes primtal primtalsfaktorisering',
+  'solving-equations-with-brackets.html':'equations brackets distributive ekvationer parenteser',
+  'adding-subtracting-algebraic-expressions.html':'algebra terms expressions like terms algebraiska termer uttryck',
+  'area-triangles-quadrilaterals.html':'area triangle quadrilateral rectangle parallelogram trapezoid area triangel fyrhörning',
+  'pi-memory-challenge.html':'pi digits memory game minne',
+  'converting-cubic-units-liters.html':'volume cubic liters litres capacity volym kubik liter',
+  'surface-area-cuboids.html':'surface area cuboid prism ytarea rätblock',
+  'simplifying-fractions.html':'simplify fractions reduce fractions bråk enklaste form förkorta',
+  'expected-frequency.html':'expected frequency probability förväntad frekvens sannolikhet',
+  'basic-probability.html':'probability chance sannolikhet chans'
+};
+
+function normalizePracticeSearch(value){
+  return String(value||'').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9åäöæø]+/g,' ').trim();
+}
+
+function buildPracticeCatalog(){
+  const catalog=[];
+  Object.entries(areaData).forEach(([areaKey,data])=>{
+    const scratch=document.createElement('div');
+    scratch.innerHTML=data.html;
+    [...scratch.querySelectorAll('a.concept-card')].forEach(link=>{
+      const title=(link.querySelector('h3')?.textContent||'').trim();
+      const description=(link.querySelector('.concept-copy p')?.textContent||'').trim();
+      const href=link.getAttribute('href')||'';
+      catalog.push({
+        areaKey,
+        category:data.title,
+        accent:data.accent,
+        href,
+        title,
+        description,
+        searchText:normalizePracticeSearch(`${title} ${description} ${data.title} ${practiceSearchAliases[href]||''}`)
+      });
+    });
+  });
+  return catalog;
+}
+
+const practiceCatalog=buildPracticeCatalog();
+
+Object.entries(areaData).forEach(([areaKey,data])=>{
+  const group=document.createElement('optgroup');
+  group.label=data.title;
+  practiceCatalog.filter(item=>item.areaKey===areaKey).forEach(item=>{
+    const option=document.createElement('option');
+    option.value=item.href;
+    option.textContent=item.title;
+    group.appendChild(option);
+  });
+  if(group.children.length)practiceBrowse.appendChild(group);
+});
+
+practiceBrowse.addEventListener('change',()=>{
+  if(practiceBrowse.value)window.location.href=practiceBrowse.value;
+});
+
+function showPracticeSearchResults(){
+  const query=normalizePracticeSearch(practiceSearch.value);
+  if(!query){
+    practiceSearchResults.hidden=true;
+    practiceSearch.setAttribute('aria-expanded','false');
+    practiceSearchResults.innerHTML='';
+    return;
+  }
+  const terms=query.split(/\s+/).filter(Boolean);
+  const matches=practiceCatalog.filter(item=>terms.every(term=>item.searchText.includes(term)));
+  practiceSearchResults.innerHTML='';
+  if(!matches.length){
+    const empty=document.createElement('div');
+    empty.className='practice-search-empty';
+    empty.textContent='No matching practice apps yet.';
+    practiceSearchResults.appendChild(empty);
+  }else{
+    matches.forEach(item=>{
+      const link=document.createElement('a');
+      link.className='practice-search-result';
+      link.href=item.href;
+      link.innerHTML=`<span><strong>${item.title}</strong><small>${item.category}</small></span><span class="result-arrow" aria-hidden="true">→</span>`;
+      practiceSearchResults.appendChild(link);
+    });
+  }
+  practiceSearchResults.hidden=false;
+  practiceSearch.setAttribute('aria-expanded','true');
+}
+
+practiceSearch.addEventListener('input',showPracticeSearchResults);
+practiceSearch.addEventListener('focus',()=>{if(practiceSearch.value.trim())showPracticeSearchResults()});
+practiceSearch.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    practiceSearchResults.hidden=true;
+    practiceSearch.setAttribute('aria-expanded','false');
+    practiceSearch.blur();
+  }else if(event.key==='Enter'){
+    const first=practiceSearchResults.querySelector('a.practice-search-result');
+    if(first){event.preventDefault();window.location.href=first.href;}
+  }else if(event.key==='ArrowDown'){
+    const first=practiceSearchResults.querySelector('a.practice-search-result');
+    if(first){event.preventDefault();first.focus();}
+  }
+});
+document.addEventListener('pointerdown',event=>{
+  if(!practiceSearchWrap.contains(event.target)){
+    practiceSearchResults.hidden=true;
+    practiceSearch.setAttribute('aria-expanded','false');
+  }
+});
+
 const cards=[...document.querySelectorAll('.area-card')],display=document.getElementById('conceptDisplay'),panel=document.getElementById('conceptPanel');
 cards.forEach(card=>card.querySelector('.area-button').addEventListener('click',()=>{
  const key=card.dataset.area,opening=!card.classList.contains('open');
