@@ -541,6 +541,47 @@ body::before{
 }
 .practice-browse-select:hover{border-color:#9d88ca}
 .practice-browse-select:focus{border-color:#8065bb;box-shadow:0 0 0 4px rgba(138,106,198,.15),0 5px 12px rgba(45,52,68,.07);transform:translateY(-1px)}
+
+/* v173 phone browse control: custom in-page picker instead of Android's native select UI. */
+.practice-mobile-browse{display:none}
+.practice-mobile-picker[hidden]{display:none!important}
+.practice-mobile-picker{
+  position:fixed;inset:0;z-index:1000;display:grid;align-items:end;
+  background:rgba(34,38,48,.42);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)
+}
+.practice-mobile-picker-sheet{
+  width:100%;max-height:min(82dvh,760px);display:flex;flex-direction:column;
+  border-radius:25px 25px 0 0;border:1px solid rgba(144,150,164,.7);border-bottom:0;
+  background:linear-gradient(180deg,#fff 0%,#fbfbfe 100%);
+  box-shadow:0 -16px 44px rgba(25,30,42,.24);overflow:hidden
+}
+.practice-mobile-picker-head{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:17px 18px 15px;border-bottom:1px solid #e1e4ea;background:rgba(255,255,255,.98)
+}
+.practice-mobile-picker-head h3{margin:0;color:#343741;font-size:1.15rem;line-height:1.15;font-weight:1000;letter-spacing:-.015em}
+.practice-mobile-picker-close{
+  width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid #cfd4de;
+  border-radius:13px;background:#fff;color:#505663;font-size:1.55rem;line-height:1;cursor:pointer;
+  box-shadow:0 3px 8px rgba(45,52,68,.07)
+}
+.practice-mobile-picker-body{padding:8px 14px max(18px,env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.practice-mobile-group{padding:11px 0 4px}
+.practice-mobile-group + .practice-mobile-group{border-top:1px solid #e1e4ea;margin-top:5px}
+.practice-mobile-group-title{
+  display:flex;align-items:center;gap:9px;margin:0;padding:5px 8px 8px;
+  color:#292d36;font-size:1.04rem;line-height:1.2;font-weight:1000
+}
+.practice-mobile-group-dot{width:10px;height:10px;flex:0 0 10px;border-radius:50%;box-shadow:0 0 0 4px rgba(0,0,0,.045)}
+.practice-mobile-option{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:0;padding:13px 10px;border:0;border-radius:11px;background:transparent;color:#343741;
+  font:inherit;font-size:1rem;line-height:1.3;font-weight:750;text-align:left;cursor:pointer
+}
+.practice-mobile-option + .practice-mobile-option{border-top:1px solid #eef0f4;border-radius:0}
+.practice-mobile-option:active,.practice-mobile-option:focus-visible{background:linear-gradient(90deg,rgba(91,159,194,.10),rgba(138,106,198,.08));outline:2px solid rgba(91,159,194,.28);outline-offset:-2px}
+.practice-mobile-option-arrow{flex:0 0 auto;color:#6860cf;font-size:1.12rem;font-weight:1000}
+body.practice-picker-open{overflow:hidden;touch-action:none}
 .practice-search-results{position:absolute;top:calc(100% + 8px);left:14px;right:14px;z-index:80;padding:8px;border:1px solid #cfd5de;border-radius:14px;background:rgba(255,255,255,.99);box-shadow:0 17px 36px rgba(45,52,68,.21);max-height:340px;overflow:auto}
 .practice-search-results[hidden]{display:none}
 .practice-search-result{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:11px 12px;border-radius:10px;color:#343741;text-decoration:none;transition:background .15s ease,transform .15s ease,box-shadow .15s ease}
@@ -562,6 +603,15 @@ body::before{
   .practice-finder-controls{grid-template-columns:1fr;gap:12px}
   .finder-field{padding:12px}
   .practice-search-results{left:12px;right:12px;max-height:300px}
+  .practice-browse-select{display:none}
+  .practice-mobile-browse{
+    width:100%;height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:0 14px;border:2px solid #c4b8dd;border-radius:13px;background:linear-gradient(180deg,#fff,#fdfbff);
+    color:#343741;font:inherit;font-size:.96rem;font-weight:900;cursor:pointer;outline:0;
+    box-shadow:0 3px 9px rgba(94,71,141,.05) inset,0 2px 5px rgba(45,52,68,.04)
+  }
+  .practice-mobile-browse:focus-visible{border-color:#8065bb;box-shadow:0 0 0 4px rgba(138,106,198,.15)}
+  .practice-mobile-browse-chevron{color:#8065bb;font-size:1.1rem;font-weight:1000;transform:translateY(-1px)}
 }
 
 </style>
@@ -1320,9 +1370,22 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
       <select class="practice-browse-select" id="practiceBrowse" aria-label="Browse practice apps by subject">
         <option value="">Choose a practice app...</option>
       </select>
+      <button class="practice-mobile-browse" id="practiceMobileBrowse" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="practiceMobilePicker">
+        <span>Choose a practice app...</span><span class="practice-mobile-browse-chevron" aria-hidden="true">⌄</span>
+      </button>
     </div>
   </div>
 </section>
+
+<div class="practice-mobile-picker" id="practiceMobilePicker" role="dialog" aria-modal="true" aria-labelledby="practiceMobilePickerTitle" hidden>
+  <div class="practice-mobile-picker-sheet">
+    <div class="practice-mobile-picker-head">
+      <h3 id="practiceMobilePickerTitle">Choose a practice app</h3>
+      <button class="practice-mobile-picker-close" id="practiceMobilePickerClose" type="button" aria-label="Close practice app list">×</button>
+    </div>
+    <div class="practice-mobile-picker-body" id="practiceMobilePickerBody"></div>
+  </div>
+</div>
 
 <section class="area-grid" aria-label="Math practice areas">
 <article class="area-card number" data-area="number"><div class="area-top"></div><button class="area-button" type="button" aria-expanded="false">
@@ -1359,6 +1422,10 @@ const practiceSearch=document.getElementById('practiceSearch');
 const practiceSearchWrap=document.getElementById('practiceSearchWrap');
 const practiceSearchResults=document.getElementById('practiceSearchResults');
 const practiceBrowse=document.getElementById('practiceBrowse');
+const practiceMobileBrowse=document.getElementById('practiceMobileBrowse');
+const practiceMobilePicker=document.getElementById('practiceMobilePicker');
+const practiceMobilePickerBody=document.getElementById('practiceMobilePickerBody');
+const practiceMobilePickerClose=document.getElementById('practiceMobilePickerClose');
 const practiceSearchAliases={
   'order-of-operations.html':'pemdas bodmas bedmas order operations ordningsregler prioriteringsregler',
   'adding-subtracting-fractions.html':'fractions fraction bråk addition subtraction denominators nämnare',
@@ -1417,6 +1484,73 @@ Object.entries(areaData).forEach(([areaKey,data])=>{
 
 practiceBrowse.addEventListener('change',()=>{
   if(practiceBrowse.value)window.location.href=practiceBrowse.value;
+});
+
+
+// v173: Android/iOS native select menus do not reliably preserve optgroup typography or
+// wrapped-option alignment. On phones we render the same catalog in an in-page picker,
+// while desktop keeps the approved native grouped select.
+function buildMobilePracticePicker(){
+  if(!practiceMobilePickerBody)return;
+  practiceMobilePickerBody.innerHTML='';
+  Object.entries(areaData).forEach(([areaKey,data])=>{
+    const items=practiceCatalog.filter(item=>item.areaKey===areaKey);
+    if(!items.length)return;
+    const group=document.createElement('section');
+    group.className='practice-mobile-group';
+    const heading=document.createElement('h4');
+    heading.className='practice-mobile-group-title';
+    const dot=document.createElement('span');
+    dot.className='practice-mobile-group-dot';
+    dot.style.background=data.accent;
+    dot.setAttribute('aria-hidden','true');
+    const text=document.createElement('span');
+    text.textContent=data.title;
+    heading.append(dot,text);
+    group.appendChild(heading);
+    items.forEach(item=>{
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='practice-mobile-option';
+      button.dataset.href=item.href;
+      const label=document.createElement('span');
+      label.textContent=item.title;
+      const arrow=document.createElement('span');
+      arrow.className='practice-mobile-option-arrow';
+      arrow.textContent='›';
+      arrow.setAttribute('aria-hidden','true');
+      button.append(label,arrow);
+      button.addEventListener('click',()=>{ window.location.href=item.href; });
+      group.appendChild(button);
+    });
+    practiceMobilePickerBody.appendChild(group);
+  });
+}
+
+let mobilePickerReturnFocus=null;
+function openMobilePracticePicker(){
+  if(!practiceMobilePicker)return;
+  mobilePickerReturnFocus=document.activeElement;
+  practiceMobilePicker.hidden=false;
+  document.body.classList.add('practice-picker-open');
+  practiceMobileBrowse?.setAttribute('aria-expanded','true');
+  requestAnimationFrame(()=>practiceMobilePickerClose?.focus());
+}
+function closeMobilePracticePicker(){
+  if(!practiceMobilePicker || practiceMobilePicker.hidden)return;
+  practiceMobilePicker.hidden=true;
+  document.body.classList.remove('practice-picker-open');
+  practiceMobileBrowse?.setAttribute('aria-expanded','false');
+  if(mobilePickerReturnFocus && typeof mobilePickerReturnFocus.focus==='function')mobilePickerReturnFocus.focus();
+}
+buildMobilePracticePicker();
+practiceMobileBrowse?.addEventListener('click',openMobilePracticePicker);
+practiceMobilePickerClose?.addEventListener('click',closeMobilePracticePicker);
+practiceMobilePicker?.addEventListener('click',event=>{
+  if(event.target===practiceMobilePicker)closeMobilePracticePicker();
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape' && practiceMobilePicker && !practiceMobilePicker.hidden)closeMobilePracticePicker();
 });
 
 function showPracticeSearchResults(){
