@@ -1,0 +1,9 @@
+Mr. McLean Math v177
+
+Added Convert a Fraction production practice app.
+- Fraction → Decimal, Fraction → Percent, and Mixed selectors.
+- Approved Phase 1 v2 Foundation/Core/Challenge generator.
+- Existing 3/3 unlock framework, Student/Timer modes, Enter → Check → Enter → Next, sounds, results, and tutorial monitor retained.
+- Existing fraction-to-percent tutorial connected.
+- Added Practice, Ratio/Proportion/Change, homepage Latest Content, video backlink, mobile keypad config, and sitemap entry.
+- Worksheet/testing controls are not present in production.

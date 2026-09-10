@@ -1,0 +1,15 @@
+V179 — Embedded mobile answer pads across practice apps
+
+- Replaced the floating/replacement-style mobile keypad with a persistent answer pad embedded directly inside the active practice card on mobile phones.
+- The phone's native keyboard remains suppressed for configured practice answers, preventing it from consuming most of the screen.
+- Each practice app receives only the keys its mathematics needs:
+  - whole-number apps: digits 0–9 plus edit/check controls;
+  - decimal apps: digits plus decimal point;
+  - probability: digits plus fraction slash, decimal point, and percent;
+  - algebra: digits plus signs and the variables a, c, x, y;
+  - fraction-entry apps: digit pad targets the active whole/numerator/denominator field;
+  - prime factorization keeps its existing prime-factor buttons and receives only Backspace, Clear, and Enter editing controls.
+- Embedded Enter preserves the normal Check -> Enter -> Next workflow after both correct and incorrect answers.
+- The shared system applies to all 13 normal practice apps currently listed on the Practice page, including Division with Decimals and Convert a Fraction.
+- Pi Memory Challenge retains its own purpose-built embedded numeric keypad and does not use the shared practice pad.
+- The embedded answer pads are phone-only; desktop/laptop inputs and hardware keyboard behavior are unchanged.

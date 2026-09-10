@@ -1,0 +1,8 @@
+MrMcLeanMath v174
+
+- Added Division with Decimals production practice app under Number & Operations.
+- Uses approved Phase 1 v3 generator: whole-number answers at every level.
+- Foundation/Core scaled divisors remain single-digit; Challenge owns harder factor-friendly divisors.
+- Added existing matching tutorial ewE42nTORRo and linked its Videos-page card back to the new practice app.
+- Added Practice browser/search, Number & Operations card, homepage Latest Content card, sitemap entry, and integer mobile keypad.
+- Preserved existing site-wide framework and unrelated app/device fixes.

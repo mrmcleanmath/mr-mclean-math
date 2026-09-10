@@ -1,0 +1,8 @@
+V178 — Convert a Fraction denominator-method refinement
+
+- Foundation now uses only simplified proper fractions whose reduced denominator converts exactly to 100.
+- Core now uses proper fractions that require one obvious reduction by 2, 4, 5, or 10, after which the reduced denominator converts exactly to 100.
+- Core no longer requires denominator 1000 and never displays denominator 1000.
+- Challenge is reserved for fractions whose reduced denominator requires conversion to 1000, including direct, simple-reduction, and selected improper-fraction forms.
+- Foundation/Core feedback explicitly teaches the denominator-100 method; Challenge feedback explicitly uses denominator 1000.
+- Fraction → Decimal, Fraction → Percent, Mixed, unlocking, timer/student modes, tutorial, cards, navigation, and unrelated site behavior are unchanged.
