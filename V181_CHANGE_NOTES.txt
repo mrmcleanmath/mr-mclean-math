@@ -1,0 +1,7 @@
+Mr. McLean Math v181
+
+Mobile Practice chooser refinement
+- Phone-only practice concept names now use regular font weight; subject/category headings remain bold.
+- Added a compact NEW badge beside the two current new apps in the phone practice chooser.
+- NEW status is read from the same `new-app` source used by the Practice page, keeping the mobile chooser synchronized.
+- Desktop practice browse selector is unchanged.
