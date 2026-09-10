@@ -62,3 +62,16 @@ html.mmm-phone-answer-pad #mmmMobileKeypad.mmm-keypad-visible{
 }
 #mmmMobileKeypad .mmm-key:disabled{cursor:default}
 @media (prefers-reduced-motion:reduce){#mmmMobileKeypad .mmm-key{transition:none}}
+
+
+/* v180 — Practice-first phone layout.
+   On phones the practice cards come first and the video tutorial follows Challenge Mode.
+   Tablet/desktop placement remains unchanged. */
+@media (max-width: 600px){
+  .practice-layout-new .tutorial-rail{
+    order:2 !important;
+    position:relative !important;
+    top:auto !important;
+    margin:18px auto 0 !important;
+  }
+}

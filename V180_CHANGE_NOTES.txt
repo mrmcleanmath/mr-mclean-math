@@ -1,0 +1,8 @@
+Mr. McLean Math v180
+
+- Homepage Latest Content is limited to exactly 8 cards.
+- Homepage NEW badge appears only on the two newest apps: Convert a Fraction and Division with Decimals.
+- Practice-page NEW badges removed from Order of Operations, Solving Equations with Brackets, Area of Triangles & Quadrilaterals, and Expected Frequency.
+- On phones (<=600px), practice content appears before the video tutorial; the tutorial now follows the Challenge card.
+- Tablet and desktop tutorial placement is unchanged.
+- Shared embedded mobile answer-pad behavior from v179 is preserved.
