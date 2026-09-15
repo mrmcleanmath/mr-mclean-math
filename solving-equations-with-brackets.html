@@ -2868,7 +2868,7 @@ if (!approxEqual(rounded, derived)) continue;
 const finalCoeff = left.A - right.A;
 const finalRightSide = right.B - left.B;
 
-if (actualDiff === "easy"){
+if (actualDiff !== "hard"){
 if (finalCoeff <= 0) continue;
 if (finalRightSide <= 0) continue;
 }

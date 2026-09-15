@@ -1,0 +1,14 @@
+Mr. McLean Math v184
+
+Pi Memory Challenge
+- The compositor-friendly neon floor now keeps moving throughout play on PC.
+- The floor remains static on phones, tablets, and Chromebooks.
+- Removed the faint duplicate 3 caused by the original plain-text starter value remaining beside the rendered digit display.
+
+Solving Equations with Brackets
+- Foundation and Core questions now always finish with a positive divisor and positive dividend.
+- Negative division remains available in Challenge Mode.
+
+Order of Operations
+- Foundation Mode now uses smaller factors and displayed values, with literal terms capped at 40 and final answers below 100.
+- Core and Challenge difficulty are unchanged.
