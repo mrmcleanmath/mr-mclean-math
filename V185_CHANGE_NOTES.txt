@@ -1,0 +1,7 @@
+Mr. McLean Math v185
+
+Solving Equations with Brackets
+- Foundation Mode now keeps the variable on one side of the equation only, so students can focus on expanding brackets, simplifying, and isolating the variable.
+- Core Mode now introduces variables on both sides while keeping the bracket structure more straightforward.
+- Challenge Mode remains the place for the more complex two-sided / multiple-bracket equations.
+- The v184 rule preventing negative division in Foundation and Core remains unchanged.

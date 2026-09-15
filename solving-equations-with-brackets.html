@@ -2646,7 +2646,8 @@ return !/\b\d{3,}\b/.test(stripped);
 }
 
 function easyControlledTemplate(variable, solution){
-const template = pick([1,2,3,4]);
+// Foundation: keep the variable on only one side of the equation.
+const template = pick([2,3]);
 const inside = makeEasyInsideBank(variable);
 const m = randInt(2, 6);
 
@@ -2716,7 +2717,8 @@ return { left, right };
 }
 
 function mediumTemplate(variable, solution){
-const template = pick([1,2,3,4,5]);
+// Core: introduce variables on both sides while keeping a single bracket structure.
+const template = pick([2,3,4,5]);
 
 if (template === 1){
 const a = nonZeroInt(-8, 8);
