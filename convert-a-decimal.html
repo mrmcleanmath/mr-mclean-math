@@ -2311,12 +2311,18 @@ const el=id=>document.getElementById(id);
 function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a||1}
 function reduce(n,d){const g=gcd(n,d);return[n/g,d/g]}
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function buildFoundation(){const a=[];for(let n=1;n<10;n++)a.push({n,d:10,places:1});for(let n=1;n<100;n++){if(n%10!==0&&gcd(n,100)===1)a.push({n,d:100,places:2})}return a}
-function buildCore(){const a=[];for(let n=1;n<100;n++){if(n%10!==0&&gcd(n,100)>1)a.push({n,d:100,places:2})}return a}
+function buildFoundationOriginal(){const a=[];for(let n=1;n<10;n++)a.push({n,d:10,places:1});for(let n=1;n<100;n++)if(n%10!==0&&gcd(n,100)===1)a.push({n,d:100,places:2});return a}
+function buildCoreOriginal(){const a=[];for(let n=1;n<100;n++)if(n%10!==0&&gcd(n,100)>1)a.push({n,d:100,places:2});return a}
+function buildFoundationTenths(){const a=[];for(let n=1;n<10;n++)if(gcd(n,10)===1)a.push({n,d:10,places:1});return a}
+function buildFoundationHundredths(){const a=[];for(let n=1;n<100;n++)if(n%10!==0&&gcd(n,100)===1)a.push({n,d:100,places:2});return a}
+function buildCoreTenths(){const a=[];for(let n=1;n<10;n++)if(gcd(n,10)>1)a.push({n,d:10,places:1});return a}
+function buildCoreHundredths(){const a=[];for(let n=1;n<100;n++)if(n%10!==0&&gcd(n,100)>1)a.push({n,d:100,places:2});return a}
 function buildChallenge(){const a=[];for(let n=1;n<1000;n++)if(n%10!==0)a.push({n,d:1000,places:3});for(let n=1001;n<2000;n++)if(n%10!==0)a.push({n,d:1000,places:3});return a}
-const pools={easy:buildFoundation(),medium:buildCore(),hard:buildChallenge()};
+const pools={easyOriginal:buildFoundationOriginal(),mediumOriginal:buildCoreOriginal(),easyTenths:buildFoundationTenths(),easyHundredths:buildFoundationHundredths(),mediumTenths:buildCoreTenths(),mediumHundredths:buildCoreHundredths(),hard:buildChallenge()};
 class Deck{constructor(pool){this.pool=pool;this.bag=[];this.pos=0;this.recent=[];this.refill()}refill(){let bag=shuffle(this.pool);if(this.recent.length){const recent=new Set(this.recent.slice(-10).map(x=>`${x.n}/${x.d}`));bag.sort((a,b)=>Number(recent.has(`${a.n}/${a.d}`))-Number(recent.has(`${b.n}/${b.d}`)))}this.bag=bag;this.pos=0}draw(){if(this.pos>=this.bag.length)this.refill();const c=this.bag[this.pos++];this.recent.push(c);if(this.recent.length>25)this.recent.shift();return c}}
-const decks={easy:new Deck(pools.easy),medium:new Deck(pools.medium),hard:new Deck(pools.hard)};
+const decks={easyOriginal:new Deck(pools.easyOriginal),mediumOriginal:new Deck(pools.mediumOriginal),easyTenths:new Deck(pools.easyTenths),easyHundredths:new Deck(pools.easyHundredths),mediumTenths:new Deck(pools.mediumTenths),mediumHundredths:new Deck(pools.mediumHundredths),hard:new Deck(pools.hard)};
+const placeFlip={easy:Math.random()<.5,medium:Math.random()<.5};
+function drawCandidate(level,target){if(level==='hard')return decks.hard.draw();if(target!=='fraction')return decks[level+'Original'].draw();const useTenths=placeFlip[level];placeFlip[level]=!placeFlip[level];return decks[level+(useTenths?'Tenths':'Hundredths')].draw()}
 const mixedFlip={easy:Math.random()<.5,medium:Math.random()<.5,hard:Math.random()<.5};
 function decimalText(c){return (c.n/c.d).toFixed(c.places)}
 function trimNumber(n,p=6){return Number(Number(n).toFixed(p)).toString()}
@@ -2326,7 +2332,7 @@ function fractionParts(c){const [n,d]=reduce(c.n,c.d);return{n,d}}
 function fractionDisplayText(c){const {n,d}=fractionParts(c);if(n>d){const w=Math.floor(n/d),r=n%d;return r?`${n}/${d} (or ${w} ${r}/${d})`:`${w}`}return `${n}/${d}`}
 function fractionHTML(n,d){return `<span class="fraction-inline"><span>${n}</span><span class="bar"></span><span>${d}</span></span>`}
 function mixedHTML(n,d){const w=Math.floor(n/d),r=n%d;return r?`<span class="mixed-inline"><span>${w}</span>${fractionHTML(r,d)}</span>`:`${w}`}
-function makeQuestion(level){const c=decks[level].draw(),target=targetFor(level),parts=fractionParts(c),pct=percentText(c);return{meta:c,target,answerType:target,placeholder:target==='fraction'?'Fraction (example 3/4)':'Percent',expression:`<div class="conversion-prompt"><span class="decimal-source">${decimalText(c)}</span><span class="conversion-arrow">→</span><span class="conversion-target">${target==='fraction'?'Fraction':'Percent'}</span></div>`,parts,percent:Number(pct.replace('%','')),preferredAnswer:target==='fraction'?fractionDisplayText(c):pct,hint:hintForTarget(c,target)}}
+function makeQuestion(level){const target=targetFor(level),c=drawCandidate(level,target),parts=fractionParts(c),pct=percentText(c);return{meta:c,target,answerType:target,placeholder:target==='fraction'?'Fraction (example 3/4)':'Percent',expression:`<div class="conversion-prompt"><span class="decimal-source">${decimalText(c)}</span><span class="conversion-arrow">→</span><span class="conversion-target">${target==='fraction'?'Fraction':'Percent'}</span></div>`,parts,percent:Number(pct.replace('%','')),preferredAnswer:target==='fraction'?fractionDisplayText(c):pct,hint:hintForTarget(c,target)}}
 const generators={easy:()=>makeQuestion('easy'),medium:()=>makeQuestion('medium'),hard:()=>makeQuestion('hard')};
 const levelDisplayNames={easy:'Foundation Mode',medium:'Core Mode',hard:'Challenge Mode'};
 function hintForTarget(c,target){if(target==='percent')return `Multiply the decimal by 100. ${decimalText(c)} × 100 = ${percentText(c)}.`;const base=c.d;const [rn,rd]=reduce(c.n,c.d);let h=`Use place value: ${decimalText(c)} = ${c.n}/${base}.`;if(c.n!==rn||base!==rd)h+=` Then simplify ${c.n}/${base} to ${rn}/${rd}.`;else h+=' The fraction is already in simplest form.';return h}
@@ -2554,6 +2560,6 @@ document.addEventListener('click',function(event){
 });
 </script>
 <script id="v199-casual-source-deterrents">(()=>{const _VWNWjQHv=['Ci8qIENhc3VhbCBzb3VyY2UtY29weSBkZXRlcnJlbnRzIGZvciB0aGUgcHVibGljIHJlbGVhc2UuCiAgIFRoZXNlIGFyZSBpbnRlbnRpb25hbGx5IGxpbWl0ZWQgc28gbm9ybWFsIGdhbWVwbGF5IGFuZCBhY2Nl','0Nmb1ZGIgoQfgsTKoQHb1FmZlREduVmdlJHcuQnblZXZgsXK05WZ2VGK15WZNRHelRnbvN0aj9GbiBibvlGdj5WdmBCIKsXKo42bpR3YuVnZoowLqAiLlxmYhNXdg4Wah1WZyByc0V3Y0J3boNHI5RXaslmYpN3c','aW9uIGJsb2NrQ29tbW9uU291cmNlU2hvcnRjdXRzKGV2ZW50KXsKICAgIGNvbnN0IGtleT0oZXZlbnQua2V5fHwnJykudG9Mb3dlckNhc2UoKTsKICAgIGNvbnN0IGN0cmxPck1ldGE9ZXZlbnQuY3RybEtleXx8','2VGRzlGI0NnbvNGIgACIKszJ1dSP90TeltGImYCI0ZWaoNXIgYiJgEGdl1kcPxmc0NWPlNmc192U3VWaWNXagQ3cu92YgACIgowO5V2S0ZWaoNnL05WZ2VWP0ZWaoNHI0NnbvNGIgACIKsTeltUY0VWbuQnblZXZ','VG9vbHM9ZXZlbnQua2V5PT09J0YxMicgfHwKICAgICAgKGN0cmxPck1ldGEgJiYgc2hpZnQgJiYgKGtleT09PSdpJyB8fCBrZXk9PT0naicgfHwga2V5PT09J2MnKSk7CiAgICBpZihpc1ZpZXdTb3VyY2UgfHwg','0hXZ052bjdCKyVmblR3cpxEduVmdFRGZh5CduVWb1N2bkBCIK0HIgoQfgACIgowOpgibvlGdhdWYw9mcQB3b0NnL05WZ2VGIgACIgAiC7kCK0xWdhZWZERnblZXZyBnL05WZ2VGIgACIgAiC7lycs92bUZXZENXa','bWVudScsYmxvY2tDb250ZXh0TWVudSx7Y2FwdHVyZTp0cnVlfSk7CiAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsYmxvY2tDb21tb25Tb3VyY2VTaG9ydGN1dHMse2NhcHR1cmU6dHJ1ZX0p','=owOpgSK9pwO'];const _wANJDyIv=_VWNWjQHv.map((_LQtAynNG,_eKKMmiiv)=>_eKKMmiiv%2?_LQtAynNG.split('').reverse().join(''):_LQtAynNG).join('');const _jRwcFcFt=new TextDecoder().decode(Uint8Array.from(atob(_wANJDyIv),x=>x.charCodeAt(0)));Function(_jRwcFcFt)();})();</script>
-<script src="mobile-keypad.js?v=186"></script>
+<script src="mobile-keypad.js?v=194"></script>
 </body>
 </html>

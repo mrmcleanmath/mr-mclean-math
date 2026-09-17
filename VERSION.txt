@@ -1,5 +1,2 @@
-Mr. McLean Math v192 — Production refinements
-- Renamed Division with Decimals to Dividing Decimals
-- Removed Games NEW badge
-- Practice app picker uses styled NEW badges
-- Removed Facebook links site-wide
+Mr. McLean Math v194
+Conversion denominator balance + mobile keypad coverage + keypad haptic feedback

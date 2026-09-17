@@ -35,6 +35,10 @@
     'converting-cubic-units-liters.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
     'division-with-decimals.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Number answer buttons'},
     'convert-a-fraction.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Conversion answer buttons'},
+    'convert-a-decimal.html':{selector:'input.answer-field,input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Conversion answer buttons'},
+    'convert-a-percent.html':{selector:'input.answer-field,input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Conversion answer buttons'},
+    'multiplying-fractions.html':{selector:'input.answer-field',keys:integer,cols:5,enterSpan:3,caption:'Fraction answer buttons'},
+    'dividing-fractions.html':{selector:'input.answer-field',keys:integer,cols:5,enterSpan:3,caption:'Fraction answer buttons'},
     'expected-frequency.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
     'order-of-operations.html':{selector:'input[id$="Input"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Number answer buttons'},
     'prime-factorization.html':{selector:'input[id$="Input"]',keys:editOnly,cols:3,enterSpan:1,caption:'Edit answer • use the prime buttons above'},
@@ -121,7 +125,9 @@
       e.stopPropagation();
       btn.classList.add('is-pressed');
       setTimeout(()=>btn.classList.remove('is-pressed'),80);
-      handleKey(btn.dataset.key||'');
+      const key=btn.dataset.key||'';
+      hapticKey(key);
+      handleKey(key);
     };
     grid.addEventListener('pointerdown',press,{passive:false});
     grid.addEventListener('click',e=>{if(e.detail===0)press(e)});
@@ -199,6 +205,11 @@
     const ev=new KeyboardEvent('keydown',{key:'Enter',code:'Enter',bubbles:true,cancelable:true});
     input.dispatchEvent(ev);
     setTimeout(updateResolvedState,0);
+  }
+  function hapticKey(key){
+    try{
+      if(typeof navigator.vibrate==='function')navigator.vibrate(key==='Enter'?12:7);
+    }catch(_){ }
   }
   function handleKey(key){
     if(!activeInput)return;
