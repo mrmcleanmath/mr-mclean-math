@@ -532,6 +532,7 @@ body::before{
 #practiceSearch{width:100%;min-width:0;height:100%;border:0;outline:0;background:transparent;color:#343741;font:inherit;font-size:1rem;font-weight:700}
 #practiceSearch::placeholder{color:#9298a3;font-weight:600}
 .practice-browse-select{
+  display:none!important;
   width:100%;height:52px;padding:0 44px 0 14px;
   border:2px solid #c4b8dd;border-radius:13px;
   background:linear-gradient(180deg,#fff,#fdfbff);
@@ -541,6 +542,39 @@ body::before{
 }
 .practice-browse-select:hover{border-color:#9d88ca}
 .practice-browse-select:focus{border-color:#8065bb;box-shadow:0 0 0 4px rgba(138,106,198,.15),0 5px 12px rgba(45,52,68,.07);transform:translateY(-1px)}
+
+
+.practice-desktop-browse-wrap{position:relative}
+.practice-desktop-browse{
+  width:100%;height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:0 14px;border:2px solid #c4b8dd;border-radius:13px;background:linear-gradient(180deg,#fff,#fdfbff);
+  color:#343741;font:inherit;font-size:.96rem;font-weight:900;cursor:pointer;outline:0;
+  box-shadow:0 3px 9px rgba(94,71,141,.05) inset,0 2px 5px rgba(45,52,68,.04);
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease
+}
+.practice-desktop-browse:hover{border-color:#9d88ca}
+.practice-desktop-browse:focus-visible,.practice-desktop-browse[aria-expanded="true"]{border-color:#8065bb;box-shadow:0 0 0 4px rgba(138,106,198,.15),0 5px 12px rgba(45,52,68,.07)}
+.practice-desktop-browse-chevron{color:#8065bb;font-size:1.1rem;font-weight:1000;transition:transform .16s ease}
+.practice-desktop-browse[aria-expanded="true"] .practice-desktop-browse-chevron{transform:rotate(180deg)}
+.practice-desktop-menu{
+  position:absolute;z-index:120;top:calc(100% + 8px);right:0;width:min(560px,92vw);max-height:470px;overflow:auto;
+  padding:8px;border:1px solid #cfd4de;border-radius:16px;background:#fff;box-shadow:0 18px 42px rgba(35,39,50,.22)
+}
+.practice-desktop-menu[hidden]{display:none!important}
+.practice-desktop-group-title{display:flex;align-items:center;gap:8px;padding:10px 10px 7px;color:#333843;font-size:.82rem;font-weight:1000;text-transform:uppercase;letter-spacing:.045em}
+.practice-desktop-group-title + .practice-desktop-option{border-top:0}
+.practice-desktop-group-dot{width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 4px rgba(0,0,0,.04)}
+.practice-desktop-option{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 10px;border:0;border-top:1px solid #eef0f4;background:transparent;color:#343741;font:inherit;font-size:.94rem;font-weight:750;text-align:left;cursor:pointer}
+.practice-desktop-option:hover,.practice-desktop-option:focus-visible{background:linear-gradient(90deg,rgba(91,159,194,.10),rgba(138,106,198,.08));outline:0;border-radius:9px}
+.practice-desktop-option-label{display:flex;align-items:center;gap:9px;min-width:0}
+.practice-menu-new-badge{
+  position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:4px 8px 3px;
+  border-radius:999px;background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
+  border:1px solid #c57a00;color:#5c3100;font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;letter-spacing:.09em;
+  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92)
+}
+.practice-menu-new-badge::before{content:"";position:absolute;left:-7px;top:50%;width:5px;height:5px;transform:translateY(-50%);border-radius:50%;background:#fff7c9;box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4)}
+@media(max-width:760px){.practice-desktop-browse-wrap{display:none}}
 
 /* v173 phone browse control: custom in-page picker instead of Android's native select UI. */
 .practice-mobile-browse{display:none}
@@ -582,10 +616,12 @@ body::before{
 .practice-mobile-option:active,.practice-mobile-option:focus-visible{background:linear-gradient(90deg,rgba(91,159,194,.10),rgba(138,106,198,.08));outline:2px solid rgba(91,159,194,.28);outline-offset:-2px}
 .practice-mobile-option-label{min-width:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .practice-mobile-new-badge{
-  flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:3px 7px;
-  border-radius:999px;background:linear-gradient(135deg,#8065bb,#5d4fc8);color:#fff;
-  font-size:.61rem;line-height:1;font-weight:1000;letter-spacing:.055em;box-shadow:0 2px 5px rgba(94,71,141,.18)
+  position:relative;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:4px 8px 3px;
+  border-radius:999px;background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
+  border:1px solid #c57a00;color:#5c3100;font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;letter-spacing:.09em;
+  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92)
 }
+.practice-mobile-new-badge::before{content:"";position:absolute;left:-7px;top:50%;width:5px;height:5px;transform:translateY(-50%);border-radius:50%;background:#fff7c9;box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4)}
 .practice-mobile-option-arrow{flex:0 0 auto;color:#6860cf;font-size:1.12rem;font-weight:1000}
 body.practice-picker-open{overflow:hidden;touch-action:none}
 .practice-search-results{position:absolute;top:calc(100% + 8px);left:14px;right:14px;z-index:80;padding:8px;border:1px solid #cfd5de;border-radius:14px;background:rgba(255,255,255,.99);box-shadow:0 17px 36px rgba(45,52,68,.21);max-height:340px;overflow:auto}
@@ -1140,7 +1176,7 @@ body > header.site-global-header .site-global-topbar{
   margin:0 auto !important;
   padding:10px 0 !important;
   display:grid !important;
-  grid-template-columns:minmax(0,1fr) 198px !important;
+  grid-template-columns:minmax(0,1fr) 146px !important;
   align-items:center !important;
   gap:18px !important;
 }
@@ -1153,7 +1189,7 @@ body > header.site-global-header nav.site-global-nav{
   margin:0 !important;
   padding:6px 2px !important;
   display:grid !important;
-  grid-template-columns:repeat(4,minmax(80px,1fr)) !important;
+  grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
   align-items:stretch !important;
   gap:8px !important;
   overflow:visible !important;
@@ -1196,7 +1232,7 @@ body > header.site-global-header nav.site-global-nav > a.active{
 }
 body > header.site-global-header .site-global-social{
   box-sizing:border-box !important;
-  width:198px !important;
+  width:146px !important;
   height:46px !important;
   min-height:46px !important;
   margin:0 !important;
@@ -1239,7 +1275,7 @@ body > header.site-global-header .site-global-social svg{
 }
 @media(max-width:900px){
   body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
-  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 198px !important;gap:12px !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
   body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
@@ -1262,61 +1298,7 @@ body > header.site-global-header .site-global-social svg{
 .pi-memory-thumb img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
 </style>
 
-<style id="v124-games-launch-nav">
-/* v124 Games launch refinement: keep all five primary tabs identical in size/position, with a clearer premium NEW badge on Games. */
-@media (min-width:901px){
-  body > header.site-global-header nav.site-global-nav{
-    display:grid !important;
-    grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
-    gap:8px !important;
-  }
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]{
-  position:relative !important;
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
-  content:"NEW";
-  position:absolute;
-  top:4px;
-  right:18px;
-  z-index:4;
-  padding:4px 8px 3px;
-  border-radius:999px;
-  background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
-  border:1px solid #c57a00;
-  color:#5c3100;
-  font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;
-  letter-spacing:.09em;
-  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92);
-  pointer-events:none;
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
-  content:"";
-  position:absolute;
-  top:11px;
-  right:51px;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#fff7c9;
-  box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4);
-  pointer-events:none;
-}
-@media (max-width:900px){
-  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
-    top:2px;
-    right:10px;
-    padding:3px 6px 2px;
-    font-size:8px;
-  }
-  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
-    top:8px;
-    right:41px;
-    width:5px;
-    height:5px;
-  }
-}
-</style>
+
 
 </head>
 <body>
@@ -1334,7 +1316,7 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
 <a class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/></svg></a>
 <a class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
 <a class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/></svg></a>
-<a class="site-global-social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/></svg></a>
+
 </div>
 </div>
 </header>
@@ -1372,10 +1354,16 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
       <div class="practice-search-results" id="practiceSearchResults" aria-live="polite" hidden></div>
     </div>
     <div class="finder-field">
-      <label class="finder-label" for="practiceBrowse">Browse by subject</label>
-      <select class="practice-browse-select" id="practiceBrowse" aria-label="Browse practice apps by subject">
+      <div class="finder-label">Browse by subject</div>
+      <select class="practice-browse-select" id="practiceBrowse" aria-label="Browse practice apps by subject" tabindex="-1" aria-hidden="true">
         <option value="">Choose a practice app...</option>
       </select>
+      <div class="practice-desktop-browse-wrap">
+        <button class="practice-desktop-browse" id="practiceDesktopBrowse" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="practiceDesktopMenu">
+          <span>Choose a practice app...</span><span class="practice-desktop-browse-chevron" aria-hidden="true">⌄</span>
+        </button>
+        <div class="practice-desktop-menu" id="practiceDesktopMenu" role="listbox" aria-label="Practice apps by subject" hidden></div>
+      </div>
       <button class="practice-mobile-browse" id="practiceMobileBrowse" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="practiceMobilePicker">
         <span>Choose a practice app...</span><span class="practice-mobile-browse-chevron" aria-hidden="true">⌄</span>
       </button>
@@ -1415,10 +1403,10 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
 </main>
 <script>
 const areaData={
- number:{title:'Number & Operations',accent:'#fce5cd',symbolInk:'#8f5b34',html:`<a class="concept-card new-app" href="division-with-decimals.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/division-with-decimals-cover.svg" alt="Decimal division example" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Division with Decimals</h3><p>Make the divisor a whole number, then divide through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="order-of-operations.html"><div class="concept-symbol" style="font-weight:1000;font-size:1.12rem;white-space:nowrap">8 + 3 × 4</div><div class="concept-copy"><h3>Order of Operations</h3><p>Practice evaluating expressions across Foundation, Core, and Challenge modes, with optional exponents.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="adding-subtracting-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.06rem"><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span><span class="concept-fraction-arrow">+</span><span class="concept-stacked-fraction"><span>3</span><span class="concept-fraction-bar"></span><span>4</span></span></div><div class="concept-copy"><h3>Adding &amp; Subtracting Fractions with Different Denominators</h3><p>Practice different denominators through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
- algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="solving-equations-with-brackets.html"><div class="concept-symbol" style="font-weight:1000;font-size:1rem;white-space:nowrap">3(x + 2) = 2x + 11</div><div class="concept-copy"><h3>Solving Equations with Brackets</h3><p>Expand brackets, simplify both sides, and isolate the variable across three progressive modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Terms</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ number:{title:'Number & Operations',accent:'#fce5cd',symbolInk:'#8f5b34',html:`<a class="concept-card new-app" href="dividing-fractions.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/dividing-fractions-cover.svg" alt="Two fractions being divided" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Dividing Fractions</h3><p>Practice Fraction ÷ Fraction, Fraction ÷ Whole Number, Mixed Numbers, or a balanced Mix across Foundation, Core, and Challenge.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card new-app" href="multiplying-fractions.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/multiplying-fractions-cover.svg" alt="Two fractions being multiplied" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Multiplying Fractions</h3><p>Practice Fraction × Fraction, Fraction × Whole Number, Mixed Numbers, or a balanced Mix across Foundation, Core, and Challenge.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="division-with-decimals.html"><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/division-with-decimals-cover.svg" alt="Decimal division example" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Dividing Decimals</h3><p>Make the divisor a whole number, then divide through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="order-of-operations.html"><div class="concept-symbol" style="font-weight:1000;font-size:1.12rem;white-space:nowrap">8 + 3 × 4</div><div class="concept-copy"><h3>Order of Operations</h3><p>Practice evaluating expressions across Foundation, Core, and Challenge modes, with optional exponents.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="adding-subtracting-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.06rem"><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span><span class="concept-fraction-arrow">+</span><span class="concept-stacked-fraction"><span>3</span><span class="concept-fraction-bar"></span><span>4</span></span></div><div class="concept-copy"><h3>Adding &amp; Subtracting Fractions with Different Denominators</h3><p>Practice different denominators through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="prime-factorization.html"><div class="concept-symbol" style="font-weight:900;font-size:1.02rem;white-space:nowrap;letter-spacing:-.02em">30 = 2 × 3 × 5</div><div class="concept-copy"><h3>Prime Factorization</h3><p>Break composite numbers into a complete product of prime factors.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ algebra:{title:'Algebra',accent:'#72ad61',html:`<a class="concept-card" href="solving-equations-with-brackets.html"><div class="concept-symbol" style="font-weight:1000;font-size:1rem;white-space:nowrap">3(x + 2) = 2x + 11</div><div class="concept-copy"><h3>Equations with Brackets</h3><p>Expand brackets, simplify both sides, and isolate the variable across three progressive modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="adding-subtracting-algebraic-expressions.html"><div class="concept-symbol algebra-mini"><span>3x</span><span class="plus">+</span><span>2x</span></div><div class="concept-copy"><h3>Adding and Subtracting Algebraic Terms</h3><p>Collect like terms and simplify expressions without brackets.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  geometry:{title:'Geometry',accent:'#e4b42e',html:`<a class="concept-card" href="area-triangles-quadrilaterals.html"><div class="concept-symbol area-geometry-thumb" aria-hidden="true"><svg viewBox="0 0 140 82" focusable="false"><rect class="agt-rect" x="3" y="24" width="43" height="38" rx="2"></rect><polygon class="agt-tri" points="51,63 72,17 93,63"></polygon><polygon class="agt-para" points="99,25 137,25 128,63 90,63"></polygon><line class="agt-height" x1="72" y1="17" x2="72" y2="63"></line><path class="agt-angle" d="M72 56h7v7"></path><line class="agt-height" x1="99" y1="25" x2="99" y2="63"></line><path class="agt-angle" d="M99 56h7v7"></path></svg></div><div class="concept-copy"><h3>Area of Triangles &amp; Quadrilaterals</h3><p>Calculate area, convert square units, and work backwards to find missing dimensions through Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="pi-memory-challenge.html"><div class="concept-symbol pi-memory-thumb"><img src="assets/pi-memory-game-cover.png" alt="Pi Memory Challenge"></div><div class="concept-copy"><h3>Pi Memory Challenge</h3><p>Build memory and concentration by recalling digits of pi in Practice or Challenge Mode.</p></div><span class="practice-pill">Play Game →</span></a><a class="concept-card" href="converting-cubic-units-liters.html"><div class="concept-symbol" style="font-weight:900;font-size:1.25rem">dm³ ↔ L</div><div class="concept-copy"><h3>Converting Between Cubic Units and Liters</h3><p>Convert between cubic units and capacity units using powers of ten.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="surface-area-cuboids.html"><div class="concept-symbol surface-area-thumb" aria-hidden="true"><svg viewBox="0 0 130 78" focusable="false"><polygon class="sa-face-top" points="28,24 80,24 103,12 51,12"></polygon><polygon class="sa-face-front" points="28,24 80,24 80,59 28,59"></polygon><polygon class="sa-face-side" points="80,24 103,12 103,47 80,59"></polygon><polyline class="sa-edge" points="28,24 51,12 103,12 103,47 80,59 28,59 28,24 80,24 103,12"></polyline><line class="sa-edge" x1="80" y1="24" x2="80" y2="59"></line><text class="sa-label" x="39" y="48">m²</text></svg></div><div class="concept-copy"><h3>Surface Area of Cuboids</h3><p>Calculate total surface area, reason about which faces count, then tackle square-unit conversions.</p></div><span class="practice-pill">Start Practice →</span></a>`},
- ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card new-app" href="convert-a-fraction.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/convert-a-fraction-cover.svg" alt="Fraction converting to decimal and percent" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Convert a Fraction</h3><p>Convert fractions to decimals, percents, or a balanced mix across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
+ ratio:{title:'Ratio, Proportion & Change',accent:'#5b9fc2',html:`<a class="concept-card new-app" href="convert-a-percent.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/convert-a-percent-cover.svg" alt="Percent converting to decimal and fraction" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Converting Percents to Decimals and Fractions</h3><p>Convert percents to decimals, simplified fractions, or a balanced mix across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card new-app" href="convert-a-decimal.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/convert-a-decimal-cover.svg" alt="Decimal converting to fraction and percent" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Converting Decimals to Fractions and Percents</h3><p>Convert decimals to simplified fractions, percents, or a balanced mix across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card new-app" href="ordering-fractions.html"><div class="practice-new-badge"><span>NEW!</span></div><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/ordering-fractions-cover.svg" alt="Fractions ordered from least to greatest" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Ordering Fractions</h3><p>Arrange fractions from least to greatest through progressively more complex sets.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="convert-a-fraction.html"><div class="concept-symbol" style="padding:0;overflow:hidden"><img src="assets/convert-a-fraction-cover.svg" alt="Fraction converting to decimal and percent" style="display:block;width:100%;height:100%;object-fit:cover"></div><div class="concept-copy"><h3>Converting Fractions to Decimals and Percents</h3><p>Convert fractions to decimals, percents, or a balanced mix across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="simplifying-fractions.html"><div class="concept-symbol concept-fraction-equation" style="font-weight:900;font-size:1.12rem"><span class="concept-stacked-fraction"><span>12</span><span class="concept-fraction-bar"></span><span>18</span></span><span class="concept-fraction-arrow">→</span><span class="concept-stacked-fraction"><span>2</span><span class="concept-fraction-bar"></span><span>3</span></span></div><div class="concept-copy"><h3>Simplifying Fractions</h3><p>Reduce fractions completely using the greatest common factor.</p></div><span class="practice-pill">Start Practice →</span></a>`},
  stats:{title:'Statistics & Probability',accent:'#8a6ac6',html:`<a class="concept-card" href="expected-frequency.html"><div class="concept-symbol expected-frequency-thumb"><img src="assets/expected-frequency-cover.svg" alt="Colorful spinner and expected frequency calculation"></div><div class="concept-copy"><h3>Expected Frequency</h3><p>Use probability to predict how often events should occur across Foundation, Core, and Challenge modes.</p></div><span class="practice-pill">Start Practice →</span></a><a class="concept-card" href="basic-probability.html"><div class="concept-symbol probability-thumb"><img src="probability-coin-flip.png" alt="Hand flipping a coin"></div><div class="concept-copy"><h3>Basic Probability</h3><p>Find probabilities using favorable outcomes and total outcomes.</p></div><span class="practice-pill">Start Practice →</span></a>`}
 };
 
@@ -1428,6 +1416,8 @@ const practiceSearch=document.getElementById('practiceSearch');
 const practiceSearchWrap=document.getElementById('practiceSearchWrap');
 const practiceSearchResults=document.getElementById('practiceSearchResults');
 const practiceBrowse=document.getElementById('practiceBrowse');
+const practiceDesktopBrowse=document.getElementById('practiceDesktopBrowse');
+const practiceDesktopMenu=document.getElementById('practiceDesktopMenu');
 const practiceMobileBrowse=document.getElementById('practiceMobileBrowse');
 const practiceMobilePicker=document.getElementById('practiceMobilePicker');
 const practiceMobilePickerBody=document.getElementById('practiceMobilePickerBody');
@@ -1441,9 +1431,14 @@ const practiceSearchAliases={
   'area-triangles-quadrilaterals.html':'area triangle quadrilateral rectangle parallelogram trapezoid area triangel fyrhörning',
   'pi-memory-challenge.html':'pi digits memory game minne',
   'converting-cubic-units-liters.html':'volume cubic liters litres capacity volym kubik liter',
-  'division-with-decimals.html':'division decimals divide decimal divisor quotient division med decimaler dividera decimaltal',
+  'dividing-fractions.html':'divide dividing fractions fraction whole mixed numbers keep change flip kcf bråk dividera',
+  'multiplying-fractions.html':'multiply multiplying fractions fraction whole mixed numbers bråk multiplicera',
+  'division-with-decimals.html':'dividing decimals division with decimals divide decimal divisor quotient division med decimaler dividera decimaltal',
   'surface-area-cuboids.html':'surface area cuboid prism ytarea rätblock',
   'convert-a-fraction.html':'convert fraction decimal percent fractions decimals percents bråk decimal procent omvandla',
+  'convert-a-decimal.html':'convert decimal fraction percent decimals fractions percents decimal bråk procent omvandla',
+  'convert-a-percent.html':'convert percent decimal fraction percentages decimals fractions procent decimal bråk omvandla',
+  'ordering-fractions.html':'ordering fractions order fractions arrange fractions least greatest compare fractions bråk ordna jämför',
   'simplifying-fractions.html':'simplify fractions reduce fractions bråk enklaste form förkorta',
   'expected-frequency.html':'expected frequency probability förväntad frekvens sannolikhet',
   'basic-probability.html':'probability chance sannolikhet chans'
@@ -1494,6 +1489,60 @@ Object.entries(areaData).forEach(([areaKey,data])=>{
 practiceBrowse.addEventListener('change',()=>{
   if(practiceBrowse.value)window.location.href=practiceBrowse.value;
 });
+
+function buildDesktopPracticeMenu(){
+  if(!practiceDesktopMenu)return;
+  practiceDesktopMenu.innerHTML='';
+  Object.entries(areaData).forEach(([areaKey,data])=>{
+    const items=practiceCatalog.filter(item=>item.areaKey===areaKey);
+    if(!items.length)return;
+    const heading=document.createElement('div');
+    heading.className='practice-desktop-group-title';
+    const dot=document.createElement('span');
+    dot.className='practice-desktop-group-dot';
+    dot.style.background=data.accent;
+    const text=document.createElement('span');
+    text.textContent=data.title;
+    heading.append(dot,text);
+    practiceDesktopMenu.appendChild(heading);
+    items.forEach(item=>{
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='practice-desktop-option';
+      button.setAttribute('role','option');
+      const label=document.createElement('span');
+      label.className='practice-desktop-option-label';
+      const labelText=document.createElement('span');
+      labelText.textContent=item.title;
+      label.appendChild(labelText);
+      if(item.isNew){
+        const badge=document.createElement('span');
+        badge.className='practice-menu-new-badge';
+        badge.textContent='NEW';
+        badge.setAttribute('aria-label','New');
+        label.appendChild(badge);
+      }
+      const arrow=document.createElement('span');
+      arrow.textContent='›';
+      arrow.setAttribute('aria-hidden','true');
+      arrow.style.cssText='color:#6860cf;font-size:1.08rem;font-weight:1000';
+      button.append(label,arrow);
+      button.addEventListener('click',()=>{window.location.href=item.href;});
+      practiceDesktopMenu.appendChild(button);
+    });
+  });
+}
+function setDesktopMenu(open){
+  if(!practiceDesktopMenu||!practiceDesktopBrowse)return;
+  practiceDesktopMenu.hidden=!open;
+  practiceDesktopBrowse.setAttribute('aria-expanded',open?'true':'false');
+}
+practiceDesktopBrowse?.addEventListener('click',()=>setDesktopMenu(practiceDesktopMenu?.hidden ?? true));
+document.addEventListener('click',e=>{
+  if(practiceDesktopMenu && practiceDesktopBrowse && !practiceDesktopMenu.hidden && !practiceDesktopMenu.contains(e.target) && !practiceDesktopBrowse.contains(e.target)) setDesktopMenu(false);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setDesktopMenu(false);});
+buildDesktopPracticeMenu();
 
 
 // v173: Android/iOS native select menus do not reliably preserve optgroup typography or

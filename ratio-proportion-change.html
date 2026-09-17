@@ -551,7 +551,7 @@ body > header.site-global-header .site-global-topbar{
   margin:0 auto !important;
   padding:10px 0 !important;
   display:grid !important;
-  grid-template-columns:minmax(0,1fr) 198px !important;
+  grid-template-columns:minmax(0,1fr) 146px !important;
   align-items:center !important;
   gap:18px !important;
 }
@@ -564,7 +564,7 @@ body > header.site-global-header nav.site-global-nav{
   margin:0 !important;
   padding:6px 2px !important;
   display:grid !important;
-  grid-template-columns:repeat(4,minmax(80px,1fr)) !important;
+  grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
   align-items:stretch !important;
   gap:8px !important;
   overflow:visible !important;
@@ -607,7 +607,7 @@ body > header.site-global-header nav.site-global-nav > a.active{
 }
 body > header.site-global-header .site-global-social{
   box-sizing:border-box !important;
-  width:198px !important;
+  width:146px !important;
   height:46px !important;
   min-height:46px !important;
   margin:0 !important;
@@ -650,7 +650,7 @@ body > header.site-global-header .site-global-social svg{
 }
 @media(max-width:900px){
   body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
-  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 198px !important;gap:12px !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
   body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
@@ -669,61 +669,7 @@ body > header.site-global-header .site-global-social svg{
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 
-<style id="v124-games-launch-nav">
-/* v124 Games launch refinement: keep all five primary tabs identical in size/position, with a clearer premium NEW badge on Games. */
-@media (min-width:901px){
-  body > header.site-global-header nav.site-global-nav{
-    display:grid !important;
-    grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
-    gap:8px !important;
-  }
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]{
-  position:relative !important;
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
-  content:"NEW";
-  position:absolute;
-  top:4px;
-  right:18px;
-  z-index:4;
-  padding:4px 8px 3px;
-  border-radius:999px;
-  background:linear-gradient(180deg,#fff6a3 0%,#ffd95a 54%,#ffbe2a 100%);
-  border:1px solid #c57a00;
-  color:#5c3100;
-  font:1000 9px/1 "Trebuchet MS",Arial,sans-serif;
-  letter-spacing:.09em;
-  box-shadow:0 4px 10px rgba(100,60,0,.22),0 0 0 2px rgba(255,255,255,.66),0 0 12px rgba(255,212,95,.22),inset 0 1px 0 rgba(255,255,255,.92);
-  pointer-events:none;
-}
-body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
-  content:"";
-  position:absolute;
-  top:11px;
-  right:51px;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#fff7c9;
-  box-shadow:0 0 8px rgba(255,231,135,.75),0 0 14px rgba(255,200,60,.4);
-  pointer-events:none;
-}
-@media (max-width:900px){
-  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::before{
-    top:2px;
-    right:10px;
-    padding:3px 6px 2px;
-    font-size:8px;
-  }
-  body > header.site-global-header nav.site-global-nav > a[href="games.html"]::after{
-    top:8px;
-    right:41px;
-    width:5px;
-    height:5px;
-  }
-}
-</style>
+
 
 </head><body>
 <header class="site-global-header">
@@ -739,7 +685,7 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
 <a class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3.2" fill="currentColor" opacity=".92"/><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"/></svg></a>
 <a class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.3" y="4.3" width="15.4" height="15.4" rx="4.4" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
 <a class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"/></svg></a>
-<a class="site-global-social-icon" href="https://www.facebook.com/profile.php?id=61558546285170" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.7 20v-7h2.4l.4-2.8h-2.8V8.4c0-.8.2-1.4 1.4-1.4H16.6V4.5c-.3 0-.9-.1-1.7-.1-2.5 0-4.1 1.5-4.1 4.2v1.6H8.4V13h2.4v7h2.9z" fill="currentColor"/></svg></a>
+
 </div>
 </div>
 </header>
@@ -750,5 +696,5 @@ body > header.site-global-header nav.site-global-nav > a[href="games.html"]::aft
 <span class="ratio-item ratio-change"><span class="arrow">↑</span><span>25%</span></span>
 </div></section>
 <section class="section"><div class="section-head"><div><h2>Watch Ratio, Proportion &amp; Change Tutorials</h2><p>Start with a clear explanation or browse the complete video collection for this subject.</p></div><a class="all-link" href="videos.html?subject=relationships">View all Ratio, Proportion &amp; Change videos →</a></div><div class="grid"><a class="card-link" href="https://www.youtube.com/watch?v=dJtP0mnHpu8" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="How to Calculate Percent of Change (Increase or Decrease) tutorial" src="thumbnails/dJtP0mnHpu8.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE TUTORIAL</span><h3>How to Calculate Percent of Change (Increase or Decrease)</h3><p>Learn how to calculate percent of change by comparing the original value and the new value. This tutorial walks through percent increase and percent decrease using real-life examples.</p></div></article></a><a class="card-link" href="https://www.youtube.com/watch?v=xp_41ljmng8" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="How to Calculate the Whole Amount Using Percent and Part tutorial" src="thumbnails/xp_41ljmng8.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE TUTORIAL</span><h3>How to Calculate the Whole Amount Using Percent and Part</h3><p>This tutorial shows how to calculate the whole amount when given the percent and the part. You’ll learn the formula and how to apply it step by step with visual support.</p></div></article></a><a class="card-link" href="https://www.youtube.com/watch?v=BcE6yOM4YaM" rel="noopener" target="_blank"><article class="card"><div class="thumb"><img alt="How to Calculate the Whole Amount Using Part and Fraction tutorial" src="thumbnails/BcE6yOM4YaM.jpg"/><span class="play"></span></div><div class="copy"><span class="tag">RATIO, PROPORTION &amp; CHANGE TUTORIAL</span><h3>How to Calculate the Whole Amount Using Part and Fraction</h3><p>Learn how to calculate the total amount when given a part and a fraction of the whole. This method is essential in proportional reasoning and everyday problem solving.</p></div></article></a></div></section>
-<section class="section"><div class="section-head"><div><h2>Practice Ratio, Proportion &amp; Change</h2><p>Develop confidence with equivalent fractions and proportional reasoning through interactive practice.</p></div></div><div class="practice-card"><div class="practice-preview" style="padding:0;overflow:hidden"><img src="assets/convert-a-fraction-cover.svg" alt="Fraction converting to decimal and percent" style="display:block;width:100%;height:100%;min-height:150px;object-fit:cover"></div><div class="practice-copy"><h3>Convert a Fraction</h3><p>Convert fractions to decimals, percents, or a balanced mix through three progressive difficulty modes.</p></div><a class="start" href="convert-a-fraction.html">Start practicing →</a></div><div class="practice-card"><div class="practice-preview"><div class="fraction-equation" aria-label="eighteen twenty-fourths simplifies to three fourths"><span class="stacked-fraction"><span>18</span><span class="fraction-bar"></span><span>24</span></span><span class="fraction-arrow">→</span><span class="stacked-fraction"><span>3</span><span class="fraction-bar"></span><span>4</span></span></div></div><div class="practice-copy"><h3>Simplifying Fractions</h3><p>Reduce proper and improper fractions completely using common factors in three progressive modes.</p></div><a class="start" href="simplifying-fractions.html">Start practicing →</a></div><div class="note">More Ratio, Proportion &amp; Change practice activities coming soon.</div></section></main><footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer>
+<section class="section"><div class="section-head"><div><h2>Practice Ratio, Proportion &amp; Change</h2><p>Develop confidence with equivalent fractions and proportional reasoning through interactive practice.</p></div></div><div class="practice-card"><div class="practice-preview" style="padding:0;overflow:hidden"><img src="assets/convert-a-percent-cover.svg" alt="Percent converting to a decimal and fraction" style="display:block;width:100%;height:100%;min-height:150px;object-fit:cover"></div><div class="practice-copy"><h3>Converting Percents to Decimals and Fractions</h3><p>Convert percents to decimals and simplified fractions through three progressive difficulty modes.</p></div><a class="start" href="convert-a-percent.html">Start practicing →</a></div><div class="practice-card"><div class="practice-preview" style="padding:0;overflow:hidden"><img src="assets/convert-a-decimal-cover.svg" alt="Decimal converting to a fraction and percent" style="display:block;width:100%;height:100%;min-height:150px;object-fit:cover"></div><div class="practice-copy"><h3>Converting Decimals to Fractions and Percents</h3><p>Convert decimals to simplified fractions and percents through three progressive difficulty modes.</p></div><a class="start" href="convert-a-decimal.html">Start practicing →</a></div><div class="practice-card"><div class="practice-preview" style="padding:0;overflow:hidden"><img src="assets/ordering-fractions-cover.svg" alt="Fractions ordered from least to greatest" style="display:block;width:100%;height:100%;min-height:150px;object-fit:cover"></div><div class="practice-copy"><h3>Ordering Fractions</h3><p>Arrange fractions from least to greatest, progressing from controlled proper fractions to mixed, improper, and negative values.</p></div><a class="start" href="ordering-fractions.html">Start practicing →</a></div><div class="practice-card"><div class="practice-preview" style="padding:0;overflow:hidden"><img src="assets/convert-a-fraction-cover.svg" alt="Fraction converting to decimal and percent" style="display:block;width:100%;height:100%;min-height:150px;object-fit:cover"></div><div class="practice-copy"><h3>Converting Fractions to Decimals and Percents</h3><p>Convert fractions to decimals, percents, or a balanced mix through three progressive difficulty modes.</p></div><a class="start" href="convert-a-fraction.html">Start practicing →</a></div><div class="practice-card"><div class="practice-preview"><div class="fraction-equation" aria-label="eighteen twenty-fourths simplifies to three fourths"><span class="stacked-fraction"><span>18</span><span class="fraction-bar"></span><span>24</span></span><span class="fraction-arrow">→</span><span class="stacked-fraction"><span>3</span><span class="fraction-bar"></span><span>4</span></span></div></div><div class="practice-copy"><h3>Simplifying Fractions</h3><p>Reduce proper and improper fractions completely using common factors in three progressive modes.</p></div><a class="start" href="simplifying-fractions.html">Start practicing →</a></div><div class="note">More Ratio, Proportion &amp; Change practice activities coming soon.</div></section></main><footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer>
 </body></html>
