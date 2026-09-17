@@ -1,2 +1,1 @@
-Mr. McLean Math v194
-Conversion denominator balance + mobile keypad coverage + keypad haptic feedback
+v195 — mobile practice selector spacing + site-wide keypad backspace refinement

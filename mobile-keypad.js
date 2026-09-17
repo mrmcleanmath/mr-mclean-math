@@ -20,15 +20,15 @@
   };
 
   // Compact layouts: digit-only pads fit in three rows on a phone.
-  const integer=['1','2','3','4','5','6','7','8','9','0','⌫','Clear','Enter'];
-  const positiveDecimal=['1','2','3','4','5','6','7','8','9','0','.','⌫','Clear','Enter'];
-  const signedDecimal=['1','2','3','4','5','6','7','8','9','0','−','.','⌫','Clear','Enter'];
-  const probability=['1','2','3','4','5','6','7','8','9','0','/','%','.','⌫','Clear','Enter'];
-  const algebra=['1','2','3','4','5','6','7','8','9','0','x','y','a','c','+','−','.','⌫','Clear','Enter'];
-  const editOnly=['⌫','Clear','Enter'];
+  const integer=['1','2','3','4','5','6','7','8','9','0','⌫','Enter'];
+  const positiveDecimal=['1','2','3','4','5','6','7','8','9','0','.','⌫','Enter'];
+  const signedDecimal=['1','2','3','4','5','6','7','8','9','0','−','.','⌫','Enter'];
+  const probability=['1','2','3','4','5','6','7','8','9','0','/','%','.','⌫','Enter'];
+  const algebra=['1','2','3','4','5','6','7','8','9','0','x','y','a','c','+','−','.','⌫','Enter'];
+  const editOnly=['⌫','Enter'];
 
   const configs={
-    'adding-subtracting-algebraic-expressions.html':{selector:'input[id$="Answer"]',keys:algebra,cols:5,enterSpan:3,caption:'Algebra answer buttons'},
+    'adding-subtracting-algebraic-expressions.html':{selector:'input[id$="Answer"]',keys:algebra,cols:5,backspaceSpan:3,enterSpan:5,caption:'Algebra answer buttons'},
     'adding-subtracting-fractions.html':{selector:'input.answer-field',keys:integer,cols:5,enterSpan:3,caption:'Fraction answer buttons'},
     'area-triangles-quadrilaterals.html':{selector:'input.surface-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
     'basic-probability.html':{selector:'input[id$="Answer"]',keys:probability,cols:6,enterSpan:3,caption:'Probability answer buttons'},
@@ -106,7 +106,10 @@
       b.className='mmm-key';
       b.dataset.key=label;
       b.textContent=label==='⌫'?'←':label;
-      if(['⌫','Clear'].includes(label))b.classList.add('mmm-key-action');
+      if(label==='⌫'){
+        b.classList.add('mmm-key-action','mmm-key-backspace');
+        b.style.gridColumn='span '+Math.max(1,Number(cfg.backspaceSpan)||2);
+      }
       if(label==='Enter'){
         b.classList.add('mmm-key-enter');
         b.setAttribute('aria-label','Check or next');
@@ -216,7 +219,6 @@
     if(key==='Enter'){sendEnter();return}
     if(activeInput.disabled)return;
     if(key==='⌫'){backspace();return}
-    if(key==='Clear'){setValue(activeInput,'',0);return}
     if(key==='−'){insert('-');return}
     insert(key);
   }
