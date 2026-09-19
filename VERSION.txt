@@ -1,1 +1,2 @@
-v195 — mobile practice selector spacing + site-wide keypad backspace refinement
+Mr. McLean Math v196
+Fraction conversion display fix: stacked source fractions restored.
