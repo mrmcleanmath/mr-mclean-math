@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+<title id="title">Speed, Distance and Time</title><desc id="desc">A speedometer beside a road with distance and time symbols.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5fbfe"/><stop offset="1" stop-color="#d9eef7"/></linearGradient>
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#52616b"/><stop offset="1" stop-color="#2f3940"/></linearGradient>
+</defs>
+<rect width="800" height="450" rx="28" fill="url(#bg)"/>
+<circle cx="220" cy="205" r="132" fill="#fff" stroke="#5b9fc2" stroke-width="18"/>
+<path d="M118 238 A112 112 0 0 1 322 238" fill="none" stroke="#b7dce9" stroke-width="18" stroke-linecap="round"/>
+<g stroke="#397f9f" stroke-width="7" stroke-linecap="round">
+<path d="M130 225l-20 5"/><path d="M146 168l-18-10"/><path d="M190 128l-7-20"/><path d="M250 128l7-20"/><path d="M294 168l18-10"/><path d="M310 225l20 5"/>
+</g>
+<path d="M220 205 L286 163" stroke="#244e61" stroke-width="12" stroke-linecap="round"/>
+<circle cx="220" cy="205" r="15" fill="#244e61"/>
+<text x="220" y="284" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#244e61">SPEED</text>
+<path d="M430 80 L690 80 L760 390 L360 390 Z" fill="url(#road)"/>
+<path d="M557 100 L547 150 M536 205 L524 270 M510 335 L501 380" stroke="#fff" stroke-width="13" stroke-linecap="round"/>
+<g font-family="Arial,sans-serif" font-weight="900" fill="#244e61">
+<rect x="405" y="115" width="220" height="76" rx="18" fill="#fff" opacity=".96"/>
+<text x="515" y="166" text-anchor="middle" font-size="38">DISTANCE</text>
+<rect x="458" y="260" width="200" height="76" rx="18" fill="#fff" opacity=".96"/>
+<text x="558" y="311" text-anchor="middle" font-size="38">TIME</text>
+</g>
+<circle cx="690" cy="120" r="48" fill="#fff" stroke="#5b9fc2" stroke-width="10"/><path d="M690 120V91M690 120l23 14" stroke="#244e61" stroke-width="8" stroke-linecap="round"/>
+</svg>

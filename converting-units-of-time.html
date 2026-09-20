@@ -1,0 +1,3079 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Converting Units of Time | Mr. McLean Math</title>
+<meta content="© 2026 Mr. McLean Math. All rights reserved." name="copyright"/>
+<meta content="Mr. McLean Math" name="author"/>
+<style>
+
+:root{
+  --page:#f7f0cf;--ink:#252a31;--muted:#626873;--blue:#2218ff;
+  --green:#20d638;--yellow:#ffe500;--red:#ff3b3b;--good:#16833a;
+  --bad:#c63737;--line:#5b6069;--panel:rgba(255,255,255,.96);
+  --shadow:0 16px 36px rgba(45,52,68,.14);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Trebuchet MS", Arial, sans-serif;
+  color:var(--ink);
+  background-color:#f7f0cf;
+  background-image:
+    linear-gradient(rgba(250,244,220,.32), rgba(250,244,220,.32)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAwIiBoZWlnaHQ9IjI0MDAiIHZpZXdCb3g9IjAgMCAyMjAwIDI0MDAiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InNtYWxsR3JpZCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTSA0OCAwIEwgMCAwIDAgNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I5ZDhlZiIgc3Ryb2tlLXdpZHRoPSIxLjMiIG9wYWNpdHk9IjAuNDUiLz4KICAgIDwvcGF0dGVybj4KICAgIDxwYXR0ZXJuIGlkPSJiaWdHcmlkIiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiBmaWxsPSJ1cmwoI3NtYWxsR3JpZCkiLz4KICAgICAgPHBhdGggZD0iTSAyNDAgMCBMIDAgMCAwIDI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOWZjNGRmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuNTUiLz4KICAgIDwvcGF0dGVybj4KICAgIDxzdHlsZT4KICAgICAgLmJnIHsgZmlsbDogI2ZjZmNmNzsgfQogICAgICAuZ3JpZCB7IGZpbGw6IHVybCgjYmlnR3JpZCk7IH0KICAgICAgLm1hcmdpbiB7IHN0cm9rZTogI2U3YTVhNTsgc3Ryb2tlLXdpZHRoOiA0OyBvcGFjaXR5OiAwLjU1OyB9CiAgICAgIC50aGluIHsgZmlsbDogbm9uZTsgc3Ryb2tlLXdpZHRoOiA0OyBzdHJva2UtbGluZWNhcDogcm91bmQ7IHN0cm9rZS1saW5lam9pbjogcm91bmQ7IG9wYWNpdHk6IDAuMjQ7IH0KICAgICAgLnR4dCB7IGZvbnQtZmFtaWx5OiAiVHJlYnVjaGV0IE1TIiwgQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogNTJweDsgZm9udC13ZWlnaHQ6IDcwMDsgb3BhY2l0eTogMC4yNDsgfQogICAgICAuc21hbGwgeyBmb250LXNpemU6IDQwcHg7IH0KICAgICAgLnRpbnkgeyBmb250LXNpemU6IDMxcHg7IH0KICAgICAgLnB1cnBsZSB7IHN0cm9rZTogIzk3ODBkMTsgZmlsbDogIzk3ODBkMTsgfQogICAgICAuZ3JlZW4gIHsgc3Ryb2tlOiAjNzZiNDg5OyBmaWxsOiAjNzZiNDg5OyB9CiAgICAgIC5ibHVlICAgeyBzdHJva2U6ICM3MmE0Yzg7IGZpbGw6ICM3MmE0Yzg7IH0KICAgICAgLm9yYW5nZSB7IHN0cm9rZTogI2U1OWU3YTsgZmlsbDogI2U1OWU3YTsgfQogICAgICAuZ29sZCAgIHsgc3Ryb2tlOiAjZDViODY3OyBmaWxsOiAjZDViODY3OyB9CiAgICAgIC5waW5rICAgeyBzdHJva2U6ICNkODhlYTA7IGZpbGw6ICNkODhlYTA7IH0KICAgICAgLm1pbnQgICB7IHN0cm9rZTogIzg0YzViYjsgZmlsbDogIzg0YzViYjsgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CgogIDxyZWN0IGNsYXNzPSJiZyIgd2lkdGg9IjIyMDAiIGhlaWdodD0iMjQwMCIvPgogIDxyZWN0IGNsYXNzPSJncmlkIiB3aWR0aD0iMjIwMCIgaGVpZ2h0PSIyNDAwIi8+CiAgPGxpbmUgY2xhc3M9Im1hcmdpbiIgeDE9IjE0MCIgeTE9IjAiIHgyPSIxNDAiIHkyPSIyNDAwIi8+CgogIDwhLS0gdG9wIGxlZnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjIwIDEzMCkiPgogICAgPHRleHQgY2xhc3M9InR4dCBwdXJwbGUiPjMoeCArIDQpID0gMjE8L3RleHQ+CiAgICA8bGluZSBjbGFzcz0idGhpbiBwdXJwbGUiIHgxPSI4IiB5MT0iNzYiIHgyPSIzMjIiIHkyPSI3NiIvPgogICAgPHRleHQgY2xhc3M9InR4dCBwdXJwbGUgc21hbGwiIHg9IjI2IiB5PSIxNDYiPnggPSAzPC90ZXh0PgogIDwvZz4KCiAgPCEtLSB0b3AgY2VudGVyIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5MCAxMTApIj4KICAgIDxlbGxpcHNlIGNsYXNzPSJ0aGluIG9yYW5nZSIgY3g9Ijg4IiBjeT0iMTQiIHJ4PSI4OCIgcnk9IjI2Ii8+CiAgICA8cmVjdCBjbGFzcz0idGhpbiBvcmFuZ2UiIHg9IjAiIHk9IjE0IiB3aWR0aD0iMTc2IiBoZWlnaHQ9IjE2MiIvPgogICAgPGVsbGlwc2UgY2xhc3M9InRoaW4gb3JhbmdlIiBjeD0iODgiIGN5PSIxNzYiIHJ4PSI4OCIgcnk9IjI2Ii8+CiAgICA8dGV4dCBjbGFzcz0idHh0IG9yYW5nZSBzbWFsbCIgeD0iMjIwIiB5PSI0MCI+cj0gMyBjbTwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgb3JhbmdlIHNtYWxsIiB4PSIyMjAiIHk9Ijk1Ij5oID0gOCBjbTwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgb3JhbmdlIHNtYWxsIiB4PSIyMjAiIHk9IjE1MCI+ViA9IM+AcsKyajwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgb3JhbmdlIHRpbnkiIHg9IjIyMCIgeT0iMjAwIj5WID0gNzLOgCBjbcyzPC90ZXh0PgogIDwvZz4KCiAgPCEtLSB0b3AgcmlnaHQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY1MCAxMzApIj4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgYmx1ZSI+NCh4IOKIkyAyKSA9IDJ4ICsgODwvdGV4dD4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGJsdWUiIHgxPSI4IiB5MT0iNzYiIHgyPSIzODYiIHkyPSI3NiIvPgogICAgPHRleHQgY2xhc3M9InR4dCBibHVlIHNtYWxsIiB4PSIyNiIgeT0iMTQ2Ij54ID0gODwvdGV4dD4KICA8L2c+CgogIDwhLS0gc2Vjb25kIHJvdyBsZWZ0IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxMCA0NzApIj4KICAgIDxwYXRoIGNsYXNzPSJ0aGluIHB1cnBsZSIgZD0iTTAsMTQwIEExNDAsMTQwIDAgMCAxIDI4MCwxNDAiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIHB1cnBsZSIgeDE9IjAiIHkxPSIxNDAiIHgyPSIyODAiIHkyPSIxNDAiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIHB1cnBsZSIgeDE9IjE0MCIgeTE9IjE0MCIgeDI9IjE0MCIgeTI9IjEyIi8+CiAgICA8dGV4dCBjbGFzcz0idHh0IHB1cnBsZSBzbWFsbCIgeD0iMTI4IiB5PSI3OCI+cjwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgcHVycGxlIHNtYWxsIiB4PSIwIiB5PSIyMTAiPlAgPSDOrHInICsgMnI8L3RleHQ+CiAgICA8dGV4dCBjbGFzcz0idHh0IHB1cnBsZSB0aW55IiB4PSIwIiB5PSIyNTgiPmlmIHIgPSA2IGNtLCBQID0gNs+AICsgMTIgY208L3RleHQ+CiAgPC9nPgoKICA8IS0tIHNlY29uZCByb3cgY2VudGVyIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwMCA1MjApIj4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgbWludCI+MSBkbcyzID0gMSBMPC90ZXh0PgogICAgPGxpbmUgY2xhc3M9InRoaW4gbWludCIgeDE9IjEwIiB5MT0iNzQiIHgyPSIyMDgiIHkyPSI3NCIvPgogICAgPHRleHQgY2xhc3M9InR4dCBtaW50IHNtYWxsIiB4PSI4IiB5PSIxNDYiPjI1MDAgY23MsyA9IDIuNSBMPC90ZXh0PgogICAgPHRleHQgY2xhc3M9InR4dCBtaW50IHNtYWxsIiB4PSI4IiB5PSIyMTAiPjAuNzUgTCA9IDc1MCBjbcyzPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBzZWNvbmQgcm93IHJpZ2h0IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MjAgNDYwKSI+CiAgICA8bGluZSBjbGFzcz0idGhpbiBibHVlIiB4MT0iMjQiIHkxPSIyMjAiIHgyPSIzMzAiIHkyPSIyMjAiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGJsdWUiIHgxPSI2MCIgeTE9IjI0IiB4Mj0iNjAiIHkyPSIyNTgiLz4KICAgIDxwYXRoIGNsYXNzPSJ0aGluIGJsdWUiIGQ9Ik02MCwyMDAgTDE0MCwxNzAgTDIyMCwxMjAgTDMwMCw4MCIvPgogICAgPGNpcmNsZSBjbGFzcz0iYmx1ZSIgY3g9IjE0MCIgY3k9IjE3MCIgcj0iNyIgb3BhY2l0eT0iMC4yNCIvPgogICAgPGNpcmNsZSBjbGFzcz0iYmx1ZSIgY3g9IjIyMCIgY3k9IjEyMCIgcj0iNyIgb3BhY2l0eT0iMC4yNCIvPgogICAgPGNpcmNsZSBjbGFzcz0iYmx1ZSIgY3g9IjMwMCIgY3k9IjgwIiByPSI3IiBvcGFjaXR5PSIwLjI0Ii8+CiAgICA8dGV4dCBjbGFzcz0idHh0IGJsdWUgdGlueSIgeD0iMTAiIHk9IjMwNCI+eSA9IHggKyAxPC90ZXh0PgogIDwvZz4KCiAgPCEtLSB0aGlyZCByb3cgbGVmdCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMTAgOTAwKSI+CiAgICA8Y2lyY2xlIGNsYXNzPSJ0aGluIGdvbGQiIGN4PSIxMTIiIGN5PSIxMTIiIHI9Ijk4Ii8+CiAgICA8cGF0aCBjbGFzcz0idGhpbiBnb2xkIiBkPSJNMTEyLDExMiBMMTEyLDE0IEE5OCw5OCAwIDAgMSAyMTAsMTEyIFoiLz4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgZ29sZCBzbWFsbCIgeD0iMjUyIiB5PSI5NiI+MjUlPC90ZXh0PgogICAgPHRleHQgY2xhc3M9InR4dCBnb2xkIHRpbnkiIHg9IjI1MiIgeT0iMTUwIj7CvSA9IDAuMjUgPSAyNSU8L3RleHQ+CiAgPC9nPgoKICA8IS0tIHRoaXJkIHJvdyBjZW50ZXIgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTAwIDkwMCkiPgogICAgPHRleHQgY2xhc3M9InR4dCBncmVlbiI+MigzeCDiiJIgMSkgPSAxNjwvdGV4dD4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGdyZWVuIiB4MT0iNiIgeTE9Ijc2IiB4Mj0iMjg2IiB5Mj0iNzYiLz4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgZ3JlZW4gc21hbGwiIHg9IjI0IiB5PSIxNDYiPnggPSAzPC90ZXh0PgogIDwvZz4KCiAgPCEtLSB0aGlyZCByb3cgcmlnaHQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYyNSA4ODUpIj4KICAgIDxyZWN0IGNsYXNzPSJ0aGluIHBpbmsiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNzAiIGhlaWdodD0iMTAwIi8+CiAgICA8dGV4dCBjbGFzcz0idHh0IHBpbmsgc21hbGwiIHg9IjIxMCIgeT0iNDIiPkEgPSBsdzwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgcGluayB0aW55IiB4PSIyMTAiIHk9Ijk2Ij4xNyDDlyAxMCA9IDE3MCBjbcyyPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBmb3VydGggcm93IGxlZnQgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjIwIDEzMDApIj4KICAgIDxyZWN0IGNsYXNzPSJ0aGluIGJsdWUiIHg9IjAiIHk9IjQwIiB3aWR0aD0iOTQiIGhlaWdodD0iOTQiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGJsdWUiIHgxPSIwIiB5MT0iNDAiIHgyPSI0NCIgeTI9IjYiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGJsdWUiIHgxPSI5NCIgeTE9IjQwIiB4Mj0iMTM4IiB5Mj0iNiIvPgogICAgPGxpbmUgY2xhc3M9InRoaW4gYmx1ZSIgeDE9Ijk0IiB5MT0iMTM0IiB4Mj0iMTM4IiB5Mj0iMTAwIi8+CiAgICA8bGluZSBjbGFzcz0idGhpbiBibHVlIiB4MT0iMTM4IiB5MT0iNiIgeDI9IjEzOCIgeTI9IjEwMCIvPgogICAgPGxpbmUgY2xhc3M9InRoaW4gYmx1ZSIgeDE9IjQ0IiB5MT0iNiIgeDI9IjEzOCIgeTI9IjYiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGJsdWUiIHgxPSI0NCIgeTE9IjYiIHgyPSI0NCIgeTI9IjEwMCIvPgogICAgPGxpbmUgY2xhc3M9InRoaW4gYmx1ZSIgeDE9IjQ0IiB5MT0iMTAwIiB4Mj0iMTM4IiB5Mj0iMTAwIi8+CiAgICA8bGluZSBjbGFzcz0idGhpbiBibHVlIiB4MT0iMCIgeTE9IjEzNCIgeDI9IjQ0IiB5Mj0iMTAwIi8+CiAgICA8dGV4dCBjbGFzcz0idHh0IGJsdWUgc21hbGwiIHg9IjE4MCIgeT0iNDgiPjEgbcKzID0gMTAwMCBMPC90ZXh0PgogICAgPHRleHQgY2xhc3M9InR4dCBibHVlIHRpbnkiIHg9IjE4MCIgeT0iOTgiPjAuNCBtxrMgPSA0MDAgTDwvdGV4dD4KICA8L2c+CgogIDwhLS0gZm91cnRoIHJvdyBjZW50ZXIgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTAwIDEyODApIj4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgcHVycGxlIj41YSArIDJhID0gN2E8L3RleHQ+CiAgICA8bGluZSBjbGFzcz0idGhpbiBwdXJwbGUiIHgxPSIxMCIgeTE9Ijc2IiB4Mj0iMjg2IiB5Mj0iNzYiLz4KICAgIDx0ZXh0IGNsYXNzPSJ0eHQgcHVycGxlIHNtYWxsIiB4PSIxMiIgeT0iMTQ1Ij5saWtlIHRlcm1zPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBmb3VydGggcm93IHJpZ2h0IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MTAgMTI2MCkiPgogICAgPGxpbmUgY2xhc3M9InRoaW4gbWludCIgeDE9IjIwIiB5MT0iMjEwIiB4Mj0iMjAiIHkyPSIzNCIvPgogICAgPGxpbmUgY2xhc3M9InRoaW4gbWludCIgeDE9IjIwIiB5MT0iMjEwIiB4Mj0iMjYwIiB5Mj0iMjEwIi8+CiAgICA8cmVjdCBjbGFzcz0idGhpbiBtaW50IiB4PSI3MCIgeT0iMTUwIiB3aWR0aD0iNDgiIGhlaWdodD0iNjAiLz4KICAgIDxyZWN0IGNsYXNzPSJ0aGluIG1pbnQiIHg9IjE0MCIgeT0iMTEwIiB3aWR0aD0iNDgiIGhlaWdodD0iMTAwIi8+CiAgICA8cmVjdCBjbGFzcz0idGhpbiBtaW50IiB4PSIyMTAiIHk9IjcwIiB3aWR0aD0iNDgiIGhlaWdodD0iMTQwIi8+CiAgICA8dGV4dCBjbGFzcz0idHh0IG1pbnQgdGlueSIgeD0iMTYiIHk9IjI3MCI+YmFyIGdyYXBoPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBib3R0b20gbGVmdCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjAgMTczMCkiPgogICAgPGxpbmUgY2xhc3M9InRoaW4gb3JhbmdlIiB4MT0iMjAiIHkxPSIyMDAiIHgyPSIzMDAiIHkyPSIyMDAiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIG9yYW5nZSIgeDE9IjE2MCIgeTE9IjIwIiB4Mj0iMTYwIiB5Mj0iMjQwIi8+CiAgICA8bGluZSBjbGFzcz0idGhpbiBvcmFuZ2UiIHgxPSIxNjAiIHkxPSIxMjAiIHgyPSIyNTAiIHkyPSIxMjAiLz4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIG9yYW5nZSIgeDE9IjI1MCIgeTE9IjEyMCIgeDI9IjI1MCIgeTI9IjIwMCIvPgogICAgPGNpcmNsZSBjbGFzcz0ib3JhbmdlIiBjeD0iMjUwIiBjeT0iMTIwIiByPSI3IiBvcGFjaXR5PSIwLjI0Ii8+CiAgICA8dGV4dCBjbGFzcz0idHh0IG9yYW5nZSB0aW55IiB4PSIyNjIiIHk9IjEyOCI+KDMsIDIpPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBib3R0b20gY2VudGVyIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxMCAxNzEwKSI+CiAgICA8dGV4dCBjbGFzcz0idHh0IGdvbGQiPsK+ID0gMC43NSA9IDc1JTwvdGV4dD4KICAgIDxwYXRoIGNsYXNzPSJ0aGluIGdvbGQiIGQ9Ik0yMCw4MCBDNDAsMjggODIsMjggMTAyLDcwIEMxMjIsMjggMTY0LDI4IDE4NCw3MCBDMjA0LDI4IDI0NiwyOCAyNjYsNzAiLz4KICA8L2c+CgogIDwhLS0gYm90dG9tIHJpZ2h0IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MDUgMTcwNSkiPgogICAgPHRleHQgY2xhc3M9InR4dCBncmVlbiI+Nih4ICsgMSkgPSAzMDwvdGV4dD4KICAgIDxsaW5lIGNsYXNzPSJ0aGluIGdyZWVuIiB4MT0iMTAiIHkxPSI3NiIgeDI9IjI3NCIgeTI9Ijc2Ii8+CiAgICA8dGV4dCBjbGFzcz0idHh0IGdyZWVuIHNtYWxsIiB4PSIyMiIgeT0iMTQ2Ij54ID0gNDwvdGV4dD4KICA8L2c+CgogIDwhLS0gc21hbGwgZmlsbGVyIGRvb2RsZXMgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAwIDM4MCkiPgogICAgPHBhdGggY2xhc3M9InRoaW4gcGluayIgZD0iTTAsMjggQzEwLDggMzQsOCA0NCwyOCBDNTQsOCA3OCw4IDg4LDI4Ii8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0MjUgMzA1KSI+CiAgICA8cGF0aCBjbGFzcz0idGhpbiBwdXJwbGUiIGQ9Ik0wLDE4IEwxMiwxOCBMMTYsMCBMMjAsMTggTDMyLDE4Ii8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0MCAxMDMwKSI+CiAgICA8Y2lyY2xlIGNsYXNzPSJtaW50IiBjeD0iMCIgY3k9IjAiIHI9IjEwIiBvcGFjaXR5PSIwLjI0Ii8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNjAgOTgwKSI+CiAgICA8cGF0aCBjbGFzcz0idGhpbiBncmVlbiIgZD0iTTAsNjAgQzE4LDIwIDQ4LDIwIDYyLDQ2IEM1MiwxNiA3OCwwIDEwOCw4Ii8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc2MCAxNTUwKSI+CiAgICA8cGF0aCBjbGFzcz0idGhpbiBibHVlIiBkPSJNMCw1MCBMMTgsMTggTDM2LDUwIi8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0NDAgMTU2NSkiPgogICAgPHBhdGggY2xhc3M9InRoaW4gcGluayIgZD0iTTIyLDQ0IEMwLDI4IDgsMCAyNiw3IEMzNiwxMiAzOCwyMCAzOCwyMCBDMzgsMjAgNDAsMTIgNTAsNyBDNjgsMCA3NiwyOCA1Miw0NCBMMzgsNTUgWiIvPgogIDwvZz4KPC9zdmc+");
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
+}
+header{
+  background:rgba(255,255,255,.90);backdrop-filter:blur(8px);
+  border-top:6px solid #3d3f45;border-bottom:1px solid rgba(201,203,208,.92);
+  position:sticky;top:0;z-index:50;
+}
+.topbar{
+  max-width:1380px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  padding:10px 18px;
+}
+nav{display:grid;grid-template-columns:repeat(4,minmax(76px,1fr));gap:8px}
+nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.05rem;transition:.2s ease}
+nav a.active{color:var(--blue)}
+nav a:hover{transform:translateY(-2px);color:var(--blue)}
+.social-links{display:flex;align-items:center;justify-content:flex-end;gap:9px}
+.social-icon{width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.07);color:#555a63;display:grid;place-items:center;text-decoration:none;transition:.2s ease}
+.social-icon:hover{transform:translateY(-2px) scale(1.04);color:var(--blue);background:rgba(0,0,0,.11)}
+.social-icon svg{width:18px;height:18px;display:block}
+
+.page{width:min(1500px,96vw);margin:auto;padding:24px 12px 48px}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px 4px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(171,176,185,.65);color:#575d67;font-weight:900;box-shadow:0 7px 16px rgba(45,52,68,.08)}
+.layout{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:26px;align-items:start}
+.topic-title{margin:0 0 16px;text-align:center;font-size:clamp(1.65rem,2.7vw,2.35rem);line-height:1.12;font-weight:1000;letter-spacing:.3px}
+.lesson-card,.practice-panel{background:var(--panel);border:2px solid rgba(157,163,173,.88);border-radius:24px;box-shadow:0 0 0 6px rgba(255,255,255,.56),var(--shadow)}
+.lesson-card{padding:24px}
+.heading,.practice-heading{display:flex;align-items:center;gap:12px;font-size:clamp(1.35rem,2vw,1.8rem);font-weight:1000}
+.heading{margin:0 0 18px}
+.video{position:relative;padding-top:56.25%;border:2px solid #555b64;border-radius:16px;background:#c8e5b3;overflow:hidden;box-shadow:0 10px 24px rgba(45,52,68,.12)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.practice-panel{padding:24px}
+.practice-heading{margin:0 0 8px}
+.instructions{margin:0 0 16px;color:#59606b;font-weight:700;line-height:1.45}
+.mode-row{display:flex;align-items:center;gap:10px;margin:0 0 17px;flex-wrap:wrap}
+.mode-switch{display:inline-flex;border:2px solid #555b64;border-radius:999px;overflow:hidden;background:#fff}
+.mode-btn{border:0;border-radius:0;padding:9px 15px;background:#fff;color:#444b55;font-weight:900;cursor:pointer}
+.mode-btn.active{background:#252a31;color:#fff}
+.info-wrap{position:relative;display:inline-flex;align-items:center}
+.info{width:25px;height:25px;border-radius:50%;border:2px solid #555b64;display:grid;place-items:center;font-weight:900;cursor:help;background:#fff}
+.reset-progress-button{width:31px;height:31px;min-width:31px;min-height:31px;flex:0 0 31px;box-sizing:border-box;padding:0;border-radius:50%;border:2px solid #555b64;background:#fff;color:#343a43;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.08);transition:transform .18s ease,background .18s ease}
+.reset-progress-button:hover{transform:rotate(-28deg) scale(1.06);background:#f3f4f6}
+.reset-progress-button:focus-visible{outline:3px solid rgba(47,38,255,.28);outline-offset:2px}
+.reset-modal-backdrop{position:fixed;inset:0;background:rgba(25,29,36,.52);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.reset-modal-backdrop.show{display:flex}
+.reset-modal{width:min(430px,100%);background:#fff;border:2px solid #555b64;border-radius:22px;padding:25px;box-shadow:0 22px 60px rgba(0,0,0,.3);text-align:center}
+.reset-modal h3{margin:0 0 10px;font-size:1.35rem;color:#272d36}
+.reset-modal p{margin:0 0 20px;color:#565e69;font-weight:700;line-height:1.5}
+.reset-modal-actions{display:flex;gap:10px;justify-content:center}
+.reset-modal-actions button{border-radius:12px;padding:10px 20px;font-weight:900;cursor:pointer;border:2px solid #555b64}
+.reset-cancel{background:#fff;color:#343a43}
+.reset-confirm{background:#d94b4b;color:#fff;border-color:#b63838!important}
+@media(max-width:640px){.reset-progress-button{width:33px;height:33px;min-width:33px;min-height:33px;flex-basis:33px}.reset-modal-actions{flex-direction:column}.reset-modal-actions button{width:100%}}
+.tooltip{position:absolute;z-index:30;left:32px;top:-8px;width:270px;background:#24272d;color:#fff;padding:11px 13px;border-radius:11px;font-size:.82rem;line-height:1.4;opacity:0;pointer-events:none;transform:translateY(4px);transition:.2s;box-shadow:0 12px 24px rgba(0,0,0,.22)}
+.info-wrap:hover .tooltip,.info-wrap:focus-within .tooltip{opacity:1;transform:translateY(0)}
+.duration-wrap{display:none;align-items:center;gap:7px;font-weight:700}
+.duration-wrap.show{display:flex}
+select{padding:7px 9px;border:1.5px solid #777d87;border-radius:7px;background:#fff;font-weight:700}
+.practice-area{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:18px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.card{position:relative;border:2px solid #666c75;border-radius:20px;background:#fff;min-height:128px;overflow:hidden;transition:.35s;box-shadow:0 8px 18px rgba(45,52,68,.08)}
+.card.active{box-shadow:0 12px 24px rgba(45,52,68,.14)}
+.level-title{text-align:center;padding:11px 18px 8px;font-weight:1000;letter-spacing:.7px}
+.level-title .mode-badge{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:5px 15px;border-radius:999px;border:2px solid;font-size:1.02rem;font-weight:1000;letter-spacing:.55px;line-height:1;box-shadow:0 4px 10px rgba(39,47,59,.08);white-space:nowrap}
+#easyCard .mode-badge{color:#24663d;background:#e9f7ee;border-color:#58a975}
+#mediumCard .mode-badge{color:#765b00;background:#fff7d6;border-color:#dfbd3d}
+#hardCard .mode-badge{color:#8a3030;background:#fdecec;border-color:#db6969}
+.practice-area{position:relative}
+@media(max-width:640px){.level-title .mode-badge{font-size:.9rem;padding:5px 12px;min-height:30px}}
+.light{position:absolute;left:15px;top:11px;width:34px;height:34px;border-radius:50%;border:2px solid #555b64;overflow:hidden;box-shadow:inset 2px 2px 4px rgba(255,255,255,.38),inset -5px -6px 8px rgba(0,0,0,.14),0 5px 12px rgba(0,0,0,.16)}
+.light:before{content:"";position:absolute;left:13%;top:10%;width:42%;height:56%;border-radius:50%;background:rgba(255,255,255,.58);transform:rotate(24deg);animation:shimmerPulse 3.2s ease-in-out infinite}
+.light:after{content:"";position:absolute;top:-35%;bottom:-35%;left:-55%;width:55%;background:linear-gradient(115deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.06) 34%,rgba(255,255,255,.52) 50%,rgba(255,255,255,.06) 66%,rgba(255,255,255,0) 100%);transform:translateX(-170%) rotate(12deg);animation:shimmerSweep 4.6s ease-in-out infinite}
+@keyframes shimmerPulse{0%,100%{opacity:.48;transform:rotate(24deg) scale(1)}50%{opacity:.95;transform:rotate(24deg) scale(1.09)}}
+@keyframes shimmerSweep{0%,72%,100%{transform:translateX(-170%) rotate(12deg)}84%,90%{transform:translateX(185%) rotate(12deg)}}
+.green{background:radial-gradient(circle at 30% 28%,#9dffab 0%,#43ec63 30%,#1fcb45 62%,#159334 100%)}
+.yellow{background:radial-gradient(circle at 30% 28%,#fff8ad 0%,#ffe84d 32%,#f5c918 64%,#d8a90c 100%)}
+.red{background:radial-gradient(circle at 30% 28%,#ffb0a6 0%,#ff6357 34%,#ff3f38 65%,#cf241f 100%)}
+.body{padding:0 16px 15px}
+.progress{position:absolute;right:16px;top:15px;font-weight:1000;color:#1b8a38}
+.problem{font-weight:1000;font-size:1.3rem;margin:8px 0 11px;min-height:28px}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px}
+input{width:100%;padding:10px 12px;border:1.5px solid #888e98;border-radius:8px;font-size:1rem}
+button{border:0;border-radius:8px;padding:9px 15px;font-weight:900;cursor:pointer}
+.primary{background:var(--blue);color:#fff;box-shadow:0 7px 16px rgba(34,24,255,.20)}
+.done{background:#e8e9ec;color:#252a31}
+.start{display:block;width:180px;margin:20px auto;background:var(--blue);color:#fff;font-size:1.05rem;box-shadow:0 8px 18px rgba(34,24,255,.22)}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:9px}
+.feedback{min-height:20px;margin-top:8px;font-weight:800}.correct{color:var(--good)}.incorrect{color:var(--bad)}
+.locked{background:rgba(247,247,247,.93)}
+.locked .body{height:76px;display:flex;justify-content:center;align-items:center}
+.lock{width:68px;height:68px;position:relative;transform-origin:center}
+.shackle{position:absolute;width:38px;height:35px;left:15px;top:3px;border:5px solid #666c75;border-bottom:none;border-radius:20px 20px 0 0;transform-origin:6px 31px}
+.lockbody{position:absolute;left:15px;bottom:3px;width:38px;height:35px;border-radius:6px;background:#d89949;border:3px solid #555b64}
+.lockbody:after{content:"";position:absolute;width:7px;height:12px;background:#222;left:13px;top:8px;border-radius:5px}
+.timer-panel{text-align:center;font-weight:1000;padding-top:13px}
+.ring{width:72px;height:72px;margin:8px auto 0;border-radius:50%;border:5px solid #6f747d;display:grid;place-items:center;background:#fff;font-size:1.05rem;box-shadow:0 8px 18px rgba(45,52,68,.11)}
+.timer-label{font-size:.85rem;color:#777d87;margin-top:6px}
+.bubble{position:relative;background:#fffdf1;border:2px solid #555b64;border-radius:18px;padding:12px 14px;margin-top:13px;font-size:.92rem;line-height:1.4;box-shadow:0 7px 16px rgba(45,52,68,.10);transform-origin:28px top}
+.bubble:not(.hidden){animation:comicBubblePop .48s cubic-bezier(.18,.89,.32,1.35) both}
+.bubble:before{content:"";position:absolute;left:28px;top:-13px;width:22px;height:22px;background:#fffdf1;border-left:2px solid #555b64;border-top:2px solid #555b64;transform:rotate(45deg)}
+@keyframes comicBubblePop{
+  0%{opacity:0;transform:scale(.18) rotate(-7deg);filter:blur(2px)}
+  58%{opacity:1;transform:scale(1.10) rotate(2deg);filter:blur(0)}
+  78%{transform:scale(.96) rotate(-1deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@media(prefers-reduced-motion:reduce){.bubble:not(.hidden){animation:none}}
+.bubble-title{font-weight:1000;margin-bottom:4px}
+.report{padding:8px 4px 3px}.report-title{text-align:center;font-size:1.25rem;font-weight:1000;margin:4px 0 12px}
+.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{border:1.5px solid #c5cad1;border-radius:11px;background:#fafafa;padding:10px;text-align:center}
+.stat strong{display:block;font-size:1.3rem}.stat span{font-size:.76rem;color:#666c75;font-weight:700}
+.report-note{text-align:center;margin:10px 0 0;font-weight:700;color:#555c66}
+.live-session{margin:8px 0 0;text-align:center;font-weight:800;color:#414853;font-size:.95rem}.live-session.hidden{display:none}
+.restart{display:block;margin:12px auto 2px;background:var(--blue);color:#fff}
+.banner{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);background:#fff8d8;border:2px solid #e3b100;border-radius:18px;padding:18px 28px;font-size:1.5rem;font-weight:1000;opacity:0;pointer-events:none;z-index:60;box-shadow:0 20px 50px rgba(0,0,0,.22)}
+.banner.show{animation:banner 1.6s ease both}
+@keyframes banner{0%{opacity:0;transform:translate(-50%,-50%) scale(.7)}18%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}30%,75%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.96)}}
+.shake{animation:shake .45s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px) rotate(-4deg)}40%{transform:translateX(4px) rotate(4deg)}60%{transform:translateX(-3px) rotate(-3deg)}80%{transform:translateX(3px) rotate(3deg)}}
+.open .shackle{animation:open .7s ease forwards}
+@keyframes open{0%{transform:rotate(0)}100%{transform:rotate(-42deg) translateY(-4px)}}
+.card-unlock{animation:unlock .9s ease both}
+@keyframes unlock{0%{background:#f7f7f7}45%{background:#fff4a8;box-shadow:0 0 0 7px rgba(255,229,0,.18)}100%{background:#fffdf0;box-shadow:0 10px 24px rgba(0,0,0,.12)}}
+.question-fade-in{animation:questionFadeIn .24s ease-out both}
+@keyframes questionFadeIn{from{opacity:0}to{opacity:1}}
+.question-fade-out{animation:questionFadeOut .18s ease-in both}
+@keyframes questionFadeOut{from{opacity:1}to{opacity:0}}
+.hidden{display:none!important}
+@media(max-width:1050px){.topbar{grid-template-columns:1fr}.social-links{justify-content:center}nav{order:1}.social-links{order:2}}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.practice-area{grid-template-columns:1fr}.timer-panel{display:flex;align-items:center;justify-content:center;gap:12px}.ring{margin:0}}
+@media(max-width:640px){nav{grid-template-columns:repeat(5,1fr)}nav a{font-size:.82rem}.page{width:min(100%,96vw);padding-top:16px}.lesson-card,.practice-panel{padding:18px;border-radius:20px}.row{grid-template-columns:1fr}.primary{width:100%}.tooltip{left:auto;right:0;top:32px;width:min(270px,82vw)}}
+
+
+.lesson-card{
+  position:relative;
+  padding:26px 34px 40px;
+  border-radius:38px;
+  border:5px solid #3f444d;
+  background:
+    linear-gradient(145deg,#f8fafc 0%,#e5e8ec 58%,#cfd3d9 100%);
+  box-shadow:
+    0 0 0 7px rgba(255,255,255,.6),
+    0 20px 38px rgba(45,52,68,.18),
+    inset 0 0 0 3px rgba(255,255,255,.52);
+}
+.lesson-card::before,
+.lesson-card::after{
+  content:"";
+  position:absolute;
+  bottom:-17px;
+  width:56px;
+  height:20px;
+  border-radius:0 0 14px 14px;
+  background:#3f444d;
+  box-shadow:inset 0 -3px 0 rgba(255,255,255,.1);
+}
+.lesson-card::before{left:62px;transform:skewX(-12deg)}
+.lesson-card::after{right:62px;transform:skewX(12deg)}
+.heading{
+  justify-content:center;
+  letter-spacing:.8px;
+  color:#30353d;
+}
+.video{
+  border:7px solid #222831;
+  border-radius:30px / 22px;
+  box-shadow:
+    0 12px 24px rgba(45,52,68,.18),
+    inset 0 0 0 2px rgba(255,255,255,.12);
+}
+
+
+.custom-pencil{
+  position:relative;
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  display:inline-block;
+  transform-origin:70% 80%;
+  animation:pencil-tap 1.9s ease-in-out infinite;
+}
+.pencil-body{
+  position:absolute;
+  left:7px;
+  top:14px;
+  width:25px;
+  height:10px;
+  border:2px solid #38404a;
+  border-radius:3px;
+  background:linear-gradient(180deg,#ffd75a 0 46%,#e2b830 47% 100%);
+  transform:rotate(-38deg);
+}
+.pencil-body::before{
+  content:"";
+  position:absolute;
+  left:5px;
+  top:0;
+  width:2px;
+  height:100%;
+  background:rgba(255,255,255,.45);
+}
+.pencil-tip{
+  position:absolute;
+  left:2px;
+  top:25px;
+  width:0;
+  height:0;
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  border-right:10px solid #d7b68a;
+  transform:rotate(-38deg);
+  transform-origin:center;
+}
+.pencil-tip::after{
+  content:"";
+  position:absolute;
+  left:6px;
+  top:-2px;
+  width:4px;
+  height:4px;
+  background:#2f343b;
+  clip-path:polygon(100% 50%,0 0,0 100%);
+}
+.pencil-eraser{
+  position:absolute;
+  right:1px;
+  top:7px;
+  width:9px;
+  height:10px;
+  border:2px solid #38404a;
+  border-left:0;
+  border-radius:0 4px 4px 0;
+  background:#f29aac;
+  transform:rotate(-38deg);
+}
+@keyframes pencil-tap{
+  0%,100%{transform:translateY(-1px) rotate(-2deg)}
+  45%{transform:translateY(3px) rotate(1deg)}
+  52%{transform:translateY(5px) rotate(2deg)}
+  60%{transform:translateY(1px) rotate(0deg)}
+}
+
+
+.unlock-guidance{
+  margin-top:11px;
+  padding:10px 12px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#f2fff4,#e8f9ec);
+  border:1.5px solid #8bc99b;
+  color:#245d32;
+  font-size:.88rem;
+  font-weight:800;
+  line-height:1.35;
+  text-align:center;
+  animation:unlock-guidance-in .55s ease both;
+}
+@keyframes unlock-guidance-in{
+  0%{opacity:0;transform:translateY(8px) scale(.97)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+
+/* Approved monitor-only video tutorial */
+.lesson-card{
+  padding:22px 18px 14px !important;
+  border:2px solid rgba(157,163,173,.88) !important;
+  border-radius:24px !important;
+  background:rgba(255,255,255,.94) !important;
+  box-shadow:0 0 0 6px rgba(255,255,255,.56),0 16px 36px rgba(45,52,68,.14) !important;
+  overflow:visible !important;
+}
+.lesson-card::before,
+.lesson-card::after{
+  content:none !important;
+  display:none !important;
+}
+.heading{
+  justify-content:center !important;
+  margin:0 0 4px !important;
+}
+.video{display:none !important}
+
+.monitor-scene{
+  position:relative;
+  width:100%;
+  max-width:800px;
+  margin:0 auto;
+  aspect-ratio:1448 / 1086;
+}
+.monitor-art{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:2;
+  pointer-events:none;
+  user-select:none;
+}
+.monitor-screen{
+  position:absolute;
+  left:12.1%;
+  top:13.45%;
+  width:75.55%;
+  height:59.05%;
+  z-index:3;
+  overflow:hidden;
+  border-radius:2.5%;
+  background:#111;
+}
+.monitor-screen iframe{
+  position:absolute;
+  top:-2px;
+  left:-2px;
+  width:calc(100% + 4px);
+  height:calc(100% + 8px);
+  border:0;
+}
+
+/* Clean, connected pencil tapping toward the page */
+.custom-pencil{
+  width:38px !important;
+  height:38px !important;
+  flex:0 0 38px !important;
+  display:inline-grid !important;
+  place-items:center !important;
+  animation:pencil-paper-tap 1.8s ease-in-out infinite !important;
+}
+.custom-pencil svg{
+  display:block !important;
+  width:38px !important;
+  height:38px !important;
+  overflow:visible !important;
+}
+.custom-pencil .pencil-body,
+.custom-pencil .pencil-tip,
+.custom-pencil .pencil-eraser{
+  display:none !important;
+}
+@keyframes pencil-paper-tap{
+  0%,100%{transform:translateY(-2px)}
+  45%{transform:translateY(1px)}
+  55%{transform:translateY(4px)}
+  65%{transform:translateY(0)}
+}
+
+/* Preserve the intended desktop two-column arrangement */
+.layout{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr) !important;
+  gap:26px !important;
+  align-items:start !important;
+}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr !important}
+  .monitor-scene{max-width:760px}
+}
+
+
+/* Remove the white box around the monitor */
+.lesson-card{
+  padding:0 !important;
+  border:none !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+}
+.lesson-card::before,
+.lesson-card::after{
+  content:none !important;
+  display:none !important;
+}
+.heading{
+  justify-content:center !important;
+  margin:0 0 6px !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+
+/* Let the monitor float directly on the wallpaper */
+.monitor-scene{
+  position:relative;
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  aspect-ratio:1448 / 1086;
+}
+.monitor-art{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:2;
+  pointer-events:none;
+  user-select:none;
+}
+.monitor-screen{
+  position:absolute;
+  left:12.1%;
+  top:13.45%;
+  width:75.55%;
+  height:59.05%;
+  z-index:3;
+  overflow:hidden;
+  border-radius:2.5%;
+  background:#111;
+}
+.monitor-screen iframe{
+  position:absolute;
+  top:-2px;
+  left:-2px;
+  width:calc(100% + 4px);
+  height:calc(100% + 8px);
+  border:0;
+}
+
+
+/* =========================================================
+   Practice-first layout with expandable tutorial companion
+   ========================================================= */
+.practice-layout-new{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 340px;
+  gap:26px;
+  align-items:start;
+}
+
+.practice-main-column{
+  min-width:0;
+  position:relative;
+}
+
+.compact-topic-title{
+  margin:0 0 10px !important;
+  text-align:left !important;
+  font-size:clamp(1.45rem,2.2vw,2rem) !important;
+  line-height:1.08 !important;
+}
+
+.practice-main-column .practice-panel{
+  width:100%;
+  min-height:0;
+}
+
+.tutorial-rail{
+  position:sticky;
+  top:88px;
+  align-self:start;
+  padding:18px 16px 16px;
+  border:2px solid rgba(157,163,173,.88);
+  border-radius:22px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 0 0 6px rgba(255,255,255,.52),0 16px 34px rgba(45,52,68,.14);
+}
+
+.tutorial-rail-heading{
+  text-align:center;
+  margin:0 0 8px;
+  font-size:1.1rem;
+  font-weight:1000;
+  letter-spacing:.5px;
+}
+
+.tutorial-preview{
+  position:relative;
+}
+
+.tutorial-preview .monitor-scene{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  transform:none !important;
+}
+
+.expand-tutorial,
+.minimize-tutorial{
+  border:0;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:#2218ff;
+  box-shadow:0 8px 18px rgba(34,24,255,.25);
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.expand-tutorial{
+  position:absolute;
+  right:8px;
+  top:8px;
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  z-index:8;
+}
+
+.expand-tutorial:hover,
+.minimize-tutorial:hover{
+  transform:scale(1.06);
+  box-shadow:0 11px 24px rgba(34,24,255,.34);
+  background:#150bdf;
+}
+
+.expand-tutorial svg,
+.minimize-tutorial svg{
+  width:22px;
+  height:22px;
+}
+
+.tutorial-hint{
+  margin:8px 4px 0;
+  color:#5a606a;
+  font-size:.86rem;
+  font-weight:750;
+  line-height:1.4;
+  text-align:center;
+}
+
+/* Expanded overlay */
+.tutorial-overlay{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:grid;
+  place-items:center;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .28s ease, visibility .28s ease;
+}
+
+.tutorial-overlay.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.tutorial-overlay-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(26,29,36,.78);
+  backdrop-filter:blur(5px);
+}
+
+.tutorial-overlay-card{
+  position:relative;
+  z-index:2;
+  width:min(1120px,92vw);
+  max-height:90vh;
+  padding:22px;
+  border-radius:26px;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 30px 80px rgba(0,0,0,.36);
+  transform:scale(.72) translateY(28px);
+  opacity:0;
+  transition:transform .36s cubic-bezier(.18,.89,.32,1.2), opacity .28s ease;
+}
+
+.tutorial-overlay.open .tutorial-overlay-card{
+  transform:scale(1) translateY(0);
+  opacity:1;
+}
+
+.expanded-monitor-wrap{
+  width:100%;
+}
+
+.expanded-monitor-wrap .monitor-scene{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  transform:none !important;
+}
+
+.minimize-tutorial{
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  z-index:12;
+}
+
+body.tutorial-open{
+  overflow:hidden;
+}
+
+/* Practice tool now owns most of the page */
+.practice-panel{
+  padding:26px !important;
+}
+
+.practice-area{
+  grid-template-columns:minmax(0,1fr) 120px !important;
+}
+
+@media(max-width:1120px){
+  .practice-layout-new{
+    grid-template-columns:minmax(0,1fr) 285px;
+    gap:20px;
+  }
+}
+
+@media(max-width:900px){
+  .practice-layout-new{
+    grid-template-columns:1fr;
+  }
+
+  .compact-topic-title{
+    text-align:center !important;
+  }
+
+  .tutorial-rail{
+    position:relative;
+    top:auto;
+    max-width:560px;
+    width:100%;
+    margin:0 auto;
+    order:-1;
+  }
+
+  .tutorial-overlay-card{
+    width:min(96vw,1000px);
+    padding:14px;
+  }
+}
+
+
+/* =========================================================
+   Reliable geometric zoom and polished controls
+   ========================================================= */
+.compact-topic-title{
+  text-align:center !important;
+  width:100% !important;
+}
+
+/* Compact expand control */
+.expand-tutorial{
+  position:absolute !important;
+  top:9px !important;
+  right:9px !important;
+  width:42px !important;
+  height:42px !important;
+  padding:0 !important;
+  border:2px solid rgba(255,255,255,.82) !important;
+  border-radius:12px !important;
+  display:grid !important;
+  place-items:center !important;
+  background:linear-gradient(145deg,#3027ff,#1710ce) !important;
+  color:#fff !important;
+  box-shadow:0 7px 18px rgba(34,24,255,.28) !important;
+  z-index:20 !important;
+}
+.expand-tutorial svg{
+  width:21px !important;
+  height:21px !important;
+}
+
+/* Overlay visibility is controlled independently from the card animation */
+.tutorial-overlay{
+  display:grid !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transition:opacity .22s ease, visibility .22s ease !important;
+}
+.tutorial-overlay.open,
+.tutorial-overlay.closing{
+  visibility:visible !important;
+}
+.tutorial-overlay.open{
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+.tutorial-overlay.closing{
+  opacity:1 !important;
+  pointer-events:none !important;
+}
+
+.tutorial-overlay-card{
+  position:relative !important;
+  width:min(1180px,92vw) !important;
+  max-height:92vh !important;
+  padding:20px !important;
+  border-radius:26px !important;
+  background:rgba(255,255,255,.97) !important;
+  box-shadow:0 32px 90px rgba(0,0,0,.42) !important;
+
+  /* JS supplies the actual start/end geometry */
+  transform:
+    translate(var(--zoom-x,0px),var(--zoom-y,0px))
+    scale(var(--zoom-sx,1),var(--zoom-sy,1)) !important;
+  transform-origin:center center !important;
+  opacity:1 !important;
+  transition:
+    transform .48s cubic-bezier(.2,.82,.25,1),
+    border-radius .48s ease !important;
+  will-change:transform !important;
+}
+
+.tutorial-overlay-card.zoomed{
+  transform:translate(0,0) scale(1,1) !important;
+}
+
+/* Clear, always-accessible close control */
+.minimize-tutorial{
+  position:absolute !important;
+  top:14px !important;
+  right:14px !important;
+  width:auto !important;
+  height:44px !important;
+  padding:0 14px !important;
+  border:2px solid rgba(255,255,255,.86) !important;
+  border-radius:13px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  background:linear-gradient(145deg,#3027ff,#1710ce) !important;
+  color:#fff !important;
+  box-shadow:0 9px 22px rgba(34,24,255,.34) !important;
+  font:inherit !important;
+  font-size:.88rem !important;
+  font-weight:1000 !important;
+  z-index:1000 !important;
+  cursor:pointer !important;
+}
+.minimize-tutorial svg{
+  width:19px !important;
+  height:19px !important;
+  flex:0 0 auto !important;
+}
+.minimize-tutorial span{
+  white-space:nowrap;
+}
+
+.expanded-monitor-wrap{
+  position:relative !important;
+  z-index:1 !important;
+  padding-top:42px !important;
+}
+.expanded-monitor-wrap .monitor-scene{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  transform:none !important;
+}
+
+@media(max-width:620px){
+  .minimize-tutorial{
+    width:44px !important;
+    padding:0 !important;
+  }
+  .minimize-tutorial span{
+    display:none;
+  }
+}
+
+
+/* Smoother live-monitor zoom */
+.monitor-home{
+  display:none;
+}
+
+body.tutorial-open .expand-tutorial{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+.tutorial-overlay-card{
+  transform:none !important;
+  opacity:1 !important;
+  transition:none !important;
+}
+
+.expanded-monitor-wrap{
+  perspective:1400px;
+}
+
+.monitor-scene.zoom-moving{
+  will-change:transform;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform-origin:center center;
+}
+
+.tutorial-overlay-backdrop{
+  transition:opacity .28s ease !important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .monitor-scene.zoom-moving{
+    transition:none !important;
+  }
+}
+
+
+/* Fix duplicate empty space in tutorial rail */
+.monitor-home{
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  margin:0 !important;
+}
+.monitor-home.active{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:1448 / 1086 !important;
+  margin:0 auto !important;
+}
+
+
+
+/* === Notebook worksheet and floating timer update === */
+.worksheet-zone{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 106px !important;
+  gap:18px !important;
+  align-items:start !important;
+}
+
+.practice-panel.practice-sheet{
+  position:relative !important;
+  padding:24px 26px 24px 58px !important;
+  background-color:rgba(255,251,245,.95) !important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.22)),
+    linear-gradient(rgba(132,172,214,.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(132,172,214,.25) 1px, transparent 1px) !important;
+  background-size:auto, 30px 30px, 30px 30px !important;
+  border:2px solid rgba(157,163,173,.88) !important;
+  border-radius:24px !important;
+  box-shadow:0 0 0 6px rgba(255,255,255,.5), 0 16px 36px rgba(45,52,68,.14) !important;
+  overflow:visible !important;
+}
+.practice-panel.practice-sheet::before{
+  content:"";
+  position:absolute;
+  left:43px;
+  top:22px;
+  bottom:22px;
+  width:2px;
+  background:rgba(229,136,136,.55);
+}
+.paper-holes{
+  position:absolute;
+  left:10px;
+  top:34px;
+  bottom:34px;
+  width:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  pointer-events:none;
+}
+.paper-holes span{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:rgba(247,240,207,.96);
+  box-shadow:inset 0 0 0 2px rgba(178,185,194,.58), 0 1px 0 rgba(255,255,255,.75);
+}
+.practice-panel.practice-sheet .instructions{
+  line-height:1.5;
+}
+.practice-panel.practice-sheet .instructions strong{
+  margin-right:4px;
+}
+.practice-area{
+  display:block !important;
+}
+.timer-column{
+  position:relative;
+  min-height:760px;
+}
+.timer-panel.floating-timer{
+  position:absolute !important;
+  left:0 !important;
+  width:100px;
+  text-align:center;
+  font-weight:1000;
+  padding-top:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transition:transform .32s ease;
+}
+.timer-panel.floating-timer .ring{
+  margin:8px auto 0;
+}
+#timerHeading{
+  white-space:nowrap;
+}
+@media(max-width:1100px){
+  .worksheet-zone{grid-template-columns:minmax(0,1fr) 96px !important; gap:14px !important;}
+  .timer-panel.floating-timer{width:90px;}
+}
+@media(max-width:900px){
+  .worksheet-zone{grid-template-columns:1fr !important;}
+  .timer-column{min-height:0;}
+  .timer-panel.floating-timer{
+    position:relative !important;
+    transform:none !important;
+    width:100px;
+    margin:8px auto 0;
+  }
+}
+
+
+/* Reserve the timer column at all times so the notebook never changes width. */
+.timer-column{
+  display:block;
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+}
+.timer-column.timer-visible{
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+}
+.timer-column.bounce-in-top{
+  -webkit-animation:bounce-in-top 1.1s both;
+  animation:bounce-in-top 1.1s both;
+}
+@-webkit-keyframes bounce-in-top{
+  0%{-webkit-transform:translateY(-500px);transform:translateY(-500px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}
+  38%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}
+  55%{-webkit-transform:translateY(-65px);transform:translateY(-65px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  72%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+  81%{-webkit-transform:translateY(-28px);transform:translateY(-28px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  90%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+  95%{-webkit-transform:translateY(-8px);transform:translateY(-8px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  100%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+}
+@keyframes bounce-in-top{
+  0%{-webkit-transform:translateY(-500px);transform:translateY(-500px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;opacity:0}
+  38%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out;opacity:1}
+  55%{-webkit-transform:translateY(-65px);transform:translateY(-65px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  72%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+  81%{-webkit-transform:translateY(-28px);transform:translateY(-28px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  90%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+  95%{-webkit-transform:translateY(-8px);transform:translateY(-8px);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}
+  100%{-webkit-transform:translateY(0);transform:translateY(0);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}
+}
+@media(max-width:900px){
+  .timer-column{display:none;min-height:0}
+  .timer-column.timer-visible{display:block;visibility:visible;opacity:1;min-height:0}
+}
+
+
+/* Concept title now lives on the notebook paper */
+.practice-sheet .practice-heading{
+  justify-content:center !important;
+  text-align:center !important;
+  line-height:1.08 !important;
+  margin-bottom:12px !important;
+}
+.practice-sheet .practice-heading > span:last-child{
+  font-size:clamp(1.28rem,2vw,1.78rem) !important;
+  font-weight:1000 !important;
+  letter-spacing:.35px !important;
+}
+
+
+/* === Power-up orb timer === */
+.timer-column{display:none!important}
+.level-orb{isolation:isolate;transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;display:grid;place-items:center}
+.level-orb .orb-timer-value{position:relative;z-index:4;display:grid;place-items:center;width:100%;height:100%;font-size:.88rem;line-height:1;font-weight:1000;color:#20242a;text-shadow:0 1px 0 rgba(255,255,255,.55);opacity:0;transform:scale(.35);transition:opacity .18s ease,transform .24s cubic-bezier(.2,.9,.3,1.45)}
+.level-orb.timer-ready,.level-orb.timer-running,.level-orb.timer-finished{overflow:visible;transform:scale(1.16);box-shadow:0 0 0 3px rgba(255,255,255,.9),0 0 0 6px rgba(39,44,52,.32),0 8px 18px rgba(0,0,0,.22)}
+.level-orb.timer-ready:before,.level-orb.timer-running:before,.level-orb.timer-finished:before{opacity:.16;animation:none}
+.level-orb.timer-ready:after,.level-orb.timer-running:after,.level-orb.timer-finished:after{animation:none;opacity:0}
+.level-orb.timer-ready .orb-timer-value,.level-orb.timer-running .orb-timer-value,.level-orb.timer-finished .orb-timer-value{opacity:1;transform:scale(1)}
+.level-orb.timer-ready{animation:orbPowerUp .72s cubic-bezier(.2,.9,.25,1.28) both}
+.level-orb.timer-ready::marker{display:none}
+.level-orb.timer-running{--progress:1;background:conic-gradient(rgba(255,255,255,.98) calc(var(--progress)*1turn),rgba(28,32,38,.24) 0),var(--orb-bg);padding:4px}
+.level-orb.timer-running .orb-timer-value{border-radius:50%;background:var(--orb-bg);box-shadow:inset 2px 2px 4px rgba(255,255,255,.38),inset -5px -6px 8px rgba(0,0,0,.14)}
+.level-orb.green{--orb-bg:radial-gradient(circle at 30% 28%,#9dffab 0%,#43ec63 30%,#1fcb45 62%,#159334 100%)}
+.level-orb.yellow{--orb-bg:radial-gradient(circle at 30% 28%,#fff8ad 0%,#ffe84d 32%,#f5c918 64%,#d8a90c 100%)}
+.level-orb.red{--orb-bg:radial-gradient(circle at 30% 28%,#ffb0a6 0%,#ff6357 34%,#ff3f38 65%,#cf241f 100%)}
+.level-orb.timer-finished{animation:orbTimeUp .62s ease both}
+.level-orb.power-down{animation:orbPowerDown .42s ease both}
+@keyframes orbPowerUp{0%{transform:scale(1);filter:brightness(1)}24%{transform:scale(.9);filter:brightness(1.35)}52%{transform:scale(1.32);filter:brightness(1.7)}72%{transform:scale(1.1);filter:brightness(1.12)}100%{transform:scale(1.16);filter:brightness(1)}}
+@keyframes orbTimeUp{0%,100%{transform:scale(1.16)}25%{transform:scale(1.34)}50%{transform:scale(1.08)}75%{transform:scale(1.28)}}
+@keyframes orbPowerDown{0%{transform:scale(1.16);filter:brightness(1.15)}45%{transform:scale(.82);filter:brightness(1.5)}100%{transform:scale(1);filter:brightness(1)}}
+@media(max-width:900px){.level-orb.timer-ready,.level-orb.timer-running,.level-orb.timer-finished{transform:scale(1.12)}}
+@media(prefers-reduced-motion:reduce){.level-orb.timer-ready,.level-orb.timer-finished,.level-orb.power-down{animation:none!important}}
+
+
+/* === Repaired larger orb + centered problem (visual-only changes) === */
+.light.level-orb{
+  width:46px;
+  height:46px;
+  left:22px;
+  top:20px;
+}
+.level-orb .orb-timer-value{
+  font-size:1.08rem;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.level-orb.timer-ready,.level-orb.timer-running,.level-orb.timer-finished{
+  transform:scale(1.16);
+}
+.problem{
+  width:100%;
+  box-sizing:border-box;
+  text-align:center;
+  padding-left:64px;
+  padding-right:64px;
+}
+@keyframes orbPowerUp{
+  0%{transform:scale(1);filter:brightness(1)}
+  24%{transform:scale(.92);filter:brightness(1.35)}
+  52%{transform:scale(1.32);filter:brightness(1.7)}
+  72%{transform:scale(1.10);filter:brightness(1.12)}
+  100%{transform:scale(1.16);filter:brightness(1)}
+}
+@keyframes orbTimeUp{
+  0%,100%{transform:scale(1.16)}
+  25%{transform:scale(1.34)}
+  50%{transform:scale(1.08)}
+  75%{transform:scale(1.28)}
+}
+@keyframes orbPowerDown{
+  0%{transform:scale(1.16);filter:brightness(1.15)}
+  45%{transform:scale(.84);filter:brightness(1.5)}
+  100%{transform:scale(1);filter:brightness(1)}
+}
+@media(max-width:900px){
+  .light.level-orb{width:48px;height:48px;left:20px;top:18px}
+  .level-orb .orb-timer-value{font-size:1.12rem}
+  .level-orb.timer-ready,.level-orb.timer-running,.level-orb.timer-finished{transform:scale(1.14)}
+  .problem{padding-left:66px;padding-right:18px}
+}
+
+
+
+/* Official shared site wallpaper */
+html{scrollbar-gutter:stable; background:transparent !important;}
+body{background:none !important; background-color:transparent !important;}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-color:#f7f0cf;
+  background-image:linear-gradient(rgba(255,250,232,.18), rgba(255,250,232,.18)), url('wallpaper.png');
+  background-repeat:repeat-y;
+  background-position:top center;
+  background-size:100% auto;
+}
+
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Legal footer */
+.site-legal-footer{width:min(1180px,94vw);margin:34px auto 22px;padding:16px 18px;border-top:1px solid rgba(76,82,92,.28);display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;color:#555c66;font:700 .84rem/1.45 Arial,sans-serif;text-align:center}
+.site-legal-footer a{color:#3437d8;text-decoration:none}.site-legal-footer a:hover{text-decoration:underline}.site-legal-footer .dot{color:#9298a3}
+/* Privacy-first video cover */
+.privacy-video-cover{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#17212d;cursor:pointer;display:block;border:0;padding:0;color:#fff}
+.privacy-video-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.privacy-video-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18))}
+.privacy-video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(0,0,0,.28);display:grid;place-items:center}
+.privacy-video-play::before{content:"";margin-left:6px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid #d83b36}
+.video-privacy-note{margin:8px 2px 0;color:#626975;font:700 .78rem/1.35 Arial,sans-serif;text-align:center}
+.video-privacy-note a{color:#3437d8}
+/* v88: make the tutorial thumbnail/player completely fill the monitor screen */
+.monitor-screen .privacy-video-cover{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;aspect-ratio:auto!important;margin:0!important;border:0!important;padding:0!important;background:#111!important}
+.monitor-screen .privacy-video-cover img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;object-position:center!important;transform:scale(1.04)!important}
+.monitor-screen .video-privacy-note{display:none!important}
+.monitor-screen > iframe{position:absolute!important;inset:-3px!important;width:calc(100% + 6px)!important;height:calc(100% + 6px)!important;border:0!important}
+
+
+
+/* Combined Print Results — shown only after a completed session. */
+.report-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px
+}
+.report-actions .restart{margin:0}
+.print-results-button{
+  border:2px solid #33404d;
+  background:#fff;
+  color:#33404d;
+  border-radius:10px;
+  padding:10px 15px;
+  min-height:42px;
+  font:inherit;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 5px 12px rgba(45,52,68,.09)
+}
+.print-results-button:hover{transform:translateY(-1px);background:#f7f8fa}
+.combined-print-results{display:none}
+@media(max-width:520px){
+  .report-actions{flex-direction:column;align-items:stretch}
+  .report-actions .restart,.print-results-button{width:100%}
+}
+@media print{
+  @page{margin:16mm}
+  body.printing-results{background:#fff!important;background-image:none!important}
+  body.printing-results > *{display:none!important}
+  body.printing-results > #combinedPrintResults{
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    color:#20242a!important;
+    background:#fff!important
+  }
+  #combinedPrintResults *{box-sizing:border-box}
+  #combinedPrintResults .print-brand{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:10px
+  }
+  #combinedPrintResults h1{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:25px;
+    line-height:1.15;
+    margin:0 0 4px
+  }
+  #combinedPrintResults .print-subtitle{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:15px;
+    font-weight:800;
+    margin-bottom:6px
+  }
+  #combinedPrintResults .print-meta{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:11px;
+    color:#666;
+    margin-bottom:20px
+  }
+  #combinedPrintResults .print-mode{
+    border:1.5px solid #8b929a;
+    border-radius:12px;
+    padding:14px 16px;
+    margin:0 0 12px;
+    break-inside:avoid
+  }
+  #combinedPrintResults .print-mode h2{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:17px;
+    margin:0 0 10px
+  }
+  #combinedPrintResults .print-stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px
+  }
+  #combinedPrintResults .print-stat{
+    border:1px solid #c8cdd2;
+    border-radius:9px;
+    text-align:center;
+    padding:9px 6px
+  }
+  #combinedPrintResults .print-stat strong{
+    display:block;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:20px
+  }
+  #combinedPrintResults .print-stat span{
+    display:block;
+    margin-top:2px;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:#60656c
+  }
+  #combinedPrintResults .print-foot{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    color:#6a7077;
+    margin-top:16px
+  }
+}
+
+
+/* Stronger success feedback + polished mode-unlock celebration. */
+.correct-callout{
+  display:inline-block;
+  font-size:1.36rem;
+  line-height:1.05;
+  font-weight:1000;
+  letter-spacing:.01em;
+  margin-right:.18em;
+  text-shadow:0 1px 0 rgba(255,255,255,.9);
+  animation:correctCalloutPop .34s cubic-bezier(.2,.85,.28,1.25) both
+}
+@keyframes correctCalloutPop{
+  0%{opacity:0;transform:scale(.72)}
+  70%{opacity:1;transform:scale(1.08)}
+  100%{opacity:1;transform:scale(1)}
+}
+.banner{
+  position:absolute;
+  left:0;
+  right:auto;
+  top:0;
+  width:min(330px,calc(100vw - 48px));
+  transform:translateX(24px) scale(.95);
+  padding:14px 16px 13px;
+  border:2px solid #efc44b;
+  border-radius:21px;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(255,255,255,.98),rgba(255,255,255,.76) 34%,transparent 35%),
+    linear-gradient(145deg,#fffdf3 0%,#fff3bd 58%,#ffe7a2 100%);
+  text-align:left;
+  opacity:0;
+  pointer-events:none;
+  z-index:80;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  grid-template-areas:
+    "icon kicker"
+    "icon title"
+    "icon sub";
+  column-gap:12px;
+  align-items:center;
+  box-shadow:
+    0 20px 48px rgba(42,45,54,.24),
+    0 0 0 6px rgba(255,218,93,.14)
+}
+.banner::before{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  left:-68px;
+  top:-132px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,211,77,.42),rgba(255,211,77,0) 68%);
+  pointer-events:none
+}
+.banner::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-65%;
+  width:42%;
+  height:180%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+  opacity:0;
+  pointer-events:none
+}
+.banner.show{animation:unlockToastDesktop 4.75s cubic-bezier(.18,.82,.24,1) both}
+.banner.show::after{animation:unlockShimmer 1.05s ease .35s both}
+.unlock-celebration-icon{
+  position:relative;
+  z-index:1;
+  grid-area:icon;
+  width:46px;
+  height:46px;
+  margin:0;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid #f0c64d;
+  color:#d99b00;
+  font-size:1.72rem;
+  line-height:1;
+  box-shadow:0 8px 20px rgba(179,129,0,.18),inset 0 1px 0 rgba(255,255,255,.95);
+  animation:unlockIconPop .62s cubic-bezier(.18,.89,.32,1.35) .08s both
+}
+.unlock-celebration-kicker{
+  position:relative;
+  z-index:1;
+  grid-area:kicker;
+  display:block;
+  margin:0 0 2px;
+  color:#8d6a11;
+  font-size:.67rem;
+  font-weight:1000;
+  letter-spacing:.15em;
+  text-transform:uppercase
+}
+.unlock-celebration-title{
+  position:relative;
+  z-index:1;
+  grid-area:title;
+  display:block;
+  color:#30343b;
+  font-size:1.24rem;
+  line-height:1.05;
+  font-weight:1000;
+  letter-spacing:-.025em
+}
+.unlock-celebration-sub{
+  position:relative;
+  z-index:1;
+  grid-area:sub;
+  display:block;
+  margin-top:3px;
+  color:#6b5b29;
+  font-size:.73rem;
+  line-height:1.3;
+  font-weight:850
+}
+@keyframes unlockToastDesktop{
+  0%{opacity:0;transform:translateX(34px) scale(.92)}
+  13%{opacity:1;transform:translateX(-7px) scale(1.035)}
+  22%{opacity:1;transform:translateX(0) scale(1)}
+  80%{opacity:1;transform:translateX(0) scale(1)}
+  100%{opacity:0;transform:translateX(22px) scale(.97)}
+}
+@keyframes unlockToastMobile{
+  0%{opacity:0;transform:translate(-50%,-18px) scale(.96)}
+  13%{opacity:1;transform:translate(-50%,4px) scale(1.025)}
+  22%{opacity:1;transform:translate(-50%,0) scale(1)}
+  80%{opacity:1;transform:translate(-50%,0) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-12px) scale(.98)}
+}
+@keyframes unlockIconPop{
+  0%{opacity:0;transform:scale(.28) rotate(-22deg)}
+  72%{opacity:1;transform:scale(1.14) rotate(7deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes unlockShimmer{
+  0%{left:-65%;opacity:0}
+  24%{opacity:.72}
+  100%{left:125%;opacity:0}
+}
+@media(max-width:900px){
+  .banner{
+    position:fixed;
+    left:50%;
+    right:auto;
+    top:12px;
+    width:min(540px,calc(100vw - 24px));
+    transform:translate(-50%,-18px) scale(.96);
+    padding:11px 14px;
+    border-radius:17px;
+    grid-template-columns:42px minmax(0,1fr);
+    column-gap:11px;
+    box-shadow:0 14px 34px rgba(42,45,54,.22),0 0 0 5px rgba(255,218,93,.13)
+  }
+  .banner.show{animation:unlockToastMobile 4.75s cubic-bezier(.18,.82,.24,1) both}
+  .unlock-celebration-icon{width:42px;height:42px;font-size:1.38rem}
+  .unlock-celebration-kicker{font-size:.59rem;margin-bottom:1px}
+  .unlock-celebration-title{font-size:1.14rem}
+  .unlock-celebration-sub{margin-top:2px;font-size:.71rem;line-height:1.2}
+}
+@media(max-width:390px){
+  .banner{width:calc(100vw - 16px);padding:10px 12px;grid-template-columns:38px minmax(0,1fr);column-gap:9px}
+  .unlock-celebration-icon{width:38px;height:38px;font-size:1.22rem}
+  .unlock-celebration-title{font-size:1.02rem}
+  .unlock-celebration-sub{font-size:.66rem}
+}
+
+
+/* Timed-session reporting. */
+.report-grid.has-time{grid-template-columns:repeat(4,minmax(0,1fr))}
+.report-timing{
+  margin:10px 0 0;
+  text-align:center;
+  color:#3f4853;
+  font-size:.82rem;
+  line-height:1.35;
+  font-weight:900
+}
+@media(max-width:620px){.report-grid.has-time{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{
+  #combinedPrintResults .print-stat-grid.has-time{grid-template-columns:repeat(4,1fr)}
+  #combinedPrintResults .print-timing{
+    margin-top:8px;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    font-size:10px;
+    font-weight:800;
+    color:#555d66
+  }
+}
+
+</style>
+<style>
+/* Responsive launch pass — preserves the approved desktop design */
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img,svg,video,iframe{max-width:100%}
+a,button{touch-action:manipulation}
+@media (max-width:900px){
+  header .topbar,.topbar{width:min(100% - 24px,1460px);padding-left:0;padding-right:0;gap:12px}
+  nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:4px 2px 8px!important;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px!important;white-space:nowrap}
+  .social-links{flex-wrap:wrap;gap:8px!important}
+  .social-icon{width:42px!important;height:42px!important;min-width:42px}
+  main,.page,.about-page{max-width:100%;}
+  .hero h1,.about-hero h1{font-size:clamp(2.35rem,10vw,4.2rem)!important;line-height:1.02}
+  .section-head{gap:14px}
+  .all-link{min-height:44px;display:inline-flex;align-items:center}
+  .start,.explore,.link-btn,.outline-btn,.classroom-btn,.follow-btn,.practice-link,.subscribe-link,.practice-pill{min-height:46px;display:inline-flex;align-items:center;justify-content:center}
+}
+@media (max-width:640px){
+  header{position:relative!important}
+  header .topbar,.topbar{width:100%;padding:10px 12px!important;grid-template-columns:1fr!important}
+  nav{width:100%;order:1}
+  .social-links{order:2;justify-content:center!important}
+  main,.page,.about-page{width:min(100% - 24px,1460px)!important;margin-inline:auto!important;padding-left:0!important;padding-right:0!important}
+  .hero,.about-hero,.intro{padding:24px 18px!important;border-radius:22px!important}
+  .hero{gap:22px!important}
+  .hero p,.about-hero p{font-size:1rem!important;line-height:1.58!important}
+  .hero-mark.subject-icon{width:132px!important;height:132px!important;border-width:4px!important}
+  .hero-mark.subject-icon .alg-x{font-size:4rem!important}
+  .hero-mark.subject-icon .geo-pi-symbol{font-size:4.2rem!important}
+  .hero-mark.subject-icon .ratio-percent{font-size:4rem!important}
+  .hero-mark.subject-icon .num-ops{transform:translate(-50%,-50%) scale(.88)!important}
+  .hero-mark.subject-icon .dice-cube{transform:scale(.72) rotateX(-20deg) rotateY(28deg)!important}
+  .section{margin-top:28px!important}
+  .section-head h2{font-size:clamp(1.55rem,7vw,2.1rem)!important}
+  .grid,.new-grid,.subjects,.area-grid,.about-values{grid-template-columns:1fr!important}
+  .card,.new-card,.subject-card,.value-card{min-width:0}
+  .thumb img{width:100%;height:auto;display:block}
+  .practice-card,.coming,.practice-panel,.subscribe-panel,.follow-layout,.newsletter-box,.classroom-box{grid-template-columns:1fr!important;flex-direction:column!important;text-align:center!important;align-items:stretch!important}
+  .practice-card .start,.all-link,.classroom-btn,.follow-btn,.link-btn,.outline-btn,.practice-link,.subscribe-link{width:100%;text-align:center;white-space:normal!important}
+  .practice-preview{min-height:105px!important;font-size:clamp(1.65rem,8vw,2.2rem)!important}
+  .new-content,.copy,.subject-copy,.about-copy{min-width:0}
+  .follow-buttons{grid-template-columns:1fr 1fr!important;width:100%}
+  .latest-badge,.tag{font-size:.72rem!important}
+  footer{padding-left:14px!important;padding-right:14px!important}
+}
+@media (max-width:390px){
+  nav a{font-size:.88rem!important;padding-inline:12px!important}
+  .social-icon{width:40px!important;height:40px!important;min-width:40px}
+  .follow-buttons{grid-template-columns:1fr!important}
+  .hero h1,.about-hero h1{font-size:2.25rem!important}
+  .hero-mark.subject-icon{width:118px!important;height:118px!important}
+}
+</style>
+<style>
+/* Robust mobile timer: JavaScript moves the timer directly under <body> on phones.
+   This avoids clipping/visibility bugs caused by the desktop worksheet grid. */
+@media(max-width:900px){
+  .worksheet-zone{display:block !important;}
+  .timer-column{
+    display:none !important;
+    width:0 !important;
+    height:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  #floatingTimer{
+    display:none !important;
+  }
+  #floatingTimer.mobile-timer-visible{
+    position:fixed !important;
+    right:14px !important;
+    left:auto !important;
+    bottom:calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+    top:auto !important;
+    transform:none !important;
+    z-index:99999 !important;
+    width:104px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:9px 8px 8px !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+    text-align:center !important;
+    background:rgba(255,255,255,.98) !important;
+    border:2px solid rgba(111,116,125,.78) !important;
+    border-radius:20px !important;
+    box-shadow:0 10px 28px rgba(25,30,40,.28) !important;
+  }
+  #floatingTimer.mobile-timer-visible .ring{
+    box-sizing:border-box !important;
+    width:72px !important;
+    height:72px !important;
+    min-width:72px !important;
+    min-height:72px !important;
+    max-width:72px !important;
+    max-height:72px !important;
+    aspect-ratio:1 / 1 !important;
+    margin:7px auto 4px !important;
+    border-radius:50% !important;
+    flex:none !important;
+  }
+  #floatingTimer.mobile-timer-visible #timerHeading,
+  #floatingTimer.mobile-timer-visible .timer-label{
+    display:block !important;
+    text-align:center !important;
+  }
+}
+@media(max-width:430px){
+  #floatingTimer.mobile-timer-visible{
+    right:9px !important;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    width:92px !important;
+  }
+  #floatingTimer.mobile-timer-visible .ring{
+    width:64px !important;
+    height:64px !important;
+    min-width:64px !important;
+    min-height:64px !important;
+    max-width:64px !important;
+    max-height:64px !important;
+  }
+}
+</style>
+<style>
+/* Mobile-only spacing between the level orb and Start button */
+@media (max-width:640px){
+  .card.active .body > .start{
+    box-sizing:border-box;
+    width:calc(100% - 92px);
+    max-width:none;
+    margin:26px 0 20px 92px;
+  }
+}
+@media (max-width:390px){
+  .card.active .body > .start{
+    width:calc(100% - 84px);
+    margin-left:84px;
+  }
+}
+</style>
+<style id="unified-topbar-v16">
+/* Identical site header and navigation on every page */
+header {
+  min-height: 72px !important;
+}
+header .topbar,
+.topbar {
+  width: min(100% - 36px, 1380px) !important;
+  max-width: 1380px !important;
+  min-height: 66px !important;
+  margin: 0 auto !important;
+  padding: 10px 18px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 18px !important;
+}
+header nav,
+.topbar nav,
+nav {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(90px, 1fr)) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+header nav a,
+.topbar nav a,
+nav a {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 44px !important;
+  padding: 0 10px !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transform: none !important;
+}
+header nav a:hover,
+header nav a:focus,
+header nav a:active,
+header nav a.active,
+.topbar nav a:hover,
+.topbar nav a:focus,
+.topbar nav a:active,
+.topbar nav a.active {
+  transform: none !important;
+}
+header .social-links,
+.topbar .social-links,
+.social-links {
+  min-width: 198px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+header .social-icon,
+.topbar .social-icon,
+.social-icon {
+  flex: 0 0 42px !important;
+  width: 42px !important;
+  height: 42px !important;
+}
+@media (max-width: 760px) {
+  header { min-height: auto !important; position: relative !important; }
+  header .topbar,
+  .topbar {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 10px 12px !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  header nav,
+  .topbar nav,
+  nav {
+    order: 1 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    padding: 4px 2px 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  header nav::-webkit-scrollbar,
+  .topbar nav::-webkit-scrollbar,
+  nav::-webkit-scrollbar { display: none !important; }
+  header nav a,
+  .topbar nav a,
+  nav a {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: .88rem !important;
+    line-height: 1 !important;
+  }
+  header .social-links,
+  .topbar .social-links,
+  .social-links {
+    order: 2 !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+  }
+}
+</style>
+<style id="exact-site-header-stability">
+html { overflow-y: scroll !important; scrollbar-gutter: stable !important; }
+header, header * { box-sizing: border-box !important; }
+header nav a { text-transform: none !important; font-variant: normal !important; }
+</style>
+<style id="prominent-navigation-v23">
+/* Larger, more prominent primary navigation */
+header .topbar,
+.topbar {
+  min-height: 82px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+header nav,
+.topbar nav,
+nav { gap: 12px !important; }
+header nav a,
+.topbar nav a,
+nav a {
+  min-height: 54px !important;
+  padding: 0 20px !important;
+  border: 2px solid rgba(74,78,86,.16) !important;
+  border-radius: 16px !important;
+  background: rgba(255,255,255,.64) !important;
+  color: #3f434b !important;
+  font-size: 1.34rem !important;
+  line-height: 1.1 !important;
+  font-weight: 900 !important;
+  letter-spacing: .015em !important;
+  box-shadow: 0 4px 10px rgba(45,52,68,.07), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  transition: transform .18s ease,color .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease !important;
+}
+header nav a:hover,
+header nav a:focus-visible,
+.topbar nav a:hover,
+.topbar nav a:focus-visible,
+nav a:hover,
+nav a:focus-visible {
+  transform: translateY(-2px) !important;
+  color: #2218ff !important;
+  border-color: rgba(34,24,255,.42) !important;
+  background: rgba(255,255,255,.94) !important;
+  box-shadow: 0 9px 18px rgba(45,52,68,.13), inset 0 1px 0 #fff !important;
+}
+header nav a.active,
+.topbar nav a.active,
+nav a.active {
+  color: #fff !important;
+  border-color: #2218ff !important;
+  background: linear-gradient(135deg,#3930ff,#2218ff) !important;
+  box-shadow: 0 9px 20px rgba(34,24,255,.26), inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+@media (max-width: 900px) and (min-width: 761px) {
+  header nav a,
+  .topbar nav a,
+  nav a { padding-inline: 12px !important; font-size: 1.15rem !important; }
+}
+@media (max-width: 760px) {
+  header .topbar,
+  .topbar { padding-top: 10px !important; padding-bottom: 10px !important; }
+  header nav,
+  .topbar nav,
+  nav { gap: 9px !important; }
+  header nav a,
+  .topbar nav a,
+  nav a {
+    min-height: 48px !important;
+    padding: 0 16px !important;
+    border-radius: 14px !important;
+    font-size: 1rem !important;
+  }
+}
+</style>
+<style id="navigation-v24-clean-text">
+/* Clean, prominent text navigation without button styling */
+header .topbar,
+.topbar {
+  min-height: 78px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+header nav,
+.topbar nav,
+nav {
+  gap: 18px !important;
+}
+
+header nav a,
+.topbar nav a,
+nav a {
+  min-height: auto !important;
+  padding: 10px 8px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #3f434b !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  font-size: 1.42rem !important;
+  line-height: 1.1 !important;
+  font-weight: 900 !important;
+  letter-spacing: .01em !important;
+  position: relative !important;
+  text-decoration: none !important;
+  transition: color .18s ease, transform .18s ease !important;
+}
+
+header nav a::after,
+.topbar nav a::after,
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: 2px;
+  height: 4px;
+  border-radius: 999px;
+  background: transparent;
+  transform: scaleX(.45);
+  transition: transform .18s ease, background .18s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible,
+.topbar nav a:hover,
+.topbar nav a:focus-visible,
+nav a:hover,
+nav a:focus-visible {
+  transform: translateY(-2px) !important;
+  color: #2218ff !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+header nav a:hover::after,
+header nav a:focus-visible::after,
+.topbar nav a:hover::after,
+.topbar nav a:focus-visible::after,
+nav a:hover::after,
+nav a:focus-visible::after {
+  background: rgba(34,24,255,.35);
+  transform: scaleX(1);
+}
+
+header nav a.active,
+.topbar nav a.active,
+nav a.active {
+  color: #2218ff !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+header nav a.active::after,
+.topbar nav a.active::after,
+nav a.active::after {
+  background: #2218ff;
+  transform: scaleX(1);
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+  header nav a,
+  .topbar nav a,
+  nav a {
+    padding-inline: 6px !important;
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  header .topbar,
+  .topbar {
+    min-height: auto !important;
+  }
+
+  header nav,
+  .topbar nav,
+  nav {
+    gap: 10px !important;
+  }
+
+  header nav a,
+  .topbar nav a,
+  nav a {
+    min-height: auto !important;
+    padding: 9px 5px !important;
+    font-size: 1.05rem !important;
+  }
+}
+</style>
+<style id="social-icons-v25">
+/* Slightly larger social media icons */
+header .social-icon,
+.topbar .social-icon,
+.social-icon {
+  width:46px !important;
+  height:46px !important;
+  min-width:46px !important;
+}
+header .social-icon svg,
+.topbar .social-icon svg,
+.social-icon svg {
+  width:22px !important;
+  height:22px !important;
+}
+@media (max-width:760px){
+  header .social-icon,
+  .topbar .social-icon,
+  .social-icon {
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+  }
+  header .social-icon svg,
+  .topbar .social-icon svg,
+  .social-icon svg {
+    width:20px !important;
+    height:20px !important;
+  }
+}
+</style>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<style id="nav-consistency-v76">
+/* Shared site navigation: identical across Home, Videos, Practice, Games, and game pages. */
+header{background:rgba(255,255,255,.95);border-bottom:1px solid #d8e4ed;position:relative;z-index:50;backdrop-filter:blur(9px)}
+header .topbar,.topbar{max-width:1380px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:10px 18px}
+header nav,.topbar nav{max-width:none;margin:0;display:grid;grid-template-columns:repeat(4,minmax(80px,1fr));gap:8px;padding:6px 2px}
+header nav a,.topbar nav a{color:#4a4e56;text-decoration:none;text-align:center;font-weight:900;font-size:1.25rem;transition:.2s ease;white-space:nowrap}
+header nav a.active,.topbar nav a.active{color:#2218ff}
+header nav a:hover,.topbar nav a:hover{transform:translateY(-2px);color:#2218ff}
+header .social-links,.topbar .social-links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:nowrap}
+header .social-icon,.topbar .social-icon{width:46px;height:46px;min-width:46px;border-radius:50%;background:rgba(0,0,0,.07);color:#555a63;display:grid;place-items:center;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.72);transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+header .social-icon:hover,.topbar .social-icon:hover{transform:translateY(-2px) scale(1.04);background:rgba(0,0,0,.11);color:#2218ff;box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85)}
+header .social-icon svg,.topbar .social-icon svg{width:22px;height:22px;display:block}
+@media (min-width:901px){header nav,.topbar nav{display:grid!important;grid-template-columns:repeat(4,minmax(80px,1fr))!important;overflow:visible!important}header nav a,.topbar nav a{white-space:nowrap!important}}
+@media (max-width:900px){header .topbar,.topbar{width:min(100% - 24px,1460px);padding-left:0;padding-right:0;gap:12px}header nav,.topbar nav{display:flex!important;justify-content:flex-start!important;gap:8px!important;overflow-x:auto!important;overscroll-behavior-inline:contain;scrollbar-width:none;padding:4px 2px 8px!important;-webkit-overflow-scrolling:touch}header nav::-webkit-scrollbar,.topbar nav::-webkit-scrollbar{display:none}header nav a,.topbar nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px!important;white-space:nowrap!important;font-size:1rem!important}header .social-links,.topbar .social-links{gap:8px!important}header .social-icon,.topbar .social-icon{width:42px!important;height:42px!important;min-width:42px!important}header .social-icon svg,.topbar .social-icon svg{width:20px!important;height:20px!important}}
+@media (max-width:640px){header{position:relative!important}header .topbar,.topbar{width:100%;padding:10px 12px!important;grid-template-columns:1fr!important}header nav,.topbar nav{width:100%;order:1}header .social-links,.topbar .social-links{order:2;justify-content:center!important}}
+</style>
+<style id="site-global-header-inline">
+
+/* Mr. McLean Math — authoritative shared header. Do not override per page. */
+html{scrollbar-gutter:stable;}
+body{margin:0;}
+body > header.site-global-header{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:85px !important;
+  min-height:85px !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(7px) !important;
+  -webkit-backdrop-filter:blur(7px) !important;
+  border-top:6px solid #3d3f45 !important;
+  border-right:0 !important;
+  border-bottom:1px solid rgba(201,203,208,.9) !important;
+  border-left:0 !important;
+  border-radius:0 !important;
+  position:sticky !important;
+  top:0 !important;
+  z-index:1000 !important;
+  box-shadow:none !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+}
+body > header.site-global-header .site-global-topbar{
+  box-sizing:border-box !important;
+  width:min(100% - 36px,1380px) !important;
+  max-width:1380px !important;
+  height:78px !important;
+  min-height:78px !important;
+  margin:0 auto !important;
+  padding:10px 0 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 146px !important;
+  align-items:center !important;
+  gap:18px !important;
+}
+body > header.site-global-header nav.site-global-nav{
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:none !important;
+  height:58px !important;
+  min-height:58px !important;
+  margin:0 !important;
+  padding:6px 2px !important;
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(80px,1fr)) !important;
+  align-items:stretch !important;
+  gap:8px !important;
+  overflow:visible !important;
+  border:0 !important;
+  background:transparent !important;
+}
+body > header.site-global-header nav.site-global-nav > a{
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#4a4e56 !important;
+  text-decoration:none !important;
+  text-align:center !important;
+  font-family:"Trebuchet MS",Arial,sans-serif !important;
+  font-size:20px !important;
+  font-style:normal !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  transition:color .2s ease,transform .2s ease !important;
+}
+body > header.site-global-header nav.site-global-nav > a:hover{
+  color:#2218ff !important;
+  transform:translateY(-2px) !important;
+}
+body > header.site-global-header nav.site-global-nav > a.active{
+  color:#2218ff !important;
+}
+body > header.site-global-header .site-global-social{
+  box-sizing:border-box !important;
+  width:146px !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  flex-wrap:nowrap !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon{
+  box-sizing:border-box !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  place-items:center !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:rgba(0,0,0,.07) !important;
+  color:#555a63 !important;
+  text-decoration:none !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72) !important;
+  transform:none !important;
+  transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease !important;
+}
+body > header.site-global-header .site-global-social > a.site-global-social-icon:hover{
+  transform:translateY(-2px) scale(1.04) !important;
+  background:rgba(0,0,0,.11) !important;
+  color:#2218ff !important;
+  box-shadow:0 8px 18px rgba(45,52,68,.14),inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+body > header.site-global-header .site-global-social svg{
+  width:20px !important;
+  height:20px !important;
+  display:block !important;
+}
+@media(max-width:900px){
+  body > header.site-global-header{height:auto !important;min-height:0 !important;position:relative !important;}
+  body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
+  body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
+  body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+}
+@media(max-width:640px){
+  body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
+  body > header.site-global-header nav.site-global-nav{width:100% !important;order:1 !important;}
+  body > header.site-global-header .site-global-social{order:2 !important;width:100% !important;justify-content:center !important;}
+}
+
+</style>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer="" src="/_vercel/insights/script.js"></script>
+<style id="mobile-orb-layout-fix">
+/* v92: true phone layout + collision-free level orbs. Desktop is unchanged. */
+@media (max-width:640px){
+  .card > .light.level-orb{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    margin:14px auto 2px !important;
+  }
+  .card .level-title{
+    padding-top:5px !important;
+  }
+  .card .problem{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+  .card.active .body > .start{
+    width:min(180px,100%) !important;
+    max-width:100% !important;
+    margin:20px auto !important;
+  }
+}
+</style>
+
+<link href="mobile-keypad.css" rel="stylesheet"/>
+<style>
+.decimal-source{font-size:1.15em;font-weight:1000;letter-spacing:.02em}.conversion-target{white-space:nowrap}.fraction-inline{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.02;min-width:1.25em;vertical-align:middle}.fraction-inline .bar{height:2px;width:100%;background:currentColor;border-radius:2px}.mixed-inline{display:inline-flex;align-items:center;gap:.22em}.qa-prompt .fraction-inline{font-size:1em}
+</style>
+<style id="v190-fraction-answer-fields">
+.fraction-answer-entry{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:12px 0 2px;
+}
+.mixed-answer-input{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:8px 11px;
+  border:2px solid rgba(105,112,123,.7);
+  border-radius:16px;
+  background:rgba(255,255,255,.92);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 5px 12px rgba(45,52,68,.08);
+}
+.mixed-answer-input:focus-within{
+  border-color:#4c55d9;
+  box-shadow:0 0 0 3px rgba(76,85,217,.13),0 5px 12px rgba(45,52,68,.08);
+}
+.answer-field{
+  appearance:textfield;
+  -moz-appearance:textfield;
+  margin:0!important;
+  padding:7px 6px!important;
+  border:1.8px solid #777e88!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  text-align:center!important;
+  font-family:"Trebuchet MS",Arial,sans-serif!important;
+  font-size:1.15rem!important;
+  font-weight:1000!important;
+  line-height:1!important;
+  color:#252a31!important;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.05)!important;
+}
+.answer-field::-webkit-outer-spin-button,.answer-field::-webkit-inner-spin-button{appearance:none;margin:0}
+.answer-whole{width:76px!important;height:54px!important}
+.answer-fraction-stack{
+  width:90px;
+  display:grid;
+  grid-template-rows:46px 3px 46px;
+  align-items:center;
+  justify-items:stretch;
+  gap:4px;
+}
+.answer-fraction-stack .answer-field{width:90px!important;height:46px!important}
+.answer-fraction-bar{height:3px;width:100%;border-radius:999px;background:#252a31}
+.answer-field::placeholder{color:#89909a;font-size:.72rem;font-weight:800;opacity:1}
+.answer-format-note{
+  width:100%;
+  text-align:center;
+  margin-top:3px;
+  color:#626873;
+  font-size:.78rem;
+  font-weight:800;
+  line-height:1.35;
+}
+@media(max-width:620px){
+  .fraction-answer-entry{gap:9px}
+  .mixed-answer-input{gap:7px;padding:7px 8px}
+  .answer-whole{width:64px!important}
+  .answer-fraction-stack{width:78px}
+  .answer-fraction-stack .answer-field{width:78px!important}
+  .fraction-answer-entry .primary{width:100%;max-width:190px}
+}
+</style>
+
+
+<style>
+.sdt-skill-row{margin-bottom:16px}.sdt-skill-switch{flex-wrap:wrap;max-width:100%}.sdt-skill-switch .mode-btn{white-space:normal;line-height:1.12}.time-conversion-path{display:block;margin-top:5px;color:#6b7480;font-size:.78rem;font-weight:800}.sdt-answer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:13px}.sdt-answer-box{display:inline-flex;align-items:stretch;border:2px solid #777e88;border-radius:12px;overflow:hidden;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}.sdt-answer-box:focus-within{border-color:#4c55d9;box-shadow:0 0 0 3px rgba(76,85,217,.13)}.sdt-answer-box input{width:145px!important;height:50px!important;margin:0!important;padding:8px 10px!important;border:0!important;border-radius:0!important;background:#fff!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-size:1.15rem!important;font-weight:1000!important;color:#252a31!important;outline:0!important}.sdt-answer-unit{min-width:66px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-left:2px solid #c9cdd3;background:#f2f4f7;color:#354154;font-size:1rem;font-weight:1000;white-space:nowrap}.sdt-answer-note{text-align:center;margin:6px auto 0;color:#67717f;font-size:.78rem;font-weight:800;line-height:1.35}.sdt-working{margin-top:10px;padding-top:9px;border-top:1px solid rgba(80,90,105,.18);font-size:.86rem;line-height:1.5;color:#425064}.worksheet-qa-panel{width:min(100%,960px);margin:24px auto 0;padding:20px;border:2px dashed #7c8795;border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 9px 24px rgba(45,52,68,.08)}.worksheet-qa-panel h2{margin:0 0 5px;font-size:1.2rem}.worksheet-qa-panel>p{margin:0 0 14px;color:#65707e;font-size:.86rem;font-weight:700}.worksheet-qa-controls{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin-bottom:14px}.worksheet-qa-control{display:grid;gap:4px;font-size:.73rem;font-weight:900;color:#586373;text-transform:uppercase;letter-spacing:.04em}.worksheet-qa-control select{min-width:130px;padding:8px 10px;border:1.5px solid #8b96a4;border-radius:9px;background:#fff;font:inherit;color:#2f3946;text-transform:none;letter-spacing:normal}.worksheet-qa-controls button,.qa-reveal-one{border:0;border-radius:9px;background:#344f73;color:#fff;padding:9px 12px;font-weight:900;cursor:pointer}.worksheet-qa-controls .qa-secondary,.qa-reveal-one{background:#eef2f6;color:#34465d;border:1px solid #bdc7d2}.worksheet-qa-list{display:grid;gap:11px}.worksheet-qa-item{padding:12px 13px;border:1px solid #cbd3dc;border-radius:12px;background:#fff}.worksheet-qa-number{font-size:.72rem;font-weight:1000;color:#617086;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}.worksheet-qa-question{font-weight:850;line-height:1.45}.qa-reveal-one{margin-top:9px;padding:6px 9px;font-size:.78rem}.worksheet-qa-answer{display:none;margin-top:9px;padding:9px 11px;border-radius:9px;background:#eef8f0;color:#265534;font-size:.86rem}.worksheet-qa-answer.show{display:block}.worksheet-qa-steps{white-space:pre-line;margin-top:7px;color:#46566a;line-height:1.45}.worksheet-qa-empty{color:#687484;font-style:italic}.tutorial-rail:empty{display:none!important}.practice-layout-new{grid-template-columns:minmax(0,1fr)!important;max-width:980px;margin-inline:auto}.practice-main-column{max-width:980px;margin-inline:auto;width:100%}
+@media(max-width:700px){.sdt-skill-switch{display:grid!important;grid-template-columns:1fr 1fr;width:100%}.sdt-skill-switch .mode-btn{white-space:nowrap;padding:8px 7px}.sdt-answer-row{align-items:stretch}.sdt-answer-box{width:100%}.sdt-answer-box input{flex:1 1 0;min-width:0!important;width:0!important}.sdt-answer-unit{flex:0 0 auto;min-width:72px}.sdt-answer-row>.primary{width:100%;max-width:190px}.worksheet-qa-controls{display:grid;grid-template-columns:1fr 1fr}.worksheet-qa-control select{min-width:0;width:100%}.worksheet-qa-controls button{grid-column:1/-1}.worksheet-qa-panel{padding:15px 12px}}
+</style>
+
+</head>
+<body>
+<h1 class="sr-only">Converting Units of Time</h1>
+<header class="site-global-header">
+<div class="site-global-topbar">
+<nav aria-label="Main navigation" class="site-global-nav">
+<a href="index.html">Home</a>
+<a href="videos.html">Videos</a>
+<a class="active" href="practice.html">Practice</a>
+<a href="games.html">Games</a>
+<a href="about.html">About</a>
+</nav>
+<div aria-label="Social media links" class="site-global-social">
+<a aria-label="YouTube" class="site-global-social-icon" href="https://www.youtube.com/@MrMcLeanMath" rel="noopener noreferrer" target="_blank" title="YouTube"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><rect fill="currentColor" height="11.6" opacity=".92" rx="3.2" width="17.6" x="3.2" y="6.2"></rect><path d="M10 9.1 L16 12 L10 14.9 Z" fill="#ffffff"></path></svg></a>
+<a aria-label="Instagram" class="site-global-social-icon" href="https://www.instagram.com/mrmcleanmath/" rel="noopener noreferrer" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><rect height="15.4" rx="4.4" stroke="currentColor" stroke-width="2" width="15.4" x="4.3" y="4.3"></rect><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="2"></circle><circle cx="17.2" cy="6.8" fill="currentColor" r="1.1"></circle></svg></a>
+<a aria-label="TikTok" class="site-global-social-icon" href="https://www.tiktok.com/@mrmcleanmath" rel="noopener noreferrer" target="_blank" title="TikTok"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M14 4.5c.9 1.7 2.1 2.7 4.1 3.1v2.4c-1.4-.1-2.8-.6-4.1-1.4v6.2c0 2.7-2.1 4.7-4.9 4.7S4.4 17.4 4.4 15s2.1-4.4 4.7-4.4c.4 0 .8 0 1.2.1v2.6c-.4-.2-.7-.2-1.1-.2-1.2 0-2.2.8-2.2 1.9s1 1.9 2.2 1.9 2.3-.8 2.3-2.4V4.5H14z" fill="currentColor"></path></svg></a>
+
+</div>
+</div>
+</header>
+<div class="page">
+<div class="breadcrumb">Practice › Ratio, Proportion &amp; Change</div>
+<div class="practice-layout-new">
+<div class="practice-main-column">
+<div class="worksheet-zone" id="worksheetZone">
+<section class="practice-panel practice-sheet">
+<div aria-hidden="true" class="paper-holes">
+<span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="practice-heading">
+<span aria-hidden="true" class="custom-pencil">
+<svg focusable="false" viewbox="0 0 48 48">
+<path d="M9 35 L31 13 L38 20 L16 42 L8 43 Z" fill="#f3c847" stroke="#30353d" stroke-linejoin="round" stroke-width="2.4"></path>
+<path d="M31 13 L35 9 Q37 7 39 9 L42 12 Q44 14 42 16 L38 20 Z" fill="#ee94a7" stroke="#30353d" stroke-linejoin="round" stroke-width="2.4"></path>
+<path d="M9 35 L16 42 L8 43 Z" fill="#d8b184" stroke="#30353d" stroke-linejoin="round" stroke-width="2.4"></path>
+<path d="M8 43 L11 39.5 L12.5 42 Z" fill="#30353d"></path>
+<path d="M15 33 L30 18" stroke="rgba(255,255,255,.72)" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</span>
+<span>CONVERTING UNITS<br/>OF TIME</span>
+</div>
+<p class="instructions"><strong>Instructions:</strong> Choose a time-unit focus or All. Type the number only; the required unit is shown beside the answer box. Foundation uses direct conversions, Core connects units across conversion steps, and Challenge includes mixed-unit and exact decimal conversions. Get 3 correct answers to unlock the next level.</p>
+<div class="mode-row">
+<div class="mode-switch">
+<button class="mode-btn active" id="studentMode">Student Mode</button>
+<button class="mode-btn" id="timerMode">Timer Mode</button>
+</div>
+<div class="info-wrap" tabindex="0">
+<span class="info">i</span>
+<div class="tooltip" id="modeTip">Student Mode lets you work without a countdown. Incorrect answers reveal the correct answer and a teaching hint. Press Enter or Next when you are ready to continue.</div>
+</div>
+<button aria-label="Reset progress" class="reset-progress-button" id="resetProgressButton" title="Reset Progress" type="button"><svg aria-hidden="true" focusable="false" height="18" viewbox="0 0 24 24" width="18"><path d="M20 11a8 8 0 1 0-2.34 5.66" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.3"></path><path d="M20 5v6h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3"></path></svg></button>
+<div class="duration-wrap" id="durationWrap"><span>Time:</span><select id="duration"><option value="30">30 sec</option><option value="60">60 sec</option><option value="90">90 sec</option></select></div>
+</div>
+<div aria-label="Time unit practice focus" class="conversion-mode-row sdt-skill-row">
+<span class="conversion-mode-label">Focus:</span>
+<div class="mode-switch conversion-switch sdt-skill-switch">
+<button class="mode-btn active" id="focusAll" type="button">All</button>
+<button class="mode-btn" id="focusSecMin" type="button">Seconds &amp; Minutes</button>
+<button class="mode-btn" id="focusMinHour" type="button">Minutes &amp; Hours</button>
+<button class="mode-btn" id="focusHourDay" type="button">Hours &amp; Days</button>
+<button class="mode-btn" id="focusDayWeek" type="button">Days &amp; Weeks</button>
+<button class="mode-btn" id="focusMonthYear" type="button">Months &amp; Years</button>
+</div>
+</div>
+<div class="practice-area">
+<div class="stack" id="levelStack">
+<div class="card active" id="easyCard"><span class="light green level-orb" data-level="easy"><span aria-live="polite" class="orb-timer-value"></span></span><div class="level-title"><span class="mode-badge">FOUNDATION MODE</span></div><div class="progress" id="easyProgress">0 / 3</div><div class="body" id="easyBody"></div></div>
+<div class="card locked" id="mediumCard"><span class="light yellow level-orb" data-level="medium"><span aria-live="polite" class="orb-timer-value"></span></span><div class="level-title"><span class="mode-badge">CORE MODE</span></div><div class="progress hidden" id="mediumProgress">0 / 3</div><div class="body" id="mediumBody"><div class="lock" id="mediumLock"><div class="shackle"></div><div class="lockbody"></div></div></div></div>
+<div class="card locked" id="hardCard"><span class="light red level-orb" data-level="hard"><span aria-live="polite" class="orb-timer-value"></span></span><div class="level-title"><span class="mode-badge">CHALLENGE MODE</span></div><div class="progress hidden" id="hardProgress">0 / 3</div><div class="body" id="hardBody"><div class="lock" id="hardLock"><div class="shackle"></div><div class="lockbody"></div></div></div></div>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="timer-column" id="timerColumn">
+<div class="timer-panel floating-timer" id="floatingTimer"><div id="timerHeading">No Timer</div><div class="ring" id="ring">—</div><div class="timer-label" id="timerLabel">Student Mode</div></div>
+</div>
+</div>
+</div>
+<aside aria-label="Tutorial area" class="tutorial-rail"></aside>
+</div>
+
+<section class="worksheet-qa-panel" aria-label="Worksheet QA testing controls">
+  <h2>Worksheet QA <span style="font-size:.72em;color:#7a5362">TESTING ONLY</span></h2>
+  <p>Uses the same approved question generator as the practice app. Reveal answers to inspect the conversion path, working, and difficulty progression.</p>
+  <div class="worksheet-qa-controls">
+    <label class="worksheet-qa-control">Difficulty<select id="qaDifficulty"><option value="easy">Foundation</option><option value="medium">Core</option><option value="hard">Challenge</option></select></label>
+    <label class="worksheet-qa-control">Focus<select id="qaTarget"><option value="all" selected>All</option><option value="sec-min">Seconds &amp; Minutes</option><option value="min-hour">Minutes &amp; Hours</option><option value="hour-day">Hours &amp; Days</option><option value="day-week">Days &amp; Weeks</option><option value="month-year">Months &amp; Years</option></select></label>
+    <label class="worksheet-qa-control">Questions<select id="qaCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label>
+    <button type="button" id="qaGenerate">Generate New Worksheet</button>
+    <button type="button" id="qaRevealAll" class="qa-secondary">Reveal All Answers</button>
+    <button type="button" id="qaHideAll" class="qa-secondary">Hide All Answers</button>
+  </div>
+  <div class="worksheet-qa-list" id="qaList"><div class="worksheet-qa-empty">Choose settings and generate a worksheet.</div></div>
+</section>
+
+<div aria-hidden="true" class="tutorial-overlay" id="tutorialOverlay">
+<div class="tutorial-overlay-backdrop" id="tutorialBackdrop"></div>
+<div aria-label="Expanded video tutorial" aria-modal="true" class="tutorial-overlay-card" role="dialog">
+<button aria-label="Return to practice" class="minimize-tutorial" id="minimizeTutorial" title="Return to practice" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M9 9H4V4M15 9h5V4M9 15H4v5M15 15h5v5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M4.5 4.5L9 9M15 9l4.5-4.5M4.5 19.5L9 15M15 15l4.5 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<span>Return to practice</span>
+</button>
+<div class="expanded-monitor-wrap" id="expandedMonitorWrap"></div>
+</div>
+</div>
+</div>
+<div aria-labelledby="resetModalTitle" aria-modal="true" class="reset-modal-backdrop" id="resetModalBackdrop" role="dialog">
+<div class="reset-modal">
+<h3 id="resetModalTitle">Reset all progress?</h3>
+<p>This will return you to Foundation Mode and lock Core Mode and Challenge Mode again.</p>
+<div class="reset-modal-actions">
+<button class="reset-cancel" id="resetCancelButton" type="button">Cancel</button>
+<button class="reset-confirm" id="resetConfirmButton" type="button">Reset Progress</button>
+</div>
+</div>
+</div>
+<div class="banner" id="banner">🎉 Core Mode unlocked!</div>
+<script>
+(function(){
+const TIME_FOCI=['sec-min','min-hour','hour-day','day-week','month-year'];
+function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function choice(arr){return arr[randInt(0,arr.length-1)]}
+function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=randInt(0,i);[a[i],a[j]]=[a[j],a[i]]}return a}
+function fmt(n){if(Math.abs(n-Math.round(n))<1e-9)return String(Math.round(n));return Number(n.toFixed(2)).toString()}
+function makeQ({difficulty,target,family,expression,answer,unit,steps,hint,sig,multiStep=false,mixedUnits=false,decimal=false}){
+  if(!Number.isFinite(answer)||answer<=0)throw new Error('Invalid answer');
+  return{difficulty,target,family,expression,answer,unit,steps,hint,sig,multiStep,mixedUnits,decimal,preferredAnswer:`${fmt(answer)} ${unit}`};
+}
+const UNIT_NAMES={s:'seconds',min:'minutes',h:'hours',day:'days',week:'weeks',month:'months',year:'years'};
+const RECENT_MAX=48;
+const recent={game:{easy:[],medium:[],hard:[]},qa:{easy:[],medium:[],hard:[]},stress:{easy:[],medium:[],hard:[]}};
+const familyBags={game:{},qa:{},stress:{}};
+for(const ch of Object.keys(familyBags))for(const level of ['easy','medium','hard'])for(const focus of TIME_FOCI)familyBags[ch][`${level}:${focus}`]=[];
+function takeQuestion(level,focus,pool,channel='game'){
+  const key=`${level}:${focus}`,rec=recent[channel][level],bag=familyBags[channel][key];
+  for(let familyTry=0;familyTry<pool.length*6;familyTry++){
+    if(!bag.length)bag.push(...shuffle(pool.map(x=>x.id)));
+    const id=bag.shift(),entry=pool.find(x=>x.id===id)||choice(pool);
+    for(let attempt=0;attempt<140;attempt++){
+      const q=entry.make();
+      if(!rec.includes(q.sig)){rec.push(q.sig);if(rec.length>RECENT_MAX)rec.shift();return q}
+    }
+  }
+  const q=choice(pool).make();rec.push(q.sig);if(rec.length>RECENT_MAX)rec.shift();return q;
+}
+function oneStep(level,focus,from,to,factor,values,family){
+  const v=choice(values),ans=v*factor,fromSing=UNIT_NAMES[from].replace(/s$/,''),toSing=UNIT_NAMES[to].replace(/s$/,'');
+  const fact=factor>=1?`1 ${fromSing} = ${fmt(factor)} ${UNIT_NAMES[to]}`:`1 ${toSing} = ${fmt(1/factor)} ${UNIT_NAMES[from]}`;
+  return makeQ({difficulty:level,target:focus,family,expression:`Convert ${fmt(v)} ${UNIT_NAMES[from]} to ${UNIT_NAMES[to]}.`,answer:ans,unit:UNIT_NAMES[to],steps:`${fact}.\n${factor>=1?`${fmt(v)} × ${fmt(factor)} = ${fmt(ans)}`:`${fmt(v)} ÷ ${fmt(1/factor)} = ${fmt(ans)}`} ${UNIT_NAMES[to]}`,hint:factor>=1?`Multiply by ${fmt(factor)}.`:`Divide by ${fmt(1/factor)}.`,sig:`${level}|${focus}|${family}|${from}|${to}|${fmt(v)}`});
+}
+// FOUNDATION: adjacent units only, friendly whole-number answers.
+function fSecToMin(){const m=choice([1,2,3,4,5,6,8,10,12,15]);return oneStep('easy','sec-min','s','min',1/60,[m*60],'sec-to-min')}
+function fMinToSec(){return oneStep('easy','sec-min','min','s',60,[1,2,3,4,5,6,8,10,12],'min-to-sec')}
+function fMinToHour(){const h=choice([1,2,3,4,5,6,8,10,12]);return oneStep('easy','min-hour','min','h',1/60,[h*60],'min-to-hour')}
+function fHourToMin(){return oneStep('easy','min-hour','h','min',60,[1,2,3,4,5,6,8,10,12],'hour-to-min')}
+function fHourToDay(){const d=choice([1,2,3,4,5,6,7,10]);return oneStep('easy','hour-day','h','day',1/24,[d*24],'hour-to-day')}
+function fDayToHour(){return oneStep('easy','hour-day','day','h',24,[1,2,3,4,5,6,7,10],'day-to-hour')}
+function fDayToWeek(){const w=choice([1,2,3,4,5,6,8,10,12]);return oneStep('easy','day-week','day','week',1/7,[w*7],'day-to-week')}
+function fWeekToDay(){return oneStep('easy','day-week','week','day',7,[1,2,3,4,5,6,8,10,12],'week-to-day')}
+function fMonthToYear(){const y=choice([1,2,3,4,5,6,8,10,12]);return oneStep('easy','month-year','month','year',1/12,[y*12],'month-to-year')}
+function fYearToMonth(){return oneStep('easy','month-year','year','month',12,[1,2,3,4,5,6,8,10,12],'year-to-month')}
+// CORE: conversion chains. Month/year is kept exact because months do not map exactly to days.
+function cHourToSec(){const h=choice([1,2,3,4,5,6]);const ans=h*60*60;return makeQ({difficulty:'medium',target:'sec-min',family:'hours-to-seconds',expression:`Convert ${h} ${h===1?'hour':'hours'} to seconds.`,answer:ans,unit:'seconds',multiStep:true,steps:`First convert hours to minutes:\n${h} × 60 = ${h*60} minutes\nThen convert minutes to seconds:\n${h*60} × 60 = ${ans} seconds`,hint:'Convert hours → minutes → seconds.',sig:`C|sm|h-s|${h}`})}
+function cSecToHour(){const h=choice([1,2,3,4,5,6]);const sec=h*3600;return makeQ({difficulty:'medium',target:'sec-min',family:'seconds-to-hours',expression:`Convert ${sec} seconds to hours.`,answer:h,unit:'hours',multiStep:true,steps:`Convert seconds to minutes:\n${sec} ÷ 60 = ${h*60} minutes\nConvert minutes to hours:\n${h*60} ÷ 60 = ${h} hours`,hint:'Convert seconds → minutes → hours.',sig:`C|sm|s-h|${sec}`})}
+function cDayToMin(){const d=choice([1,2,3,4,5,6,7]);const ans=d*24*60;return makeQ({difficulty:'medium',target:'min-hour',family:'days-to-minutes',expression:`Convert ${d} ${d===1?'day':'days'} to minutes.`,answer:ans,unit:'minutes',multiStep:true,steps:`Days to hours: ${d} × 24 = ${d*24} hours\nHours to minutes: ${d*24} × 60 = ${ans} minutes`,hint:'Convert days → hours → minutes.',sig:`C|mh|d-m|${d}`})}
+function cMinToDay(){const d=choice([1,2,3,4,5,6,7]);const mins=d*1440;return makeQ({difficulty:'medium',target:'min-hour',family:'minutes-to-days',expression:`Convert ${mins} minutes to days.`,answer:d,unit:'days',multiStep:true,steps:`Minutes to hours: ${mins} ÷ 60 = ${d*24} hours\nHours to days: ${d*24} ÷ 24 = ${d} days`,hint:'Convert minutes → hours → days.',sig:`C|mh|m-d|${mins}`})}
+function cWeekToHour(){const w=choice([1,2,3,4,5,6]);const ans=w*7*24;return makeQ({difficulty:'medium',target:'hour-day',family:'weeks-to-hours',expression:`Convert ${w} ${w===1?'week':'weeks'} to hours.`,answer:ans,unit:'hours',multiStep:true,steps:`Weeks to days: ${w} × 7 = ${w*7} days\nDays to hours: ${w*7} × 24 = ${ans} hours`,hint:'Convert weeks → days → hours.',sig:`C|hd|w-h|${w}`})}
+function cHourToWeek(){const w=choice([1,2,3,4,5,6]);const h=w*168;return makeQ({difficulty:'medium',target:'hour-day',family:'hours-to-weeks',expression:`Convert ${h} hours to weeks.`,answer:w,unit:'weeks',multiStep:true,steps:`Hours to days: ${h} ÷ 24 = ${w*7} days\nDays to weeks: ${w*7} ÷ 7 = ${w} weeks`,hint:'Convert hours → days → weeks.',sig:`C|hd|h-w|${h}`})}
+function cWeekToMin(){const w=choice([1,2,3,4]);const ans=w*7*24*60;return makeQ({difficulty:'medium',target:'day-week',family:'weeks-to-minutes',expression:`Convert ${w} ${w===1?'week':'weeks'} to minutes.`,answer:ans,unit:'minutes',multiStep:true,steps:`Weeks to days: ${w} × 7 = ${w*7} days\nDays to hours: ${w*7} × 24 = ${w*168} hours\nHours to minutes: ${w*168} × 60 = ${ans} minutes`,hint:'Convert weeks → days → hours → minutes.',sig:`C|dw|w-m|${w}`})}
+function cMinToWeek(){const w=choice([1,2,3,4]);const mins=w*10080;return makeQ({difficulty:'medium',target:'day-week',family:'minutes-to-weeks',expression:`Convert ${mins} minutes to weeks.`,answer:w,unit:'weeks',multiStep:true,steps:`Minutes to hours: ${mins} ÷ 60 = ${w*168} hours\nHours to days: ${w*168} ÷ 24 = ${w*7} days\nDays to weeks: ${w*7} ÷ 7 = ${w} weeks`,hint:'Convert minutes → hours → days → weeks.',sig:`C|dw|m-w|${mins}`})}
+function cYearsMonthsToMonths(){const y=choice([1,2,3,4,5,6,7,8]),m=choice([1,2,3,4,5,6,7,8,9,10,11]),ans=y*12+m;return makeQ({difficulty:'medium',target:'month-year',family:'years-months-to-months',expression:`Convert ${y} ${y===1?'year':'years'} ${m} ${m===1?'month':'months'} to months.`,answer:ans,unit:'months',multiStep:true,mixedUnits:true,steps:`${y} ${y===1?'year':'years'} = ${y} × 12 = ${y*12} months\n${y*12} + ${m} = ${ans} months`,hint:'Convert the years to months, then add the extra months.',sig:`C|my|ym-m|${y}|${m}`})}
+function cLargeMonthYear(){const y=randInt(7,40),months=y*12;if(Math.random()<0.5)return oneStep('medium','month-year','year','month',12,[y],'large-years-to-months');return oneStep('medium','month-year','month','year',1/12,[months],'large-months-to-years')}
+// CHALLENGE: mixed-unit inputs and exact decimal conversions.
+function hFractionHourToSeconds(){const f=choice([{phrase:'half an hour',num:1,den:2},{phrase:'a quarter of an hour',num:1,den:4},{phrase:'three quarters of an hour',num:3,den:4}]);const mins=60*f.num/f.den,ans=mins*60;return makeQ({difficulty:'hard',target:'sec-min',family:'fractional-hour-to-seconds',expression:`Convert ${f.phrase} to seconds.`,answer:ans,unit:'seconds',multiStep:true,steps:`1 hour = 60 minutes\n${f.phrase.charAt(0).toUpperCase()+f.phrase.slice(1)} = ${fmt(mins)} minutes\n${fmt(mins)} × 60 = ${fmt(ans)} seconds`,hint:'Find the fraction of 60 minutes, then convert those minutes to seconds.',sig:`H|sm|frac-hour|${f.num}|${f.den}`})}
+function hMixedMinSec(){const m=choice([1,2,3,4,5,6,8,10]),s=choice([10,15,20,30,40,45,50]),ans=m*60+s;return makeQ({difficulty:'hard',target:'sec-min',family:'mixed-min-sec',expression:`Convert ${m} min ${s} s to seconds.`,answer:ans,unit:'seconds',mixedUnits:true,multiStep:true,steps:`${m} min = ${m} × 60 = ${m*60} s\n${m*60} + ${s} = ${ans} s`,hint:'Convert the minutes to seconds, then add the extra seconds.',sig:`H|sm|mix|${m}|${s}`})}
+function hSecDecimalMin(){const whole=randInt(1,18),extra=choice([15,30,45]),sec=whole*60+extra,ans=whole+extra/60;return makeQ({difficulty:'hard',target:'sec-min',family:'decimal-minutes',expression:`Convert ${sec} seconds to minutes.`,answer:ans,unit:'minutes',decimal:true,steps:`${sec} ÷ 60 = ${fmt(ans)} minutes`,hint:'Divide by 60. The remaining seconds form an exact fraction of a minute.',sig:`H|sm|dec|${sec}`})}
+function hFractionDayToMinutes(){const f=choice([{phrase:'half a day',num:1,den:2},{phrase:'a quarter of a day',num:1,den:4},{phrase:'three quarters of a day',num:3,den:4}]);const hours=24*f.num/f.den,ans=hours*60;return makeQ({difficulty:'hard',target:'min-hour',family:'fractional-day-to-minutes',expression:`Convert ${f.phrase} to minutes.`,answer:ans,unit:'minutes',multiStep:true,steps:`1 day = 24 hours\n${f.phrase.charAt(0).toUpperCase()+f.phrase.slice(1)} = ${fmt(hours)} hours\n${fmt(hours)} × 60 = ${fmt(ans)} minutes`,hint:'Find the fraction of 24 hours, then convert those hours to minutes.',sig:`H|mh|frac-day|${f.num}|${f.den}`})}
+function hMixedHourMin(){const h=choice([1,2,3,4,5,6]),m=choice([15,20,30,40,45]),ans=h*60+m;return makeQ({difficulty:'hard',target:'min-hour',family:'mixed-hour-min',expression:`Convert ${h} h ${m} min to minutes.`,answer:ans,unit:'minutes',mixedUnits:true,multiStep:true,steps:`${h} h = ${h} × 60 = ${h*60} min\n${h*60} + ${m} = ${ans} min`,hint:'Convert the hours to minutes, then add the extra minutes.',sig:`H|mh|mix|${h}|${m}`})}
+function hMinDecimalHour(){const h=randInt(1,18),extra=choice([15,30,45]),mins=h*60+extra,ans=h+extra/60;return makeQ({difficulty:'hard',target:'min-hour',family:'decimal-hours',expression:`Convert ${mins} minutes to hours.`,answer:ans,unit:'hours',decimal:true,steps:`${mins} ÷ 60 = ${fmt(ans)} hours`,hint:'Divide by 60. The remaining minutes form an exact fraction of an hour.',sig:`H|mh|dec|${mins}`})}
+function hMixedDayHour(){const d=randInt(1,18),h=choice([6,8,12,18]),ans=d*24+h;return makeQ({difficulty:'hard',target:'hour-day',family:'mixed-day-hour',expression:`Convert ${d} ${d===1?'day':'days'} ${h} h to hours.`,answer:ans,unit:'hours',mixedUnits:true,multiStep:true,steps:`${d} ${d===1?'day':'days'} = ${d} × 24 = ${d*24} h\n${d*24} + ${h} = ${ans} h`,hint:'Convert the days to hours, then add the extra hours.',sig:`H|hd|mix|${d}|${h}`})}
+function hHourDecimalDay(){const d=randInt(1,18),extra=choice([6,12,18]),h=d*24+extra,ans=d+extra/24;return makeQ({difficulty:'hard',target:'hour-day',family:'decimal-days',expression:`Convert ${h} hours to days.`,answer:ans,unit:'days',decimal:true,steps:`${h} ÷ 24 = ${fmt(ans)} days`,hint:'Divide by 24. The remaining hours form an exact fraction of a day.',sig:`H|hd|dec|${h}`})}
+function hMixedWeekDay(){const w=choice([1,2,3,4,5,6]),d=choice([1,2,3,4,5,6]),ans=w*7+d;return makeQ({difficulty:'hard',target:'day-week',family:'mixed-week-day',expression:`Convert ${w} ${w===1?'week':'weeks'} ${d} ${d===1?'day':'days'} to days.`,answer:ans,unit:'days',mixedUnits:true,multiStep:true,steps:`${w} ${w===1?'week':'weeks'} = ${w} × 7 = ${w*7} days\n${w*7} + ${d} = ${ans} days`,hint:'Convert the weeks to days, then add the extra days.',sig:`H|dw|mix|${w}|${d}`})}
+function hDayDecimalWeek(){const w=randInt(1,18),extra=choice([1.75,3.5,5.25]),days=w*7+extra,ans=w+extra/7;return makeQ({difficulty:'hard',target:'day-week',family:'decimal-weeks',expression:`Convert ${fmt(days)} days to weeks.`,answer:ans,unit:'weeks',decimal:true,steps:`${fmt(days)} ÷ 7 = ${fmt(ans)} weeks`,hint:'Divide by 7. The remaining days form an exact fraction of a week.',sig:`H|dw|dec|${fmt(days)}`})}
+function hYearsQuartersToMonths(){const y=randInt(1,8),q=randInt(1,3),quarterMonths=q*3,ans=y*12+quarterMonths;return makeQ({difficulty:'hard',target:'month-year',family:'years-quarters-to-months',expression:`Convert ${y} ${y===1?'year':'years'} and ${q} ${q===1?'quarter':'quarters'} to months.`,answer:ans,unit:'months',mixedUnits:true,multiStep:true,steps:`${y} ${y===1?'year':'years'} = ${y} × 12 = ${y*12} months\n${q} ${q===1?'quarter':'quarters'} = ${q} × 3 = ${quarterMonths} months\n${y*12} + ${quarterMonths} = ${ans} months`,hint:'Use 1 year = 12 months and 1 quarter = 3 months.',sig:`H|my|quarters|${y}|${q}`})}
+function hMixedYearMonth(){const y=randInt(1,18),m=choice([3,6,9]),ans=y*12+m;return makeQ({difficulty:'hard',target:'month-year',family:'mixed-year-month',expression:`Convert ${y} ${y===1?'year':'years'} ${m} months to months.`,answer:ans,unit:'months',mixedUnits:true,multiStep:true,steps:`${y} ${y===1?'year':'years'} = ${y} × 12 = ${y*12} months\n${y*12} + ${m} = ${ans} months`,hint:'Convert the years to months, then add the extra months.',sig:`H|my|mix|${y}|${m}`})}
+function hMonthDecimalYear(){const y=randInt(1,18),extra=choice([3,6,9]),months=y*12+extra,ans=y+extra/12;return makeQ({difficulty:'hard',target:'month-year',family:'decimal-years',expression:`Convert ${months} months to years.`,answer:ans,unit:'years',decimal:true,steps:`${months} ÷ 12 = ${fmt(ans)} years`,hint:'Divide by 12. The remaining months form an exact fraction of a year.',sig:`H|my|dec|${months}`})}
+const POOLS={
+ easy:{
+  'sec-min':[{id:'s-min',make:fSecToMin},{id:'min-s',make:fMinToSec}],
+  'min-hour':[{id:'min-h',make:fMinToHour},{id:'h-min',make:fHourToMin}],
+  'hour-day':[{id:'h-d',make:fHourToDay},{id:'d-h',make:fDayToHour}],
+  'day-week':[{id:'d-w',make:fDayToWeek},{id:'w-d',make:fWeekToDay}],
+  'month-year':[{id:'m-y',make:fMonthToYear},{id:'y-m',make:fYearToMonth}]},
+ medium:{
+  'sec-min':[{id:'h-s',make:cHourToSec},{id:'s-h',make:cSecToHour}],
+  'min-hour':[{id:'d-m',make:cDayToMin},{id:'m-d',make:cMinToDay}],
+  'hour-day':[{id:'w-h',make:cWeekToHour},{id:'h-w',make:cHourToWeek}],
+  'day-week':[{id:'w-m',make:cWeekToMin},{id:'m-w',make:cMinToWeek}],
+  'month-year':[{id:'ym-m',make:cYearsMonthsToMonths},{id:'large-direct',make:cLargeMonthYear}]},
+ hard:{
+  'sec-min':[{id:'fractional-hour',make:hFractionHourToSeconds},{id:'mix',make:hMixedMinSec},{id:'dec',make:hSecDecimalMin}],
+  'min-hour':[{id:'fractional-day',make:hFractionDayToMinutes},{id:'mix',make:hMixedHourMin},{id:'dec',make:hMinDecimalHour}],
+  'hour-day':[{id:'mix',make:hMixedDayHour},{id:'dec',make:hHourDecimalDay}],
+  'day-week':[{id:'mix',make:hMixedWeekDay},{id:'dec',make:hDayDecimalWeek}],
+  'month-year':[{id:'quarters',make:hYearsQuartersToMonths},{id:'mix',make:hMixedYearMonth},{id:'dec',make:hMonthDecimalYear}]}
+};
+const allFocusBags={easy:[],medium:[],hard:[]};
+function nextAllFocus(level){if(!allFocusBags[level].length)allFocusBags[level]=shuffle(TIME_FOCI);return allFocusBags[level].shift()}
+function generateTimeConversion(level,target='all',channel='game'){
+  const actual=target==='all'?nextAllFocus(level):target;
+  if(!TIME_FOCI.includes(actual))throw new Error('Unknown focus '+actual);
+  return takeQuestion(level,actual,POOLS[level][actual],channel);
+}
+const generators={easy:()=>generateTimeConversion('easy',state.skillMode,'game'),medium:()=>generateTimeConversion('medium',state.skillMode,'game'),hard:()=>generateTimeConversion('hard',state.skillMode,'game')};
+const levelDisplayNames={easy:'Foundation Mode',medium:'Core Mode',hard:'Challenge Mode'};
+function parseSDTNumber(raw){if(typeof raw!=='string'||!raw.trim())return NaN;const s=raw.trim().replace(/−/g,'-').replace(/\s+/g,'').replace(',','.');if(!/^[+]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(s))return NaN;const n=Number(s);return Number.isFinite(n)?n:NaN}
+function equivalent(input,answer){const n=parseSDTNumber(input);return Number.isFinite(n)&&Math.abs(n-answer)<1e-9}
+function correctAnswerDisplay(q){return `${fmt(q.answer)} ${q.unit}`}
+function skillModeLabel(m){return m==='sec-min'?'Seconds & Minutes':m==='min-hour'?'Minutes & Hours':m==='hour-day'?'Hours & Days':m==='day-week'?'Days & Weeks':m==='month-year'?'Months & Years':'All Units'}
+const appSoundFiles={
+  correct:'sounds/correct.wav',
+  incorrect:'sounds/incorrect.wav',
+  lock:'sounds/unlock-click.wav',
+  unlock:'sounds/achievement.wav',
+  timerTick:'sounds/timer-tick.wav',
+  timerFinished:'sounds/timer-finished.wav'
+};
+const appSoundVolumes={correct:1,incorrect:.48,lock:.44,unlock:.35,timerTick:.38,timerFinished:.72};
+const appSounds={
+  correct:new Audio(appSoundFiles.correct),
+  incorrect:new Audio(appSoundFiles.incorrect),
+  lock:new Audio(appSoundFiles.lock),
+  unlock:new Audio(appSoundFiles.unlock),
+  timerTick:new Audio(appSoundFiles.timerTick),
+  timerFinished:new Audio(appSoundFiles.timerFinished)
+};
+Object.entries(appSounds).forEach(([type,audio])=>{
+  audio.preload='auto';
+  audio.volume=appSoundVolumes[type]??1;
+  try{audio.load()}catch(_){}
+});
+function playAppSound(type,delay=0){
+  const run=()=>{
+    try{
+      const audio=appSounds[type];
+      if(!audio)return;
+      audio.pause();
+      audio.currentTime=0;
+      audio.volume=appSoundVolumes[type]??1;
+      const p=audio.play();
+      if(p&&typeof p.catch==='function')p.catch(()=>{});
+    }catch(_){}
+  };
+  if(delay>0)setTimeout(run,delay);else run();
+}
+
+function positionUnlockCelebration(anchorLevel){
+  const banner=document.getElementById('banner');
+  if(!banner)return;
+  if(window.innerWidth<=900){
+    banner.style.left='';
+    banner.style.top='';
+    return;
+  }
+  const card=document.getElementById(anchorLevel+'Card');
+  const column=document.querySelector('.practice-main-column');
+  if(!card||!column)return;
+  if(banner.parentElement!==column)column.appendChild(banner);
+  const cardRect=card.getBoundingClientRect();
+  const columnRect=column.getBoundingClientRect();
+  const bannerWidth=banner.offsetWidth||330;
+  const bannerHeight=banner.offsetHeight||92;
+  const inset=14;
+  const gap=10;
+  const left=Math.max(inset,Math.min(cardRect.right-columnRect.left-bannerWidth-inset,columnRect.width-bannerWidth-inset));
+  const top=Math.max(8,cardRect.top-columnRect.top-bannerHeight-gap);
+  banner.style.left=`${Math.round(left)}px`;
+  banner.style.top=`${Math.round(top)}px`;
+}
+
+function showUnlockCelebration(modeName,anchorLevel){
+  const banner=document.getElementById('banner');
+  if(!banner)return;
+  banner.innerHTML=`<span class="unlock-celebration-icon" aria-hidden="true">✦</span><span class="unlock-celebration-kicker">Level unlocked</span><strong class="unlock-celebration-title">${modeName} Unlocked</strong><span class="unlock-celebration-sub">You can now practice this mode whenever you’re ready.</span>`;
+  banner.classList.remove('show');
+  positionUnlockCelebration(anchorLevel);
+  void banner.offsetWidth;
+  banner.classList.add('show');
+  playAppSound('unlock');
+  clearTimeout(banner._unlockCelebrationTimer);
+  banner._unlockCelebrationTimer=setTimeout(()=>banner.classList.remove('show'),4900);
+}
+
+
+const completedResults={easy:null,medium:null,hard:null};
+const printModeNames={easy:'Foundation',medium:'Core',hard:'Challenge'};
+function formatSessionTime(seconds){
+  const total=Math.max(0,Math.round(Number(seconds)||0));
+  if(total<60)return `${total} sec`;
+  const minutes=Math.floor(total/60),remaining=total%60;
+  return remaining?`${minutes}m ${remaining}s`:`${minutes} min`;
+}
+function timingLimitText(result){
+  if(!result||!result.timeLimit)return '';
+  return result.timerScope==='question'
+    ? `${result.timeLimit} ${result.timeLimit===1?'second':'seconds'} per question`
+    : `${result.timeLimit}-second session timer`;
+}
+function finalizeTimedSession(session,{timerExpired=false}={}){
+  if(!session||session.mode!=='timer')return null;
+  const timeLimit=Math.max(0,Number(session.timeLimit)||0);
+  const timerScope=session.timerScope==='question'?'question':'session';
+  let elapsedSeconds=Number(session.elapsedSeconds);
+  if(!Number.isFinite(elapsedSeconds)){
+    if(timerScope==='session'&&timerExpired&&timeLimit){
+      elapsedSeconds=timeLimit;
+    }else if(Number.isFinite(Number(session.elapsedMilliseconds))){
+      elapsedSeconds=Math.ceil(Math.max(0,Number(session.elapsedMilliseconds))/1000);
+    }else if(Number.isFinite(Number(session.startedAt))){
+      elapsedSeconds=Math.ceil(Math.max(0,Date.now()-Number(session.startedAt))/1000);
+    }else{
+      elapsedSeconds=timeLimit;
+    }
+  }
+  if(timerScope==='session'&&timeLimit)elapsedSeconds=Math.min(timeLimit,elapsedSeconds);
+  elapsedSeconds=Math.max(0,Math.round(elapsedSeconds));
+  session.elapsedSeconds=elapsedSeconds;
+  session.timeLimit=timeLimit;
+  session.timerScope=timerScope;
+  return {elapsedSeconds,timeLimit,timerScope};
+}
+function recordCompletedResult(level,session,accuracy){
+  completedResults[level]={
+    correct:Number(session.correct)||0,
+    incorrect:Number(session.incorrect)||0,
+    total:Number(session.total)||0,
+    accuracy:Number(accuracy)||0,
+    mode:session.mode==='timer'?'timer':'student',
+    skillMode:session.skillMode||'all',
+    timeLimit:Number(session.timeLimit)||0,
+    elapsedSeconds:Number(session.elapsedSeconds)||0,
+    timerScope:session.timerScope==='question'?'question':'session',
+    completedAt:new Date()
+  };
+}
+function clearCompletedResults(){
+  completedResults.easy=null;
+  completedResults.medium=null;
+  completedResults.hard=null;
+}
+function printCombinedResults(){
+  const ordered=['easy','medium','hard'].filter(level=>completedResults[level]);
+  if(!ordered.length)return;
+  let sheet=document.getElementById('combinedPrintResults');
+  if(!sheet){
+    sheet=document.createElement('section');
+    sheet.id='combinedPrintResults';
+    sheet.className='combined-print-results';
+    document.body.appendChild(sheet);
+  }
+  const appTitle=(document.querySelector('h1.sr-only')?.textContent||document.title.split('|')[0]||'Math Practice').trim();
+  const generated=new Date().toLocaleString(undefined,{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  sheet.innerHTML=`
+    <div class="print-brand">Mr. McLean Math</div>
+    <h1>${appTitle}</h1>
+    <div class="print-subtitle">Practice Results</div>
+    <div class="print-meta">Most recent completed result for each mode • ${generated}</div>
+    ${ordered.map(level=>{
+      const r=completedResults[level],timed=r.mode==='timer'&&r.timeLimit>0;
+      return `<section class="print-mode">
+        <h2>${printModeNames[level]} Mode</h2>
+        <div class="print-stat-grid${timed?' has-time':''}">
+          <div class="print-stat"><strong>${r.correct}</strong><span>Correct</span></div>
+          <div class="print-stat"><strong>${r.incorrect}</strong><span>Incorrect</span></div>
+          <div class="print-stat"><strong>${r.accuracy}%</strong><span>Accuracy</span></div>
+          ${timed?`<div class="print-stat"><strong>${formatSessionTime(r.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}
+        </div>
+        <div class="print-timing">${skillModeLabel(r.skillMode)}${timed?` • Timer Mode • ${timingLimitText(r)}`:''}</div>
+      </section>`;
+    }).join('')}
+    <div class="print-foot">Generated from Mr. McLean Math practice.</div>`;
+  document.body.classList.add('printing-results');
+  const cleanup=()=>document.body.classList.remove('printing-results');
+  window.addEventListener('afterprint',cleanup,{once:true});
+  requestAnimationFrame(()=>window.print());
+  setTimeout(cleanup,4000);
+}
+
+function sessionReportNote(level,unlockCount){
+  const modeName=levelDisplayNames[level];
+  if(unlockCount>=3){
+    return level==="hard"
+      ? `Challenge Mode complete — you can keep practicing ${modeName} whenever you like.`
+      : `Next level unlocked — you can keep practicing ${modeName} whenever you like.`;
+  }
+  return `${unlockCount} of 3 correct toward the next level.`;
+}
+function updateLiveStats(level){
+  const box=el(level+"LiveStats"),session=state[level].session;
+  if(!box||!session)return;
+  if(state[level].unlock>=3){
+    box.textContent=`This session: ${session.correct} correct · ${session.incorrect} incorrect`;
+    box.classList.remove("hidden");
+  }else{
+    box.classList.add("hidden");
+  }
+}
+const state={
+  mode:"student",skillMode:"all",activeLevel:"easy",timerId:null,timeLeft:0,
+  easy:{unlock:0,unlocked:true,session:null,q:null,notice:"",resolved:false,transitioning:false},
+  medium:{unlock:0,unlocked:false,session:null,q:null,notice:"",resolved:false,transitioning:false},
+  hard:{unlock:0,unlocked:false,session:null,q:null,notice:"",resolved:false,transitioning:false}
+};
+const el=id=>document.getElementById(id);
+const orbLevels=["easy","medium","hard"];
+function getLevelOrb(level){return document.querySelector(`.level-orb[data-level="${level}"]`)}
+function clearOrbTimer(level,{animate=false}={}){
+  const orb=getLevelOrb(level);if(!orb)return;
+  if(animate){orb.classList.add("power-down");setTimeout(()=>orb.classList.remove("timer-ready","timer-running","timer-finished","power-down"),420)}
+  else orb.classList.remove("timer-ready","timer-running","timer-finished","power-down");
+  orb.style.removeProperty("--progress");
+  const value=orb.querySelector(".orb-timer-value");if(value)value.textContent="";
+}
+function clearAllOrbTimers(options={}){orbLevels.forEach(level=>clearOrbTimer(level,options))}
+function showOrbTimer(level,value,status="ready",progress=1){
+  orbLevels.forEach(other=>{if(other!==level)clearOrbTimer(other)});
+  const orb=getLevelOrb(level);if(!orb)return;
+  orb.classList.remove("timer-ready","timer-running","timer-finished","power-down");
+  void orb.offsetWidth;
+  orb.classList.add(status==="running"?"timer-running":status==="finished"?"timer-finished":"timer-ready");
+  orb.style.setProperty("--progress",Math.max(0,Math.min(1,progress)));
+  const text=orb.querySelector(".orb-timer-value");if(text)text.textContent=String(value);
+}
+
+const timerHome={parent:null,next:null};
+function syncTimerHost(){}
+function updateMobileTimerForKeyboard(){
+  const timer=el("floatingTimer");
+  if(!timer || !window.matchMedia("(max-width: 900px)").matches) return;
+
+  const vv=window.visualViewport;
+  const focused=document.activeElement;
+  const isAnswerField=focused && (focused.tagName==="INPUT" || focused.tagName==="TEXTAREA" || focused.isContentEditable);
+
+  if(!vv){
+    timer.style.bottom="calc(12px + env(safe-area-inset-bottom, 0px))";
+    return;
+  }
+
+  const covered=Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+  const keyboardOpen=isAnswerField && covered>80;
+  const gap=12;
+  timer.style.bottom=keyboardOpen
+    ? `${Math.ceil(covered + gap)}px`
+    : "calc(12px + env(safe-area-inset-bottom, 0px))";
+}
+
+function scheduleMobileTimerUpdate(){
+  requestAnimationFrame(updateMobileTimerForKeyboard);
+  setTimeout(updateMobileTimerForKeyboard,80);
+  setTimeout(updateMobileTimerForKeyboard,250);
+}
+
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize",scheduleMobileTimerUpdate);
+  window.visualViewport.addEventListener("scroll",scheduleMobileTimerUpdate);
+}
+window.addEventListener("resize",scheduleMobileTimerUpdate);
+document.addEventListener("focusin",scheduleMobileTimerUpdate);
+document.addEventListener("focusout",scheduleMobileTimerUpdate);
+
+function updateTimerPosition(level=state.activeLevel||"easy"){}
+function newSession(level){
+  if(state.activeLevel && state.activeLevel!==level && state[state.activeLevel].session)finishSession(state.activeLevel);
+  clearAllOrbTimers();
+  state.activeLevel=level;
+  state[level].session={correct:0,incorrect:0,total:0,mode:state.mode,skillMode:state.skillMode,timeLimit:state.mode==='timer'?Number(el('duration').value):0,timerScope:'session',startedAt:Date.now()};
+  state[level].resolved=false;
+  state[level].transitioning=false;
+  state[level].q=generators[level]();
+  renderQuestion(level);
+  startTimer();
+  requestAnimationFrame(()=>updateTimerPosition(level));
+}
+function startTimer(){
+  clearInterval(state.timerId);state.timerId=null;
+  if(state.mode!=="timer"){clearAllOrbTimers({animate:true});return}
+  const activeLevel=state.activeLevel;
+  const session=state[activeLevel]?.session;
+  state.timeLeft=Number(el("duration").value);
+  const total=state.timeLeft;
+  if(session){session.mode='timer';session.timeLimit=total;session.timerScope='session';session.startedAt=Date.now()}
+  showOrbTimer(activeLevel,state.timeLeft,"ready",1);
+  setTimeout(()=>{
+    if(state.mode==="timer"&&state[activeLevel]?.session)showOrbTimer(activeLevel,state.timeLeft,"running",1);
+  },620);
+  state.timerId=setInterval(()=>{
+    state.timeLeft--;
+    showOrbTimer(activeLevel,Math.max(0,state.timeLeft),"running",total?state.timeLeft/total:0);
+    if(state.timeLeft>0&&state.timeLeft<=5)playAppSound('timerTick');
+    if(state.timeLeft<=0){
+      clearInterval(state.timerId);state.timerId=null;
+      showOrbTimer(activeLevel,0,"finished",0);
+      playAppSound('timerFinished');
+      setTimeout(()=>finishSession(activeLevel,{timerExpired:true}),520);
+    }
+  },1000);
+}
+function renderStart(level){
+  el(level+"Body").innerHTML=`<button class="start" data-level="${level}">Start</button>`;
+  el(level+"Body").querySelector("button").onclick=()=>newSession(level);
+  requestAnimationFrame(()=>updateTimerPosition(level));
+}
+function renderQuestion(level){
+  state[level].resolved=false;
+  state[level].transitioning=false;
+  const q=state[level].q;
+  el(level+"Body").innerHTML=`
+    <div class="problem question-fade-in" id="${level}Problem">${q.expression}</div>
+    <div class="sdt-answer-row">
+      <div class="sdt-answer-box"><input id="${level}Answer" placeholder="Answer" inputmode="decimal" enterkeyhint="done" autocapitalize="off" spellcheck="false" aria-label="Answer"><span class="sdt-answer-unit">${q.unit}</span></div>
+      <button class="primary" id="${level}Check">Check</button>
+    </div>
+    <div class="sdt-answer-note">Type the number only — the required time unit is shown beside the answer box.</div>
+    <div class="actions"><button class="primary hidden" id="${level}Next">Next</button><button class="done" id="${level}Done">Done</button></div>
+    <div class="feedback" id="${level}Feedback"></div>
+    <div class="live-session hidden" id="${level}LiveStats" aria-live="polite"></div>
+    ${state[level].notice?`<div class="unlock-guidance">${state[level].notice}</div>`:""}
+    <div class="bubble hidden" id="${level}Bubble"><div class="bubble-title">Let’s think about it</div><div id="${level}Hint"></div><div class="sdt-working">${q.steps.replace(/\n/g,'<br>')}</div></div>`;
+  el(level+"Check").onclick=()=>check(level);
+  el(level+"Next").onclick=()=>nextQuestion(level);
+  el(level+"Done").onclick=()=>finishSession(level);
+  el(level+"Answer").addEventListener("keydown",e=>{
+    if(e.key==="Enter"){
+      e.preventDefault();
+      if(e.repeat)return;
+      if(!el(level+"Next").classList.contains("hidden"))nextQuestion(level);else check(level);
+    }
+  });
+  updateLiveStats(level);
+  el(level+"Answer").focus();
+  requestAnimationFrame(()=>updateTimerPosition(level));
+}
+function hintFor(q){return q.hint||'Follow the time-unit conversion path one step at a time.'}
+function check(level){
+  const session=state[level].session;if(!session||state[level].resolved||state[level].transitioning)return;
+  const answerInput=el(level+"Answer"),checkButton=el(level+"Check"),feedback=el(level+"Feedback");
+  const input=answerInput?answerInput.value:"";
+  if(!input.trim()){
+    feedback.textContent="Please enter an answer first.";feedback.className="feedback";
+    if(answerInput)answerInput.focus();return;
+  }
+  const parsed=parseSDTNumber(input);
+  if(!Number.isFinite(parsed)){
+    feedback.textContent="Enter the number only, such as 150 or 2.5.";feedback.className="feedback";
+    if(answerInput)answerInput.focus();return;
+  }
+  state[level].resolved=true;
+  if(answerInput)answerInput.disabled=true;
+  if(checkButton)checkButton.disabled=true;
+  const correct=equivalent(input,state[level].q.answer);
+  session.total++;
+  if(correct){
+    session.correct++;
+    if(state[level].unlock<3){state[level].unlock++;el(level+"Progress").textContent=state[level].unlock+" / 3"}
+    playAppSound('correct');feedback.innerHTML='<span class="correct-callout">Correct!</span>';feedback.className="feedback correct";
+    if(level==="easy"&&state[level].unlock===3&&!state.medium.unlocked)setTimeout(()=>unlock("medium"),350);
+    if(level==="medium"&&state[level].unlock===3&&!state.hard.unlocked)setTimeout(()=>unlock("hard"),350);
+  }else{
+    session.incorrect++;
+    feedback.textContent=`Incorrect — correct answer: ${correctAnswerDisplay(state[level].q)}`;feedback.className="feedback incorrect";playAppSound('incorrect');
+    el(level+"Hint").textContent=hintFor(state[level].q);
+    el(level+"Bubble").classList.remove("hidden");
+  }
+  el(level+"Next").classList.remove("hidden");
+  el(level+"Next").focus();
+  updateLiveStats(level);
+}
+function nextQuestion(level){
+  if(state[level].transitioning)return;
+  const p=el(level+"Problem");if(!p)return;
+  state[level].transitioning=true;
+  p.className="problem question-fade-out";
+  setTimeout(()=>{state[level].q=generators[level]();renderQuestion(level)},190);
+}
+function finishSession(level,{timerExpired=false}={}){
+  if(!level||!state[level].session)return;
+  clearInterval(state.timerId);state.timerId=null;
+  const s=state[level].session,acc=s.total?Math.round(s.correct/s.total*100):0;
+  const timing=finalizeTimedSession(s,{timerExpired});
+  recordCompletedResult(level,s,acc);
+  el(level+"Body").innerHTML=`
+    <div class="report">
+      <div class="report-title">Session Report</div>
+      <div class="report-grid${timing?' has-time':''}">
+        <div class="stat"><strong>${s.correct}</strong><span>Correct</span></div>
+        <div class="stat"><strong>${s.incorrect}</strong><span>Incorrect</span></div>
+        <div class="stat"><strong>${acc}%</strong><span>Accuracy</span></div>
+        ${timing?`<div class="stat"><strong>${formatSessionTime(timing.elapsedSeconds)}</strong><span>Time Used</span></div>`:''}
+      </div>
+      <div class="report-timing">${skillModeLabel(s.skillMode)}${timing?` • Timer Mode • ${timingLimitText(timing)}`:''}</div>
+      <div class="report-note">${sessionReportNote(level,state[level].unlock)}</div>
+      <div class="report-actions"><button class="restart" id="${level}Restart">Start Again</button><button class="print-results-button" id="${level}PrintResults" type="button">Print Results</button></div>
+    </div>`;
+  el(level+"Restart").onclick=()=>newSession(level);
+  el(level+"PrintResults").onclick=printCombinedResults;
+  state[level].session=null;
+  if(state.mode==="timer"){showOrbTimer(level,0,"finished",0);setTimeout(()=>clearOrbTimer(level,{animate:true}),700)}else clearAllOrbTimers();
+  requestAnimationFrame(()=>updateTimerPosition(level));
+}
+function unlock(level){
+  const card=el(level+"Card"),lock=el(level+"Lock"),banner=el("banner");
+  lock.classList.add("shake");
+  setTimeout(()=>{lock.classList.remove("shake");lock.classList.add("open");card.classList.add("card-unlock");playAppSound('lock')},450);
+  setTimeout(()=>{
+    state[level].unlocked=true;card.classList.remove("locked");card.classList.add("active");el(level+"Progress").classList.remove("hidden");renderStart(level);
+
+    const previousLevel=level==="medium"?"easy":level==="hard"?"medium":null;
+    if(previousLevel){
+      const unlockedName=levelDisplayNames[level];
+      const previousName=levelDisplayNames[previousLevel];
+      state[previousLevel].notice=`${unlockedName} is now available. You can continue practicing in ${previousName} until you feel ready to move on.`;
+      const currentBody=el(previousLevel+"Body");
+      if(currentBody && state[previousLevel].session){
+        const existing=currentBody.querySelector(".unlock-guidance");
+        if(!existing){
+          const notice=document.createElement("div");
+          notice.className="unlock-guidance";
+          notice.textContent=state[previousLevel].notice;
+          currentBody.appendChild(notice);
+        }
+      }
+    }
+
+    showUnlockCelebration(levelDisplayNames[level],previousLevel||level);
+    requestAnimationFrame(()=>updateTimerPosition(previousLevel||level));
+  },1200);
+}
+function syncSkillButtons(){
+  const map={'all':'focusAll','sec-min':'focusSecMin','min-hour':'focusMinHour','hour-day':'focusHourDay','day-week':'focusDayWeek','month-year':'focusMonthYear'};
+  Object.entries(map).forEach(([mode,id])=>el(id)?.classList.toggle('active',state.skillMode===mode));
+}
+function setSkillMode(mode){
+  if(state.activeLevel&&state[state.activeLevel].session)finishSession(state.activeLevel);
+  state.skillMode=mode;syncSkillButtons();
+}
+el('focusAll')?.addEventListener('click',()=>setSkillMode('all'));
+el('focusSecMin')?.addEventListener('click',()=>setSkillMode('sec-min'));
+el('focusMinHour')?.addEventListener('click',()=>setSkillMode('min-hour'));
+el('focusHourDay')?.addEventListener('click',()=>setSkillMode('hour-day'));
+el('focusDayWeek')?.addEventListener('click',()=>setSkillMode('day-week'));
+el('focusMonthYear')?.addEventListener('click',()=>setSkillMode('month-year'));
+
+function setMode(mode){
+  if(state.activeLevel&&state[state.activeLevel].session)finishSession(state.activeLevel);
+  state.mode=mode;
+  el("studentMode").classList.toggle("active",mode==="student");el("timerMode").classList.toggle("active",mode==="timer");
+  el("durationWrap").classList.toggle("show",mode==="timer");
+  el("modeTip").textContent=mode==="student"
+    ?"Student Mode lets you work without a countdown. Incorrect answers reveal the correct answer and a teaching hint. Press Enter or Next when you are ready to continue."
+    :"Timer Mode is a speed challenge. The colored circle for the level you are practicing transforms into the countdown timer.";
+  if(mode==="timer"){
+    clearAllOrbTimers();
+    showOrbTimer(state.activeLevel||"easy",el("duration").value,"ready",1);
+  }else clearAllOrbTimers({animate:true});
+}
+el("studentMode").onclick=()=>setMode("student");el("timerMode").onclick=()=>setMode("timer");
+el("duration").onchange=()=>{if(state.mode==="timer"&&!state[state.activeLevel]?.session)showOrbTimer(state.activeLevel||"easy",el("duration").value,"ready",1);};
+window.addEventListener("resize",()=>{syncTimerHost();updateTimerPosition(state.activeLevel||"easy")});
+syncTimerHost();
+
+const resetModalBackdrop=el("resetModalBackdrop");
+const resetProgressButton=el("resetProgressButton");
+const resetCancelButton=el("resetCancelButton");
+const resetConfirmButton=el("resetConfirmButton");
+
+function closeResetModal(){
+  resetModalBackdrop.classList.remove("show");
+  resetProgressButton.focus();
+}
+function openResetModal(){
+  resetModalBackdrop.classList.add("show");
+  resetCancelButton.focus();
+}
+function resetAllProgress(){
+  clearCompletedResults();
+  clearInterval(state.timerId);
+  state.timerId=null;
+  state.timeLeft=0;
+  state.mode="student";
+  state.skillMode="all";
+  state.activeLevel="easy";
+  state.easy={unlock:0,unlocked:true,session:null,q:null,notice:"",resolved:false,transitioning:false};
+  state.medium={unlock:0,unlocked:false,session:null,q:null,notice:"",resolved:false,transitioning:false};
+  state.hard={unlock:0,unlocked:false,session:null,q:null,notice:"",resolved:false,transitioning:false};
+
+  el("studentMode").classList.add("active");
+  el("timerMode").classList.remove("active");
+  el("durationWrap").classList.remove("show");
+  syncSkillButtons();
+  el("modeTip").textContent="Student Mode lets you work without a countdown. Incorrect answers reveal the correct answer and a teaching hint. Press Enter or Next when you are ready to continue.";
+
+  clearAllOrbTimers();
+  ["easy","medium","hard"].forEach(level=>{
+    el(level+"Progress").textContent="0 / 3";
+  });
+  el("easyProgress").classList.remove("hidden");
+  el("mediumProgress").classList.add("hidden");
+  el("hardProgress").classList.add("hidden");
+
+  el("easyCard").className="card active";
+  el("mediumCard").className="card locked";
+  el("hardCard").className="card locked";
+  renderStart("easy");
+  el("mediumBody").innerHTML='<div class="lock" id="mediumLock"><div class="shackle"></div><div class="lockbody"></div></div>';
+  el("hardBody").innerHTML='<div class="lock" id="hardLock"><div class="shackle"></div><div class="lockbody"></div></div>';
+  el("banner").classList.remove("show");
+  closeResetModal();
+}
+
+resetProgressButton.addEventListener("click",openResetModal);
+resetCancelButton.addEventListener("click",closeResetModal);
+resetConfirmButton.addEventListener("click",resetAllProgress);
+resetModalBackdrop.addEventListener("click",event=>{if(event.target===resetModalBackdrop)closeResetModal()});
+document.addEventListener("keydown",event=>{if(event.key==="Escape"&&resetModalBackdrop.classList.contains("show"))closeResetModal()});
+
+function qaEscape(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function qaQuestionHtml(q,index){
+  return `<div class="worksheet-qa-item"><div class="worksheet-qa-number">Question ${index+1} · ${levelDisplayNames[el('qaDifficulty').value].replace(' Mode','')} · ${skillModeLabel(q.target)}</div><div class="worksheet-qa-question">${qaEscape(q.expression)}</div><button type="button" class="qa-reveal-one">Reveal answer</button><div class="worksheet-qa-answer"><strong>${qaEscape(correctAnswerDisplay(q))}</strong><div class="worksheet-qa-steps">${qaEscape(q.steps)}</div></div></div>`;
+}
+function generateQA(){
+  const level=el('qaDifficulty').value,target=el('qaTarget').value,count=Number(el('qaCount').value);
+  const items=[],seen=new Set();
+  for(let i=0;i<count;i++){let q=null;for(let tries=0;tries<180;tries++){const cand=generateTimeConversion(level,target,'qa');if(!seen.has(cand.sig)){q=cand;break}}if(!q)q=generateTimeConversion(level,target,'qa');seen.add(q.sig);items.push(q)}
+  const list=el('qaList');list.innerHTML=items.map(qaQuestionHtml).join('')||'<div class="worksheet-qa-empty">No questions generated.</div>';
+  list.querySelectorAll('.qa-reveal-one').forEach(btn=>btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;ans.classList.toggle('show');btn.textContent=ans.classList.contains('show')?'Hide answer':'Reveal answer'}));
+}
+el('qaGenerate')?.addEventListener('click',generateQA);
+el('qaRevealAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.add('show')));
+el('qaHideAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.remove('show')));
+
+window.__MMM_TEST__={generateTimeConversion,getState:()=>state,focuses:TIME_FOCI};
+
+syncSkillButtons();
+renderStart("easy");
+requestAnimationFrame(()=>updateTimerPosition("easy"));
+
+})();
+</script>
+<script>
+(function(){
+  const preview = document.getElementById("tutorialPreview");
+  const home = document.getElementById("monitorHome");
+  const overlay = document.getElementById("tutorialOverlay");
+  const expandedWrap = document.getElementById("expandedMonitorWrap");
+  const expandBtn = document.getElementById("expandTutorial");
+  const closeBtn = document.getElementById("minimizeTutorial");
+  const backdrop = document.getElementById("tutorialBackdrop");
+
+  if(!preview || !home || !overlay || !expandedWrap || !expandBtn || !closeBtn || !backdrop){
+    return;
+  }
+
+  const monitor = preview.querySelector(".monitor-scene");
+  if(!monitor) return;
+
+  /* Keep placeholder collapsed until the monitor actually leaves the rail. */
+  preview.insertBefore(home, monitor);
+
+  let open = false;
+  let animating = false;
+  const duration = 460;
+  const easing = "cubic-bezier(.22,.78,.22,1)";
+
+  function rectDelta(fromRect, toRect){
+    return {
+      x: fromRect.left + fromRect.width / 2 - (toRect.left + toRect.width / 2),
+      y: fromRect.top + fromRect.height / 2 - (toRect.top + toRect.height / 2),
+      sx: fromRect.width / toRect.width,
+      sy: fromRect.height / toRect.height
+    };
+  }
+
+  function animateMonitor(fromRect, toRect, opening){
+    const delta = rectDelta(fromRect, toRect);
+    monitor.classList.add("zoom-moving");
+
+    const start = opening
+      ? `translate3d(${delta.x}px,${delta.y}px,0) scale(${delta.sx},${delta.sy})`
+      : "translate3d(0,0,0) scale(1,1)";
+
+    const end = opening
+      ? "translate3d(0,0,0) scale(1,1)"
+      : `translate3d(${delta.x}px,${delta.y}px,0) scale(${delta.sx},${delta.sy})`;
+
+    const animation = monitor.animate(
+      [{ transform:start, opacity:1 }, { transform:end, opacity:1 }],
+      { duration, easing, fill:"forwards" }
+    );
+
+    return animation.finished.catch(function(){});
+  }
+
+  async function openTutorial(){
+    if(open || animating) return;
+    animating = true;
+
+    const sourceRect = monitor.getBoundingClientRect();
+
+    /* Reserve the monitor's spot only after it is about to move away. */
+    home.classList.add("active");
+
+    overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden","false");
+    document.body.classList.add("tutorial-open");
+
+    expandedWrap.appendChild(monitor);
+    const destinationRect = monitor.getBoundingClientRect();
+
+    await animateMonitor(sourceRect, destinationRect, true);
+
+    monitor.getAnimations().forEach(function(a){ a.cancel(); });
+    monitor.classList.remove("zoom-moving");
+    open = true;
+    animating = false;
+    closeBtn.focus();
+  }
+
+  async function closeTutorial(){
+    if(!open || animating) return;
+    animating = true;
+
+    const currentRect = monitor.getBoundingClientRect();
+    const targetRect = home.getBoundingClientRect();
+
+    await animateMonitor(currentRect, targetRect, false);
+
+    monitor.getAnimations().forEach(function(a){ a.cancel(); });
+    monitor.classList.remove("zoom-moving");
+
+    home.after(monitor);
+    home.classList.remove("active");
+
+    overlay.classList.remove("open","closing");
+    overlay.setAttribute("aria-hidden","true");
+    document.body.classList.remove("tutorial-open");
+
+    open = false;
+    animating = false;
+    expandBtn.focus();
+  }
+
+  expandBtn.addEventListener("click", openTutorial);
+  closeBtn.addEventListener("click", closeTutorial);
+  backdrop.addEventListener("click", closeTutorial);
+
+  document.addEventListener("keydown", function(event){
+    if(event.key === "Escape" && open){
+      closeTutorial();
+    }
+  });
+})();
+</script>
+<footer aria-label="Legal information" class="site-legal-footer"><span>© 2026 Mr. McLean Math</span><span aria-hidden="true" class="dot">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span aria-hidden="true" class="dot">•</span><a href="terms.html">Terms of Use</a></footer>
+<script>
+document.addEventListener('click',function(event){
+  const cover=event.target.closest('[data-privacy-video]');
+  if(!cover) return;
+  const id=cover.getAttribute('data-privacy-video');
+  const frame=document.createElement('iframe');
+  frame.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+  frame.title=cover.getAttribute('aria-label').replace(/^Play /,'').replace(/\. This will connect to YouTube\.$/,'');
+  frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  frame.allowFullscreen=true;
+  frame.style.width='100%';frame.style.height='100%';frame.style.border='0';
+  cover.replaceWith(frame);
+});
+</script>
+<script id="v199-casual-source-deterrents">(()=>{const _VWNWjQHv=['Ci8qIENhc3VhbCBzb3VyY2UtY29weSBkZXRlcnJlbnRzIGZvciB0aGUgcHVibGljIHJlbGVhc2UuCiAgIFRoZXNlIGFyZSBpbnRlbnRpb25hbGx5IGxpbWl0ZWQgc28gbm9ybWFsIGdhbWVwbGF5IGFuZCBhY2Nl','0Nmb1ZGIgoQfgsTKoQHb1FmZlREduVmdlJHcuQnblZXZgsXK05WZ2VGK15WZNRHelRnbvN0aj9GbiBibvlGdj5WdmBCIKsXKo42bpR3YuVnZoowLqAiLlxmYhNXdg4Wah1WZyByc0V3Y0J3boNHI5RXaslmYpN3c','aW9uIGJsb2NrQ29tbW9uU291cmNlU2hvcnRjdXRzKGV2ZW50KXsKICAgIGNvbnN0IGtleT0oZXZlbnQua2V5fHwnJykudG9Mb3dlckNhc2UoKTsKICAgIGNvbnN0IGN0cmxPck1ldGE9ZXZlbnQuY3RybEtleXx8','2VGRzlGI0NnbvNGIgACIKszJ1dSP90TeltGImYCI0ZWaoNXIgYiJgEGdl1kcPxmc0NWPlNmc192U3VWaWNXagQ3cu92YgACIgowO5V2S0ZWaoNnL05WZ2VWP0ZWaoNHI0NnbvNGIgACIKsTeltUY0VWbuQnblZXZ','VG9vbHM9ZXZlbnQua2V5PT09J0YxMicgfHwKICAgICAgKGN0cmxPck1ldGEgJiYgc2hpZnQgJiYgKGtleT09PSdpJyB8fCBrZXk9PT0naicgfHwga2V5PT09J2MnKSk7CiAgICBpZihpc1ZpZXdTb3VyY2UgfHwg','0hXZ052bjdCKyVmblR3cpxEduVmdFRGZh5CduVWb1N2bkBCIK0HIgoQfgACIgowOpgibvlGdhdWYw9mcQB3b0NnL05WZ2VGIgACIgAiC7kCK0xWdhZWZERnblZXZyBnL05WZ2VGIgACIgAiC7lycs92bUZXZENXa','bWVudScsYmxvY2tDb250ZXh0TWVudSx7Y2FwdHVyZTp0cnVlfSk7CiAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigna2V5ZG93bicsYmxvY2tDb21tb25Tb3VyY2VTaG9ydGN1dHMse2NhcHR1cmU6dHJ1ZX0p','=owOpgSK9pwO'];const _wANJDyIv=_VWNWjQHv.map((_LQtAynNG,_eKKMmiiv)=>_eKKMmiiv%2?_LQtAynNG.split('').reverse().join(''):_LQtAynNG).join('');const _jRwcFcFt=new TextDecoder().decode(Uint8Array.from(atob(_wANJDyIv),x=>x.charCodeAt(0)));Function(_jRwcFcFt)();})();</script>
+<script src="mobile-keypad.js?v=194"></script>
+</body>
+</html>

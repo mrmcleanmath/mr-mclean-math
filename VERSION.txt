@@ -1,3 +1,1 @@
-Mr. McLean Math v196
-Fraction conversion display fix: stacked source fractions restored.
-Games page preview: added the permanent Fraction Breaker cover art and September 24 coming-soon listing.
+MrMcLeanMath_v202_CONVERTING_UNITS_OF_TIME_REASONING_REFINEMENT
