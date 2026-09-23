@@ -654,7 +654,7 @@ body.tutorial-open{
     max-width:560px;
     width:100%;
     margin:0 auto;
-    order:-1;
+    order:1;
   }
 
   .tutorial-overlay-card{
@@ -2071,7 +2071,7 @@ body > header.site-global-header .site-global-social svg{
   body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
-  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 calc((100% - 16px)/3) !important;width:calc((100% - 16px)/3) !important;min-width:0 !important;font-size:16px !important;}
 }
 @media(max-width:640px){
   body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
@@ -2111,7 +2111,7 @@ body > header.site-global-header .site-global-social svg{
 
 <link href="mobile-keypad.css" rel="stylesheet"/>
 <style>
-.decimal-source{font-size:1.15em;font-weight:1000;letter-spacing:.02em}.conversion-target{white-space:nowrap}.fraction-inline{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.02;min-width:1.25em;vertical-align:middle}.fraction-inline .bar{height:2px;width:100%;background:currentColor;border-radius:2px}.mixed-inline{display:inline-flex;align-items:center;gap:.22em}.qa-prompt .fraction-inline{font-size:1em}
+.decimal-source{font-size:1.15em;font-weight:1000;letter-spacing:.02em}.conversion-target{white-space:nowrap}.fraction-inline{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.02;min-width:1.25em;vertical-align:middle}.fraction-inline .bar{height:2px;width:100%;background:currentColor;border-radius:2px}.mixed-inline{display:inline-flex;align-items:center;gap:.22em}
 </style>
 <style id="v190-fraction-answer-fields">
 .fraction-answer-entry{
@@ -2188,11 +2188,13 @@ body > header.site-global-header .site-global-social svg{
 
 
 <style>
-.angle-answer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:13px}.angle-answer-box{display:inline-flex;align-items:stretch;border:2px solid #777e88;border-radius:12px;overflow:hidden;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}.angle-answer-box:focus-within{border-color:#4c55d9;box-shadow:0 0 0 3px rgba(76,85,217,.13)}.angle-answer-box input{width:145px!important;height:50px!important;margin:0!important;padding:8px 10px!important;border:0!important;border-radius:0!important;background:#fff!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-size:1.15rem!important;font-weight:1000!important;color:#252a31!important;outline:0!important}.angle-answer-unit{min-width:54px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-left:2px solid #c9cdd3;background:#f2f4f7;color:#354154;font-size:1.1rem;font-weight:1000}.angle-answer-note{text-align:center;margin:6px auto 0;color:#67717f;font-size:.78rem;font-weight:800;line-height:1.35}.angle-working{margin-top:10px;padding-top:9px;border-top:1px solid rgba(80,90,105,.18);font-size:.86rem;line-height:1.5;color:#425064}.angle-question-wrap{display:grid;gap:10px}.angle-diagram{display:flex;justify-content:center;align-items:center;width:100%;min-height:210px;padding:6px 4px 0}.angle-diagram svg{display:block;width:min(100%,430px);height:auto;overflow:visible}.angle-prompt{text-align:center;font-size:1.04rem;font-weight:1000;color:#303844}.angle-rule{text-align:center;font-size:.78rem;font-weight:850;color:#687384}.worksheet-qa-panel{width:min(100%,960px);margin:24px auto 0;padding:20px;border:2px dashed #7c8795;border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 9px 24px rgba(45,52,68,.08)}.worksheet-qa-panel h2{margin:0 0 5px;font-size:1.2rem}.worksheet-qa-panel>p{margin:0 0 14px;color:#65707e;font-size:.86rem;font-weight:700}.worksheet-qa-controls{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin-bottom:14px}.worksheet-qa-control{display:grid;gap:4px;font-size:.73rem;font-weight:900;color:#586373;text-transform:uppercase;letter-spacing:.04em}.worksheet-qa-control select{min-width:130px;padding:8px 10px;border:1.5px solid #8b96a4;border-radius:9px;background:#fff;font:inherit;color:#2f3946;text-transform:none;letter-spacing:normal}.worksheet-qa-controls button,.qa-reveal-one{border:0;border-radius:9px;background:#344f73;color:#fff;padding:9px 12px;font-weight:900;cursor:pointer}.worksheet-qa-controls .qa-secondary,.qa-reveal-one{background:#eef2f6;color:#34465d;border:1px solid #bdc7d2}.worksheet-qa-list{display:grid;gap:11px}.worksheet-qa-item{padding:12px 13px;border:1px solid #cbd3dc;border-radius:12px;background:#fff}.worksheet-qa-number{font-size:.72rem;font-weight:1000;color:#617086;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}.worksheet-qa-question{font-weight:850;line-height:1.45}.worksheet-qa-question .angle-diagram{min-height:150px}.worksheet-qa-question .angle-diagram svg{max-width:320px}.qa-reveal-one{margin-top:9px;padding:6px 9px;font-size:.78rem}.worksheet-qa-answer{display:none;margin-top:9px;padding:9px 11px;border-radius:9px;background:#eef8f0;color:#265534;font-size:.86rem}.worksheet-qa-answer.show{display:block}.worksheet-qa-steps{white-space:pre-line;margin-top:7px;color:#46566a;line-height:1.45}.worksheet-qa-empty{color:#687484;font-style:italic}.tutorial-rail:empty{display:none!important}.practice-layout-new{grid-template-columns:minmax(0,1fr)!important;max-width:980px;margin-inline:auto}.practice-main-column{max-width:980px;margin-inline:auto;width:100%}
-@media(max-width:700px){.angle-answer-row{align-items:stretch}.angle-answer-box{width:100%}.angle-answer-box input{flex:1 1 0;min-width:0!important;width:0!important}.angle-answer-unit{flex:0 0 auto;min-width:58px}.angle-answer-row>.primary{width:100%;max-width:190px}.angle-diagram{min-height:175px}.worksheet-qa-controls{display:grid;grid-template-columns:1fr 1fr}.worksheet-qa-control select{min-width:0;width:100%}.worksheet-qa-controls button{grid-column:1/-1}.worksheet-qa-panel{padding:15px 12px}}
+.angle-answer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:13px}.angle-answer-box{display:inline-flex;align-items:stretch;border:2px solid #777e88;border-radius:12px;overflow:hidden;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}.angle-answer-box:focus-within{border-color:#4c55d9;box-shadow:0 0 0 3px rgba(76,85,217,.13)}.angle-answer-box input{width:145px!important;height:50px!important;margin:0!important;padding:8px 10px!important;border:0!important;border-radius:0!important;background:#fff!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-size:1.15rem!important;font-weight:1000!important;color:#252a31!important;outline:0!important}.angle-answer-unit{min-width:54px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-left:2px solid #c9cdd3;background:#f2f4f7;color:#354154;font-size:1.1rem;font-weight:1000}.angle-answer-note{text-align:center;margin:6px auto 0;color:#67717f;font-size:.78rem;font-weight:800;line-height:1.35}.angle-working{margin-top:10px;padding-top:9px;border-top:1px solid rgba(80,90,105,.18);font-size:.86rem;line-height:1.5;color:#425064}.angle-question-wrap{display:grid;gap:10px}.angle-diagram{display:flex;justify-content:center;align-items:center;width:100%;min-height:210px;padding:6px 4px 0}.angle-diagram svg{display:block;width:min(100%,430px);height:auto;overflow:visible}.angle-prompt{text-align:center;font-size:1.04rem;font-weight:1000;color:#303844}.angle-rule{text-align:center;font-size:.78rem;font-weight:850;color:#687384}.tutorial-rail:empty{display:none!important}.practice-layout-new{grid-template-columns:minmax(0,1fr)!important;max-width:980px;margin-inline:auto}.practice-main-column{max-width:980px;margin-inline:auto;width:100%}
+@media(max-width:700px){.angle-answer-row{align-items:stretch}.angle-answer-box{width:100%}.angle-answer-box input{flex:1 1 0;min-width:0!important;width:0!important}.angle-answer-unit{flex:0 0 auto;min-width:58px}.angle-answer-row>.primary{width:100%;max-width:190px}.angle-diagram{min-height:175px}}
 .angle-multi-answer{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;width:100%}.angle-answer-box{position:relative}.angle-answer-name{min-width:42px;padding:0 10px;display:flex;align-items:center;justify-content:center;background:#e9edf2;border-right:2px solid #c9cdd3;color:#344154;font-weight:1000}.angle-answer-box.no-unit .angle-answer-unit{display:none}.angle-answer-box.no-unit input{border-radius:0 10px 10px 0!important}.angle-prompt-sub{display:block;margin-top:3px;font-size:.82rem;color:#67717f;font-weight:800}.vo-expression{font-weight:1000;letter-spacing:.01em}.vo-small-note{font-size:.76rem;color:#697584;text-align:center;margin-top:3px;font-weight:800}@media(max-width:700px){.angle-multi-answer{display:grid;grid-template-columns:1fr}.angle-answer-box{width:100%}.angle-answer-name{min-width:48px}.angle-answer-box input{width:0!important;flex:1 1 0}}
 </style>
 
+<link rel="stylesheet" href="practice-fullscreen.css?v=213">
+<script src="practice-fullscreen.js?v=213" defer></script>
 </head>
 <body>
 <h1 class="sr-only">Vertically Opposite Angles</h1>
@@ -2200,9 +2202,9 @@ body > header.site-global-header .site-global-social svg{
 <div class="site-global-topbar">
 <nav aria-label="Main navigation" class="site-global-nav">
 <a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
 <a href="games.html">Games</a>
+<a href="videos.html">Videos</a>
 <a href="about.html">About</a>
 </nav>
 <div aria-label="Social media links" class="site-global-social">
@@ -2263,18 +2265,7 @@ body > header.site-global-header .site-global-social svg{
 <aside aria-label="Tutorial area" class="tutorial-rail"></aside>
 </div>
 
-<section class="worksheet-qa-panel" aria-label="Worksheet QA testing controls">
-  <h2>Worksheet QA <span style="font-size:.72em;color:#7a5362">TESTING ONLY</span></h2>
-  <p>Uses the same approved generator as the practice app. Reveal answers to inspect the diagram, working, and difficulty progression.</p>
-  <div class="worksheet-qa-controls">
-    <label class="worksheet-qa-control">Difficulty<select id="qaDifficulty"><option value="easy">Foundation</option><option value="medium">Core</option><option value="hard">Challenge</option></select></label>
-    <label class="worksheet-qa-control">Questions<select id="qaCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label>
-    <button type="button" id="qaGenerate">Generate New Worksheet</button>
-    <button type="button" id="qaRevealAll" class="qa-secondary">Reveal All Answers</button>
-    <button type="button" id="qaHideAll" class="qa-secondary">Hide All Answers</button>
-  </div>
-  <div class="worksheet-qa-list" id="qaList"><div class="worksheet-qa-empty">Choose settings and generate a worksheet.</div></div>
-</section>
+
 
 <div aria-hidden="true" class="tutorial-overlay" id="tutorialOverlay">
 <div class="tutorial-overlay-backdrop" id="tutorialBackdrop"></div>
@@ -2312,29 +2303,71 @@ function remember(channel,level,sig){const r=recent[channel][level];if(r.include
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function fmtExpr(a,b){if(b===0)return `${a}x`;return `${a}x ${b>0?'+':'−'} ${Math.abs(b)}`}
 function svgLabel(cx,cy,mid,text,{fill='#fff4b8',stroke='#e2c866',color='#273444',r=76,font=15}={}){
-  if(!text)return '';
-  const rad=mid*Math.PI/180,x=cx+r*Math.cos(rad),y=cy-r*Math.sin(rad),wide=Math.max(38,String(text).length*9+18);
-  return `<rect x="${(x-wide/2).toFixed(1)}" y="${(y-15).toFixed(1)}" width="${wide}" height="30" rx="8" fill="${fill}" stroke="${stroke}" stroke-width="1" opacity=".98"/><text x="${x.toFixed(1)}" y="${(y+1).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="${font}" font-weight="900" fill="${color}">${esc(text)}</text>`;
+  if(text===undefined||text===null||text==='')return '';
+  const lines=Array.isArray(text)?text.filter(v=>String(v).trim()!==''):String(text).split('\n').filter(v=>String(v).trim()!=='');
+  if(!lines.length)return '';
+  const rad=mid*Math.PI/180,x=cx+r*Math.cos(rad),y=cy-r*Math.sin(rad);
+  const lineCount=lines.length;
+  const {width,height}=labelBoxMetrics(text,font);
+  const startY=y-(lineCount-1)*7;
+  const tspans=lines.map((line,i)=>`<tspan x="${x.toFixed(1)}" y="${(startY+i*15).toFixed(1)}">${esc(line)}</tspan>`).join('');
+  return `<rect x="${(x-width/2).toFixed(1)}" y="${(y-height/2).toFixed(1)}" width="${width.toFixed(1)}" height="${height.toFixed(1)}" rx="8" fill="${fill}" stroke="${stroke}" stroke-width="1" opacity=".98"/><text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="${font}" font-weight="900" fill="${color}">${tspans}</text>`;
+}
+function labelBoxMetrics(text,font=14){
+  const lines=Array.isArray(text)?text.filter(v=>String(v).trim()!==''):String(text||'').split('\n').filter(v=>String(v).trim()!=='');
+  const longest=lines.length?Math.max(...lines.map(v=>String(v).length)):1;
+  return {width:Math.max(30,longest*(font*0.62)+14),height:Math.max(26,22+(Math.max(lines.length,1)-1)*15)};
+}
+// Fit the entire upright label rectangle between the actual (rotated) rays.
+// A rectangle's support along each inward normal determines its required radius.
+function labelRadiusForSector(a,b,text,font=14,min=66){
+  const {width,height}=labelBoxMetrics(text,font),rad=Math.PI/180;
+  const clearance=9; // Includes the ray and label border, plus visible whitespace.
+  const support=deg=>Math.abs(Math.sin(deg*rad))*width/2+Math.abs(Math.cos(deg*rad))*height/2;
+  return Math.max(min,(Math.max(support(a),support(b))+clearance)/Math.sin((b-a)*rad/2));
+}
+function fitDiagram(svg,cx,cy,labels){
+  let halfW=195,halfH=140;
+  for(const {a,b,text,font,r} of labels){
+    if(!text || (Array.isArray(text)&&!text.length))continue;
+    const mid=(a+b)*Math.PI/360,{width,height}=labelBoxMetrics(text,font);
+    halfW=Math.max(halfW,Math.abs(r*Math.cos(mid))+width/2+14);
+    halfH=Math.max(halfH,Math.abs(r*Math.sin(mid))+height/2+14);
+  }
+  return svg.replace(/viewBox="[^"]*"/,
+    'viewBox="'+[cx-halfW,cy-halfH,halfW*2,halfH*2].join(' ')+'"');
 }
 function twoLineSVG(acute,labels){
-  const W=390,H=250,cx=195,cy=126,lineLen=155,arcR=48;
+  const W=390,H=280,cx=195,cy=140,lineLen=155,arcR=38;
+  const placements=[];
   const pt=(deg,r)=>{const rad=deg*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy-r*Math.sin(rad)}};
   let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Two intersecting lines with vertically opposite angles">`;
   for(const deg of [0,acute]){const p1=pt(deg,lineLen),p2=pt(deg+180,lineLen);svg+=`<line x1="${p1.x.toFixed(1)}" y1="${p1.y.toFixed(1)}" x2="${p2.x.toFixed(1)}" y2="${p2.y.toFixed(1)}" stroke="#334155" stroke-width="4" stroke-linecap="round"/>`}
   svg+=`<circle cx="${cx}" cy="${cy}" r="4.5" fill="#334155"/>`;
   const sectors=[[0,acute],[acute,180],[180,180+acute],[180+acute,360]];
-  sectors.forEach(([a,b],i)=>{const p1=pt(a,arcR),p2=pt(b,arcR),large=b-a>180?1:0;svg+=`<path d="M ${p1.x.toFixed(1)} ${p1.y.toFixed(1)} A ${arcR} ${arcR} 0 ${large} 0 ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}" fill="none" stroke="#8090a3" stroke-width="1.7"/>`;svg+=svgLabel(cx,cy,(a+b)/2,labels[i]||'',{r:82,font:labels[i]&&labels[i].length>9?13:15})});
-  return svg+'</svg>';
+  sectors.forEach(([a,b],i)=>{
+    const span=b-a,p1=pt(a,arcR),p2=pt(b,arcR),large=b-a>180?1:0,label=labels[i]||'',font=Array.isArray(label)||String(label).includes('\n')?12.5:(String(label).length>9?12.5:14),radius=labelRadiusForSector(a,b,label,font);
+    svg+=`<path d="M ${p1.x.toFixed(1)} ${p1.y.toFixed(1)} A ${arcR} ${arcR} 0 ${large} 0 ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}" fill="none" stroke="#8090a3" stroke-width="1.7"/>`;
+    placements.push({a,b,text:label,font,r:radius});
+    svg+=svgLabel(cx,cy,(a+b)/2,label,{r:radius,font});
+  });
+  return fitDiagram(svg+'</svg>',cx,cy,placements);
 }
 function sixLineSVG(given,u,w,labels,rotation=0){
-  const W=390,H=280,cx=195,cy=140,lineLen=126,arcR=42;
+  const W=390,H=280,cx=195,cy=140,lineLen=126,arcR=34;
+  const placements=[];
   const sizes=[given,u,w,given,u,w],bounds=[0];for(const v of sizes)bounds.push(bounds[bounds.length-1]+v);
   const pt=(deg,r)=>{const rad=(deg+rotation)*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy-r*Math.sin(rad)}};
   let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Three intersecting lines creating six angles">`;
   for(const deg of [0,bounds[1],bounds[2]]){const p1=pt(deg,lineLen),p2=pt(deg+180,lineLen);svg+=`<line x1="${p1.x.toFixed(1)}" y1="${p1.y.toFixed(1)}" x2="${p2.x.toFixed(1)}" y2="${p2.y.toFixed(1)}" stroke="#334155" stroke-width="3.7" stroke-linecap="round"/>`}
   svg+=`<circle cx="${cx}" cy="${cy}" r="4.5" fill="#334155"/>`;
-  for(let i=0;i<6;i++){const a=bounds[i],b=bounds[i+1],p1=pt(a,arcR),p2=pt(b,arcR);svg+=`<path d="M ${p1.x.toFixed(1)} ${p1.y.toFixed(1)} A ${arcR} ${arcR} 0 0 0 ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}" fill="none" stroke="#8090a3" stroke-width="1.6"/>`;svg+=svgLabel(cx,cy,(a+b)/2,labels[i]||'',{r:79,font:14})}
-  return svg+'</svg>';
+  for(let i=0;i<6;i++){
+    const a=bounds[i],b=bounds[i+1],span=b-a,p1=pt(a,arcR),p2=pt(b,arcR),label=labels[i]||'',font=Array.isArray(label)||String(label).includes('\n')?12:13.5,radius=labelRadiusForSector(a+rotation,b+rotation,label,font,60);
+    svg+=`<path d="M ${p1.x.toFixed(1)} ${p1.y.toFixed(1)} A ${arcR} ${arcR} 0 0 0 ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}" fill="none" stroke="#8090a3" stroke-width="1.6"/>`;
+    placements.push({a:a+rotation,b:b+rotation,text:label,font,r:radius});
+    svg+=svgLabel(cx,cy,(a+b)/2+rotation,label,{r:radius,font});
+  }
+  return fitDiagram(svg+'</svg>',cx,cy,placements);
 }
 function wrapDiagram(svg,prompt,rule='Vertically opposite angles are equal.'){
   return `<div class="angle-question-wrap"><div class="angle-diagram">${svg}</div><div class="angle-prompt">${prompt}</div><div class="angle-rule">${rule}</div></div>`;
@@ -2361,7 +2394,7 @@ function core(){
 const sixOptions=[];for(const k of [2,3,4])for(let u=20;u<=50;u+=5){const given=180-(k+1)*u,w=k*u;if(given>=30&&given<=100&&w<130)sixOptions.push({k,u,w,given})}
 function challengeSix(){
   const {k,u,w,given}=choice(sixOptions),v=w,rotation=choice([0,15,30,45,60,75]);
-  const labels=['', '', 'v',`${given}°`,'u','w'];
+  const labels=['','', 'v', `${given}°`, 'u', 'w'];
   const expression=wrapDiagram(sixLineSVG(given,u,w,labels,rotation),`Find u, v and w if w = ${k}u.`,'Angles on a straight line total 180°. Vertically opposite angles are equal.');
   const steps=`Along the straight line containing the given angle, u and w: ${given} + u + w = 180.
 w = ${k}u, so ${given} + u + ${k}u = 180.
@@ -2376,28 +2409,43 @@ function challengeExpressions(){
     const x=randInt(6,22),a=randInt(2,4),c=randInt(a+1,6),angle=randInt(45,135),b=angle-a*x,d=angle-c*x;
     if(Math.abs(b)>55||Math.abs(d)>55||b===d)continue;
     const acute=angle<90?angle:180-angle;if(acute<25||acute>80)continue;
-    const pair=angle<90?['B','D']:['A','C'],target=pair[0],other=pair[1],labels=sectorNames.map(n=>n===target?fmtExpr(a,b):n===other?fmtExpr(c,d):'');
+    const pair=angle<90?['B','D']:['A','C'],target=pair[0],other=pair[1];
+    const labels=sectorNames.map(n=>{
+      if(n===target)return [target, fmtExpr(a,b) + '°'];
+      if(n===other)return [other, fmtExpr(c,d) + '°'];
+      return n;
+    });
     const e1=fmtExpr(a,b),e2=fmtExpr(c,d);
-    const expression=wrapDiagram(twoLineSVG(acute,labels),`The opposite angles are ${e1}° and ${e2}°. Find x and angle ${target}.`,'Vertically opposite angles are equal, so their expressions are equal.');
+    const expression=wrapDiagram(twoLineSVG(acute,labels),`The opposite angles labelled with expressions are shown. Find x and angle ${target}.`,'Vertically opposite angles are equal, so their expressions are equal.');
     const diff=c-a,rhs=b-d;
-    const steps=`Vertically opposite angles are equal.\n${e1} = ${e2}\n${diff}x = ${rhs}\nx = ${x}\nAngle ${target} = ${e1.replace('x',`(${x})`)} = ${angle}°.`;
+    const steps=`Vertically opposite angles are equal.
+${e1} = ${e2}
+${diff}x = ${rhs}
+x = ${x}
+Angle ${target} = ${e1.replace('x',`(${x})`)} = ${angle}°.`;
     return makeQ('hard','opposite-expressions',[{name:'x',value:x,unit:''},{name:target,value:angle,unit:'°'}],expression,steps,'Set the two opposite angle expressions equal to each other. Solve for x, then substitute x back into either expression.',`H|E|${a}|${b}|${c}|${d}|${x}`);
   }
   return challengeRatio();
 }
 function challengeRatio(){
-  const k=choice([2,3,4,5]),small=180/(k+1),large=k*small,vals={A:large,B:small,C:large,D:small},acute=small,labels=['D','A','B','C'];
+  const k=choice([2,3,4,5]),small=180/(k+1),large=k*small,vals={A:large,B:small,C:large,D:small},acute=small;
   const [largeName,smallName]=choice([['A','B'],['A','D'],['C','B'],['C','D']]);
-  const expression=wrapDiagram(twoLineSVG(acute,labels),`Angle ${largeName} = ${k} × angle ${smallName}. Find A, B, C and D.`,'Adjacent angles total 180°. Vertically opposite angles are equal.');
+  const labels=sectorNames.map(n=>{
+    if(n===largeName)return [largeName, `${k}x`];
+    if(n===smallName)return [smallName, 'x'];
+    return n;
+  });
+  const expression=wrapDiagram(twoLineSVG(acute,labels),`Find A, B, C and D.`,'Use the x labels shown inside the angles. Adjacent angles total 180°. Vertically opposite angles are equal.');
   const otherLarge=pairMap[largeName],otherSmall=pairMap[smallName];
   const steps=`${largeName} + ${smallName} = 180°.
-${largeName} = ${k}${smallName}, so ${k}${smallName} + ${smallName} = 180.
-${k+1}${smallName} = 180.
+${largeName} = ${k}x and ${smallName} = x, so ${k}x + x = 180.
+${k+1}x = 180.
+x = ${small}°.
 ${smallName} = ${small}°.
 ${largeName} = ${k} × ${small} = ${large}°.
 ${otherLarge} is vertically opposite ${largeName}, so ${otherLarge} = ${large}°.
 ${otherSmall} is vertically opposite ${smallName}, so ${otherSmall} = ${small}°.`;
-  return makeQ('hard','adjacent-ratio',[{name:'A',value:vals.A,unit:'°'},{name:'B',value:vals.B,unit:'°'},{name:'C',value:vals.C,unit:'°'},{name:'D',value:vals.D,unit:'°'}],expression,steps,`Use ${largeName} + ${smallName} = 180° and the given multiplicative relationship. Then use the vertical pairs.`,`H|R|${k}|${largeName}|${smallName}`);
+  return makeQ('hard','adjacent-ratio',[{name:'A',value:vals.A,unit:'°'},{name:'B',value:vals.B,unit:'°'},{name:'C',value:vals.C,unit:'°'},{name:'D',value:vals.D,unit:'°'}],expression,steps,`Use ${largeName} + ${smallName} = 180° and the x labels shown in the diagram. Then use the vertical pairs.`,`H|R|${k}|${largeName}|${smallName}`);
 }
 const hardFamilies=[challengeSix,challengeExpressions,challengeRatio];let hardBag=[];
 function generateVerticalQuestion(level,channel='game'){
@@ -2903,22 +2951,8 @@ resetConfirmButton.addEventListener("click",resetAllProgress);
 resetModalBackdrop.addEventListener("click",event=>{if(event.target===resetModalBackdrop)closeResetModal()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape"&&resetModalBackdrop.classList.contains("show"))closeResetModal()});
 
-function qaEscape(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function qaQuestionHtml(q,index){
-  const answers=q.answers.map(a=>`${a.name} = ${a.value}${a.unit}`).join(', ');
-  return `<div class="worksheet-qa-item"><div class="worksheet-qa-number">Question ${index+1} · ${levelDisplayNames[el('qaDifficulty').value].replace(' Mode','')}</div><div class="worksheet-qa-question">${q.expression}</div><button type="button" class="qa-reveal-one">Reveal answer</button><div class="worksheet-qa-answer"><strong>${qaEscape(answers)}</strong><div class="worksheet-qa-steps">${qaEscape(q.steps)}</div></div></div>`;
-}
-function generateQA(){
-  const level=el('qaDifficulty').value,count=Number(el('qaCount').value);
-  const items=[],seen=new Set();for(let i=0;i<count;i++){let q=null;for(let tries=0;tries<160;tries++){const cand=generateVerticalQuestion(level,'qa');if(!seen.has(cand.sig)){q=cand;break}}if(!q)q=generateVerticalQuestion(level,'qa');seen.add(q.sig);items.push(q)}
-  const list=el('qaList');list.innerHTML=items.map(qaQuestionHtml).join('')||'<div class="worksheet-qa-empty">No questions generated.</div>';
-  list.querySelectorAll('.qa-reveal-one').forEach(btn=>btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;ans.classList.toggle('show');btn.textContent=ans.classList.contains('show')?'Hide answer':'Reveal answer'}));
-}
-el('qaGenerate')?.addEventListener('click',generateQA);
-el('qaRevealAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.add('show')));
-el('qaHideAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.remove('show')));
 
-window.__MMM_TEST__={generateVerticalQuestion,getState:()=>state};
+
 syncSkillButtons();
 renderStart("easy");
 requestAnimationFrame(()=>updateTimerPosition("easy"));

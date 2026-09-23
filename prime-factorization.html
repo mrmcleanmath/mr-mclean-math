@@ -657,7 +657,7 @@ body.tutorial-open{
     max-width:560px;
     width:100%;
     margin:0 auto;
-    order:-1;
+    order:1;
   }
 
   .tutorial-overlay-card{
@@ -2098,7 +2098,7 @@ body > header.site-global-header .site-global-social svg{
   body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
-  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 calc((100% - 16px)/3) !important;width:calc((100% - 16px)/3) !important;min-width:0 !important;font-size:16px !important;}
 }
 @media(max-width:640px){
   body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
@@ -2141,6 +2141,8 @@ body > header.site-global-header .site-global-social svg{
 
 
 <link rel="stylesheet" href="mobile-keypad.css">
+<link rel="stylesheet" href="practice-fullscreen.css?v=213">
+<script src="practice-fullscreen.js?v=213" defer></script>
 </head>
 <body>
 <h1 class="sr-only">Prime Factorization</h1>
@@ -2148,9 +2150,9 @@ body > header.site-global-header .site-global-social svg{
 <div class="site-global-topbar">
 <nav class="site-global-nav" aria-label="Main navigation">
 <a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
 <a href="games.html">Games</a>
+<a href="videos.html">Videos</a>
 <a href="about.html">About</a>
 </nav>
 <div class="site-global-social" aria-label="Social media links">

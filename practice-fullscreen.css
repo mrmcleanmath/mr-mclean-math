@@ -1,0 +1,8 @@
+.practice-fullscreen-button{width:33px;height:33px;min-width:33px;min-height:33px;flex:0 0 33px;box-sizing:border-box;padding:0;border-radius:50%;border:2px solid #555b64;background:#fff;color:#343a43;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.08)}
+.practice-fullscreen-button:hover{background:#f3f4f6}
+.practice-fullscreen-button:focus-visible,.practice-fullscreen-exit:focus-visible{outline:3px solid #6557ff;outline-offset:3px}
+.practice-fullscreen-exit[hidden]{display:none!important}
+.practice-fullscreen-exit{position:fixed;top:max(10px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));z-index:9000;min-height:40px;padding:8px 14px;border:2px solid #555b64;border-radius:22px;background:#fff;color:#343a43;font:700 14px "Trebuchet MS",Arial,sans-serif;box-shadow:0 3px 12px #0002;cursor:pointer}
+html.practice-fullscreen{overflow-y:auto!important;background:#f6f7fb}
+html.practice-fullscreen body{padding-top:60px!important}
+html.practice-fullscreen body>header.site-global-header,html.practice-fullscreen .site-legal-footer,html.practice-fullscreen .crumb{display:none!important}

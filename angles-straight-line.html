@@ -654,7 +654,7 @@ body.tutorial-open{
     max-width:560px;
     width:100%;
     margin:0 auto;
-    order:-1;
+    order:1;
   }
 
   .tutorial-overlay-card{
@@ -2071,7 +2071,7 @@ body > header.site-global-header .site-global-social svg{
   body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
-  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 calc((100% - 16px)/3) !important;width:calc((100% - 16px)/3) !important;min-width:0 !important;font-size:16px !important;}
 }
 @media(max-width:640px){
   body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
@@ -2111,7 +2111,7 @@ body > header.site-global-header .site-global-social svg{
 
 <link href="mobile-keypad.css" rel="stylesheet"/>
 <style>
-.decimal-source{font-size:1.15em;font-weight:1000;letter-spacing:.02em}.conversion-target{white-space:nowrap}.fraction-inline{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.02;min-width:1.25em;vertical-align:middle}.fraction-inline .bar{height:2px;width:100%;background:currentColor;border-radius:2px}.mixed-inline{display:inline-flex;align-items:center;gap:.22em}.qa-prompt .fraction-inline{font-size:1em}
+.decimal-source{font-size:1.15em;font-weight:1000;letter-spacing:.02em}.conversion-target{white-space:nowrap}.fraction-inline{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.02;min-width:1.25em;vertical-align:middle}.fraction-inline .bar{height:2px;width:100%;background:currentColor;border-radius:2px}.mixed-inline{display:inline-flex;align-items:center;gap:.22em}
 </style>
 <style id="v190-fraction-answer-fields">
 .fraction-answer-entry{
@@ -2188,10 +2188,12 @@ body > header.site-global-header .site-global-social svg{
 
 
 <style>
-.angle-answer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:13px}.angle-answer-box{display:inline-flex;align-items:stretch;border:2px solid #777e88;border-radius:12px;overflow:hidden;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}.angle-answer-box:focus-within{border-color:#4c55d9;box-shadow:0 0 0 3px rgba(76,85,217,.13)}.angle-answer-box input{width:145px!important;height:50px!important;margin:0!important;padding:8px 10px!important;border:0!important;border-radius:0!important;background:#fff!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-size:1.15rem!important;font-weight:1000!important;color:#252a31!important;outline:0!important}.angle-answer-unit{min-width:54px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-left:2px solid #c9cdd3;background:#f2f4f7;color:#354154;font-size:1.1rem;font-weight:1000}.angle-answer-note{text-align:center;margin:6px auto 0;color:#67717f;font-size:.78rem;font-weight:800;line-height:1.35}.angle-working{margin-top:10px;padding-top:9px;border-top:1px solid rgba(80,90,105,.18);font-size:.86rem;line-height:1.5;color:#425064}.angle-question-wrap{display:grid;gap:10px}.angle-diagram{display:flex;justify-content:center;align-items:center;width:100%;min-height:210px;padding:6px 4px 0}.angle-diagram svg{display:block;width:min(100%,430px);height:auto;overflow:visible}.angle-prompt{text-align:center;font-size:1.04rem;font-weight:1000;color:#303844}.angle-rule{text-align:center;font-size:.78rem;font-weight:850;color:#687384}.worksheet-qa-panel{width:min(100%,960px);margin:24px auto 0;padding:20px;border:2px dashed #7c8795;border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 9px 24px rgba(45,52,68,.08)}.worksheet-qa-panel h2{margin:0 0 5px;font-size:1.2rem}.worksheet-qa-panel>p{margin:0 0 14px;color:#65707e;font-size:.86rem;font-weight:700}.worksheet-qa-controls{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin-bottom:14px}.worksheet-qa-control{display:grid;gap:4px;font-size:.73rem;font-weight:900;color:#586373;text-transform:uppercase;letter-spacing:.04em}.worksheet-qa-control select{min-width:130px;padding:8px 10px;border:1.5px solid #8b96a4;border-radius:9px;background:#fff;font:inherit;color:#2f3946;text-transform:none;letter-spacing:normal}.worksheet-qa-controls button,.qa-reveal-one{border:0;border-radius:9px;background:#344f73;color:#fff;padding:9px 12px;font-weight:900;cursor:pointer}.worksheet-qa-controls .qa-secondary,.qa-reveal-one{background:#eef2f6;color:#34465d;border:1px solid #bdc7d2}.worksheet-qa-list{display:grid;gap:11px}.worksheet-qa-item{padding:12px 13px;border:1px solid #cbd3dc;border-radius:12px;background:#fff}.worksheet-qa-number{font-size:.72rem;font-weight:1000;color:#617086;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}.worksheet-qa-question{font-weight:850;line-height:1.45}.worksheet-qa-question .angle-diagram{min-height:150px}.worksheet-qa-question .angle-diagram svg{max-width:320px}.qa-reveal-one{margin-top:9px;padding:6px 9px;font-size:.78rem}.worksheet-qa-answer{display:none;margin-top:9px;padding:9px 11px;border-radius:9px;background:#eef8f0;color:#265534;font-size:.86rem}.worksheet-qa-answer.show{display:block}.worksheet-qa-steps{white-space:pre-line;margin-top:7px;color:#46566a;line-height:1.45}.worksheet-qa-empty{color:#687484;font-style:italic}.tutorial-rail:empty{display:none!important}.practice-layout-new{grid-template-columns:minmax(0,1fr)!important;max-width:980px;margin-inline:auto}.practice-main-column{max-width:980px;margin-inline:auto;width:100%}
-@media(max-width:700px){.angle-answer-row{align-items:stretch}.angle-answer-box{width:100%}.angle-answer-box input{flex:1 1 0;min-width:0!important;width:0!important}.angle-answer-unit{flex:0 0 auto;min-width:58px}.angle-answer-row>.primary{width:100%;max-width:190px}.angle-diagram{min-height:175px}.worksheet-qa-controls{display:grid;grid-template-columns:1fr 1fr}.worksheet-qa-control select{min-width:0;width:100%}.worksheet-qa-controls button{grid-column:1/-1}.worksheet-qa-panel{padding:15px 12px}}
+.angle-answer-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:13px}.angle-answer-box{display:inline-flex;align-items:stretch;border:2px solid #777e88;border-radius:12px;overflow:hidden;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.05)}.angle-answer-box:focus-within{border-color:#4c55d9;box-shadow:0 0 0 3px rgba(76,85,217,.13)}.angle-answer-box input{width:145px!important;height:50px!important;margin:0!important;padding:8px 10px!important;border:0!important;border-radius:0!important;background:#fff!important;text-align:center!important;font-family:"Trebuchet MS",Arial,sans-serif!important;font-size:1.15rem!important;font-weight:1000!important;color:#252a31!important;outline:0!important}.angle-answer-unit{min-width:54px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-left:2px solid #c9cdd3;background:#f2f4f7;color:#354154;font-size:1.1rem;font-weight:1000}.angle-answer-note{text-align:center;margin:6px auto 0;color:#67717f;font-size:.78rem;font-weight:800;line-height:1.35}.angle-working{margin-top:10px;padding-top:9px;border-top:1px solid rgba(80,90,105,.18);font-size:.86rem;line-height:1.5;color:#425064}.angle-question-wrap{display:grid;gap:10px}.angle-diagram{display:flex;justify-content:center;align-items:center;width:100%;min-height:210px;padding:6px 4px 0}.angle-diagram svg{display:block;width:min(100%,430px);height:auto;overflow:visible}.angle-prompt{text-align:center;font-size:1.04rem;font-weight:1000;color:#303844}.angle-rule{text-align:center;font-size:.78rem;font-weight:850;color:#687384}.tutorial-rail:empty{display:none!important}.practice-layout-new{grid-template-columns:minmax(0,1fr)!important;max-width:980px;margin-inline:auto}.practice-main-column{max-width:980px;margin-inline:auto;width:100%}
+@media(max-width:700px){.angle-answer-row{align-items:stretch}.angle-answer-box{width:100%}.angle-answer-box input{flex:1 1 0;min-width:0!important;width:0!important}.angle-answer-unit{flex:0 0 auto;min-width:58px}.angle-answer-row>.primary{width:100%;max-width:190px}.angle-diagram{min-height:175px}}
 </style>
 
+<link rel="stylesheet" href="practice-fullscreen.css?v=213">
+<script src="practice-fullscreen.js?v=213" defer></script>
 </head>
 <body>
 <h1 class="sr-only">Angles on a Straight Line</h1>
@@ -2199,9 +2201,9 @@ body > header.site-global-header .site-global-social svg{
 <div class="site-global-topbar">
 <nav aria-label="Main navigation" class="site-global-nav">
 <a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
 <a href="games.html">Games</a>
+<a href="videos.html">Videos</a>
 <a href="about.html">About</a>
 </nav>
 <div aria-label="Social media links" class="site-global-social">
@@ -2262,18 +2264,7 @@ body > header.site-global-header .site-global-social svg{
 <aside aria-label="Tutorial area" class="tutorial-rail"></aside>
 </div>
 
-<section class="worksheet-qa-panel" aria-label="Worksheet QA testing controls">
-  <h2>Worksheet QA <span style="font-size:.72em;color:#7a5362">TESTING ONLY</span></h2>
-  <p>Uses the same approved generator as the practice app. Reveal answers to inspect the diagram, working, and difficulty progression.</p>
-  <div class="worksheet-qa-controls">
-    <label class="worksheet-qa-control">Difficulty<select id="qaDifficulty"><option value="easy">Foundation</option><option value="medium">Core</option><option value="hard">Challenge</option></select></label>
-    <label class="worksheet-qa-control">Questions<select id="qaCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label>
-    <button type="button" id="qaGenerate">Generate New Worksheet</button>
-    <button type="button" id="qaRevealAll" class="qa-secondary">Reveal All Answers</button>
-    <button type="button" id="qaHideAll" class="qa-secondary">Hide All Answers</button>
-  </div>
-  <div class="worksheet-qa-list" id="qaList"><div class="worksheet-qa-empty">Choose settings and generate a worksheet.</div></div>
-</section>
+
 
 <div aria-hidden="true" class="tutorial-overlay" id="tutorialOverlay">
 <div class="tutorial-overlay-backdrop" id="tutorialBackdrop"></div>
@@ -2311,6 +2302,7 @@ function remember(channel,level,sig){const r=recent[channel][level];if(r.include
 function labelA(c){return c===1?'A':`${c}A`}
 function makeDiagram(segments){
   const sizeW=390,sizeH=230,cx=195,cy=184,lineLen=158,labelR=112,arcR=52;
+  let frameLeft=0,frameTop=0,frameRight=sizeW;
   const bounds=[0];for(const s of segments)bounds.push(bounds[bounds.length-1]+s.value);
   const pt=(deg,r)=>{const rad=deg*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy-r*Math.sin(rad)}};
   let svg=`<svg viewBox="0 0 ${sizeW} ${sizeH}" role="img" aria-label="Angles on a straight line">`;
@@ -2323,59 +2315,91 @@ function makeDiagram(segments){
     const a=pt(start,arcR),b=pt(end,arcR);
     const large=end-start>180?1:0;
     svg+=`<path d="M ${a.x.toFixed(1)} ${a.y.toFixed(1)} A ${arcR} ${arcR} 0 ${large} 0 ${b.x.toFixed(1)} ${b.y.toFixed(1)}" fill="none" stroke="#8090a3" stroke-width="1.8"/>`;
-    const p=pt(mid,labelR),txt=segments[i].label,wide=Math.max(38,txt.length*10+18);
+    const txt=segments[i].label,wide=Math.max(38,txt.length*10+18);
+    const rad=Math.PI/180;
+    const support=deg=>Math.abs(Math.sin(deg*rad))*wide/2+Math.abs(Math.cos(deg*rad))*15;
+    const radius=Math.max(labelR,(Math.max(support(start),support(end))+9)/Math.sin((end-start)*rad/2));
+    const p=pt(mid,radius);
+    frameLeft=Math.min(frameLeft,p.x-wide/2-12);frameRight=Math.max(frameRight,p.x+wide/2+12);frameTop=Math.min(frameTop,p.y-27);
     svg+=`<rect x="${(p.x-wide/2).toFixed(1)}" y="${(p.y-15).toFixed(1)}" width="${wide}" height="30" rx="8" fill="#fff4b8" stroke="#e2c866" stroke-width="1" opacity=".98"/>`;
     svg+=`<text x="${p.x.toFixed(1)}" y="${(p.y+1).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="16" font-weight="900" fill="#273444">${txt}</text>`;
   }
   svg+='</svg>';
-  return `<div class="angle-question-wrap"><div class="angle-diagram">${svg}</div><div class="angle-prompt">Find angle A.</div><div class="angle-rule">Angles on a straight line add up to 180°.</div></div>`;
+  svg=svg.replace(/viewBox="[^"]*"/,'viewBox="'+[frameLeft,frameTop,frameRight-frameLeft,sizeH-frameTop].join(' ')+'"');
+  return `<div class="angle-question-wrap"><div class="angle-diagram">${svg}</div><div class="angle-prompt">Find A.</div><div class="angle-rule">Angles on a straight line add up to 180°.</div></div>`;
 }
 function makeQ(level,family,segments,answer,steps,hint,sig){
   if(!Number.isInteger(answer)||answer<=0||answer>=180)throw new Error('Invalid angle answer');
   const total=segments.reduce((s,x)=>s+x.value,0);if(total!==180)throw new Error('Angles do not total 180');
   return{difficulty:level,target:'angles',family,segments,answer,unit:'°',steps,hint,sig,expression:makeDiagram(segments)};
 }
-const friendly=[20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160];
-function foundation(){
-  const known=choice(friendly.filter(x=>180-x>=20)),A=180-known,left=Math.random()<.5;
-  const segs=left?[{value:A,label:'A'},{value:known,label:`${known}°`}]:[{value:known,label:`${known}°`},{value:A,label:'A'}];
-  return makeQ('easy','two-angle',segs,A,`Angles on a straight line total 180°.\nA + ${known} = 180\nA = 180 − ${known}\nA = ${A}°`,'Subtract the known angle from 180°.',`F|${known}|${left?'L':'R'}`);
+// Choose an answer first, then a configuration: numerous layouts must not
+// make one answer more likely. Bags are independent for practice and worksheets.
+const questionPools={};
+function addConfiguration(family,answer,data){
+  const pool=questionPools[family]||(questionPools[family]={});
+  (pool[answer]||(pool[answer]=[])).push(data);
 }
-function core(){
-  for(let tries=0;tries<160;tries++){
-    const n=Math.random()<.58?3:4,vals=[];let sum=0,minSeg=n===4?30:25;
-    for(let i=0;i<n-1;i++){const max=Math.min(90,180-sum-minSeg*(n-i-1));if(max<minSeg)break;const choices=[];for(let v=minSeg;v<=max;v+=5)choices.push(v);const v=choice(choices);vals.push(v);sum+=v}
-    if(vals.length!==n-1)continue;const last=180-sum;if(last<minSeg||last>100||last%5)continue;vals.push(last);const unknown=randInt(0,n-1),A=vals[unknown];
-    const segs=vals.map((v,i)=>({value:v,label:i===unknown?'A':`${v}°`}));const known=vals.filter((_,i)=>i!==unknown),knownSum=known.reduce((a,b)=>a+b,0);
-    const sig=`C|${vals.join('-')}|${unknown}`;return makeQ('medium',`${n}-angle`,segs,A,`Angles on a straight line total 180°.\nKnown angles: ${known.join(' + ')} = ${knownSum}°\nA = 180 − ${knownSum}\nA = ${A}°`,'Add the known angles first, then subtract their total from 180°.',sig)
+for(let A=20;A<=160;A+=5)addConfiguration('two-angle',A,{values:[A,180-A]});
+for(const n of [3,4]){
+  const min=n===4?30:25;
+  function partitions(values,total){
+    if(values.length===n-1){
+      const last=180-total;if(last<min||last>100)return;
+      const all=values.concat(last);
+      // Each position can be the unknown; answer selection remains uniform.
+      all.forEach((A,i)=>addConfiguration(n+'-angle',A,{values:[A,...all.filter((_,j)=>j!==i)]}));return;
+    }
+    for(let v=min;v<=100&&total+v+min*(n-values.length-1)<=180;v+=5)partitions(values.concat(v),total+v);
   }
-  return core();
+  partitions([],0);
 }
-const proportionalPairs=[[1,2],[1,3],[1,4],[1,5],[2,3],[2,4],[3,3]];
-function challengeProportional(){
-  const [a,b]=choice(proportionalPairs.filter(([a,b])=>180%(a+b)===0)),A=180/(a+b),flip=Math.random()<.5;
-  const raw=[{value:a*A,label:labelA(a)},{value:b*A,label:labelA(b)}],segs=flip?raw.reverse():raw;
-  return makeQ('hard','algebra-two',segs,A,`${labelA(a)} + ${labelA(b)} = 180\n${a+b}A = 180\nA = 180 ÷ ${a+b}\nA = ${A}°`,'Add the A-terms together, then solve the equation.',`H|P|${a}|${b}|${flip}`)
+for(let a=1;a<=6;a++)for(let b=a;b<=6;b++){
+  const sum=a+b,A=180/sum;
+  if(Number.isInteger(A)&&A>=15&&A<=60&&a*A>=20&&b*A<=150)addConfiguration('algebra-two',A,{coefs:[a,b],known:0});
+  for(let known=25;known<=100;known+=5){
+    const A=(180-known)/sum;
+    if(Number.isInteger(A)&&A>=15&&A<=60&&a*A>=20&&b*A<=130)addConfiguration('algebra-number',A,{coefs:[a,b],known});
+  }
+  for(let c=b;c<=6;c++){
+    const A=180/(a+b+c);
+    if(Number.isInteger(A)&&A>=15&&a*A>=20&&c*A<=130)addConfiguration('algebra-three',A,{coefs:[a,b,c],known:0});
+  }
 }
-function challengeNumber(){
-  for(let tries=0;tries<100;tries++){
-    const [a,b]=choice([[1,2],[1,3],[1,4],[2,3],[2,4],[3,3]]),c=choice([30,40,45,50,60,70,75,80,90]);const rem=180-c,coef=a+b;if(rem%coef)continue;const A=rem/coef;if(A<20||A>75)continue;
-    let segs=[{value:a*A,label:labelA(a)},{value:b*A,label:labelA(b)},{value:c,label:`${c}°`}];segs=shuffle(segs);
-    return makeQ('hard','algebra-number',segs,A,`${labelA(a)} + ${labelA(b)} + ${c} = 180\n${coef}A + ${c} = 180\n${coef}A = ${rem}\nA = ${rem} ÷ ${coef}\nA = ${A}°`,'Combine the A-terms, subtract the numerical angle from 180°, then divide.',`H|N|${a}|${b}|${c}|${segs.map(x=>x.label).join(',')}`)
-  }return challengeProportional();
-}
-function challengeThreeAlgebra(){
-  const sets=[[1,1,2],[1,1,3],[1,2,3],[2,2,2],[1,1,4]],coefs=choice(sets.filter(s=>180%s.reduce((a,b)=>a+b,0)===0)),sum=coefs.reduce((a,b)=>a+b,0),A=180/sum;
-  const shuffled=shuffle(coefs),segs=shuffled.map(c=>({value:c*A,label:labelA(c)}));
-  return makeQ('hard','algebra-three',segs,A,`${coefs.map(labelA).join(' + ')} = 180\n${sum}A = 180\nA = 180 ÷ ${sum}\nA = ${A}°`,'Combine all of the A-terms first, then divide 180° by the total coefficient.',`H|T|${shuffled.join('-')}`)
-}
-const hardFamilies=[challengeProportional,challengeNumber,challengeThreeAlgebra];let hardBag=[];
+const familiesByLevel={easy:['two-angle'],medium:['3-angle','4-angle'],hard:['algebra-two','algebra-number','algebra-three']};
+const selectionState={};
 function generateAngleQuestion(level,channel='game'){
+  const key=channel+'|'+level;
+  const state=selectionState[key]||(selectionState[key]={families:[],answers:{},last:null});
+  if(!state.families.length)state.families=shuffle(familiesByLevel[level]);
+  const family=state.families.pop(),pool=questionPools[family];
+  let bag=state.answers[family]||[];
+  if(!bag.length)bag=shuffle(Object.keys(pool).map(Number));
+  // If the last item repeats the previous answer, begin a fresh cycle early
+  // and carry that item forward, rather than returning consecutive repeats.
+  if(!bag.some(A=>A!==state.last))bag.push(...shuffle(Object.keys(pool).map(Number).filter(A=>A!==state.last)));
+  const index=bag.findIndex(A=>A!==state.last),A=bag.splice(index,1)[0];state.answers[family]=bag;
+  let q;
   for(let tries=0;tries<180;tries++){
-    let q;if(level==='easy')q=foundation();else if(level==='medium')q=core();else{if(!hardBag.length)hardBag=shuffle([0,1,2]);q=hardFamilies[hardBag.shift()]()}
-    if(remember(channel,level,q.sig))return q;
+    const config=choice(pool[A]);let segments,steps,hint;
+    if(config.values){
+      segments=shuffle(config.values.map((value,i)=>({value,label:i===0?'A':value+'°'})));
+      const known=config.values.slice(1),total=180-A;
+      steps='Angles on a straight line total 180°.\nKnown angles: '+known.join(' + ')+' = '+total+'°.\nA = 180 − '+total+'\nA = '+A+'°';
+      hint=level==='easy'?'Subtract the known angle from 180°.':'Add the known angles first, then subtract their total from 180°.';
+    }else{
+      const {coefs,known}=config,sum=coefs.reduce((x,y)=>x+y,0);
+      segments=coefs.map(c=>({value:c*A,label:labelA(c)}));
+      if(known)segments.push({value:known,label:known+'°'});segments=shuffle(segments);
+      const terms=coefs.map(labelA).concat(known?[known]:[]);
+      steps=terms.join(' + ')+' = 180\n'+sum+'A'+(known?' + '+known:'')+' = 180\n'+sum+'A = '+(180-known)+'\nA = '+(180-known)+' ÷ '+sum+'\nA = '+A+'°';
+      hint=known?'Combine the A-terms, subtract the numerical angle from 180°, then divide.':'Combine the A-terms, then divide 180° by the total coefficient.';
+    }
+    const sig=family+'|'+segments.map(s=>s.label+':'+s.value).join('|');
+    q=makeQ(level,family,segments,A,steps,hint,sig);
+    if(remember(channel,level,sig))break;
   }
-  return level==='easy'?foundation():level==='medium'?core():challengeProportional();
+  state.last=A;return q;
 }
 const generators={easy:()=>generateAngleQuestion('easy','game'),medium:()=>generateAngleQuestion('medium','game'),hard:()=>generateAngleQuestion('hard','game')};
 const levelDisplayNames={easy:'Foundation Mode',medium:'Core Mode',hard:'Challenge Mode'};
@@ -2877,21 +2901,8 @@ resetConfirmButton.addEventListener("click",resetAllProgress);
 resetModalBackdrop.addEventListener("click",event=>{if(event.target===resetModalBackdrop)closeResetModal()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape"&&resetModalBackdrop.classList.contains("show"))closeResetModal()});
 
-function qaEscape(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function qaQuestionHtml(q,index){
-  return `<div class="worksheet-qa-item"><div class="worksheet-qa-number">Question ${index+1} · ${levelDisplayNames[el('qaDifficulty').value].replace(' Mode','')}</div><div class="worksheet-qa-question">${q.expression}</div><button type="button" class="qa-reveal-one">Reveal answer</button><div class="worksheet-qa-answer"><strong>A = ${q.answer}°</strong><div class="worksheet-qa-steps">${qaEscape(q.steps)}</div></div></div>`;
-}
-function generateQA(){
-  const level=el('qaDifficulty').value,count=Number(el('qaCount').value);
-  const items=[],seen=new Set();for(let i=0;i<count;i++){let q=null;for(let tries=0;tries<120;tries++){const cand=generateAngleQuestion(level,'qa');if(!seen.has(cand.sig)){q=cand;break}}if(!q)q=generateAngleQuestion(level,'qa');seen.add(q.sig);items.push(q)}
-  const list=el('qaList');list.innerHTML=items.map(qaQuestionHtml).join('')||'<div class="worksheet-qa-empty">No questions generated.</div>';
-  list.querySelectorAll('.qa-reveal-one').forEach(btn=>btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;ans.classList.toggle('show');btn.textContent=ans.classList.contains('show')?'Hide answer':'Reveal answer'}));
-}
-el('qaGenerate')?.addEventListener('click',generateQA);
-el('qaRevealAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.add('show')));
-el('qaHideAll')?.addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.remove('show')));
 
-window.__MMM_TEST__={generateAngleQuestion,getState:()=>state};
+
 syncSkillButtons();
 renderStart("easy");
 requestAnimationFrame(()=>updateTimerPosition("easy"));

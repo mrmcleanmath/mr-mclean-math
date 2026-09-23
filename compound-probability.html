@@ -657,7 +657,7 @@ body.tutorial-open{
     max-width:560px;
     width:100%;
     margin:0 auto;
-    order:-1;
+    order:1;
   }
 
   .tutorial-overlay-card{
@@ -2085,7 +2085,7 @@ body > header.site-global-header .site-global-social svg{
   body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
-  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 calc((100% - 16px)/3) !important;width:calc((100% - 16px)/3) !important;min-width:0 !important;font-size:16px !important;}
 }
 @media(max-width:640px){
   body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
@@ -2137,9 +2137,28 @@ body > header.site-global-header .site-global-social svg{
 .compound-tree-wrap{margin:12px auto 8px;max-width:720px;background:#fff;border:1px solid #d8e0e9;border-radius:14px;padding:8px;overflow:hidden}.compound-tree{width:100%;height:auto;display:block}.compound-tree .tree-node{font-size:17px;font-weight:850;fill:#2e3b4d}.compound-tree .tree-prob text{font-weight:900;fill:#7a3f11;paint-order:stroke;stroke:#fff7dd;stroke-width:8px;stroke-linejoin:round}.compound-tree-wrap.compact{max-width:560px;margin:8px 0}.compound-tree-wrap.compact .tree-node{font-size:14px}
 .fraction-answer-row{display:flex;align-items:flex-end;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:14px}.fraction-answer-box{display:flex;align-items:center;gap:8px}.whole-entry,.fraction-entry label{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.69rem;font-weight:900;color:#6a7480;text-transform:uppercase;letter-spacing:.04em}.whole-entry input,.fraction-entry input{width:72px;height:46px;border:2px solid #cbd4df;border-radius:10px;text-align:center;font-size:1.15rem;font-weight:850;background:#fff}.fraction-entry{display:grid;grid-template-rows:auto 3px auto;gap:4px}.fraction-entry .fraction-bar{height:3px;background:#333;border-radius:3px}.fraction-entry label span{min-height:16px}.fraction-check{align-self:center}.answer-format-note{text-align:center;color:#77818e;font-size:.76rem;margin-top:7px}
 .compound-tree-wrap{position:relative}.tree-branch-slot{position:absolute;transform:translate(-50%,-50%);z-index:3;display:flex;align-items:center;justify-content:center}.tree-branch-given,.tree-branch-empty{min-width:54px;padding:5px 8px;border-radius:9px;background:#fff7dd;border:1px solid #e4c56f;color:#70420f;font-weight:950;text-align:center;box-shadow:0 2px 5px rgba(60,70,80,.09)}.tree-branch-empty{font-size:1.05rem;color:#7a8796;background:#f7f9fc;border-style:dashed;border-color:#aeb9c7}.tree-branch-entry{display:grid;grid-template-rows:29px 2px 29px;gap:3px;width:58px;padding:4px 5px;border-radius:10px;background:#fff;border:2px solid #94a5b8;box-shadow:0 2px 7px rgba(41,58,78,.14)}.tree-branch-entry input{width:44px;height:29px;margin:0 auto;border:1px solid #b9c5d2;border-radius:6px;text-align:center;font-size:.9rem;font-weight:900;background:#fff;color:#26384e;padding:1px}.tree-branch-entry .mini-fraction-bar{height:2px;background:#2f3a46;border-radius:2px}.tree-branch-slot.incorrect .tree-branch-entry{border-color:#b3261e;background:#fff4f3}.tree-branch-slot.correct .tree-branch-entry{border-color:#3d8951;background:#f2fbf4}.tree-stage-title{margin:12px 0 3px;font-weight:950;color:#344d6c}.tree-stage-note{font-size:.78rem;color:#6d7886;margin-bottom:2px}.tree-stage-actions{display:flex;justify-content:center;margin-top:7px}.tree-check-button{border:0;border-radius:10px;padding:9px 16px;background:#324e73;color:#fff;font-weight:900;cursor:pointer}.tree-check-button:disabled{opacity:.65;cursor:default}.tree-stage-feedback{min-height:24px;text-align:center;font-size:.85rem;font-weight:850;margin-top:6px}.tree-stage-feedback.correct{color:#247a3b}.tree-stage-feedback.incorrect{color:#b3261e}.tree-final-prompt{margin-top:14px;padding-top:12px;border-top:1px solid #dbe2ea}.tree-final-prompt.hidden,.probability-answer-stage.hidden{display:none}.answer-format-chooser{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:14px}.answer-format-chooser .answer-format-label{width:100%;text-align:center;font-size:.72rem;font-weight:950;color:#697586;text-transform:uppercase;letter-spacing:.05em}.prob-format-button{border:1px solid #c7d1dc;border-radius:999px;background:#fff;color:#394c65;font-weight:850;padding:7px 12px;cursor:pointer}.prob-format-button.active{background:#324e73;color:#fff;border-color:#324e73}.prob-entry-pane{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-top:10px;min-height:68px}.prob-entry-pane.hidden{display:none}.single-prob-entry{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.69rem;font-weight:900;color:#6a7480;text-transform:uppercase;letter-spacing:.04em}.single-prob-entry input{width:132px;height:46px;border:2px solid #cbd4df;border-radius:10px;text-align:center;font-size:1.15rem;font-weight:850;background:#fff;color:#25364b}.percent-input-wrap{display:flex;align-items:center;gap:6px}.percent-input-wrap span{font-size:1.25rem;font-weight:950;color:#34465d}.probability-answer-stage .fraction-answer-row{margin-top:6px}.answer-format-note strong{color:#556274}.tree-answer-stage-label{font-size:.78rem;font-weight:950;color:#4a5e78;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
-.worksheet-qa{margin-top:22px;border:2px dashed #91a0b2;border-radius:16px;padding:16px;background:#f9fbfd}.worksheet-qa-head strong{font-size:1.05rem}.worksheet-qa-head span{display:block;font-size:.78rem;color:#738092;margin-top:2px}.worksheet-qa-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-top:12px}.worksheet-qa-controls label{display:flex;flex-direction:column;gap:4px;font-size:.72rem;font-weight:900;color:#657181}.worksheet-qa-controls select,.worksheet-qa-controls button{min-height:40px;border:1px solid #cbd4df;border-radius:9px;background:#fff;padding:7px 10px;font-weight:800}.worksheet-qa-controls button{cursor:pointer;background:#edf3fa}.worksheet-qa-list{display:grid;gap:12px;margin-top:14px}.worksheet-qa-item{background:#fff;border:1px solid #dce3eb;border-radius:12px;padding:12px}.worksheet-qa-number{font-size:.74rem;font-weight:1000;color:#6e7a89;margin-bottom:5px}.worksheet-qa-answer{display:none;margin-top:10px;background:#eef8f0;border-left:4px solid #4f9360;padding:10px;border-radius:8px;white-space:pre-line;font-size:.88rem}.worksheet-qa-answer.show{display:block}.qa-reveal-one{margin-top:8px;border:1px solid #cad4df;border-radius:8px;padding:6px 9px;background:#fff;font-weight:800;cursor:pointer}.worksheet-qa-empty{color:#7a8490;font-size:.85rem}
-@media(max-width:700px){.compound-options{grid-template-columns:1fr}.compound-option-note{grid-column:auto}.compound-option-buttons{display:grid;grid-template-columns:repeat(3,1fr)}.compound-option{padding:8px 6px;font-size:.82rem}.whole-entry input,.fraction-entry input{width:62px}.compound-tree-wrap{margin-inline:-6px}.tree-branch-entry{width:52px;grid-template-rows:26px 2px 26px;padding:3px 4px}.tree-branch-entry input{width:39px;height:26px;font-size:.82rem}.tree-branch-given,.tree-branch-empty{min-width:45px;padding:4px 6px;font-size:.82rem}.worksheet-qa-controls{display:grid;grid-template-columns:1fr 1fr}.worksheet-qa-controls button{grid-column:1/-1}}
+@media(max-width:700px){.compound-options{grid-template-columns:1fr}.compound-option-note{grid-column:auto}.compound-option-buttons{display:grid;grid-template-columns:repeat(3,1fr)}.compound-option{padding:8px 6px;font-size:.82rem}.whole-entry input,.fraction-entry input{width:62px}.compound-tree-wrap{margin-inline:-6px}.tree-branch-entry{width:52px;grid-template-rows:26px 2px 26px;padding:3px 4px}.tree-branch-entry input{width:39px;height:26px;font-size:.82rem}.tree-branch-given,.tree-branch-empty{min-width:45px;padding:4px 6px;font-size:.82rem}}
+
+/* Keep text and inputs readable instead of shrinking them with the tree lines. */
+.compound-tree-wrap{padding:0;overflow-x:auto;overflow-y:hidden}
+.tree-canvas{position:relative;width:100%;min-width:250px;aspect-ratio:820/390;min-height:300px}
+.tree-canvas .compound-tree{position:absolute;inset:0;width:100%;height:100%}
+.tree-node-label{position:absolute;transform:translate(-50%,-50%);font-size:14px;line-height:20px;font-weight:850;color:#2e3b4d;background:#fff;padding:0 2px;white-space:nowrap}
+.card .problem{padding-left:10px!important;padding-right:10px!important}
+@media(max-width:700px){
+ .practice-panel.practice-sheet{padding-left:12px!important;padding-right:12px!important}
+ .card .body{padding-left:8px;padding-right:8px}
+ .card .problem{padding-left:0!important;padding-right:0!important}
+ .compound-tree-wrap{margin-inline:0}
+ .tree-canvas{min-height:300px}
+ .tree-node-label{font-size:12px}
+ .tree-branch-entry{width:44px;padding:3px;grid-template-rows:26px 2px 26px}
+ .tree-branch-entry input{width:34px}
+ .tree-branch-given,.tree-branch-empty{min-width:38px;padding:4px}
+}
 </style>
+<link rel="stylesheet" href="practice-fullscreen.css?v=213">
+<script src="practice-fullscreen.js?v=213" defer></script>
 </head>
 <body>
 <h1 class="sr-only">Compound Probability: Independent &amp; Dependent Events</h1>
@@ -2147,9 +2166,9 @@ body > header.site-global-header .site-global-social svg{
 <div class="site-global-topbar">
 <nav class="site-global-nav" aria-label="Main navigation">
 <a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
 <a href="games.html">Games</a>
+<a href="videos.html">Videos</a>
 <a href="about.html">About</a>
 </nav>
 <div class="site-global-social" aria-label="Social media links">
@@ -2227,21 +2246,7 @@ body > header.site-global-header .site-global-social svg{
         </div>
       </div>
 
-      <section class="worksheet-qa" id="worksheetQA" aria-label="Worksheet QA testing controls">
-        <div class="worksheet-qa-head">
-          <div><strong>Worksheet QA</strong><span>Temporary batch-testing controls</span></div>
-        </div>
-        <div class="worksheet-qa-controls">
-          <label>Difficulty<select id="qaDifficulty"><option value="easy">Foundation</option><option value="medium">Core</option><option value="hard">Challenge</option></select></label>
-          <label>Event Type<select id="qaEventType"><option value="independent">Independent</option><option value="dependent">Dependent</option><option value="mixed">Mixed</option></select></label>
-          <label>Method<select id="qaMethod"><option value="calculate">Calculate</option><option value="tree">Tree Diagram</option><option value="mixed">Mixed</option></select></label>
-          <label>Questions<select id="qaCount"><option>5</option><option>10</option><option>15</option><option>20</option></select></label>
-          <button type="button" id="qaGenerate">Generate New Worksheet</button>
-          <button type="button" id="qaRevealAll">Reveal All Answers</button>
-          <button type="button" id="qaHideAll">Hide All Answers</button>
-        </div>
-        <div class="worksheet-qa-list" id="qaList"><div class="worksheet-qa-empty">Generate a worksheet to inspect the merged generator.</div></div>
-      </section>
+      
     </section>
     <div class="timer-column" id="timerColumn" aria-hidden="true">
       <div class="timer-panel floating-timer" id="floatingTimer"><div id="timerHeading">No Timer</div><div class="ring" id="ring">—</div><div class="timer-label" id="timerLabel">Student Mode</div></div>
@@ -2333,15 +2338,16 @@ function qFromFraction({key,eventType,method,scenario,prompt,answer,explanation,
   return {key,eventType,method,scenario,prompt,expression:'',answer:fracVal(a),numerator:a.n,denominator:a.d,preferredAnswer:fracText(a),explanation,hint,tree,treeMissing:Array.isArray(treeMissing)?treeMissing.slice():[],family};
 }
 function correctAnswerDisplay(q){return q.denominator===1?String(q.numerator):`${q.numerator}/${q.denominator}`}
-function formatBranch(f){return fracText(f)}
+// Branch fractions retain the actual counts; final probabilities are simplified.
+function formatBranch(f){return `${f.n}/${f.d}`}
 function isTerminatingDenominator(d){
   d=Math.abs(d);while(d%2===0)d/=2;while(d%5===0)d/=5;return d===1;
 }
-function trimProbabilityNumber(n,digits=6){return Number(n).toFixed(digits).replace(/0+$/,'').replace(/\.$/,'')}
+function trimProbabilityNumber(n,digits=6){return Number(Number(n).toFixed(digits)).toString()}
 function probabilitySummary(q){
   const f=correctAnswerDisplay(q),terminating=isTerminatingDenominator(q.denominator);
-  const dec=terminating?trimProbabilityNumber(q.answer,6):Number(q.answer).toFixed(3);
-  const pct=terminating?trimProbabilityNumber(q.answer*100,4):Number(q.answer*100).toFixed(1);
+  const dec=terminating?trimProbabilityNumber(q.answer,12):Number(q.answer).toFixed(3);
+  const pct=terminating?trimProbabilityNumber(q.answer*100,10):Number(q.answer*100).toFixed(1);
   const joiner=terminating?' = ':' ≈ ';
   return `${f}${joiner}${dec}${joiner}${pct}%`;
 }
@@ -2370,12 +2376,12 @@ function twoOutcomeData(level,eventType){
   if(a===b && Math.random()<.45)b+=1;
   const total=a+b;
   const replace=eventType==='independent';
-  const pA=simp(a,total),pB=simp(b,total);
-  const aAfterA=simp(replace?a:a-1,replace?total:total-1);
-  const bAfterA=simp(replace?b:b,replace?total:total-1);
-  const aAfterB=simp(replace?a:a,replace?total:total-1);
-  const bAfterB=simp(replace?b:b-1,replace?total:total-1);
-  const scenario=`A ${container} contains ${a} ${aLabel} ${items} and ${b} ${bLabel} ${items}. Two ${items} are chosen ${replace?'with replacement':'without replacement'}.`;
+  const pA={n:a,d:total},pB={n:b,d:total};
+  const aAfterA={n:replace?a:a-1,d:replace?total:total-1};
+  const bAfterA={n:b,d:replace?total:total-1};
+  const aAfterB={n:a,d:replace?total:total-1};
+  const bAfterB={n:replace?b:b-1,d:replace?total:total-1};
+  const scenario=`A ${container} contains ${a} ${aLabel} ${items} and ${b} ${bLabel} ${items}. Two ${items} are chosen at random, one after the other, ${replace?'with replacement':'without replacement'}. ${replace?'The first item is put back and the contents are mixed before the second draw.':'The first item is kept out before the second draw.'}`;
   const tree={root:'Start',first:[{label:aLabel,f:pA},{label:bLabel,f:pB}],afterA:[{label:aLabel,f:aAfterA},{label:bLabel,f:bAfterA}],afterB:[{label:aLabel,f:aAfterB},{label:bLabel,f:bAfterB}]};
   return {aLabel,bLabel,items,container,a,b,total,pA,pB,aAfterA,bAfterA,aAfterB,bAfterB,scenario,tree,replace};
 }
@@ -2417,8 +2423,8 @@ function makeTwoStage(level,eventType,method){
     hint=`Use the complement: 1 − P(no ${d.bLabel}).`;
   }
   const eventNote=eventType==='independent'
-    ?'Because the first item is replaced, the second-stage probabilities stay the same.'
-    :'Because the first item is not replaced, the second-stage probabilities change.';
+    ?`With replacement: there are still ${d.total} items before the second draw, so both sets of branch probabilities stay the same.`
+    :`Without replacement: there are ${d.total-1} items before the second draw. The count of the color drawn first decreases by one; the other color count stays the same.`;
   return qFromFraction({
     key:`${eventType}|${method}|${level}|${kind}|${d.a}-${d.b}|${d.aLabel}-${d.bLabel}`,
     eventType,method,scenario:d.scenario,prompt,answer,
@@ -2429,7 +2435,7 @@ function makeThreeIndependent(level,method){
   const ps=shuffle(independentProbPool).slice(0,3);
   const a={n:ps[0].n,d:ps[0].d},b={n:ps[1].n,d:ps[1].d},c={n:ps[2].n,d:ps[2].d};
   const answer=mulF(mulF(a,b),c);
-  const scenario=`Three independent events occur in order. The probability of Event A is ${ps[0].text}, Event B is ${ps[1].text}, and Event C is ${ps[2].text}.`;
+  const scenario=`Three independent trials are carried out. The probability of Event A on the first trial is ${ps[0].text}, Event B on the second trial is ${ps[1].text}, and Event C on the third trial is ${ps[2].text}.`;
   return qFromFraction({key:`independent|calculate|hard|three|${ps.map(p=>p.text).join('-')}`,eventType:'independent',method:'calculate',scenario,
     prompt:'What is the probability that all three events occur?',answer,
     explanation:`Convert each probability if needed, then multiply: ${fracText(a)} × ${fracText(b)} × ${fracText(c)} = ${fracText(answer)}.`,
@@ -2438,11 +2444,11 @@ function makeThreeIndependent(level,method){
 function makeThreeDependent(){
   const [aLabel,bLabel]=choice(colorPairs),[items,container]=choice(objectSets);
   const a=randInt(4,8),b=randInt(3,7),total=a+b;
-  const p1=simp(a,total),p2=simp(a-1,total-1),p3=simp(a-2,total-2),answer=mulF(mulF(p1,p2),p3);
-  const scenario=`A ${container} contains ${a} ${aLabel} ${items} and ${b} ${bLabel} ${items}. Three ${items} are chosen without replacement.`;
+  const p1={n:a,d:total},p2={n:a-1,d:total-1},p3={n:a-2,d:total-2},answer=mulF(mulF(p1,p2),p3);
+  const scenario=`A ${container} contains ${a} ${aLabel} ${items} and ${b} ${bLabel} ${items}. Three ${items} are chosen at random, one after another, without replacement. Each chosen item is kept out before the next draw.`;
   return qFromFraction({key:`dependent|calculate|hard|three|${a}-${b}|${aLabel}`,eventType:'dependent',method:'calculate',scenario,
     prompt:`What is the probability that all three chosen ${items} are ${aLabel}?`,answer,
-    explanation:`The total changes after every draw: ${fracText(p1)} × ${fracText(p2)} × ${fracText(p3)} = ${fracText(answer)}.`,
+    explanation:`The number of ${aLabel} ${items} and the total both decrease after each successful draw: ${formatBranch(p1)} × ${formatBranch(p2)} × ${formatBranch(p3)} = ${fracText(answer)}.`,
     hint:'Without replacement, reduce both the favorable count and the total after each successful draw.',family:'three-dependent'});
 }
 function makeRawCompound(level,prefs){
@@ -2470,28 +2476,29 @@ function treeDiagramHtml(tree,compact=false,opts={}){
   if(!tree)return'';
   const stroke='#3d6f9e',missing=new Set(opts.missing||[]),interactive=!!opts.interactive,level=opts.level||'';
   const values=treeBranchValues(tree);
-  const positions=[[37.2,20.5],[61.6,20.5],[18.0,55.8],[34.6,55.8],[62.9,55.8],[79.3,55.8]];
+  const positions=[[39,24.4],[61,24.4],[18,56.4],[36,56.4],[64,56.4],[82,56.4]];
   const slots=values.map((f,i)=>{
     const [left,top]=positions[i],style=`left:${left}%;top:${top}%`;
     if(!missing.has(i))return `<div class="tree-branch-slot" style="${style}"><div class="tree-branch-given">${formatBranch(f)}</div></div>`;
     if(!interactive)return `<div class="tree-branch-slot" style="${style}"><div class="tree-branch-empty">?</div></div>`;
     return `<div class="tree-branch-slot" id="${level}TreeSlot${i}" style="${style}"><div class="tree-branch-entry" aria-label="Missing branch probability ${i+1}"><input id="${level}Branch${i}Num" inputmode="numeric" autocomplete="off" aria-label="Branch ${i+1} numerator"><span class="mini-fraction-bar" aria-hidden="true"></span><input id="${level}Branch${i}Den" inputmode="numeric" autocomplete="off" aria-label="Branch ${i+1} denominator"></div></div>`;
   }).join('');
-  return `<div class="compound-tree-wrap${compact?' compact':''}"><svg class="compound-tree" viewBox="0 0 820 390" role="img" aria-label="Two-stage probability tree diagram">
+  return `<div class="compound-tree-wrap${compact?' compact':''}"><div class="tree-canvas"><svg class="compound-tree" viewBox="0 0 820 390" preserveAspectRatio="none" aria-hidden="true">
     <line x1="410" y1="45" x2="230" y2="145" stroke="${stroke}" stroke-width="4"/><line x1="410" y1="45" x2="590" y2="145" stroke="${stroke}" stroke-width="4"/>
     <line x1="230" y1="145" x2="105" y2="295" stroke="${stroke}" stroke-width="4"/><line x1="230" y1="145" x2="335" y2="295" stroke="${stroke}" stroke-width="4"/>
     <line x1="590" y1="145" x2="485" y2="295" stroke="${stroke}" stroke-width="4"/><line x1="590" y1="145" x2="715" y2="295" stroke="${stroke}" stroke-width="4"/>
-    <text x="410" y="30" text-anchor="middle" class="tree-node">${tree.root}</text>
-    <text x="235" y="118" text-anchor="end" class="tree-node">${tree.first[0].label}</text><text x="585" y="118" text-anchor="start" class="tree-node">${tree.first[1].label}</text>
-    <text x="105" y="327" text-anchor="middle" class="tree-node">${tree.afterA[0].label}</text><text x="335" y="327" text-anchor="middle" class="tree-node">${tree.afterA[1].label}</text>
-    <text x="485" y="327" text-anchor="middle" class="tree-node">${tree.afterB[0].label}</text><text x="715" y="327" text-anchor="middle" class="tree-node">${tree.afterB[1].label}</text>
-  </svg>${slots}</div>`;
+  </svg>
+    <span class="tree-node-label" style="left:50%;top:7.7%">${tree.root}</span>
+    <span class="tree-node-label" style="left:18%;top:35%">${tree.first[0].label}</span><span class="tree-node-label" style="left:82%;top:35%">${tree.first[1].label}</span>
+    <span class="tree-node-label" style="left:12.8%;top:84%">${tree.afterA[0].label}</span><span class="tree-node-label" style="left:40.9%;top:84%">${tree.afterA[1].label}</span>
+    <span class="tree-node-label" style="left:59.1%;top:84%">${tree.afterB[0].label}</span><span class="tree-node-label" style="left:87.2%;top:84%">${tree.afterB[1].label}</span>
+    ${slots}</div></div>`;
 }
 function questionHtml(q,level){
   const meta=`<div class="compound-meta"><span>${eventTypeLabel(q.eventType)}</span><span>${methodLabel(q.method)}</span></div>`;
   const scenario=`<div class="compound-scenario">${q.scenario}</div>`;
   if(q.method!=='tree')return `${meta}${scenario}<div class="compound-prompt">${q.prompt}</div>`;
-  return `${meta}${scenario}<div class="tree-stage-title">1. Complete the missing branches</div><div class="tree-stage-note">Enter each missing branch probability as a fraction. Equivalent fractions are accepted.</div>${treeDiagramHtml(q.tree,false,{missing:q.treeMissing,interactive:true,level})}<div class="tree-stage-actions"><button type="button" class="tree-check-button" id="${level}CheckTree">Check Tree</button></div><div class="tree-stage-feedback" id="${level}TreeFeedback"></div><div class="tree-final-prompt hidden" id="${level}FinalPromptStage"><div class="tree-answer-stage-label">2. Answer the probability question</div><div class="compound-prompt">${q.prompt}</div></div>`;
+  return `${meta}${scenario}<div class="tree-stage-title">1. Complete the missing branches</div><div class="tree-stage-note">Each branch shows the number of that color ÷ the total available at that draw. The given fractions keep these counts visible. Equivalent fractions are accepted.</div>${treeDiagramHtml(q.tree,false,{missing:q.treeMissing,interactive:true,level})}<div class="tree-stage-actions"><button type="button" class="tree-check-button" id="${level}CheckTree">Check Tree</button></div><div class="tree-stage-feedback" id="${level}TreeFeedback"></div><div class="tree-final-prompt hidden" id="${level}FinalPromptStage"><div class="tree-answer-stage-label">2. Answer the probability question</div><div class="compound-prompt">${q.prompt}</div></div>`;
 }
 function normalizeProbabilityText(raw){
   let s=String(raw??'').trim().replace(/\s+/g,'');
@@ -2530,7 +2537,7 @@ function readProbabilityAnswer(level){
   return{ok:true,value:pct/100,format:'percent',display:`${s}%`};
 }
 function probabilityAnswerMatches(parsed,target){
-  const tolerance=parsed.format==='fraction'?1e-10:0.00051;
+  const tolerance=parsed.format==='fraction'?1e-10:0.000500000001;
   return Math.abs(parsed.value-target)<=tolerance;
 }
 function treeAnswerText(q){
@@ -2875,7 +2882,7 @@ function renderStart(level){
   requestAnimationFrame(()=>updateTimerPosition(level));
 }
 function answerFormatHelp(format){
-  if(format==='fraction')return 'Equivalent fractions are accepted; you do not need to simplify before submitting.';
+  if(format==='fraction')return 'Enter a numerator and denominator; leave Whole blank for a fraction below 1. Equivalent fractions are accepted.';
   if(format==='decimal')return 'Enter a decimal from 0 to 1. For repeating values, round to 3 decimal places.';
   return 'Enter the percent number. For repeating values, round to 1 decimal place.';
 }
@@ -2908,7 +2915,7 @@ function renderQuestion(level){
       </div>
       <div class="prob-entry-pane" data-format-pane="fraction">
         <div class="fraction-answer-box" aria-label="Fraction probability answer">
-          <label class="whole-entry"><span>Whole</span><input id="${level}Whole" inputmode="numeric" autocomplete="off" aria-label="Whole number"></label>
+          <label class="whole-entry"><span>Whole (optional)</span><input id="${level}Whole" inputmode="numeric" autocomplete="off" aria-label="Whole number"></label>
           <div class="fraction-entry" aria-label="Fraction">
             <label><span>Numerator</span><input id="${level}Num" inputmode="numeric" autocomplete="off" aria-label="Numerator"></label>
             <div class="fraction-bar" aria-hidden="true"></div>
@@ -3055,22 +3062,7 @@ function setCompoundPref(kind,value){
 document.querySelectorAll('[data-event-type]').forEach(btn=>btn.addEventListener('click',()=>setCompoundPref('eventType',btn.dataset.eventType)));
 document.querySelectorAll('[data-method]').forEach(btn=>btn.addEventListener('click',()=>setCompoundPref('method',btn.dataset.method)));
 
-const worksheetRecent={easy:[],medium:[],hard:[]};
-function qaQuestionHtml(q,index){
-  const tree=q.method==='tree'?treeDiagramHtml(q.tree,true,{missing:q.treeMissing||[]}):'';
-  const treeAnswers=q.method==='tree'?`<strong>Completed tree:</strong>\n${treeAnswerText(q)}\n\n`:'';
-  return `<div class="worksheet-qa-item"><div class="worksheet-qa-number">Question ${index+1} · ${levelDisplayNames[el('qaDifficulty').value].replace(' Mode','')} · ${eventTypeLabel(q.eventType)} · ${methodLabel(q.method)}</div><div>${q.scenario}</div>${tree}<div style="font-weight:850;margin-top:7px">${q.prompt}</div><button type="button" class="qa-reveal-one">Reveal answer</button><div class="worksheet-qa-answer">${treeAnswers}<strong>Final probability: ${probabilitySummary(q)}</strong>\n${q.explanation}</div></div>`;
-}
-function generateQA(){
-  const level=el('qaDifficulty').value,count=Number(el('qaCount').value),prefs={eventType:el('qaEventType').value,method:el('qaMethod').value};
-  const items=[];const keys=new Set();let attempts=0;
-  while(items.length<count&&attempts<count*80){attempts++;const q=generateCompound(level,prefs,worksheetRecent);if(keys.has(q.key))continue;keys.add(q.key);items.push(q)}
-  const list=el('qaList');list.innerHTML=items.map(qaQuestionHtml).join('')||'<div class="worksheet-qa-empty">No questions generated.</div>';
-  list.querySelectorAll('.qa-reveal-one').forEach(btn=>btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;ans.classList.toggle('show');btn.textContent=ans.classList.contains('show')?'Hide answer':'Reveal answer'}));
-}
-el('qaGenerate').addEventListener('click',generateQA);
-el('qaRevealAll').addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.add('show')));
-el('qaHideAll').addEventListener('click',()=>el('qaList').querySelectorAll('.worksheet-qa-answer').forEach(a=>a.classList.remove('show')));
+
 
 window.addEventListener("resize",()=>{syncTimerHost();updateTimerPosition(state.activeLevel||"easy")});
 syncTimerHost();

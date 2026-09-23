@@ -654,7 +654,7 @@ body.tutorial-open{
     max-width:560px;
     width:100%;
     margin:0 auto;
-    order:-1;
+    order:1;
   }
 
   .tutorial-overlay-card{
@@ -2071,7 +2071,7 @@ body > header.site-global-header .site-global-social svg{
   body > header.site-global-header .site-global-topbar{width:min(100% - 24px,1380px) !important;height:auto !important;min-height:0 !important;grid-template-columns:minmax(0,1fr) 146px !important;gap:12px !important;}
   body > header.site-global-header nav.site-global-nav{height:58px !important;display:flex !important;justify-content:flex-start !important;gap:8px !important;overflow-x:auto !important;overscroll-behavior-inline:contain !important;scrollbar-width:none !important;-webkit-overflow-scrolling:touch !important;}
   body > header.site-global-header nav.site-global-nav::-webkit-scrollbar{display:none !important;}
-  body > header.site-global-header nav.site-global-nav > a{flex:0 0 110px !important;width:110px !important;font-size:16px !important;}
+  body > header.site-global-header nav.site-global-nav > a{flex:0 0 calc((100% - 16px)/3) !important;width:calc((100% - 16px)/3) !important;min-width:0 !important;font-size:16px !important;}
 }
 @media(max-width:640px){
   body > header.site-global-header .site-global-topbar{width:100% !important;padding:10px 12px !important;grid-template-columns:1fr !important;}
@@ -2113,16 +2113,18 @@ body > header.site-global-header .site-global-social svg{
 <style>
 .ordering-instruction{text-align:center;color:#5a616d;font-weight:800;margin:0 0 9px}.order-board{margin-top:4px}.order-least-greatest{display:flex;justify-content:space-between;color:#4138b3;font-weight:1000;font-size:.78rem;letter-spacing:.04em;margin:0 5px 5px}.order-slots{display:grid;gap:7px;grid-template-columns:repeat(var(--slot-count,3),minmax(0,1fr))}.order-slot{min-height:76px;border:2px dashed #b8bdc8;border-radius:13px;background:#fafbfe;display:flex;align-items:center;justify-content:center;position:relative;padding:6px;cursor:pointer}.order-slot::before{content:attr(data-position);position:absolute;top:4px;left:6px;font-size:.65rem;color:#9197a2;font-weight:900}.order-slot.dragover,.order-slot.selected-target{border-color:#3328b6;background:#f1efff}.order-tray{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;min-height:82px;margin-top:10px;padding:9px;border-radius:13px;background:#f2f3f7}.order-card{min-width:65px;min-height:62px;border:2px solid #c8ccd5;background:#fff;border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:grab;user-select:none;box-shadow:0 4px 9px rgba(30,37,52,.08);font-size:1.1rem;font-weight:1000;padding:6px}.order-card.selected{outline:4px solid rgba(51,40,182,.18);border-color:#3328b6}.order-card:active{cursor:grabbing}.order-fraction{display:inline-grid;grid-template-rows:auto 2px auto;align-items:center;justify-items:center;line-height:1.01;min-width:1.25em}.order-fraction .bar{height:2px;background:currentColor;width:100%;margin:1px 0}.order-mixed{display:inline-flex;align-items:center;gap:.18em}.order-negative{display:inline-flex;align-items:center;gap:.1em}.order-controls{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:10px}.order-controls button{border-radius:9px;padding:8px 11px;font:inherit;font-weight:900;cursor:pointer}.order-reset{border:1px solid #aeb3bd;background:#fff}.order-check{border:0;background:#252a31;color:#fff}.order-solution{margin-top:9px;background:#f6f4ff;border:1px solid #dad5ff;border-radius:10px;padding:9px;text-align:center;font-weight:900;line-height:1.7}.order-sequence{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap}.order-sequence .sep{color:#4c43b9}.qa-fraction-set{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.qa-fraction-set .order-card{cursor:default;min-width:56px;min-height:52px;font-size:1rem}.qa-order-answer{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:4px}
 @media(max-width:700px){.order-slots{gap:5px}.order-slot{min-height:67px;padding:4px}.order-card{min-width:54px;min-height:54px;font-size:.96rem;padding:4px}.order-tray{gap:5px;padding:7px}.order-controls button{flex:1 1 40%}}
-</style></head>
+</style><link rel="stylesheet" href="practice-fullscreen.css?v=213">
+<script src="practice-fullscreen.js?v=213" defer></script>
+</head>
 <body>
 <h1 class="sr-only">Ordering Fractions</h1>
 <header class="site-global-header">
 <div class="site-global-topbar">
 <nav aria-label="Main navigation" class="site-global-nav">
 <a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
 <a class="active" href="practice.html">Practice</a>
 <a href="games.html">Games</a>
+<a href="videos.html">Videos</a>
 <a href="about.html">About</a>
 </nav>
 <div aria-label="Social media links" class="site-global-social">
