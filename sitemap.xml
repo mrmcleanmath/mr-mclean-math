@@ -2,36 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.mrmcleanmath.com/</loc></url>
   <url><loc>https://www.mrmcleanmath.com/about.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/videos.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/practice.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/games.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/number-operations.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/algebra.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/geometry.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/ratio-proportion-change.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/statistics-probability.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/order-of-operations.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/solving-equations-with-brackets.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/pi-memory-challenge.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/area-triangles-quadrilaterals.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/surface-area-cuboids.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/adding-subtracting-fractions.html</loc></url>
   <url><loc>https://www.mrmcleanmath.com/adding-subtracting-algebraic-expressions.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/prime-factorization.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/converting-cubic-units-liters.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/convert-a-fraction.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/simplifying-fractions.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/expected-frequency.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/division-with-decimals.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/basic-probability.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/ordering-fractions.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/convert-a-decimal.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/convert-a-percent.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/multiplying-fractions.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/dividing-fractions.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/compound-probability.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/speed-distance-time.html</loc></url>
-  <url><loc>https://www.mrmcleanmath.com/converting-units-of-time.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/adding-subtracting-fractions.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/algebra.html</loc></url>
   <url><loc>https://www.mrmcleanmath.com/angles-straight-line.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/area-triangles-quadrilaterals.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/basic-probability.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/compound-probability.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/convert-a-decimal.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/convert-a-fraction.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/convert-a-percent.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/converting-cubic-units-liters.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/converting-units-of-time.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/dividing-fractions.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/division-with-decimals.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/expected-frequency.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/fraction-breaker.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/games.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/geometry.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/multiplying-fractions.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/number-operations.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/order-of-operations.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/ordering-fractions.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/pi-memory-challenge.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/practice.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/prime-factorization.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/ratio-proportion-change.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/simplifying-fractions.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/solving-equations-with-brackets.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/speed-distance-time.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/statistics-probability.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/surface-area-cuboids.html</loc></url>
   <url><loc>https://www.mrmcleanmath.com/vertically-opposite-angles.html</loc></url>
+  <url><loc>https://www.mrmcleanmath.com/videos.html</loc></url>
 </urlset>

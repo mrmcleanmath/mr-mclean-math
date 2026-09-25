@@ -1,0 +1,24 @@
+/* v219: concise learning context, scoped to avoid changing the activity controls. */
+.learning-notes{box-sizing:border-box;width:calc(100% - 32px);max-width:1100px;margin:24px auto;padding:18px 22px;border:1px solid #cbd0d7;border-radius:16px;background:#fffffff2;color:#343741;font:16px/1.55 "Trebuchet MS",Arial,sans-serif;position:relative}
+.learning-notes h2{font:800 19px/1.3 "Trebuchet MS",Arial,sans-serif;margin:0 0 8px}
+.learning-notes p{margin:0 0 10px;max-width:85ch}
+.learning-notes details{margin-top:8px}
+.learning-notes summary{cursor:pointer;font-weight:700;color:#3026a0;min-height:28px}
+.learning-notes details[open] summary{margin-bottom:10px}
+.learning-notes a,.breadcrumb a{color:#3026a0;text-decoration:underline;text-underline-offset:3px}
+.learning-notes a:focus-visible,.breadcrumb a:focus-visible{outline:3px solid #6557ff;outline-offset:3px}
+.breadcrumb{display:inline-flex!important;justify-content:flex-start!important;width:fit-content;max-width:100%;flex-wrap:wrap;white-space:normal;gap:8px;font-size:14px}
+.breadcrumb a{font:700 14px/1.5 "Trebuchet MS",Arial,sans-serif!important;flex:none!important;padding:0!important;margin:0!important;white-space:normal!important}
+.learning-notes nav{display:flex!important;justify-content:flex-start!important;flex-wrap:wrap;gap:8px 16px;padding:0!important;margin:0!important;background:none!important}
+.learning-notes nav a{font:inherit!important;flex:none!important;width:auto!important;margin:0!important;padding:0!important;white-space:normal!important;color:#3026a0!important}
+.fraction-link-list{display:flex;flex-wrap:wrap;gap:10px 22px}
+.fraction-link-list a{display:inline-block;padding:4px 0}
+.published-practice-panel[hidden]{display:none!important}
+html.practice-fullscreen .learning-notes,html.practice-fullscreen .breadcrumb{display:none!important}
+.pi-learning-title{font:800 clamp(18px,2.4vw,26px)/1.2 "Trebuchet MS",Arial,sans-serif;color:#17304f;background:#fffffff2;display:table;margin:8px auto;padding:4px 10px;border-radius:8px;text-align:center}
+.pi-learning-summary{font:400 15px/1.45 "Trebuchet MS",Arial,sans-serif;margin:8px auto;max-width:540px}
+.fraction-learning{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:90%;max-width:430px;z-index:25;padding:9px 12px;border:1px solid #527d99;border-radius:10px;background:#071729ee;color:#effaff;box-sizing:border-box;text-align:center;font:14px/1.35 Arial,sans-serif}
+.fraction-learning p{margin:0 0 7px}.fraction-learning a{color:#b6eaff;text-decoration:underline;text-underline-offset:2px}.fraction-learning[hidden]{display:none!important}
+.fraction-learning a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:760px){.learning-notes{padding:16px;font-size:15px}.fraction-learning{font-size:12px;bottom:8px;padding:7px 9px}.fraction-learning p{margin-bottom:5px}}
+@media print{.learning-notes{break-inside:avoid}.fraction-learning{display:none}}
