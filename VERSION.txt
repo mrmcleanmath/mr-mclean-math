@@ -1,2 +1,1 @@
-MrMcLeanMath v219 SEO AND SEARCH READINESS
-Based on v218 FRACTION_BREAKER_STAR_FIXED
+v220 — SEO release with revised game layouts
