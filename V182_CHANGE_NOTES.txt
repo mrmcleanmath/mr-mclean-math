@@ -1,7 +1,0 @@
-Mr. McLean Math v182
-
-Order of Operations negative-number notation
-- Addition and subtraction involving a negative number now display the negative value in round brackets.
-- Examples: 3 - (-5) and 7 + (-7).
-- Negative values at the beginning of an expression or bracketed group retain clear, joined negative signs.
-- Question generation, difficulty, answers, and all other site behavior are unchanged.
