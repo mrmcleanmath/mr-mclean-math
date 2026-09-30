@@ -44,7 +44,17 @@
     'prime-factorization.html':{selector:'input[id$="Input"]',keys:editOnly,cols:3,enterSpan:1,caption:'Edit answer • use the prime buttons above'},
     'simplifying-fractions.html':{selector:'input.answer-field',keys:integer,cols:5,enterSpan:3,caption:'Fraction answer buttons'},
     'solving-equations-with-brackets.html':{selector:'input[id$="Input"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Equation answer buttons'},
-    'surface-area-cuboids.html':{selector:'input.dimension-answer,input.surface-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'}
+    'surface-area-cuboids.html':{selector:'input.dimension-answer,input.surface-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
+    'angles-straight-line.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Angle answer buttons'},
+    'compound-probability.html':{selector:'input[id*="Branch"],input[id$="Whole"],input[id$="Num"],input[id$="Den"],input[id$="Decimal"],input[id$="Percent"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Probability answer buttons'},
+    'converting-units-of-time.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Time answer buttons'},
+    'evaluating-algebraic-expressions.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Number answer buttons'},
+    'real-diagram-distances-scale.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Scale answer buttons'},
+    'speed-distance-time.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
+    'surface-area-cylinders.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
+    'two-step-equations.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Equation answer buttons'},
+    'vertically-opposite-angles.html':{selector:'input[data-answer-index]',keys:integer,cols:5,enterSpan:3,caption:'Angle answer buttons'},
+    'volume-cylinders.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'}
   };
 
   const cfg=configs[page];
@@ -138,7 +148,10 @@
   }
 
   function mountAnchor(input){
-    // Put the pad inside the current practice card, immediately after its answer area.
+    // Keep the phone pad below the complete answer area, not inside a single input box.
+    // The first group covers newer/multi-field apps; the second preserves the established apps.
+    const grouped=input.closest('.angle-multi-answer,.probability-answer-stage,.compound-tree-wrap,.eval-answer-row,.scale-answer-row,.cyl-answer-row,.eq-answer-row,.sdt-answer-row,.angle-answer-row');
+    if(grouped)return grouped;
     return input.closest('.fraction-answer-entry,.numeric-answer-entry,.reverse-answer-entry,.prime-answer-wrap,.row')||input;
   }
   function mountPad(input){
@@ -259,6 +272,9 @@
     prepareInput(input);
     e.preventDefault();
     activate(input,{focus:true});
+  },true);
+  document.addEventListener('focus',e=>{
+    if(eligible(e.target)&&isPhoneTarget())prepareInput(e.target);
   },true);
   document.addEventListener('focusin',e=>{
     if(eligible(e.target)&&isPhoneTarget())activate(e.target);
