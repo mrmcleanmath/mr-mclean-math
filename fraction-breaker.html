@@ -5027,6 +5027,22 @@ html.tablet-direct body{position:absolute!important;left:var(--tablet-left)!impo
 <script id="fraction-breaker-computer-layout">(()=>{const ua=navigator.userAgent,touch=navigator.maxTouchPoints>0;const handheld=/Android|iPhone|iPad|iPod/i.test(ua)||(/Macintosh/i.test(ua)&&touch);const update=()=>document.documentElement.classList.toggle('fb-computer',!handheld&&!document.documentElement.classList.contains('tablet-direct')&&innerWidth>760&&(/CrOS/i.test(ua)||matchMedia('(hover:hover) and (pointer:fine)').matches));update();addEventListener('resize',update);})();</script>
 <link rel="stylesheet" href="fraction-desktop-v219.css" />
 <link rel="stylesheet" href="nav-games-new.css">
+<style id="v235-fraction-breaker-fullscreen-nav">
+/* Keep the site navigation in normal desktop play, but remove it only while
+   Fraction Breaker is using the browser Fullscreen API. */
+html.fb-fullscreen-active .site-global-header{display:none!important}
+</style>
+<script id="v235-fraction-breaker-fullscreen-nav-sync">
+(()=>{
+  const sync=()=>document.documentElement.classList.toggle(
+    'fb-fullscreen-active',
+    !!(document.fullscreenElement||document.webkitFullscreenElement)
+  );
+  document.addEventListener('fullscreenchange',sync);
+  document.addEventListener('webkitfullscreenchange',sync);
+  sync();
+})();
+</script>
 </head>
 <body>
 <header class="site-global-header"><div class="site-global-topbar"><nav aria-label="Main navigation" class="site-global-nav">
