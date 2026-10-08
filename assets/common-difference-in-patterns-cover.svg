@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="t d">
+<title id="t">Common Difference in Patterns</title>
+<desc id="d">An arithmetic sequence with one missing term and equal plus six steps.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#eff8ef"/><stop offset="1" stop-color="#dcefdc"/>
+  </linearGradient>
+</defs>
+<rect width="640" height="360" rx="28" fill="url(#bg)"/>
+<text x="320" y="66" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="31" font-weight="900" fill="#315c39">COMMON DIFFERENCE</text>
+<g font-family="Trebuchet MS,Arial,sans-serif" font-weight="900" text-anchor="middle">
+  <rect x="48" y="132" width="92" height="82" rx="16" fill="#fff" stroke="#74a77b" stroke-width="4"/>
+  <rect x="174" y="132" width="92" height="82" rx="16" fill="#fff" stroke="#74a77b" stroke-width="4"/>
+  <rect x="300" y="132" width="92" height="82" rx="16" fill="#f0edff" stroke="#6658d3" stroke-width="4"/>
+  <rect x="426" y="132" width="92" height="82" rx="16" fill="#fff" stroke="#74a77b" stroke-width="4"/>
+  <text x="94" y="184" font-size="38" fill="#25302a">8</text>
+  <text x="220" y="184" font-size="38" fill="#25302a">14</text>
+  <text x="346" y="184" font-size="42" fill="#4f43bd">?</text>
+  <text x="472" y="184" font-size="38" fill="#25302a">26</text>
+</g>
+<g stroke="#4b8053" stroke-width="5" fill="none" stroke-linecap="round">
+  <path d="M116 244 C145 278 179 278 208 244"/><path d="M242 244 C271 278 305 278 334 244"/><path d="M368 244 C397 278 431 278 460 244"/>
+</g>
+<g font-family="Trebuchet MS,Arial,sans-serif" font-size="24" font-weight="900" fill="#315c39" text-anchor="middle">
+  <text x="162" y="306">+6</text><text x="288" y="306">+6</text><text x="414" y="306">+6</text>
+</g>
+</svg>
