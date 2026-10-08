@@ -155,7 +155,7 @@
   function mountAnchor(input){
     // Keep the phone pad below the complete answer area, not inside a single input box.
     // The first group covers newer/multi-field apps; the second preserves the established apps.
-    const grouped=input.closest('.angle-multi-answer,.probability-answer-stage,.compound-tree-wrap,.eval-answer-row,.scale-answer-row,.cyl-answer-row,.eq-answer-row,.sdt-answer-row,.angle-answer-row');
+    const grouped=input.closest('.angle-multi-answer,.probability-answer-stage,.compound-tree-wrap,.eval-answer-row,.scale-answer-row,.cyl-answer-row,.eq-answer-row,.sdt-answer-row,.angle-answer-row,.pct-answer-row,.seq-answer-row,.whole-answer-row');
     if(grouped)return grouped;
     return input.closest('.fraction-answer-entry,.numeric-answer-entry,.reverse-answer-entry,.prime-answer-wrap,.row')||input;
   }
