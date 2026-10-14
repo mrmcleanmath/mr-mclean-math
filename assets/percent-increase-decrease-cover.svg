@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf5ff"/><stop offset="1" stop-color="#d8e6fc"/></linearGradient><filter id="sh"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#233b59" flood-opacity=".14"/></filter></defs>
+<rect width="720" height="360" rx="26" fill="url(#bg)"/>
+<rect x="56" y="40" width="608" height="274" rx="24" fill="white" stroke="#669ec3" stroke-width="5" filter="url(#sh)"/>
+<text x="360" y="114" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="41" font-weight="900" fill="#394764">PERCENT CHANGE</text>
+<text x="178" y="189" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="56" font-weight="900" fill="#754a9f">+20%</text>
+<path d="M273 164 H359 L344 149 M359 164 L344 179" stroke="#5d6a80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="480" y="189" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="55" font-weight="900" fill="#16833a">120</text>
+<text x="360" y="271" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="28" font-weight="700" fill="#5b6373">Increase 100 by 20%</text>
+</svg>

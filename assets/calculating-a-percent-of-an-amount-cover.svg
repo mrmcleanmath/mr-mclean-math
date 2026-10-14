@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf5ff"/><stop offset="1" stop-color="#d3e9fb"/></linearGradient><filter id="sh"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#203b56" flood-opacity=".16"/></filter></defs>
+<rect width="720" height="360" rx="26" fill="url(#bg)"/>
+<path d="M 0 300 L720 300" stroke="#bbd1e2" stroke-width="3"/>
+<rect x="60" y="48" width="600" height="250" rx="23" fill="#fff" stroke="#669ec3" stroke-width="5" filter="url(#sh)"/>
+<text x="360" y="136" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="64" font-weight="900" fill="#653ea1">25%</text>
+<text x="360" y="200" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="45" font-weight="bold" fill="#4d5663">of 160 =</text>
+<text x="360" y="272" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="66" font-weight="900" fill="#168345">40</text>
+</svg>
