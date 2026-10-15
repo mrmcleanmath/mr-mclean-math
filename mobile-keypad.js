@@ -49,6 +49,13 @@
     'compound-probability.html':{selector:'input[id*="Branch"],input[id$="Whole"],input[id$="Num"],input[id$="Den"],input[id$="Decimal"],input[id$="Percent"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Probability answer buttons'},
     'converting-units-of-time.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Time answer buttons'},
     'finding-whole-from-percent-and-part.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Whole amount answer buttons'},
+    // Weekly FAST FIVE production apps: always register every new app here.
+    'finding-whole-from-fraction-and-part.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Whole amount answer buttons'},
+    'calculating-a-fraction-of-an-amount.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Fraction of an amount answer buttons'},
+    'calculating-a-percent-of-an-amount.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent of an amount answer buttons'},
+    'converting-fractions-to-decimals-and-percents-with-calculator.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Decimal and percent answer buttons'},
+    'percent-increase-and-decrease.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent increase and decrease answer buttons'},
+
     'calculating-percent-change.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent answer buttons'},
     'equations-with-variables-on-both-sides.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Equation answer buttons'},
     'common-ratio-in-patterns.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Pattern answer buttons'},

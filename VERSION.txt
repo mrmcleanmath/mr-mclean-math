@@ -1,7 +1,8 @@
-Mr. McLean Math v266 — PUBLISH READY
-Base: v265 cumulative approved five-app testing release.
-Removed all temporary Worksheet QA panels, event handlers, testing-only markup and CSS from five new apps.
-The five production question generators, student/timer modes, 3/3 unlocking, feedback, hints and Enter key logic are unchanged.
-Retains v263 Vercel Analytics additions on Fraction Breaker, Pi Memory Challenge, Games and Teacher Classroom.
-Five NEW app labels, latest eight home cards, navigation, and existing protected game code retained.
-Final production release only; no temporary Worksheet QA controls.
+Mr. McLean Math v267 — PUBLISH READY — MOBILE KEYPADS FIXED
+Base: v266 approved five-app production release; no Worksheet QA or testing controls.
+Registered all five new practice apps in existing mobile-keypad.js configs with exact filenames and correct integer/decimal keypad keys.
+Confirmed embedded phone keypads show and support digits, decimal where required, backspace, Enter → Check → Enter → Next after correct and incorrect answers.
+The keypad suppresses native mobile keyboard; desktop still supports ordinary keyboard entry.
+Updated versioned mobile-keypad.js links on 37 HTML pages to invalidate previous browser caches.
+No app question generator, mathematical rule, or protected game logic was changed.
+Retains the Vercel Analytics fix for Fraction Breaker and Pi Memory Challenge; the homepage still features exactly eight latest apps.
