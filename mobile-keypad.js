@@ -21,6 +21,8 @@
 
   // Compact layouts: digit-only pads fit in three rows on a phone.
   const integer=['1','2','3','4','5','6','7','8','9','0','⌫','Enter'];
+  const signedInteger=['1','2','3','4','5','6','7','8','9','0','−','⌫','Enter'];
+  const nthRuleKeys=['1','2','3','4','5','6','7','8','9','0','n','+','−','.','(',')','⌫','Enter'];
   const positiveDecimal=['1','2','3','4','5','6','7','8','9','0','.','⌫','Enter'];
   const signedDecimal=['1','2','3','4','5','6','7','8','9','0','−','.','⌫','Enter'];
   const probability=['1','2','3','4','5','6','7','8','9','0','/','%','.','⌫','Enter'];
@@ -54,6 +56,11 @@
     'calculating-a-fraction-of-an-amount.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Fraction of an amount answer buttons'},
     'calculating-a-percent-of-an-amount.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent of an amount answer buttons'},
     'converting-fractions-to-decimals-and-percents-with-calculator.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Decimal and percent answer buttons'},
+    'finding-the-nth-term-rule.html':{selector:'input.nth-answer-input',keys:nthRuleKeys,cols:5,backspaceSpan:2,enterSpan:2,caption:'nth-term rule answer buttons'},
+    'calculating-terms-using-nth-term-rule.html':{selector:'input.seq-answer-input',keys:signedInteger,cols:5,enterSpan:2,caption:'Sequence term answer buttons'},
+    'area-of-circle-portions.html':{selector:'input.portion-answer',keys:integer,cols:5,enterSpan:3,caption:'Shaded area answer buttons'},
+    'area-of-circles.html':{selector:'input.area-circle-answer',keys:integer,cols:5,enterSpan:3,caption:'Circle area answer buttons'},
+    'rounding.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Rounding answer buttons'},
     'percent-increase-and-decrease.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent increase and decrease answer buttons'},
 
     'calculating-percent-change.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent answer buttons'},
@@ -162,7 +169,7 @@
   function mountAnchor(input){
     // Keep the phone pad below the complete answer area, not inside a single input box.
     // The first group covers newer/multi-field apps; the second preserves the established apps.
-    const grouped=input.closest('.angle-multi-answer,.probability-answer-stage,.compound-tree-wrap,.eval-answer-row,.scale-answer-row,.cyl-answer-row,.eq-answer-row,.sdt-answer-row,.angle-answer-row,.pct-answer-row,.seq-answer-row,.whole-answer-row');
+    const grouped=input.closest('.nth-answer-row,.seq-answer-row,.angle-multi-answer,.probability-answer-stage,.compound-tree-wrap,.eval-answer-row,.scale-answer-row,.cyl-answer-row,.eq-answer-row,.sdt-answer-row,.angle-answer-row,.pct-answer-row,.seq-answer-row,.whole-answer-row');
     if(grouped)return grouped;
     return input.closest('.fraction-answer-entry,.numeric-answer-entry,.reverse-answer-entry,.prime-answer-wrap,.row')||input;
   }
