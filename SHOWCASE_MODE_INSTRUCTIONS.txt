@@ -1,0 +1,26 @@
+Mr. McLean Math — Showcase Mode (v286)
+
+Showcase Mode only activates if ?showcase=1 is in the page URL.
+The ordinary Practice and Games pages are unchanged.
+
+After publishing this ZIP to your website, open these links on your phone:
+
+PRACTICE (automatically displays all apps, grouped by subject):
+https://www.mrmcleanmath.com/practice.html?showcase=1
+
+GAMES (scrolls through the current Games page):
+https://www.mrmcleanmath.com/games.html?showcase=1
+
+To make a recording:
+1. Open one of the Showcase links on your phone.
+2. Select Slow, Medium, or Fast scrolling speed (Medium is the default).
+3. Begin your phone's screen recording.
+4. Tap Start scrolling. After a brief opening moment, the site scrolls at a constant speed and the controls disappear.
+5. Tap anywhere on the screen to pause and show the controls; tap Resume to continue.
+6. Use Restart to begin again, or tap View games/practice library to switch pages.
+7. Scrolling stops automatically at the bottom; tap to bring back the controls.
+8. Use Exit to return to the ordinary public page.
+
+Only games.html, practice.html, and VERSION.txt were modified from the uploaded ZIP.
+Two new files, showcase-mode.js and showcase-mode.css, contain the feature.
+All other website files were preserved.

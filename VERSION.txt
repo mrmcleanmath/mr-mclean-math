@@ -1,3 +1,9 @@
+v286 — OPT-IN SHOWCASE MODE — 2026-10-26
+Added a recording-only, steady-speed auto-scroll mode to practice.html and games.html via ?showcase=1.
+Practice mode builds a complete subject-grouped catalog from existing areaData so every current and future app is shown without changing normal navigation.
+Includes Slow/Medium/Fast speed choices, start/resume/restart, tap-anywhere-to-pause, a clean on-screen recording with hidden controls, and automatic stop at the bottom.
+Normal pages, games, practice generators, mobile keypads, NEW markings, and The Order coming-soon card remain unchanged.
+
 v283 — PUBLISH READY — 2026-10-22
 Production release based on the user-approved v282 testing build.
 Removed all five temporary Worksheet QA panels, QA-only styles, worksheet-generation handlers, and public QA test hooks from:

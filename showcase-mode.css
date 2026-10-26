@@ -1,0 +1,45 @@
+/* Mr. McLean Math — recording-only Showcase Mode.
+   Activated by ?showcase=1 on games.html or practice.html.
+   Does not modify the ordinary pages. */
+html.showcase-active { scroll-behavior:auto!important; }
+html.showcase-active body { overscroll-behavior-y:contain; }
+html.showcase-active.showcase-practice .practice-finder,
+html.showcase-active.showcase-practice .area-grid,
+html.showcase-active.showcase-practice .concept-display,
+html.showcase-active.showcase-practice .intro .journey { display:none!important; }
+html.showcase-active.showcase-practice .intro { margin-bottom:22px; }
+.showcase-catalog { display:none; width:min(1190px,100%); margin:0 auto; padding:0 0 10px; }
+html.showcase-active.showcase-practice .showcase-catalog { display:block; }
+.showcase-subject { --accent:#6a97bd; margin:0 0 22px; padding:18px; border:2px solid color-mix(in srgb,var(--accent) 54%,#dedfe6); border-top:9px solid var(--accent); border-radius:22px; background:rgba(255,255,255,.94); box-shadow:0 12px 26px rgba(41,52,73,.11); }
+.showcase-subject .showcase-subject-title { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:0 0 14px; }
+.showcase-subject .showcase-subject-title h2 { margin:0; color:#333942; font:900 clamp(1.2rem,3.6vw,1.55rem)/1.25 "Trebuchet MS",Arial,sans-serif; }
+.showcase-subject .showcase-subject-title span { flex:none; border-radius:99px; background:color-mix(in srgb,var(--accent) 26%,#fff); padding:6px 10px; font:900 .76rem "Trebuchet MS",Arial,sans-serif; color:#3a4354; }
+.showcase-subject .concept-list { display:grid; }
+.showcase-subject .concept-card { pointer-events:none; }
+@media(max-width:760px) {
+  .showcase-catalog { padding:0 1px; }
+  .showcase-subject { margin-bottom:16px; padding:12px; border-radius:17px; }
+  .showcase-subject .concept-list { gap:10px; }
+  .showcase-subject .concept-card { padding:12px 14px; gap:10px; }
+  .showcase-subject .concept-symbol { width:140px; max-width:100%; }
+}
+/* Recording panel is deliberately invisible once playback starts. */
+.showcase-controls { position:fixed; bottom:max(16px,env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%); z-index:2147483600; width:min(430px,calc(100vw - 24px)); box-sizing:border-box; padding:19px; background:#102250f5; color:#fff; border:1.5px solid #74d5ff; border-radius:22px; box-shadow:0 13px 40px rgba(0,0,0,.44); font-family:"Trebuchet MS",Arial,sans-serif; text-align:left; }
+.showcase-controls *, .showcase-controls *::before, .showcase-controls *::after { box-sizing:border-box; }
+.showcase-controls-header { display:flex; gap:10px; align-items:center; justify-content:space-between; }
+.showcase-controls-name { font-size:1rem; font-weight:1000; letter-spacing:.09em; color:#b7f0ff; }
+.showcase-controls-type { font-weight:800; font-size:.72rem; letter-spacing:.02em; color:#d8e4ff; }
+.showcase-controls-help { margin:9px 0 13px; color:#edf4ff; font-size:.82rem; line-height:1.4; }
+.showcase-controls label { display:block; margin-bottom:7px; font-size:.77rem; font-weight:900; color:#d5eaff; }
+.showcase-controls select { width:100%; min-height:40px; border-radius:10px; border:1px solid #9cbeff; font:800 .88rem "Trebuchet MS",Arial,sans-serif; color:#0e2653; background:white; padding:7px 10px; }
+.showcase-controls-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
+.showcase-controls button,.showcase-controls a { flex:1 1 auto; min-height:42px; padding:9px 12px; border-radius:10px; text-align:center; cursor:pointer; font:900 .87rem "Trebuchet MS",Arial,sans-serif; text-decoration:none; }
+.showcase-controls .showcase-start { flex:2 1 155px; border:1px solid #8bffe7; color:#052646; background:linear-gradient(160deg,#b8fff0,#4adfce); }
+.showcase-controls .showcase-restart { border:1px solid #829dc9; color:#fff; background:#263e70; }
+.showcase-controls .showcase-switch { background:#f5d572; color:#2c2356; border:1px solid #ffdf79; }
+.showcase-controls .showcase-exit { background:#243556; color:#ecf2ff; border:1px solid #6d87b5; }
+.showcase-controls-tip { font-size:.74rem; line-height:1.35; color:#acc6e8; margin-top:11px; }
+.showcase-tap-layer { display:none; position:fixed; z-index:2147483500; inset:0; background:transparent; border:0; border-radius:0; outline:0; padding:0; appearance:none; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+html.showcase-playing .showcase-controls { display:none!important; }
+html.showcase-playing .showcase-tap-layer { display:block; }
+@media(max-width:400px) { .showcase-controls{padding:15px;} .showcase-controls-actions{gap:6px;} .showcase-controls button,.showcase-controls a{font-size:.8rem;padding:8px;} }
