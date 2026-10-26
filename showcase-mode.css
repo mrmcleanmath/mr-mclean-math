@@ -31,6 +31,7 @@ html.showcase-active.showcase-practice .showcase-catalog { display:block; }
 .showcase-controls-type { font-weight:800; font-size:.72rem; letter-spacing:.02em; color:#d8e4ff; }
 .showcase-controls-help { margin:9px 0 13px; color:#edf4ff; font-size:.82rem; line-height:1.4; }
 .showcase-controls label { display:block; margin-bottom:7px; font-size:.77rem; font-weight:900; color:#d5eaff; }
+.showcase-speed-label { margin-top:10px; }
 .showcase-controls select { width:100%; min-height:40px; border-radius:10px; border:1px solid #9cbeff; font:800 .88rem "Trebuchet MS",Arial,sans-serif; color:#0e2653; background:white; padding:7px 10px; }
 .showcase-controls-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
 .showcase-controls button,.showcase-controls a { flex:1 1 auto; min-height:42px; padding:9px 12px; border-radius:10px; text-align:center; cursor:pointer; font:900 .87rem "Trebuchet MS",Arial,sans-serif; text-decoration:none; }

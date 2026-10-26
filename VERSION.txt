@@ -1,3 +1,9 @@
+v287 — BIDIRECTIONAL SHOWCASE MODE — 2026-10-26
+Showcase recording mode now supports Top to Bottom and Bottom to Top directions on both Games and Practice.
+Bottom-to-top starts from the very bottom and moves up at the selected steady speed.
+The Restart control respects the selected direction; changing direction resets to its starting edge.
+Preserves all v286 Showcase Mode features, normal pages, NEW markings, and approved The Order coming-soon card.
+
 v286 — OPT-IN SHOWCASE MODE — 2026-10-26
 Added a recording-only, steady-speed auto-scroll mode to practice.html and games.html via ?showcase=1.
 Practice mode builds a complete subject-grouped catalog from existing areaData so every current and future app is shown without changing normal navigation.

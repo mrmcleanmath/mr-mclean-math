@@ -47,7 +47,12 @@
   panel.innerHTML = `
     <div class="showcase-controls-header"><span class="showcase-controls-name">✦ SHOWCASE MODE</span><span class="showcase-controls-type">${isPractice ? 'PRACTICE LIBRARY' : 'GAME LIBRARY'}</span></div>
     <p class="showcase-controls-help">Automatic, even-paced scrolling for your phone screen recording. Controls disappear when you start.</p>
-    <label for="showcase-speed">Scrolling speed</label>
+    <label for="showcase-direction">Scroll direction</label>
+    <select id="showcase-direction">
+      <option value="down" selected>↓ Top to bottom</option>
+      <option value="up">↑ Bottom to top</option>
+    </select>
+    <label for="showcase-speed" class="showcase-speed-label">Scrolling speed</label>
     <select id="showcase-speed">
       <option value="45">Slow — best for reading</option>
       <option value="75" selected>Medium — smooth showcase</option>
@@ -59,13 +64,14 @@
       <a class="showcase-switch" href="${isPractice ? 'games.html' : 'practice.html'}?showcase=1">View ${isPractice ? 'games' : 'practice'} library</a>
       <a class="showcase-exit" href="${page}">Exit</a>
     </div>
-    <div class="showcase-controls-tip">Start your phone's screen recording, then tap Start. Tap anywhere while scrolling to pause; tap Start again to resume. The view stops at the bottom.</div>`;
+    <div class="showcase-controls-tip">Choose a direction and speed, then start recording. Tap Start to scroll from that end of the page. Tap anywhere to pause; tap Start to resume. Restart begins again from the selected end.</div>`;
   const tap = document.createElement('button');
   tap.type = 'button';
   tap.className = 'showcase-tap-layer';
   tap.setAttribute('aria-label', 'Pause scrolling and show recording controls');
   document.body.append(panel, tap);
 
+  const directionSelect = panel.querySelector('#showcase-direction');
   const speedSelect = panel.querySelector('#showcase-speed');
   const startButton = panel.querySelector('.showcase-start');
   const restartButton = panel.querySelector('.showcase-restart');
@@ -76,6 +82,11 @@
   let exactY = 0;
   let finished = false;
   let startedOnce = false;
+  const isUpward = () => directionSelect.value === 'up';
+  const edgeY = () => isUpward()
+    ? Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
+    : 0;
+  const edgeLabel = () => isUpward() ? 'bottom' : 'top';
 
   function stop(showControls = true) {
     window.cancelAnimationFrame(raf);
@@ -85,7 +96,7 @@
     previousTime = null;
     if (showControls) {
       root.classList.remove('showcase-playing');
-      startButton.textContent = finished ? '↺ Replay from top' : '▶ Resume scrolling';
+      startButton.textContent = finished ? `↺ Replay from ${edgeLabel()}` : '▶ Resume scrolling';
     }
   }
 
@@ -95,9 +106,11 @@
     const delta = Math.min(100, Math.max(0, now - previousTime));
     previousTime = now;
     const maximum = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    exactY = Math.min(maximum, exactY + (Number(speedSelect.value) || 75) * delta / 1000);
+    const direction = isUpward() ? -1 : 1;
+    const nextY = exactY + direction * (Number(speedSelect.value) || 75) * delta / 1000;
+    exactY = Math.min(maximum, Math.max(0, nextY));
     window.scrollTo(0, exactY);
-    if (exactY >= maximum - 0.5) {
+    if ((isUpward() && exactY <= 0.5) || (!isUpward() && exactY >= maximum - 0.5)) {
       finished = true;
       stop(false); // The recording remains visually clean at the end.
       return;
@@ -109,8 +122,8 @@
     stop(false);
     startedOnce = true;
     if (fromBeginning) {
-      window.scrollTo(0, 0);
-      exactY = 0;
+      exactY = edgeY();
+      window.scrollTo(0, exactY);
       finished = false;
     } else {
       exactY = window.scrollY;
@@ -124,6 +137,15 @@
     }, fromBeginning ? 1800 : 250);
   }
 
+  directionSelect.addEventListener('change', () => {
+    // Changing direction prepares a new run from the correct end of the page.
+    stop(true);
+    startedOnce = false;
+    finished = false;
+    exactY = edgeY();
+    window.scrollTo(0, exactY);
+    startButton.textContent = '▶ Start scrolling';
+  });
   startButton.addEventListener('click', () => start(!startedOnce || finished));
   restartButton.addEventListener('click', () => start(true));
   tap.addEventListener('click', () => {
