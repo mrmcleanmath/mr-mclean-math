@@ -30,6 +30,8 @@
   const editOnly=['⌫','Enter'];
 
   const configs={
+    'metric-unit-conversions.html':{selector:'input.metric-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Metric conversion answer buttons'},
+    'square-cubic-unit-conversions.html':{selector:'input.metric-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Square and cubic conversion answer buttons'},
     'adding-subtracting-algebraic-expressions.html':{selector:'input[id$="Answer"]',keys:algebra,cols:5,backspaceSpan:3,enterSpan:5,caption:'Algebra answer buttons'},
     'adding-subtracting-fractions.html':{selector:'input.answer-field',keys:integer,cols:5,enterSpan:3,caption:'Fraction answer buttons'},
     'area-triangles-quadrilaterals.html':{selector:'input.surface-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
@@ -58,11 +60,15 @@
     'converting-fractions-to-decimals-and-percents-with-calculator.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Decimal and percent answer buttons'},
     'finding-the-nth-term-rule.html':{selector:'input.nth-answer-input',keys:nthRuleKeys,cols:5,backspaceSpan:2,enterSpan:2,caption:'nth-term rule answer buttons'},
     'calculating-terms-using-nth-term-rule.html':{selector:'input.seq-answer-input',keys:signedInteger,cols:5,enterSpan:2,caption:'Sequence term answer buttons'},
-    'area-of-circle-portions.html':{selector:'input.portion-answer',keys:integer,cols:5,enterSpan:3,caption:'Shaded area answer buttons'},
-    'area-of-circles.html':{selector:'input.area-circle-answer',keys:integer,cols:5,enterSpan:3,caption:'Circle area answer buttons'},
+    'perimeter-of-circle-portions.html':{selector:'input.perimeter-portion-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Perimeter answer buttons'},
+    'area-of-circle-portions.html':{selector:'input.portion-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Shaded area answer buttons'},
+    'circumference-of-circles.html':{selector:'input.circumference-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Circumference answer buttons'},
+    'area-of-circles.html':{selector:'input.area-circle-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Circle area answer buttons'},
     'rounding.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Rounding answer buttons'},
     'percent-increase-and-decrease.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent increase and decrease answer buttons'},
 
+    'missing-interior-angles.html':{selector:'input[id$="Answer"]',keys:integer,cols:5,enterSpan:3,caption:'Angle answer buttons'},
+    'calculating-interest.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Interest answer buttons'},
     'calculating-percent-change.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Percent answer buttons'},
     'equations-with-variables-on-both-sides.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Equation answer buttons'},
     'common-ratio-in-patterns.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Pattern answer buttons'},
@@ -161,8 +167,20 @@
       hapticKey(key);
       handleKey(key);
     };
-    grid.addEventListener('pointerdown',press,{passive:false});
-    grid.addEventListener('click',e=>{if(e.detail===0)press(e)});
+    // Touch browsers often dispatch pointerdown AND a click with detail=0.
+    // Do not process that click twice. Preserve detail=0 keyboard activation.
+    let lastPointerButton=null, lastPointerTime=0;
+    grid.addEventListener('pointerdown',e=>{
+      lastPointerButton=e.target.closest('.mmm-key');
+      lastPointerTime=Date.now();
+      press(e);
+    },{passive:false});
+    grid.addEventListener('click',e=>{
+      if(e.detail!==0)return;
+      const button=e.target.closest('.mmm-key');
+      if(button&&button===lastPointerButton&&Date.now()-lastPointerTime<500)return;
+      press(e);
+    });
     return pad;
   }
 

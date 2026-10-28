@@ -243,36 +243,12 @@ body > header.site-global-header .site-global-social svg{
 /* Fraction Breaker cover */
 .cover-wrap img.fb-cover{object-fit:contain!important;object-position:center center!important;transform:scale(.94)!important;padding:4px!important;box-sizing:border-box!important;background:#071b56!important}
 
-/* v285 — The Order approved October 29 coming-soon presentation. */
-.game-row.is-coming{position:relative;overflow:visible}
-.game-row.is-coming .coming-badge{
- position:absolute;z-index:12;left:-14px;top:-17px;
- width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
- border:4px solid #fff;box-shadow:0 0 0 2px #7351e2,0 8px 22px rgba(62,20,173,.24),0 0 18px rgba(100,55,220,.2);
- background:linear-gradient(145deg,#8332fb 0%,#5713d4 62%,#3b07a8 100%);
- color:#fff;font-family:Arial,Helvetica,sans-serif;text-align:center;line-height:1.16;font-weight:900;
- font-size:12px;letter-spacing:.25px;text-shadow:0 1px 4px rgba(18,0,58,.25);
- animation:coming-badge-in .65s cubic-bezier(.2,.9,.3,1.2) both;
-}
-.game-row.is-coming .coming-badge span{display:block}
-@keyframes coming-badge-in{from{opacity:0;transform:scale(.5) rotate(-9deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-.game-row.is-coming .cover-wrap{background:#050a08!important}
-.game-row.is-coming .cover-wrap img.the-order-cover{width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important;object-position:center!important;padding:0!important;background:#030807!important}
-.game-row.is-coming .coming-soon{
- width:310px;min-width:270px;max-width:100%;padding:16px 20px;
- white-space:nowrap;line-height:1.25;pointer-events:none;cursor:default;
- background:linear-gradient(180deg,#7c30f9 0%,#6417e6 62%,#4b0fc7 100%);
- box-shadow:0 7px 0 #380c91,0 12px 24px rgba(89,34,168,.23);
- font-size:14px;letter-spacing:.08px;text-align:center;
-}
-@media(max-width:1080px) and (min-width:761px){
- .game-row.is-coming .coming-soon{width:260px;min-width:230px;white-space:normal}
-}
-@media(max-width:760px){
- .game-row.is-coming .coming-badge{top:-15px;left:-12px;width:80px;height:80px;font-size:11px}
- .game-row.is-coming .coming-soon{width:100%;min-width:0;white-space:normal;font-size:15px}
-}
-@media(prefers-reduced-motion:reduce){.game-row.is-coming .coming-badge{animation:none}}
+/* v305 — game launch; approved cover retained at full, uncropped proportions. */
+.game-row.order-new{position:relative;overflow:visible}
+.game-row.order-new .game-new-badge{position:absolute;z-index:12;left:-15px;top:-20px;width:84px;height:84px;display:flex;justify-content:center;align-items:center;text-align:center;background:#f2766a;color:#fff;font:900 16px Arial,Helvetica,sans-serif;letter-spacing:.15px;text-shadow:0 1px 3px #8d3e2b;filter:drop-shadow(0 3px 3px rgba(80,30,20,.22));clip-path:polygon(50% 0%,60% 13%,75% 3%,78% 20%,95% 17%,88% 34%,100% 46%,87% 56%,96% 71%,78% 73%,75% 92%,61% 82%,50% 100%,40% 84%,24% 94%,21% 75%,4% 74%,12% 59%,0% 47%,14% 36%,5% 19%,23% 21%,27% 4%,41% 15%)}
+.game-row.order-new .cover-wrap{background:#050a08!important}
+.game-row.order-new .cover-wrap img.the-order-cover{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center center!important;padding:0!important;background:#030807!important}
+@media(max-width:760px){.game-row.order-new .game-new-badge{left:-10px;top:-16px;width:72px;height:72px;font-size:14px}}
 </style>
 <link rel="stylesheet" href="site-header.css">
 
@@ -286,6 +262,104 @@ body > header.site-global-header .site-global-social svg{
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="stylesheet" href="showcase-mode.css?v=287">
+<style id="game-trailer-presentation-v306">
+/* v306 — portrait game trailers with privacy-first, click-to-play viewing. */
+.game-row:has(.trailer-tile){grid-template-columns:230px minmax(190px,1fr) 124px auto;column-gap:18px}
+.trailer-tile{position:relative;isolation:isolate;display:block;justify-self:center;width:112px;aspect-ratio:9/16;padding:0;overflow:hidden;border:2px solid #8472c0;border-radius:14px;background:#080c1c;color:white;cursor:pointer;box-shadow:0 9px 22px #201b4960;transition:transform .18s,box-shadow .18s}
+.trailer-tile:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 15px 26px #201b4980}
+.trailer-tile:focus-visible{outline:3px solid #5039d8;outline-offset:4px}
+.trailer-poster-art{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.75) saturate(1.15);transform:none;background-size:contain;background-repeat:no-repeat;background-color:#07101d}
+.trailer-tile.order-trailer .trailer-poster-art{background-position:center;background-size:cover}
+.trailer-poster-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#080510ad 0%,transparent 28%,#05041766 65%,#080510e8 100%)}
+.trailer-poster-top,.trailer-poster-foot{position:absolute;left:6px;right:6px;z-index:1;text-align:center;font-family:"Trebuchet MS",Arial,sans-serif;font-weight:1000;letter-spacing:.5px}
+.trailer-poster-top{top:10px;font-size:9px;color:#f6ebff;text-shadow:0 1px 3px black}
+.trailer-poster-foot{bottom:10px;font-size:10px;color:#fff}
+.trailer-poster-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;width:49px;height:49px;display:grid;place-items:center;border-radius:50%;font-size:19px;color:white;background:#7045e6dd;border:2px solid #ffffffb5;box-shadow:0 0 18px #8e5fff88;padding-left:3px}
+.trailer-tile.fraction-trailer{border-color:#73b9e7}.trailer-tile.fraction-trailer .trailer-poster-play{background:#1668bbdd;box-shadow:0 0 18px #209bff88}
+.trailer-viewer[hidden]{display:none!important}.trailer-viewer{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:12px;background:#060616e8;backdrop-filter:blur(12px)}
+.trailer-viewer-panel{width:min(430px,100%);max-height:calc(100dvh - 24px);display:flex;flex-direction:column;gap:9px;padding:13px;border:1px solid #8b78c2;border-radius:20px;background:#13142c;box-shadow:0 25px 80px #000a;color:#f6f5ff}
+.trailer-viewer-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.trailer-viewer-title{font-weight:900;font-size:1.1rem}.trailer-close{background:#2b2a45;color:white;border:1px solid #6f6487;border-radius:10px;min-height:36px;padding:7px 11px;cursor:pointer;font:800 .85rem "Trebuchet MS",Arial,sans-serif}
+.trailer-screen{position:relative;margin:0 auto;height:min(70dvh,630px);aspect-ratio:9/16;max-width:100%;width:auto;overflow:hidden;border-radius:13px;background:linear-gradient(155deg,#141d37,#090c19);display:grid;place-items:center}
+.trailer-screen iframe{display:block;width:100%;height:100%;border:0}
+.trailer-consent{padding:16px;display:grid;align-content:center;justify-items:center;gap:12px;text-align:center;color:#e8e3f9}
+.trailer-consent p{margin:0;font-size:.89rem;line-height:1.5}.trailer-consent-icon{font-size:3rem;color:#c9afff;line-height:1}
+.trailer-play{border:0;border-radius:11px;background:#6940e5;color:#fff;font:900 1rem "Trebuchet MS",Arial,sans-serif;padding:11px 18px;cursor:pointer}
+.trailer-privacy{font-size:.78rem;color:#b5abc8;text-align:center}.trailer-privacy a{color:#d7c8ff}
+body.trailer-open{overflow:hidden}
+@media(max-width:1100px){.game-row:has(.trailer-tile){grid-template-columns:185px minmax(155px,1fr) 106px auto;gap:13px}.trailer-tile{width:101px}.game-row:has(.trailer-tile) .play{min-width:124px;padding:12px 13px}}
+@media(max-width:760px){.game-row:has(.trailer-tile){grid-template-columns:1fr;gap:16px;text-align:center}.game-row:has(.trailer-tile) .cover-wrap{width:100%}.trailer-tile{width:110px}.game-row:has(.trailer-tile) .play{width:100%}.trailer-viewer-panel{padding:10px}.trailer-screen{height:min(68dvh,610px)}}
+@media(prefers-reduced-motion:reduce){.trailer-tile{transition:none}}
+</style>
+
+<style id="game-trailer-phone-frames-v308">
+/* The whole preview is a tiny handset, instead of a bare vertical poster. */
+.game-row:has(.trailer-tile) {grid-template-columns:230px minmax(190px,1fr) 132px auto}
+.trailer-tile {box-sizing:border-box;width:116px;aspect-ratio:9/17.2;padding:7px 5px 11px;overflow:visible;border:3px solid #4e5366;border-radius:24px;background:linear-gradient(135deg,#242940 0%,#090b13 20%,#11131c 72%,#464f67 100%);box-shadow:inset 0 0 0 1px #a9bad780, inset 2px 2px 4px #ffffff24, 0 10px 23px #101b4270;transform-origin:center center}
+.trailer-tile.order-trailer {border-color:#6b6089;box-shadow:inset 0 0 0 1px #bca7e280,0 10px 26px #35275a50}
+.trailer-tile.order-trailer .trailer-poster-art{background-size:contain;background-color:#06090f}
+.trailer-tile.fraction-trailer {border-color:#4b769a;box-shadow:inset 0 0 0 1px #98d5f180,0 10px 26px #1c568550}
+.trailer-tile:hover{transform:translateY(-4px) scale(1.025);box-shadow:0 16px 28px #151f4266,inset 0 0 0 1px #e4deff99}
+.trailer-tile::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);z-index:4;width:37px;height:10px;background:#060710;border:1px solid #222636;border-radius:999px;box-shadow:0 1px 4px #000b}
+.trailer-tile::after{content:"";position:absolute;bottom:4px;left:50%;transform:translateX(-50%);z-index:4;width:33px;height:3px;background:#aab5c7aa;border-radius:20px}
+.trailer-poster-screen{position:relative;display:block;overflow:hidden;width:100%;height:100%;border-radius:16px;background:#070b16;box-shadow:inset 0 0 0 1px #ffffff20}
+.trailer-poster-screen::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 1px 1px 7px #ffffff13,inset -2px -2px 9px #0008}
+.trailer-poster-top{top:24px;font-size:8px}
+.trailer-poster-foot{bottom:9px;font-size:9px}
+.trailer-poster-play{width:46px;height:46px}
+/* Expanded viewer: polished handset with metal edge, camera island and home gesture bar. */
+.trailer-viewer{z-index:9999;background:radial-gradient(ellipse at 50% 40%,#33266380,transparent 58%),#050615f0}
+.trailer-viewer-panel{width:min(425px,100%);max-height:calc(100dvh - 20px);overflow-y:auto;min-height:0;gap:10px;padding:14px 13px 12px;border:1px solid #726b9caa;border-radius:24px;background:linear-gradient(160deg,#1b1c38,#111224 70%);box-shadow:0 25px 100px #000d}
+.trailer-viewer-head{gap:8px}
+.trailer-viewer-title{font-family:"Trebuchet MS",Arial,sans-serif;font-weight:900;font-size:clamp(.95rem,3vw,1.1rem);letter-spacing:.15px}
+.trailer-close{flex-shrink:0}
+.trailer-phone-shell{position:relative;isolation:isolate;flex:0 0 auto;width:max-content;max-width:100%;margin:0 auto;padding:13px 9px 18px;border-radius:38px;border:3px solid #535c78;background:linear-gradient(112deg,#69738e 0%,#151a2a 9%,#07080e 22%,#111522 79%,#4d576f 93%,#818ba5 100%);box-shadow:0 16px 42px #000b,inset 2px 0 3px #ffffff4a,inset -2px 0 3px #ffffff45}
+.trailer-phone-shell::before{content:"";position:absolute;z-index:8;left:50%;top:17px;transform:translateX(-50%);height:17px;width:64px;border-radius:999px;background:#05060b;border:1px solid #252b38;box-shadow:0 1px 4px #0007;pointer-events:none}
+.trailer-phone-shell::after{content:"";position:absolute;z-index:6;top:11px;left:11px;right:11px;bottom:16px;border-radius:24px;pointer-events:none;box-shadow:inset 0 0 0 1px #ffffff22,inset 1px 2px 7px #ffffff17}
+.trailer-phone-keys{position:absolute;left:-6px;top:74px;height:34px;width:3px;border-radius:3px 0 0 3px;background:#7d8298;box-shadow:0 42px 0 #7d8298}
+.trailer-phone-power{position:absolute;right:-6px;top:89px;width:3px;height:38px;border-radius:0 3px 3px 0;background:#6e7690}
+.trailer-phone-home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);z-index:7;width:83px;height:4px;border-radius:99px;background:#b6bed0b8;pointer-events:none}
+.trailer-screen{height:min(62dvh,570px);width:auto;aspect-ratio:9/16;max-width:calc(100vw - 84px);border-radius:25px;background:linear-gradient(155deg,#101936,#05070e);overflow:hidden}
+.trailer-screen iframe{width:100%;height:100%}
+.trailer-privacy{line-height:1.4}
+@media(max-width:1100px){.game-row:has(.trailer-tile){grid-template-columns:185px minmax(155px,1fr) 114px auto;gap:13px}.trailer-tile{width:103px}}
+@media(max-width:760px){.game-row:has(.trailer-tile){grid-template-columns:1fr;gap:16px}.trailer-tile{width:116px}.trailer-viewer-panel{padding:10px 10px 11px}.trailer-screen{height:min(61dvh,520px)}}
+@media(max-height:690px){.trailer-screen{height:min(56dvh,450px)}.trailer-viewer-panel{gap:7px;padding:8px 10px}}
+@media(max-width:360px){.trailer-screen{height:min(56dvh,440px)}}
+@media(prefers-reduced-motion:reduce){.trailer-tile{transition:none}}
+</style>
+<style id="game-new-badge-animation-v307">
+/* Match the animated NEW stars used by Latest Content, rather than a static badge. */
+.game-row.order-new .game-new-badge {
+  transform-origin:center center;
+  animation:latest-badge-pop .85s cubic-bezier(.18,.89,.32,1.28) both,
+            latest-badge-breathe 2.8s ease-in-out 1s infinite,
+            latest-badge-drift 4s ease-in-out 1.2s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .game-row.order-new .game-new-badge {animation:none!important;}
+}
+</style>
+<style id="games-play-under-covers-v311">
+/* Keep game launch under each game cover; the optional 9:16 trailer has its own right column. */
+.game-row{grid-template-columns:230px minmax(0,1fr);column-gap:22px;row-gap:14px;align-items:center}
+.game-row:has(.trailer-tile){grid-template-columns:230px minmax(0,1fr) 132px;column-gap:22px}
+.game-media{display:flex;flex-direction:column;gap:13px;min-width:0;align-items:stretch}
+.game-media .cover-wrap{width:100%;max-width:none;height:148px;margin:0}
+.game-media .play{display:flex;width:100%;max-width:none;min-width:0;min-height:44px;padding:12px 13px;text-align:center}
+.game-row:has(.trailer-tile) .game-media .play{min-width:0}
+.game-row .trailer-tile{justify-self:center;align-self:center}
+@media(max-width:1100px){
+  .game-row{grid-template-columns:185px minmax(0,1fr);column-gap:16px}
+  .game-row:has(.trailer-tile){grid-template-columns:185px minmax(0,1fr) 114px;column-gap:16px}
+}
+@media(max-width:760px){
+  .game-row,.game-row:has(.trailer-tile){grid-template-columns:minmax(0,1fr);gap:16px}
+  .game-media{width:min(100%,430px);margin-inline:auto}
+  .game-media .cover-wrap{height:auto;aspect-ratio:16/9;width:100%}
+  .game-media .play,.game-row:has(.trailer-tile) .game-media .play{min-height:48px;width:100%}
+  .game-row .trailer-tile{justify-self:center}
+}
+</style>
 </head><body><header class="site-global-header">
 <div class="site-global-topbar">
 <nav class="site-global-nav" aria-label="Main navigation">
@@ -304,8 +378,51 @@ body > header.site-global-header .site-global-social svg{
 </div>
 </header><main class="page"><div class="crumb"><a href="index.html">Home</a> › Games</div>
 <section class="games-panel"><div class="games-panel-head"><span class="pad" aria-hidden="true"><span class="gl-mini-controller"><span class="gl-mini-dpad"></span><span class="gl-mini-btn gl-mini-a"></span><span class="gl-mini-btn gl-mini-b"></span><span class="gl-mini-btn gl-mini-x"></span><span class="gl-mini-btn gl-mini-y"></span></span></span><h2>Math Games</h2></div>
-<article class="game-row is-coming"><div class="coming-badge" aria-label="Coming soon"><span>COMING<br>SOON!</span></div><div class="cover-wrap"><img class="the-order-cover" src="assets/the-order-game-cover.png?v=285" alt="The Order start screen: a faceted diamond above the title THE ORDER against a dark background"></div><div class="game-copy"><div class="eyebrow">New Game</div><h3>The Order</h3><p>Details Coming Soon.</p></div><div class="play coming-soon" aria-label="The Order coming Thursday, October 29th" role="status">Coming Thursday, October 29th</div></article>
-<article class="game-row"><div class="cover-wrap"><img class="fb-cover" src="assets/fraction-breaker-game-cover.png?v=202" alt="Fraction Breaker game cover showing a glowing grid with three quarters filled and a block breaking apart"></div><div class="game-copy"><div class="eyebrow">Featured Game</div><h3>Fraction Breaker</h3><p>Put your fraction skills to the test with visual grids. Break blocks, race the clock and protect your lives. Simplify fractions for extra points.</p><div class="game-tags"><span>Fractions</span><span>▦ Visual Grids</span><span>⚡ Timed</span><span>♥ Lives</span></div></div><a class="play" href="fraction-breaker.html" aria-label="Play Fraction Breaker">▶ Play Game</a></article>
-<article class="game-row"><div class="cover-wrap"><img src="assets/pi-memory-game-cover.png?v=112" alt="Pi Memory Challenge game cover with a glowing pi symbol, colorful digits and pixel hearts"></div><div class="game-copy"><div class="eyebrow">Featured Game</div><h3>Pi Memory Challenge</h3><p>How many digits of pi can you remember? Build your score, climb levels and protect your hearts in Practice or Challenge Mode.</p><div class="game-tags"><span>π Memory</span><span>⚡ Speed</span><span>▮▮ Levels</span><span>♥ Lives</span></div></div><a class="play" href="pi-memory-challenge.html">▶ Play Game</a></article>
-</section></main><footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer><script src="showcase-mode.js?v=287"></script>
+<article class="game-row order-new"><div class="game-new-badge" aria-label="New game"><span>NEW!</span></div><div class="game-media"><div class="cover-wrap"><img class="the-order-cover" src="assets/the-order-game-cover.png?v=305" alt="The Order cover featuring a faceted crystal diamond and the title THE ORDER"></div><a class="play" href="the-order.html" aria-label="Play The Order">▶ Play Game</a></div><div class="game-copy"><div class="eyebrow">New Game</div><h3>The Order</h3><p>Choose your strategy in this fast-paced order-of-operations game. Plan the order, solve each expression, and collect crystals.</p><div class="game-tags"><span>Order of Operations</span><span>♛ Strategy</span><span>◆ Crystals</span><span>⚡ Timed</span></div></div>
+<button class="trailer-tile order-trailer" type="button" data-trailer-id="Wy721hh8Lfw" data-trailer-game="The Order" aria-label="Watch The Order trailer (vertical video)"><span class="trailer-poster-screen"><span class="trailer-poster-art" style="background-image:url('assets/the-order-game-cover.png?v=305')"></span><span class="trailer-poster-top">OFFICIAL TRAILER</span><span class="trailer-poster-play" aria-hidden="true">▶</span><span class="trailer-poster-foot">WATCH TRAILER <span aria-hidden="true">↗</span></span></span></button>
+</article>
+<article class="game-row"><div class="game-media"><div class="cover-wrap"><img class="fb-cover" src="assets/fraction-breaker-game-cover.png?v=202" alt="Fraction Breaker game cover showing a glowing grid with three quarters filled and a block breaking apart"></div><a class="play" href="fraction-breaker.html" aria-label="Play Fraction Breaker">▶ Play Game</a></div><div class="game-copy"><div class="eyebrow">Featured Game</div><h3>Fraction Breaker</h3><p>Put your fraction skills to the test with visual grids. Break blocks, race the clock and protect your lives. Simplify fractions for extra points.</p><div class="game-tags"><span>Fractions</span><span>▦ Visual Grids</span><span>⚡ Timed</span><span>♥ Lives</span></div></div>
+<button class="trailer-tile fraction-trailer" type="button" data-trailer-id="Ye7t-Dys1NY" data-trailer-game="Fraction Breaker" aria-label="Watch Fraction Breaker trailer (vertical video)"><span class="trailer-poster-screen"><span class="trailer-poster-art" style="background-image:url('assets/fraction-breaker-game-cover.png?v=202')"></span><span class="trailer-poster-top">OFFICIAL TRAILER</span><span class="trailer-poster-play" aria-hidden="true">▶</span><span class="trailer-poster-foot">WATCH TRAILER <span aria-hidden="true">↗</span></span></span></button>
+</article>
+<article class="game-row"><div class="game-media"><div class="cover-wrap"><img src="assets/pi-memory-game-cover.png?v=112" alt="Pi Memory Challenge game cover with a glowing pi symbol, colorful digits and pixel hearts"></div><a class="play" href="pi-memory-challenge.html">▶ Play Game</a></div><div class="game-copy"><div class="eyebrow">Featured Game</div><h3>Pi Memory Challenge</h3><p>How many digits of pi can you remember? Build your score, climb levels and protect your hearts in Practice or Challenge Mode.</p><div class="game-tags"><span>π Memory</span><span>⚡ Speed</span><span>▮▮ Levels</span><span>♥ Lives</span></div></div></article>
+</section></main>
+<div class="trailer-viewer" id="trailerViewer" hidden role="dialog" aria-modal="true" aria-labelledby="trailerViewerTitle"><div class="trailer-viewer-panel"><div class="trailer-viewer-head"><span class="trailer-viewer-title" id="trailerViewerTitle">Game trailer</span><button class="trailer-close" id="trailerClose" type="button" aria-label="Close trailer">✕ Close</button></div><div class="trailer-phone-shell" aria-label="Smartphone trailer player"><span class="trailer-phone-keys" aria-hidden="true"></span><span class="trailer-phone-power" aria-hidden="true"></span><div class="trailer-screen" id="trailerScreen"><div class="trailer-consent"><div class="trailer-consent-icon" aria-hidden="true">▶</div><p>Watch the official game trailer in its original vertical format.</p><button class="trailer-play" id="trailerPlay" type="button">▶ Play trailer</button><p>Playing connects to YouTube.</p></div></div><span class="trailer-phone-home" aria-hidden="true"></span></div><div class="trailer-privacy">Only loads YouTube after you press Play. <a href="privacy.html">Privacy information</a></div></div></div>
+<footer class="site-legal-footer" aria-label="Legal information"><span>© 2026 Mr. McLean Math</span><span class="dot" aria-hidden="true">•</span><a href="privacy.html">Privacy &amp; Cookies</a><span class="dot" aria-hidden="true">•</span><a href="terms.html">Terms of Use</a></footer><script src="showcase-mode.js?v=287"></script>
+<script>
+(function(){
+ const viewer=document.getElementById('trailerViewer');
+ const screen=document.getElementById('trailerScreen');
+ const title=document.getElementById('trailerViewerTitle');
+ const close=document.getElementById('trailerClose');
+ let activeId='',activeGame='',returnFocus=null;
+ function consent(){
+   screen.innerHTML='<div class="trailer-consent"><div class="trailer-consent-icon" aria-hidden="true">▶</div><p>Watch the official game trailer in its original vertical format.</p><button class="trailer-play" type="button">▶ Play trailer</button><p>Playing connects to YouTube.</p></div>';
+   screen.querySelector('.trailer-play').addEventListener('click',function(){
+     if(!activeId) return;
+     const frame=document.createElement('iframe');
+     frame.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(activeId)+'?autoplay=1&playsinline=1&rel=0';
+     frame.title=activeGame+' official trailer';
+     frame.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+     frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+     frame.setAttribute('allowfullscreen','');
+     screen.replaceChildren(frame);
+   });
+ }
+ function openTrailer(button){
+   activeId=button.dataset.trailerId;activeGame=button.dataset.trailerGame;
+   if(!/^[A-Za-z0-9_-]{11}$/.test(activeId)) return;
+   returnFocus=button;title.textContent=activeGame+' — Official Trailer';consent();
+   viewer.hidden=false;document.body.classList.add('trailer-open');close.focus();
+ }
+ function closeTrailer(){
+   if(viewer.hidden) return;
+   viewer.hidden=true;document.body.classList.remove('trailer-open');
+   screen.replaceChildren();activeId='';if(returnFocus)returnFocus.focus();
+ }
+ document.querySelectorAll('[data-trailer-id]').forEach(button=>button.addEventListener('click',()=>openTrailer(button)));
+ close.addEventListener('click',closeTrailer);
+ viewer.addEventListener('click',e=>{if(e.target===viewer)closeTrailer()});
+ document.addEventListener('keydown',e=>{if(!viewer.hidden && e.key==='Escape')closeTrailer();if(!viewer.hidden&&e.key==='Tab'){const a=Array.from(viewer.querySelectorAll('button,a[href],iframe')).filter(el=>el.offsetParent!==null);if(!a.length)return;const first=a[0],last=a[a.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+})();
+</script>
 </body></html>
