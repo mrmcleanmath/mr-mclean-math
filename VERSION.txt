@@ -1,2 +1,2 @@
-Mr. McLean Math v311 — Games Page Play Buttons Below Thumbnails
-Based on verified v310. All three game Play buttons now sit directly underneath each thumbnail. Both portrait smartphone trailers remain separate at the right on wide screens and stack below the game description on phones. No gameplay, trailers, or practice apps changed.
+Mr. McLean Math v312 - The Order Analytics Fix (Protected V151)
+Based on v311. Adds Vercel Web Analytics page-view tracking to The Order, matching Fraction Breaker and Pi Memory Challenge, plus an optional START custom event when supported. Protected scripts, source deterrents, all gameplay and scoring, all six new practice apps, trailers, Showcase Mode, and entire website otherwise unchanged.
