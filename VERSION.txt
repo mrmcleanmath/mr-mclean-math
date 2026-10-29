@@ -1,6 +1,5 @@
-Mr. McLean Math v317 — The Order V161 Straight Line Vault Expressions + protected Vercel Analytics
-Built on complete v316 website; only the-order.html and VERSION.txt changed.
-Latest game script is sourced exactly from The_Order_V161_Straight_Line_Vault_Expressions.html; all six protected JavaScript bodies decode byte-for-byte to the user upload.
-Existing three copy-deterrence layers retained: encoded JS, source shortcut/context-menu blockers, and copyright notice.
-Vercel page-view tracking and optional The Order - Game Started event retained outside encoded game code.
-All other 198 site files preserved byte-for-byte.
+Mr. McLean Math v318 — The Order Final Uploaded Game / Protected Analytics Release
+Built on the complete v317 website. Only the-order.html and VERSION.txt changed.
+Final game source supplied as index(7).html on 29 October 2026.
+Protection: encoded game JS, shortcut/context-menu copying deterrents, copyright notices.
+Tracking: Vercel Web Analytics pageviews and optional The Order - Game Started event.
