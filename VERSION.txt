@@ -1,6 +1,6 @@
-Mr. McLean Math v314 — The Order V157 share-vault story + protected Vercel Analytics
-Based exactly on v313 complete protected website. Updated ONLY the-order.html and VERSION.txt.
-The Order now uses user-provided V157 Share Matches Vault Story gameplay. All six inline game script bodies decode byte-for-byte to the V157 originals; styles and page structure are unchanged.
-Three deterrent layers retained: alternating base64 encoded game JS, casual source shortcut/context-menu restrictions, and copyright notices.
-Vercel Web Analytics page view tracking and optional START custom event remain active outside protected scripts.
-All other site content remains untouched: six new practice apps, trailers, games hub, Showcase Mode, and all existing resources.
+Mr. McLean Math v315 — The Order V159 Startup and Share Repair + protected Vercel Analytics
+Based exactly on the complete v314 website. Updated ONLY the-order.html and VERSION.txt.
+User-supplied V159 Startup and Share Repair game script and styles preserved. All six game script bodies decode byte-for-byte to uploaded V159.
+Copy deterrence: encoded JS, shortcut/context-menu restrictions, and copyright notice.
+Vercel Web Analytics remains in the HTML head (outside encoded scripts). Optional game-start custom event retained.
+All other website content unchanged.
