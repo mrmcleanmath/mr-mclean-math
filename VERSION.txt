@@ -1,2 +1,6 @@
-Mr. McLean Math v312 - The Order Analytics Fix (Protected V151)
-Based on v311. Adds Vercel Web Analytics page-view tracking to The Order, matching Fraction Breaker and Pi Memory Challenge, plus an optional START custom event when supported. Protected scripts, source deterrents, all gameplay and scoring, all six new practice apps, trailers, Showcase Mode, and entire website otherwise unchanged.
+Mr. McLean Math v313 — The Order V156 protected + Vercel Analytics
+Based exactly on v312 full website. Updated ONLY the-order.html and VERSION.txt.
+The Order now uses user-provided V156 Clean Restore Time Box game code, preserving all original script bodies and styles.
+Three layers remain: protected encoded JS, casual source-shortcut/context-menu deterrents, copyright notice.
+Vercel Web Analytics page tracking and optional START custom event carried forward from v312.
+All other site content unchanged: 6 NEW practice apps, trailers, games hub, Showcase Mode, all existing apps.
