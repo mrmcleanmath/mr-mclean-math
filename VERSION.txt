@@ -1,6 +1,6 @@
-Mr. McLean Math v316 — The Order V160 Consistent Vault Diamonds + protected Vercel Analytics
-Built on the complete v315 site; only the-order.html and VERSION.txt changed.
-Game code and styles sourced from the exact user-uploaded V160 version. All 6 protected game scripts decode byte-for-byte to the source.
-Three existing copy-deterrence layers: encoded JS, limited source shortcut/context-menu blockers, and copyright notice.
-Vercel page-view snippet and optional Game Started custom event retained outside encoded game scripts.
-Other 198 site files preserved byte-for-byte.
+Mr. McLean Math v317 — The Order V161 Straight Line Vault Expressions + protected Vercel Analytics
+Built on complete v316 website; only the-order.html and VERSION.txt changed.
+Latest game script is sourced exactly from The_Order_V161_Straight_Line_Vault_Expressions.html; all six protected JavaScript bodies decode byte-for-byte to the user upload.
+Existing three copy-deterrence layers retained: encoded JS, source shortcut/context-menu blockers, and copyright notice.
+Vercel page-view tracking and optional The Order - Game Started event retained outside encoded game code.
+All other 198 site files preserved byte-for-byte.
