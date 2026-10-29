@@ -1,6 +1,6 @@
-Mr. McLean Math v315 — The Order V159 Startup and Share Repair + protected Vercel Analytics
-Based exactly on the complete v314 website. Updated ONLY the-order.html and VERSION.txt.
-User-supplied V159 Startup and Share Repair game script and styles preserved. All six game script bodies decode byte-for-byte to uploaded V159.
-Copy deterrence: encoded JS, shortcut/context-menu restrictions, and copyright notice.
-Vercel Web Analytics remains in the HTML head (outside encoded scripts). Optional game-start custom event retained.
-All other website content unchanged.
+Mr. McLean Math v316 — The Order V160 Consistent Vault Diamonds + protected Vercel Analytics
+Built on the complete v315 site; only the-order.html and VERSION.txt changed.
+Game code and styles sourced from the exact user-uploaded V160 version. All 6 protected game scripts decode byte-for-byte to the source.
+Three existing copy-deterrence layers: encoded JS, limited source shortcut/context-menu blockers, and copyright notice.
+Vercel page-view snippet and optional Game Started custom event retained outside encoded game scripts.
+Other 198 site files preserved byte-for-byte.
