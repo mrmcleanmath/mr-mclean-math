@@ -1,6 +1,6 @@
-Mr. McLean Math v319 — The Order Chromebook Compatibility / Protected Analytics
-Built on the complete v318 website. Only the-order.html and VERSION.txt changed.
+Mr. McLean Math v320 — The Order Chromebook Regular-Window Controls Fix / Protected Analytics
+Built on the complete v319 website. Only the-order.html and VERSION.txt changed.
 Game source: final index(7).html uploaded by the website owner. Original scoring, gameplay and vault-sharing preserved.
-Chromebook compatibility: staged number/operation entrances and larger crystal on short desktop windows.
+Chromebook compatibility: fixes the regular-window desktop layout so the inline Submit button no longer overlaps the answer field, and the arrow / lock / unlock controls remain visible without fullscreen.
 Protection: encoded JS, shortcut/context-menu copying deterrents, copyright notices.
 Tracking: Vercel Web Analytics pageviews and optional The Order - Game Started event.

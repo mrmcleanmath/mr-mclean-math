@@ -3290,6 +3290,52 @@ body.game-started .topline .brand h1{text-align:center!important;margin:0 auto!i
  visibility:hidden!important;
 }
 </style>
+
+<style id="v320-chromebook-regular-window-fix">
+/* V320: Chromebook regular browser windows need a tighter desktop layout,
+   but phone and full desktop layouts must remain unchanged. */
+@media (min-width:901px) and (pointer:fine) and (max-height:800px){
+  :root{--stage-height:220px;--route-slot-height:66px}
+  .main{padding-top:8px!important;padding-bottom:2px!important}
+  .topline{margin-bottom:6px!important;min-height:0!important;padding-bottom:0!important}
+  .intro,.progress{display:none!important}
+  .game{padding:10px 14px 14px!important;padding-bottom:14px!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+  body.game-started .game{height:auto!important;min-height:0!important;max-height:none!important}
+  .game .v73-hud-region{height:80px!important;min-height:80px!important}
+  .game .v73-notice-slot{height:18px!important;min-height:18px!important}
+  .game .challenge{padding:4px 0 0!important}
+  .expression-and-clock{margin-top:2px!important;gap:4px!important}
+  .expression-and-clock .expression-outer,
+  .expression-and-clock .expression-outer.crystallized,
+  .game.answering-mode .expression-and-clock .expression-outer{height:var(--stage-height)!important;min-height:var(--stage-height)!important;max-height:var(--stage-height)!important}
+  .expression-and-clock .problem-timer{height:var(--route-slot-height)!important;min-height:var(--route-slot-height)!important;max-height:var(--route-slot-height)!important}
+  .expression-and-clock .problem-timer-top{min-height:14px!important;font-size:9px!important}
+  .game:not(.collect-controls) #controls{grid-template-columns:repeat(3,84px)!important;grid-template-rows:36px 36px 40px!important;gap:8px!important;min-height:120px!important;height:auto!important;max-height:none!important;margin:8px auto 0!important;padding:0 4px 4px!important}
+  .game #controls .control-btn:not(#selectBtn){font-size:22px!important;padding:3px!important;gap:2px!important;line-height:1!important}
+  .game #controls .control-btn:not(#selectBtn) small{font-size:8px!important;line-height:9px!important;margin:0!important}
+  .game #controls #selectBtn{font-size:17px!important}
+  .game #controls #selectBtn small{font-size:11px!important;letter-spacing:.8px!important}
+  .game.collect-controls #controls{width:min(286px,calc(100% - 40px))!important;grid-template-rows:44px!important;min-height:44px!important;height:44px!important;max-height:44px!important}
+  .game.collect-controls #controls #selectBtn{height:42px!important;min-height:42px!important;max-height:42px!important}
+  .game.answering-mode .solution-lines{padding-top:104px!important}
+  #answerPanel .answer-item{width:82px!important;height:82px!important}
+  #answerPanel .answer-timer{width:82px!important;height:82px!important}
+  #answerPanel .answer-item input{width:62px!important;height:38px!important;font-size:21px!important}
+  body.game-started .game #inputTools{position:absolute!important;left:50%!important;right:auto!important;bottom:8px!important;transform:translateX(-50%)!important;margin:0!important;z-index:25!important}
+  #toastContainer{height:8px!important;min-height:8px!important;margin:0!important}
+}
+@media (min-width:901px) and (pointer:fine) and (max-height:680px){
+  :root{--stage-height:190px;--route-slot-height:58px}
+  .game .v73-hud-region{height:72px!important;min-height:72px!important}
+  .game .v73-notice-slot{height:14px!important;min-height:14px!important}
+  .game:not(.collect-controls) #controls{grid-template-columns:repeat(3,78px)!important;grid-template-rows:34px 34px 38px!important;gap:7px!important;min-height:113px!important}
+  .game #controls .control-btn:not(#selectBtn){font-size:20px!important}
+  .game #controls #selectBtn{font-size:16px!important}
+  #answerPanel .answer-item{width:74px!important;height:74px!important}
+  #answerPanel .answer-timer{width:74px!important;height:74px!important}
+  #answerPanel .answer-item input{width:56px!important;height:34px!important;font-size:19px!important}
+}
+</style>
 </head>
 <body><div class="v103-utility-bar" id="v103UtilityBar" aria-label="Display and audio controls">
   <button type="button" class="tiny-button fullscreen-button v103-tool" id="fullscreenBtn" title="Enter full screen" aria-label="Enter full screen" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M21 15v6h-6M9 21H3v-6"/></svg></button>
