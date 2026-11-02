@@ -1,5 +1,6 @@
-Mr. McLean Math v318 — The Order Final Uploaded Game / Protected Analytics Release
-Built on the complete v317 website. Only the-order.html and VERSION.txt changed.
-Final game source supplied as index(7).html on 29 October 2026.
-Protection: encoded game JS, shortcut/context-menu copying deterrents, copyright notices.
+Mr. McLean Math v319 — The Order Chromebook Compatibility / Protected Analytics
+Built on the complete v318 website. Only the-order.html and VERSION.txt changed.
+Game source: final index(7).html uploaded by the website owner. Original scoring, gameplay and vault-sharing preserved.
+Chromebook compatibility: staged number/operation entrances and larger crystal on short desktop windows.
+Protection: encoded JS, shortcut/context-menu copying deterrents, copyright notices.
 Tracking: Vercel Web Analytics pageviews and optional The Order - Game Started event.
