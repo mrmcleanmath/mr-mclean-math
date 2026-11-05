@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 290" role="img" aria-label="Illustrations of a triangular prism and a square-based pyramid">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#fff7d9"/><stop offset="1" stop-color="#f8e6a3"/></linearGradient><filter id="sh"><feDropShadow dx="1" dy="7" stdDeviation="5" flood-color="#69717b" flood-opacity=".22"/></filter></defs>
+<rect width="620" height="290" rx="24" fill="url(#bg)"/><circle cx="309" cy="142" r="116" fill="none" stroke="#dfd49d" stroke-dasharray="7 12" stroke-width="2"/>
+<g filter="url(#sh)" stroke="#344154" stroke-width="4" stroke-linejoin="round">
+<polygon points="63,226 148,90 287,70 203,209" fill="#9ac5ed"/><polygon points="148,90 233,224 368,204 287,70" fill="#79a9db"/><polygon points="63,226 233,224 148,90" fill="#daeaff"/>
+<path d="M148,90 V225" stroke="#53677b" stroke-dasharray="5 8" fill="none" stroke-width="2"/>
+</g>
+<g filter="url(#sh)" stroke="#344154" stroke-width="4" stroke-linejoin="round">
+<polygon points="376,197 491,172 565,213 451,238" fill="#e6f5da"/>
+<polygon points="485,53 376,197 451,238" fill="#b9dcbd"/><polygon points="485,53 451,238 565,213" fill="#8fc2a7"/>
+<path d="M485,53 L485,204" stroke="#53677b" stroke-width="2" stroke-dasharray="5 8" fill="none"/>
+</g>
+<g font-family="Trebuchet MS,Arial,sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#23344d"><rect x="68" y="235" width="228" height="42" rx="19" fill="#fff" opacity=".87"/><text x="182" y="265">V = B × h</text><rect x="383" y="238" width="180" height="42" rx="19" fill="#fff" opacity=".9"/><text x="473" y="268">V = Bh ÷ 3</text></g></svg>

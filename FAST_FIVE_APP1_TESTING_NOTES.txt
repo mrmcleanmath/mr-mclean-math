@@ -1,0 +1,30 @@
+MR. McLEAN MATH — v320 FAST FIVE APP 1 TESTING BUILD — 30 OCTOBER 2026
+
+APP 1: Volume of Cubes & Rectangular Prisms
+Page: volume-cubes-cuboids.html
+
+THIS IS NOT A PUBLICATION-READY RELEASE. Worksheet QA is intentionally enabled until the full five-app batch is approved.
+
+Practice shapes: Mixed (Cubes & Rectangular Prisms), Rectangular Prisms (Non-Cubes), Cubes Only.
+Foundation: Find volume with manageable whole-number dimensions.
+Core: Find exact volume with carefully chosen one-decimal and whole-number dimensions.
+Challenge: Both direct volume and reverse problems (find a missing edge, length, width, or height). Cube reverse problems are perfect cubes.
+
+Site-wide keypad: Registered exact page in shared mobile-keypad.js; all website HTML references updated to ?v=319. The existing production embedded keypad is used, with digits, decimal point, delete and Enter.
+
+Worksheet QA: same exact generator as interactive practice. Select Foundation/Core/Challenge and Cubes/Non-Cube Rectangular Prisms/Mixed, choose 5/10/15/20, generate fresh worksheet, reveal one or all answers, hide all answers. All answers show working.
+
+Existing tutorial linked: How to Calculate the Volume of Cuboids (Rectangular Prisms), YouTube E6xMNBcQQW4, using existing embedded site tutorial monitor and privacy cover.
+
+Testing performed:
+- Node automated generator stress: 5,000 generated questions for each of 9 combinations (45,000 total) plus 60 full 20-question Worksheet QA batches for each (10,800 further questions). Zero invalid or within-worksheet duplicate signatures across combinations.
+- Browser: Worksheet QA all nine combinations, reveal/hide answers, correct/wrong Enter flow, Foundation-to-Core 3/3 unlock, no app page errors.
+- Phone-like Chromium: 390px Android user agent with touch enabled; built-in keypad visible, readonly native keyboard suppression, digit/delete/Enter, correct and incorrect answer advance, level and shape changes, no horizontal overflow. Foundation/Core/Challenge each tested through unlock progression.
+- Browser: homepage exact 8 Latest Content, 4 desktop columns; old practice NEW removed, only new app gets practice/category/menu/homepage NEW. Desktop and mobile menu badges checked.
+- Existing unrelated app and game logic retained; only site-wide keypad reference version strings were changed across older app files.
+
+Do not remove Worksheet QA or publish until explicit approval of the complete five-app batch.
+
+V320 terminology revision: cubes distinguished from non-cube rectangular prisms in practice and QA selectors; generation validates no all-equal dimensions in rectangular-prisms-only mode. Public filename/URL unchanged.
+
+V321 revision: removed “Give exact answers” instruction wording, corrected diagram edge joins with rounded SVG joins/caps, added Core volume-unit conversion questions and Challenge conversion + reverse-volume combinations.

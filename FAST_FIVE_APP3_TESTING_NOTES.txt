@@ -1,0 +1,18 @@
+App 3: Volume of Cylinders & Cones (expanded in place at existing volume-cylinders.html URL).
+Foundation: simple radius and height questions, explicit rounding nearest whole.
+Core: diameter, decimals, conversions, whole/tenth/hundredth rounding.
+Challenge: reverse height for both solids, more complex conversions/measurements.
+App works with π=3.14.
+Temporary Worksheet QA 5/10/15/20 with worked steps.
+
+V324 QA RESULTS (testing build):
+- 58,500 generated practice questions: 19,500 per difficulty and 29,250 per shape when including Mixed.
+- 1,125 batches of 20 questions: no intra-worksheet duplicate signatures, invalid answers, NaN, or impossible dimensions.
+- Browser Worksheet QA: all 36 combinations of 3 levels × 3 shapes × 4 worksheet sizes passed reveal/hide tests.
+- Desktop keyboard: Enter checks and advances on both correct and incorrect answers.
+- Phone-like Chromium touch testing: all 3 levels, 3/3 unlocking, integer digit, backspace, Enter Check and Enter Next, wrong-answer advancement, shape switching, readOnly native keyboard suppression, and no horizontal overflow.
+- Regression phone keypad tests also passed on Apps 1 and 2 using the updated shared script.
+- Navigation: 8 homepage latest cards in 4+4 desktop layout; 3 current batch practice-app NEW badges in Practice cards, Geometry cards, and desktop/mobile browse menus. Prior practice-app badges absent.
+- No relevant tutorial discovered within current site: left blank as permitted.
+
+V325: Core alternates radius-given and diameter-given questions separately for cylinders and cones, across game/QA/stress. Homepage eight cards now consistently use available existing cover artwork (including The Order).

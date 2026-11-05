@@ -1,0 +1,8 @@
+v328 production site — Nov 5, 2026
+Authoritative base: v327 five-app TESTING build.
+Game update source: MrMcLeanMath_v320_GAME_UPDATE_ONLY_Chromebook_Controls_Submit_Fix(2).zip, the-order.html only.
+App clean-up: volume-cubes-cuboids.html, volume-triangular-prisms-pyramids.html, volume-cylinders.html, volume-spheres.html, scale-conversion.html.
+App generator logic, normal progress/sounds/session/unlock functionality, and homepage NEW flags kept unchanged.
+Worksheet QA is removed from all five.
+
+Final mathematical QA adjustment: Foundation Cubes Only now includes metre-based dimensions (with no unit conversion), expanding its exact-question pool from 18 to 27 so complete 20-question batches can be unique.

@@ -30,6 +30,8 @@
   const editOnly=['⌫','Enter'];
 
   const configs={
+    'volume-cubes-cuboids.html':{selector:'input.cuboid-volume-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Volume answer buttons'},
+    'volume-triangular-prisms-pyramids.html':{selector:'input.prism-pyramid-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Prism and pyramid volume answer buttons'},
     'metric-unit-conversions.html':{selector:'input.metric-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Metric conversion answer buttons'},
     'square-cubic-unit-conversions.html':{selector:'input.metric-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Square and cubic conversion answer buttons'},
     'adding-subtracting-algebraic-expressions.html':{selector:'input[id$="Answer"]',keys:algebra,cols:5,backspaceSpan:3,enterSpan:5,caption:'Algebra answer buttons'},
@@ -79,7 +81,9 @@
     'surface-area-cylinders.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'},
     'two-step-equations.html':{selector:'input[id$="Answer"]',keys:signedDecimal,cols:5,enterSpan:1,caption:'Equation answer buttons'},
     'vertically-opposite-angles.html':{selector:'input[data-answer-index]',keys:integer,cols:5,enterSpan:3,caption:'Angle answer buttons'},
-    'volume-cylinders.html':{selector:'input[id$="Answer"]',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Number answer buttons'}
+    'scale-conversion.html':{selector:'input.scale-conversion-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Scale conversion answer buttons'},
+    'volume-spheres.html':{selector:'input.sphere-volume-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Sphere volume answer buttons'},
+    'volume-cylinders.html':{selector:'input.cylinder-cone-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Cylinder and cone volume answer buttons'}
   };
 
   const cfg=configs[page];

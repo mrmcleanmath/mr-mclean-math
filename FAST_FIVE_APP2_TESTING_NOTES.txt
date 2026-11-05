@@ -1,0 +1,3 @@
+v322 cumulative testing build. App 1 Volume of Cubes & Rectangular Prisms retains Worksheet QA. App 2 Volume of Triangular Prisms & Square-Based Pyramids includes Foundation, Core, Challenge, shape selector, 5/10/15/20 Worksheet QA with worked answers, and existing mobile keypad registration. Tutorial absent (no matching video located on production site).
+
+v323 pyramid illustration correction: faithfully restored original source pyramid shape with black outlines and a shaded square base, original label positions, dashed vertical height. The current v322 mathematical generator and site integration remain unchanged.

@@ -1,5 +1,3 @@
-Mr. McLean Math v318 — The Order Final Uploaded Game / Protected Analytics Release
-Built on the complete v317 website. Only the-order.html and VERSION.txt changed.
-Final game source supplied as index(7).html on 29 October 2026.
-Protection: encoded game JS, shortcut/context-menu copying deterrents, copyright notices.
-Tracking: Vercel Web Analytics pageviews and optional The Order - Game Started event.
+Mr. McLean Math v329 — CLEAN PUBLISH READY — Simplified Instructions (Apps 1–5)
+Based on verified v328 clean production release including updated The Order Chromebook fixes.
+Changed only the five new practice app instruction paragraphs; mathematical generators, levels, Worksheet QA removal, mobile keypads, NEW badges, and other site contents are unchanged.
