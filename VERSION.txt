@@ -1,4 +1,0 @@
-Mr. McLean Math v331 - The Order: stable Chromebook frame and visible PC controls
-Only desktop CSS changed. Original phone/tablet styles and all script blocks retained byte-for-byte.
-Retains encoded game code, source-copy deterrents, copyright notices and Vercel Analytics.
-This is a game-only replacement package; replace the-order.html in your existing website.
