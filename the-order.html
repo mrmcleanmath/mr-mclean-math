@@ -3336,6 +3336,103 @@ body.game-started .topline .brand h1{text-align:center!important;margin:0 auto!i
   #answerPanel .answer-item input{width:56px!important;height:34px!important;font-size:19px!important}
 }
 </style>
+
+<style id="v330-tablet-and-chromebook-layout">
+/* V330: Roomier touch targets ONLY on portrait tablets. Phones and desktop
+   keep their existing, tested dimensions and gameplay. */
+@media (pointer:coarse) and (min-width:600px) and (max-width:1100px) and (orientation:portrait){
+  .game #controls:not(.unused), .game.collect-controls #controls{
+    grid-template-columns:repeat(3,112px)!important;
+    grid-template-rows:repeat(3,56px)!important;
+    gap:11px 14px!important;
+    width:max-content!important;
+    min-height:205px!important;
+    height:205px!important;
+    max-height:none!important;
+    margin:13px auto 0!important;
+    padding:0 5px 6px!important;
+    top:0!important;
+  }
+  .game #controls .control-btn:not(#selectBtn){font-size:29px!important;padding:5px 7px!important;line-height:1.1!important;gap:3px!important}
+  .game #controls .control-btn:not(#selectBtn) small{font-size:11px!important;line-height:1.15!important;letter-spacing:.55px!important}
+  .game #controls #selectBtn{min-height:55px!important;height:55px!important;margin-top:0!important;font-size:21px!important}
+  .game #controls #selectBtn small{font-size:14px!important;line-height:1.1!important}
+  .game.collect-controls #controls{
+    grid-template-rows:56px!important;
+    min-height:56px!important;
+    height:56px!important;
+    max-height:56px!important;
+    margin:9px auto 0!important;
+  }
+  .game.collect-controls #controls #selectBtn{grid-row:1!important;min-height:55px!important;height:55px!important}
+  .game #inputTools{
+    width:min(590px,calc(100vw - 50px))!important;
+    max-width:calc(100vw - 50px)!important;
+    padding:10px 12px 18px!important;
+    height:auto!important;min-height:0!important;max-height:none!important;
+    border-radius:15px!important;
+    bottom: max(12px, env(safe-area-inset-bottom,0px))!important;
+  }
+  .game #inputTools .game-keypad{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:repeat(4,66px)!important;
+    gap:12px!important;
+    width:100%!important;
+  }
+  .game #inputTools .game-keypad button{
+    min-height:66px!important;
+    height:66px!important;
+    font-size:27px!important;
+    border-radius:12px!important;
+    touch-action:manipulation!important;
+  }
+  .game #inputTools .game-keypad button .key-face{font-size:26px!important}
+  .game #inputTools .game-keypad .key-enter .key-face{font-size:22px!important}
+}
+/* Short pointer-and-keyboard screens: use the *visible* ChromeOS browser viewport.
+   The old shortened stage was still long enough to leave a page scroll. */
+@media (min-width:901px) and (pointer:fine) and (max-height:800px){
+  :root{--route-slot-height:52px!important}
+  .game{--stage-height:clamp(205px,33dvh,240px)!important}
+  body.game-started .main{padding-bottom:0!important}
+  body.game-started .game{padding-bottom:7px!important}
+  .game:not(.collect-controls) #controls{margin-top:2px!important}
+  @media (max-height:700px){
+    .game:not(.collect-controls) #controls{
+      grid-template-rows:32px 32px 35px!important;
+      gap:5px!important;
+      min-height:110px!important;
+      margin-top:0!important;
+    }
+  }
+  /* The final play-again action is part of the first visible vault frame,
+     not content requiring a hidden scroll below its crystals. */
+  #showcaseOverlay{padding:10px 12px!important;align-items:flex-start!important}
+  #showcaseOverlay .showcase-inner{
+    box-sizing:border-box!important;
+    display:flex!important;flex-direction:column!important;
+    height:calc(100dvh - 28px)!important;
+    min-height:0!important;max-height:calc(100dvh - 28px)!important;
+    margin:0 auto!important;padding:2px 8px 6px!important;
+  }
+  #showcaseOverlay .showcase-top{flex:none!important;margin:0 0 4px!important;min-height:15px!important}
+  #showcaseOverlay .vault-label{font-size:10px!important;letter-spacing:3px!important}
+  #showcaseOverlay #showcaseTitle{flex:none!important;font-size:clamp(22px,3vw,30px)!important;line-height:1.12!important;margin:3px 0 5px!important}
+  #showcaseOverlay .showcase-description{flex:none!important;font-size:12px!important;line-height:1.2!important;margin:0 auto 7px!important}
+  #showcaseOverlay .v140-results{flex:none!important;margin:0 auto 5px!important;padding:5px 0!important}
+  #showcaseOverlay .showcase-grid{
+    flex:1 1 auto!important;min-height:0!important;height:auto!important;
+    max-height:none!important;gap:14px!important;
+    padding:6px 8px 8px!important;align-items:center!important;
+  }
+  #showcaseOverlay .crystal-card{flex:0 0 min(192px,26vw)!important;height:min(222px,100%)!important;min-height:0!important}
+  #showcaseOverlay .crystal-card svg,#showcaseOverlay .crystal-card .v117-memory-svg{height:min(198px,100%)!important}
+  #showcaseOverlay .vault-navigation{flex:none!important;margin:6px 0 0!important;gap:12px!important}
+  #showcaseOverlay .vault-navigation button{height:34px!important;min-height:34px!important}
+  #showcaseOverlay .showcase-result{flex:none!important;padding:7px 0 0!important;margin:0!important}
+  #showcaseOverlay #vaultPlayAgain{height:46px!important;min-height:46px!important;padding:7px 20px!important}
+}
+</style>
 </head>
 <body><div class="v103-utility-bar" id="v103UtilityBar" aria-label="Display and audio controls">
   <button type="button" class="tiny-button fullscreen-button v103-tool" id="fullscreenBtn" title="Enter full screen" aria-label="Enter full screen" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M21 15v6h-6M9 21H3v-6"/></svg></button>

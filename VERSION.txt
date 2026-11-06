@@ -1,3 +1,5 @@
-Mr. McLean Math v329 — CLEAN PUBLISH READY — Simplified Instructions (Apps 1–5)
-Based on verified v328 clean production release including updated The Order Chromebook fixes.
-Changed only the five new practice app instruction paragraphs; mathematical generators, levels, Worksheet QA removal, mobile keypads, NEW badges, and other site contents are unchanged.
+Mr. McLean Math v330 — The Order: roomier tablet controls / keypad; Chromebook short-screen gameplay + vault layout
+Based on the approved v329 clean production website. Only the-order.html and VERSION.txt changed.
+Tablet: portrait touch-screen layouts get larger, more widely spaced arrow/lock/confirm controls and numeric keypad.
+Chromebook: short desktop-height windows keep gameplay controls and Vault Play Again visible without scrolling.
+Original protected game logic, encoded scripts, source-copy deterrents, copyright, Vercel Analytics, sitemap and other site files retained unchanged.
