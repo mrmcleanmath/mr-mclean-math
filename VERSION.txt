@@ -1,0 +1,3 @@
+Mr. McLean Math v332 - Varied order-of-operations practice and accessible Foundation two-step equations.
+Based on the user-supplied complete v329 site. Includes the corrected v331 The Order game unchanged.
+Only order-of-operations.html, two-step-equations.html, the-order.html and VERSION.txt differ from v329.
