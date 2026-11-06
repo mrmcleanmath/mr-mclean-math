@@ -1,5 +1,4 @@
-Mr. McLean Math v330 — The Order: roomier tablet controls / keypad; Chromebook short-screen gameplay + vault layout
-Based on the approved v329 clean production website. Only the-order.html and VERSION.txt changed.
-Tablet: portrait touch-screen layouts get larger, more widely spaced arrow/lock/confirm controls and numeric keypad.
-Chromebook: short desktop-height windows keep gameplay controls and Vault Play Again visible without scrolling.
-Original protected game logic, encoded scripts, source-copy deterrents, copyright, Vercel Analytics, sitemap and other site files retained unchanged.
+Mr. McLean Math v331 - The Order: stable Chromebook frame and visible PC controls
+Only desktop CSS changed. Original phone/tablet styles and all script blocks retained byte-for-byte.
+Retains encoded game code, source-copy deterrents, copyright notices and Vercel Analytics.
+This is a game-only replacement package; replace the-order.html in your existing website.

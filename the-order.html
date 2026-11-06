@@ -3433,6 +3433,24 @@ body.game-started .topline .brand h1{text-align:center!important;margin:0 auto!i
   #showcaseOverlay #vaultPlayAgain{height:46px!important;min-height:46px!important;padding:7px 20px!important}
 }
 </style>
+
+<style id="v331-stable-desktop-frame">
+/* V331: restore the original stable desktop frame without changing phones.
+   The existing resize controller sets --game-frame-height from the viewport.
+   V320's height:auto let the frame collapse when Collect became absolute. */
+@media (min-width:901px) and (pointer:fine) and (max-height:800px){
+  body.game-started .game{
+    height:var(--game-frame-height)!important;
+    min-height:var(--game-frame-height)!important;
+    max-height:var(--game-frame-height)!important;
+  }
+}
+/* Above the compact-layout breakpoint, keep the original desktop stage budget.
+   V319's 320px stage displaced the full-size bottom controls at 801-850px. */
+@media (min-width:901px) and (pointer:fine) and (min-height:801px) and (max-height:850px){
+  .game{--stage-height:clamp(172px,calc(100dvh - 595px),330px)!important}
+}
+</style>
 </head>
 <body><div class="v103-utility-bar" id="v103UtilityBar" aria-label="Display and audio controls">
   <button type="button" class="tiny-button fullscreen-button v103-tool" id="fullscreenBtn" title="Enter full screen" aria-label="Enter full screen" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M21 15v6h-6M9 21H3v-6"/></svg></button>
