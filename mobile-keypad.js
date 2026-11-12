@@ -30,6 +30,11 @@
   const editOnly=['⌫','Enter'];
 
   const configs={
+    "time-difference-practice.html":{selector:'input.batch-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Time Difference Practice answer buttons"},
+    "finding-equivalent-fractions.html":{selector:'input.batch-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Finding Equivalent Fractions answer buttons"},
+    "unitary-method-proportions.html":{selector:'input.batch-input',activateOnClick:true,keys:positiveDecimal,cols:5,enterSpan:2,caption:"Unitary Method Proportions answer buttons"},
+    "plot-coordinates.html":{selector:'input.batch-input',activateOnClick:true,keys:signedInteger,cols:5,enterSpan:2,caption:"Plot Coordinates answer buttons"},
+    "expressions-with-brackets.html":{selector:'input.batch-input',activateOnClick:true,keys:[...integer.slice(0,10),'a','b','n','x','y','z','+','−','⌫','Enter'],cols:5,enterSpan:2,caption:"Expressions With Brackets answer buttons"},
     'volume-cubes-cuboids.html':{selector:'input.cuboid-volume-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Volume answer buttons'},
     'volume-triangular-prisms-pyramids.html':{selector:'input.prism-pyramid-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Prism and pyramid volume answer buttons'},
     'metric-unit-conversions.html':{selector:'input.metric-answer',keys:positiveDecimal,cols:5,enterSpan:2,caption:'Metric conversion answer buttons'},
@@ -173,6 +178,11 @@
     };
     // Touch browsers often dispatch pointerdown AND a click with detail=0.
     // Do not process that click twice. Preserve detail=0 keyboard activation.
+    if(cfg.activateOnClick){
+      // Assess the answer after a touch is released, before feedback changes the layout.
+      grid.addEventListener('click',press);
+      return pad;
+    }
     let lastPointerButton=null, lastPointerTime=0;
     grid.addEventListener('pointerdown',e=>{
       lastPointerButton=e.target.closest('.mmm-key');

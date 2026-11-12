@@ -1,0 +1,15 @@
+
+.batch-tools{background:#fbfaf4;border:1px solid #c7c4b2;border-radius:12px;padding:10px 14px;margin:10px 0;color:#27384a}
+.batch-tools label{display:inline-flex;align-items:center;gap:5px;margin:4px;font-weight:700}
+.batch-tools select,.batch-tools button{font:inherit;padding:6px 9px;border:1px solid #aeb8c0;background:white;border-radius:7px;color:#243d52}
+.batch-fields{display:flex!important;align-items:flex-end!important;justify-content:center!important;gap:8px;flex-wrap:wrap}
+.batch-fields label{display:flex;flex-direction:column;gap:4px;text-align:center;font-weight:800;min-width:0}
+.batch-fields .fraction-choice{flex-basis:100%;width:fit-content;margin:auto;background:transparent;color:#355979;border:0;text-decoration:underline;cursor:pointer}
+.fraction-answer-entry{display:inline-flex;align-items:center;justify-content:center;gap:14px;max-width:100%}
+.batch-fields .answer-fraction-stack{display:grid;width:auto;grid-template-rows:auto 3px auto;gap:7px}.answer-fraction-bar{height:3px;background:#344251;border-radius:2px}
+.batch-fields:has(.fraction-answer-entry)+#mmmMobileKeypad [data-key="."]{display:none}
+.fraction-answer-entry label{font-size:.84rem}.batch-fields .fraction-answer-entry input.batch-input{width:clamp(75px,17vw,110px)}
+.batch-fields input.batch-input{box-sizing:border-box;width:clamp(70px,13vw,135px);max-width:100%;padding:7px;border:2px solid #9aaab5;border-radius:8px;font:700 19px system-ui;text-align:center}
+.batch-fields label:only-of-type input{width:min(210px,70vw)}.whole-question{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:650;overflow-wrap:anywhere}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;align-items:stretch;text-align:center;min-width:1.5em;margin:0 .15em}.frac .bar{height:2px;background:currentColor}.frac .top,.frac .bottom{padding:0 .2em}
+.coordinate-grid{display:block;width:min(100%,290px);height:auto;margin:6px auto;touch-action:manipulation}

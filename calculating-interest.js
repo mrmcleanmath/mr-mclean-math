@@ -6,15 +6,15 @@
 const randInt=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 const choose=a=>a[randInt(0,a.length-1)];
 const gcd=(a,b)=>b?gcd(b,a%b):a;
-const rates={easy:[200,300,400,500,600,800,1000,1200],medium:[150,200,250,300,350,400,450,500,600,650,700,750,800,900,1000,1200],hard:[125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,550,600,650,700,750,800,850,900,950,1000,1050,1100,1150,1200,1250,1350]};
-const monthsAllowed={easy:[3,6,9],medium:[1,2,3,4,6,8,9,10,12],hard:[1,2,3,4,5,6,7,8,9,10,11,12]};
-const types={easy:['interest','principal','rate'],medium:['interest','interest','principal','rate','time','repayment'],hard:['interest','interest','principal','principal','rate','rate','time','time','repayment','twoPeriod']};
+const rates={easy:[200,300,400,500,600,800,1000,1200],medium:[200,300,400,500,600,800,1000,1200],hard:[125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,550,600,650,700,750,800,850,900,950,1000,1050,1100,1150,1200,1250,1350]};
+const monthsAllowed={easy:[12],medium:[3,6,9],hard:[1,2,3,4,5,6,7,8,9,10,11,12]};
+const types={easy:['interest','rate'],medium:['interest','principal','rate'],hard:['interest','interest','principal','principal','rate','rate','time','time','repayment','twoPeriod']};
 const recent={game:{easy:[],medium:[],hard:[]},qa:{easy:[],medium:[],hard:[]},stress:{easy:[],medium:[],hard:[]}};
-// For Foundation, each block of three generated questions finds interest, principal, and rate exactly once.
-// Independent queues keep worksheet testing from disturbing the student's rotation.
-const foundationQueues={game:[],qa:[],stress:[]};
+// Foundation alternates annual interest / annual rate; Core cycles through all three missing fields.
+// Independent queues keep testing from disturbing the student's rotation.
+const tableQueues={game:{easy:[],medium:[]},qa:{easy:[],medium:[]},stress:{easy:[],medium:[]}};
 function shuffleList(a){const arr=[...a];for(let i=arr.length-1;i>0;i--){const j=randInt(0,i);[arr[i],arr[j]]=[arr[j],arr[i]]}return arr;}
-function nextFoundationType(channel){if(!foundationQueues[channel].length)foundationQueues[channel]=shuffleList(types.easy);return foundationQueues[channel].shift();}
+function nextTableType(level,channel){const q=tableQueues[channel][level];if(!q.length)q.push(...shuffleList(types[level]));return q.shift();}
 const shortNum=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2}).replace(/,/g,' ');
 const money=c=>'$'+(c/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}).replace(/,/g,' ');
 const percent=bp=>String(Number((bp/100).toFixed(2)))+'%';
@@ -44,18 +44,19 @@ function makeQuestion(level,forced=null){
    }
    throw Error('Unable to produce exact two-period interest question');
  }
- months=(level!=='easy'&&(type==='principal'||type==='rate'))?12:choose(monthsAllowed[level]);
+ // Foundation is annual only; Challenge's reverse-principal/rate questions remain annual only.
+ months=(level==='easy'||(level==='hard'&&(type==='principal'||type==='rate')))?12:choose(monthsAllowed[level]);
  // Construct principal as a multiple that yields exact interest cents.
  // dollars × basis points × months /1200 = cents.
  const monthlyFactor=1200/gcd(bp*months,1200);
  const yearlyFactor=100/gcd(bp,100);
  const factor=monthlyFactor*yearlyFactor/gcd(monthlyFactor,yearlyFactor);
- const min=level==='easy'?400:level==='medium'?750:1200;
- const max=level==='easy'?12000:level==='medium'?45000:90000;
+ const min=level==='hard'?1200:400;
+ const max=level==='hard'?90000:12000;
  const lo=Math.ceil(min/factor),hi=Math.floor(max/factor);
  principal=randInt(lo,hi)*factor;
- if(level==='easy' && principal%100!==0){
-   // Foundation: cleaner amounts, without forcing only a few numbers.
+ if(level!=='hard' && principal%100!==0){
+   // Foundation and Core: use cleaner principal amounts, as in the original Foundation.
    const simpleFactor=(factor*100)/gcd(factor,100);
    principal=randInt(Math.ceil(min/simpleFactor),Math.floor(max/simpleFactor))*simpleFactor;
  }
@@ -71,7 +72,7 @@ function complete(q){
  const signature=[q.type,q.P,q.bp,q.months,q.interest].join('|');
  return {...q,annualCents:annual,answer,unit,signature};
 }
-function levelMissingTwelveMonths(q){return q.level!=='easy'&&(q.type==='principal'||q.type==='rate')&&q.months!==12;}
+function levelMissingTwelveMonths(q){return q.level==='hard'&&(q.type==='principal'||q.type==='rate')&&q.months!==12;}
 function validateQuestion(q){
  if(!q||!rates[q.level]||!types[q.level].includes(q.type)||q.P<=0||q.bp<=0)return false;
  if(q.type==='twoPeriod'){
@@ -81,7 +82,7 @@ function validateQuestion(q){
    if(q.newPrincipal*q.bp%10000!==0||q.newPrincipal*q.bp*q.months!==q.interest*120000)return false;
    return q.finalBalance===q.newPrincipal+q.interest&&q.answer===String(q.months);
  }
- if(q.months<1||q.months>12||!monthsAllowed[q.level].includes(q.months)&&q.type!=='principal'&&q.type!=='rate')return false;
+ if(!monthsAllowed[q.level].includes(q.months))return false;
  if(levelMissingTwelveMonths(q))return false;
  if(!Number.isInteger(q.interest)||q.interest<=0||q.P*q.bp*q.months!==q.interest*1200)return false;
  if(q.P*q.bp%100!==0)return false;
@@ -94,7 +95,7 @@ function validateQuestion(q){
 }
 function generateQuestion(level,channel='game',local=null,forced=null){
  const h=recent[channel][level];
- const selected=forced||((level==='easy')?nextFoundationType(channel):null);
+ const selected=forced||((level==='easy'||level==='medium')?nextTableType(level,channel):null);
  for(let tries=0;tries<4000;tries++){
    const q=makeQuestion(level,selected);
    if(!validateQuestion(q)||h.includes(q.signature)||local?.has(q.signature))continue;
@@ -119,9 +120,9 @@ function parseAnswer(raw,q){
 function formatAnswer(q){return q.unit==='USD'?money(Math.round(Number(q.answer)*100)):q.unit==='%'?q.answer+'%':monthText(Number(q.answer))}
 function levelName(l){return l==='easy'?'Foundation Mode':l==='medium'?'Core Mode':'Challenge Mode'}
 function foundationTable(q,{interactive=false,level='easy'}={}){
- // The time period is part of the interest label, never a separate field.
- // Foundation asks only for interest, principal, or annual rate.
- const names={principal:'Principal (starting amount)',rate:'Annual interest rate',interest:`Interest for ${monthText(q.months)}`};
+ // Both beginner modes use the same three fields, with one missing value.
+ // Foundation never mentions months; Core labels the 3/6/9-month interest period.
+ const names={principal:'Principal (starting amount)',rate:'Annual interest rate',interest:q.level==='easy'?'Annual interest':`Interest for ${monthText(q.months)}`};
  const rows=[
   ['principal',money(q.P*100)],
   ['rate',percent(q.bp)],
@@ -134,7 +135,7 @@ function foundationTable(q,{interactive=false,level='easy'}={}){
  return `<div class="interest-foundation-prompt">Calculate the missing value.</div><div class="interest-foundation-grid" role="group" aria-label="Interest calculations: find ${names[q.type].toLowerCase()}">${rows}</div>`;
 }
 function questionHTML(q){
- if(q.level==='easy')return foundationTable(q);
+ if(q.level==='easy'||q.level==='medium')return foundationTable(q);
  const P=money(q.P*100),r=percent(q.bp),I=money(q.interest),months=monthText(q.months);
  const context=['You deposit money in a savings account','You borrow money with simple interest'];
  const opener=choose(context);
@@ -149,8 +150,12 @@ function questionHTML(q){
 }
 function hintFor(q){
  if(q.level==='easy'){
-   if(q.type==='principal')return 'Find the interest rate for the given number of months: annual rate × months ÷ 12. Then divide the interest by that decimal.';
-   if(q.type==='rate')return 'Divide the interest by the original amount, multiply by 12 ÷ months, then multiply by 100 to get the annual percentage.';
+   if(q.type==='interest')return 'Multiply the principal by the annual interest rate as a decimal (for example, 5% = 0.05).';
+   if(q.type==='rate')return 'Divide the annual interest by the principal, then multiply by 100 to find the annual percentage rate.';
+ }
+ if(q.level==='medium'){
+   if(q.type==='principal')return 'Convert the annual rate to the fraction of the year: annual rate × months ÷ 12. Divide the interest by this decimal.';
+   if(q.type==='rate')return 'Divide the interest by the principal, multiply by 12 ÷ months, then multiply by 100 to find the annual rate.';
  }
  switch(q.type){
   case 'interest':return 'First calculate one full year of interest, then take the fraction of the year represented by the months.';
@@ -162,6 +167,12 @@ function hintFor(q){
  }
 }
 function stepsHTML(q){
+ // Show only annual multiplication/division to first-time Foundation learners.
+ if(q.level==='easy'){
+   const P=money(q.P*100),rate=percent(q.bp),interest=money(q.interest);
+   if(q.type==='interest')return `<div class="whole-working-line">Annual interest: ${P} × ${rate} = <strong>${interest}</strong>.</div>`;
+   if(q.type==='rate')return `<div class="whole-working-line">Annual rate: ${interest} ÷ ${P} × 100 = <strong>${rate}</strong>.</div>`;
+ }
  const yearly=q.P*q.bp/10000*100; // exact annual interest in cents
  const yearDisplay=money(yearly);
  const fraction=q.months===12?'12/12':`${q.months}/12`;
@@ -213,8 +224,8 @@ function startTimer(){
 function renderQuestion(level){
  const s=state[level],q=s.q;s.resolved=false;s.transitioning=false;q.hint=hintFor(q);
  const note=q.unit==='%'?'Enter the annual rate as a percentage: 3.5 means 3.5%.':q.unit==='months'?'Enter your answer in whole months.':'Enter the dollar amount (cents may be included).';
- const foundation=level==='easy';
- const content=foundation?`<div class="whole-question foa-question question-fade-in" id="${level}Problem"><div class="whole-answer-row interest-foundation-answer-area">${foundationTable(q,{interactive:true,level})}</div></div><div class="interest-foundation-toolbar"><button class="primary" id="${level}Check">Check</button></div>`:`<div class="whole-question foa-question question-fade-in" id="${level}Problem"><div class="whole-instruction interest-task">${questionHTML(q)}</div></div><div class="whole-answer-row foa-answer-row"><div class="whole-answer-box"><input id="${level}Answer" inputmode="decimal" autocomplete="off" enterkeyhint="done" aria-label="${q.unit==='%'?'Interest rate in percent':q.unit==='months'?'Number of months':'Answer in US dollars'}" placeholder="Your answer"></div><button class="primary" id="${level}Check">Check</button></div>`;
+ const tableMode=level==='easy'||level==='medium';
+ const content=tableMode?`<div class="whole-question foa-question question-fade-in" id="${level}Problem"><div class="whole-answer-row interest-foundation-answer-area">${foundationTable(q,{interactive:true,level})}</div></div><div class="interest-foundation-toolbar"><button class="primary" id="${level}Check">Check</button></div>`:`<div class="whole-question foa-question question-fade-in" id="${level}Problem"><div class="whole-instruction interest-task">${questionHTML(q)}</div></div><div class="whole-answer-row foa-answer-row"><div class="whole-answer-box"><input id="${level}Answer" inputmode="decimal" autocomplete="off" enterkeyhint="done" aria-label="${q.unit==='%'?'Interest rate in percent':q.unit==='months'?'Number of months':'Answer in US dollars'}" placeholder="Your answer"></div><button class="primary" id="${level}Check">Check</button></div>`;
  el(level+'Body').innerHTML=`${content}<div class="whole-answer-note interest-note">${note}</div><div class="actions"><button class="primary hidden" id="${level}Next">Next</button><button class="done" id="${level}Done">Done</button></div><div class="feedback" id="${level}Feedback"></div><div class="live-session hidden" id="${level}LiveStats" aria-live="polite"></div>${s.notice?`<div class="unlock-guidance">${s.notice}</div>`:''}<div class="bubble hidden" id="${level}Bubble"><div class="bubble-title">Let’s think about it</div><div id="${level}Hint"></div><div class="whole-working">${stepsHTML(q)}</div></div>`;
  el(level+'Check').onclick=()=>check(level);el(level+'Next').onclick=()=>nextQuestion(level);el(level+'Done').onclick=()=>finishSession(level);
  const input=el(level+'Answer');input.addEventListener('input',()=>input.value=input.value.replace(/[^0-9.,$%\s]/g,'').slice(0,24));
@@ -304,7 +315,7 @@ function resetAllProgress(){
  clearCompletedResults();clearInterval(state.timerId);state.timerId=null;state.mode='student';state.activeLevel='easy';
  const initial=initialLevels();orbLevels.forEach(l=>state[l]=initial[l]);
  for(const channel of Object.values(recent))for(const l of orbLevels)channel[l]=[];
- Object.keys(foundationQueues).forEach(channel=>foundationQueues[channel]=[]);
+ for(const channel of Object.keys(tableQueues)){tableQueues[channel].easy=[];tableQueues[channel].medium=[];}
  el('studentMode').classList.add('active');el('timerMode').classList.remove('active');el('durationWrap').classList.remove('show');clearAllOrbTimers();refreshLevelCards();closeResetModal();
 }
 function refreshLevelCards(){
