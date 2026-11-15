@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f7fc">
+<title>My Future Lifestyle | Simple Budget Preview</title>
+<style>
+:root{--ink:#18243d;--muted:#64758c;--line:#dce4ef;--primary:#2863c5;--bg:#f4f7fc;--card:#fff;--shadow:0 8px 30px rgba(24,48,92,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #78a7f4;outline-offset:2px}.shell{max-width:1280px;margin:auto;padding:28px 23px 65px}header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:22px}.eyebrow{color:#2863c5;font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:800}h1{font-size:clamp(29px,4vw,42px);letter-spacing:-.04em;margin:5px 0 7px;line-height:1.14}header p{max-width:760px;color:var(--muted);margin:0}.pill{font-size:12px;padding:8px 13px;border-radius:28px;background:#e5eefa;color:#2757a7;font-weight:700;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(0,1fr) 395px;gap:20px;align-items:start}.stack{display:flex;flex-direction:column;gap:16px}.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:16px 19px;border-bottom:1px solid #eaf0f6}.panel-head h2{font-size:17px;letter-spacing:-.025em;margin:0}.muted{color:var(--muted);font-size:12px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}.option-list{padding:9px 10px}.opt{display:flex;align-items:center;gap:11px;min-height:59px;padding:9px 11px;border-radius:11px;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s}.opt:hover{background:#f4f8ff}.opt:has(input:checked){background:#eef5ff;border-color:#afcaf4}.opt input{width:18px;height:18px;accent-color:#2863c5;flex:none;margin:0}.opt-label{flex:1;min-width:0;font-size:13px;font-weight:570;line-height:1.25}.detail{display:block;color:var(--muted);font-size:11px;font-weight:450;line-height:1.4;margin-top:4px}.money{white-space:nowrap;text-align:right;font-weight:750;font-size:12px;font-variant-numeric:tabular-nums}.money small{font-size:10px;display:block;font-weight:450;color:var(--muted)}.clear{background:none;border:0;color:#2d65c4;font-size:12px;font-weight:700;padding:5px 1px}.clear[hidden]{display:none}.card-note{padding:0 20px 14px;color:var(--muted);font-size:12px;line-height:1.5}.optional-caption{padding:10px 18px 0;font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.1em;color:#6b809d}.side{position:sticky;top:18px}.summary{padding:21px}.income-card{background:linear-gradient(145deg,#edf4ff,#f5faff);padding:20px;border:1px solid #d2e3fc;border-radius:14px}.fieldlabel{font-weight:800;display:block;font-size:14px;margin-bottom:7px}.income-field{display:flex;align-items:center;background:white;border:1px solid #adc9f0;border-radius:10px;overflow:hidden}.income-field input{min-width:0;width:100%;border:0;outline:0;background:white;color:var(--ink);font-size:25px;letter-spacing:-.03em;font-weight:800;padding:11px 14px;font-variant-numeric:tabular-nums}.income-field:focus-within{outline:3px solid #afccf6}.income-field span{padding-right:14px;font-weight:800;color:#355e9c}.help{font-size:12px;color:#576c87;margin:8px 0 0;line-height:1.55}.help strong{color:#344f77}.tiny{font-size:11px;color:var(--muted)}.summary-head{margin:20px 0 2px}.smallcaps{text-transform:uppercase;font-size:11px;letter-spacing:.12em;font-weight:800;color:#66768c}.summary-cost{font-weight:800;font-size:27px;letter-spacing:-.045em;margin:2px 0;font-variant-numeric:tabular-nums}.subcost{font-size:12px;color:var(--muted)}.donut-wrap{display:flex;justify-content:center;margin:13px 0 11px}.donut{width:280px;max-width:100%;height:auto;display:block;overflow:visible}.donut .track{stroke:#e9eef5}.donut .arc{fill:none;stroke-width:43;stroke-linecap:butt;transform:rotate(-90deg);transform-origin:160px 160px}.donut .track{fill:none;stroke-width:43}.center-title{font-size:12px;fill:#6b7a8f;text-anchor:middle}.center-money{font-size:27px;font-weight:800;fill:#1e3153;text-anchor:middle;letter-spacing:-1px}.center-hint{font-size:12px;text-anchor:middle;fill:#75859b}.center-money.negative{fill:#b42318}.balance{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 19px}.balance-cell{background:#f6f8fc;border:1px solid #e8edf5;border-radius:11px;padding:12px}.balance-cell strong{display:block;font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}.balance-cell small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.status{background:#edf5ff;border:1px solid #c9ddfb;color:#315b99;font-size:12px;line-height:1.45;padding:10px 12px;border-radius:10px;margin-bottom:15px}.status.good{background:#eaf8ef;color:#185c36;border-color:#bde6c8}.status.bad{background:#fff0ed;color:#a12d23;border-color:#f1b7aa}.legend{display:flex;flex-direction:column;gap:10px;margin-top:12px}.legend-row{display:grid;grid-template-columns:11px minmax(0,1fr) auto;gap:9px;align-items:center;font-size:13px}.dot{width:11px;height:11px;border-radius:3px}.legend-row strong{font-size:13px;font-variant-numeric:tabular-nums}.legend-row small{display:block;color:var(--muted);font-size:11px}.empty{color:var(--muted);font-size:12px;padding:13px;background:#f7f9fc;border:1px dashed #ccd7e7;border-radius:10px}.actions{display:flex;gap:8px;margin-top:19px}.btn{background:#2e64c3;color:white;border:0;padding:11px 15px;border-radius:11px;font-size:13px;font-weight:800}.btn.outline{background:#eef4fd;color:#2b5dad;flex:1}.btn:hover{filter:brightness(.97)}.disclaimer{font-size:11px;color:var(--muted);line-height:1.5;margin-top:14px}.foot{text-align:center;color:#8290a5;font-size:12px;margin-top:26px}.stackhead{color:var(--muted);font-size:13px;margin:0 3px}.section-title{font-size:12px;color:#416fab;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:13px 18px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1050px){.layout{grid-template-columns:minmax(0,1fr) 345px}.summary{padding:15px}.donut{width:245px}.two-col{grid-template-columns:1fr}}
+@media(max-width:780px){.layout{display:flex;flex-direction:column;gap:16px}.side{position:static;order:-1;width:100%}.stack{width:100%}.summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;align-items:start}.income-card{grid-column:1/-1}.summary-head,.balance,.status,.legend-title,.legend,.actions,.disclaimer{grid-column:2}.donut-wrap{grid-column:1;grid-row:2 / span 4;align-self:center}.summary-head{margin-top:15px}}
+@media(max-width:550px){.shell{padding:18px 12px 42px}.pill{display:none}.panel-head{padding:14px 15px}.summary{display:block;padding:15px}.donut-wrap{margin:8px auto}.donut{width:245px}.balance{margin:8px 0 14px}.income-field input{font-size:24px}.summary-cost{font-size:26px}.two-col{grid-template-columns:1fr}.option-list{padding:7px}.opt{padding:9px}.money{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{body{background:#fff}.shell{max-width:none;padding:0}.panel{box-shadow:none;break-inside:avoid}.layout{display:block}.stack{display:none}.side{position:static}.summary{display:block}.actions,.foot,.pill{display:none}.donut,.dot{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.option-list .placeholder{margin:9px 10px;padding:12px;border:1px dashed #cdd6e3;background:#f7faff;color:#68788d;border-radius:10px;font-size:12px}
+.sources{border-top:1px solid #e8edf5;margin-top:16px;padding-top:10px;font-size:11px;color:#64758c}
+.sources summary{cursor:pointer;font-weight:750;color:#3566ac}
+.sources-body{line-height:1.55}.sources-body a{color:#2863c5}.sources-body p{margin:8px 0}
+.clear-debt{margin:0 18px 14px}.opt-label .detail{font-weight:400}
+@media print{.sources{display:block}.sources-body{display:block!important}}
+
+/* Student-friendly monthly/yearly prices: each number has a label on the SAME line. */
+.opt-label{font-size:14px;line-height:1.3}
+.opt-label .detail{font-size:11.5px;line-height:1.45;margin-top:5px}
+.price-box{display:flex;flex-direction:column;justify-content:center;gap:4px;flex:none;min-width:174px;font-variant-numeric:tabular-nums}
+.price-row{display:grid;grid-template-columns:51px 1fr;gap:8px;align-items:baseline;white-space:nowrap;text-align:right}
+.price-label{font-size:10px;font-weight:750;color:#5a718f;text-align:left;text-transform:uppercase;letter-spacing:.03em}
+.price-row strong{font-size:12px;font-weight:800;color:#243a5c;text-align:right}
+.price-row+.price-row{border-top:1px solid #e6edf6;padding-top:4px}
+@media(max-width:460px){.opt{gap:8px}.opt-label{font-size:12.5px}.price-box{min-width:152px}.price-row{grid-template-columns:43px 1fr;gap:4px}.price-label{font-size:9px}.price-row strong{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><div><div class="eyebrow">Mr. McLean Math · classroom project preview</div><h1>My Future Lifestyle</h1><p>Enter your yearly income. Then choose your expenses and watch how much money you have left.</p></div><span class="pill">Interactive preview · Version 4</span></header>
+<div class="layout">
+<main class="stack" aria-label="Lifestyle expense choices">
+<p class="stackhead">Start with your income. Then tick the costs you want. All prices are already set for you.</p>
+<div class="two-col"><section class="panel"><div class="panel-head"><h2>🏡 Housing</h2><button class="clear" data-clear="housing" type="button" hidden>Clear choice</button></div><div class="option-list" id="housing"></div></section><section class="panel"><div class="panel-head"><h2>🚘 Transportation</h2><button class="clear" data-clear="transport" type="button" hidden>Clear choice</button></div><div class="option-list" id="transport"></div></section></div>
+<section class="panel"><div class="panel-head"><h2>🛒 Food & household supplies</h2><button class="clear" data-clear="groceries" type="button" hidden>Clear choice</button></div><div class="option-list" id="groceries"></div><p class="card-note">Choose how many people live in your home. Food prices include basic household supplies.</p></section>
+<div class="two-col"><section class="panel"><div class="panel-head"><h2>⚡ Electricity & heating</h2><button class="clear" data-clear="energy" type="button" hidden>Clear choice</button></div><div class="option-list" id="energy"></div><div class="section-title">Phone & internet</div><div class="option-list" id="utilities"></div><p class="card-note">Your electricity choices depend on the home you picked. If electricity is included in rent, choose the free option.</p></section><section class="panel"><div class="panel-head"><h2>🛡️ Insurance & savings</h2><span class="muted">Choose what you want</span></div><div class="option-list" id="insurance"></div><div class="section-title">Savings</div><div class="option-list" id="savings"></div><div class="card-note">Savings are money you keep for the future, not money you spend.</div></section></div>
+<div class="two-col"><section class="panel"><div class="panel-head"><h2>🎬 Entertainment</h2><span class="muted">Optional</span></div><div class="option-list" id="fun"></div></section><section class="panel"><div class="panel-head"><h2>✈️ Vacation</h2><button class="clear" data-clear="vacation" type="button" hidden>Clear choice</button></div><div class="option-list" id="vacation"></div><p class="card-note">Choose one holiday each year. We spread the cost over 12 months.</p></section></div>
+<div class="two-col"><section class="panel"><div class="panel-head"><h2>👕 Other everyday costs</h2><span class="muted">Extra choices</span></div><div class="option-list" id="extras"></div><p class="card-note">Clothing costs change with the number of people in your home.</p></section><section class="panel"><div class="panel-head"><h2>🧰 Home repairs & debt</h2><span class="muted">Only if needed</span></div><div class="option-list" id="homeUpkeep"></div><div class="section-title">Money you owe</div><div class="option-list" id="debt"></div><button class="clear clear-debt" data-clear="debt" type="button" hidden>Clear choice</button></section></div>
+</main>
+<aside class="side"><section class="panel"><div class="summary">
+<div class="income-card"><label class="fieldlabel" for="annualIncome">1. Your yearly income after tax</label><div class="income-field"><input id="annualIncome" type="number" min="0" step="1000" inputmode="numeric" placeholder="e.g. 420000" autocomplete="off" aria-describedby="incomeHint"><span>SEK</span></div><p class="help" id="incomeHint">Enter the money you earn in one year <strong>after tax</strong>. If you only know your salary before tax, calculate your after-tax salary first.</p></div>
+<div class="summary-head"><div class="smallcaps">2. Watch your money</div><div class="summary-cost" id="totalMonth">0 SEK / month</div><div class="subcost" id="totalYear">Total per year: 0 SEK</div></div>
+<div class="donut-wrap"><svg class="donut" viewBox="0 0 320 320" role="img" aria-label="Income allocation chart. No annual income or expenses selected yet." id="donut" xmlns="http://www.w3.org/2000/svg"><circle class="track" cx="160" cy="160" r="121"/><g id="arcs"></g><text class="center-title" x="160" y="132" id="centerLabel">Money left this year</text><text class="center-money" x="160" y="166" id="centerValue">0 SEK</text><text class="center-hint" x="160" y="188" id="centerSub">Enter income to start</text></svg></div>
+<div class="balance"><div class="balance-cell"><div class="smallcaps">Chosen costs / year</div><strong id="spentYear">0 SEK</strong><small id="spentPercent">0% of income</small></div><div class="balance-cell"><div class="smallcaps">Money left / year</div><strong id="remainingYear">0 SEK</strong><small id="remainingMonth">0 SEK / month</small></div></div>
+<div class="status" id="status" role="status" aria-live="polite">Enter your yearly income, then select your expenses.</div>
+<div class="smallcaps legend-title">Where your income goes · % of income</div><div class="legend" id="legend"><div class="empty">Nothing selected yet.</div></div>
+<div class="actions"><button type="button" class="btn outline" id="reset">↺ Start again</button><button type="button" class="btn" id="print">Print my budget</button></div>
+<p class="disclaimer">Prices are examples for Sweden. Housing already includes home insurance. Car costs already include fuel. The used-car price includes buying the car in the first year. Savings are money you keep, not spend.</p>
+<details class="sources"><summary>For teachers: About the prices</summary><div class="sources-body"><p><strong>Useful price sources:</strong> <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/boende-bebyggelse-och-mark/bostader-och-boende/hyror-i-bostadslagenheter/pong/tabell-och-diagram/hyra-efter-antal-rum/" target="_blank" rel="noopener noreferrer">SCB: Swedish rent averages (2026)</a> · <a href="https://www.konsumentverket.se/ekonomi/vad-kostar-maten-varje-manad/" target="_blank" rel="noopener noreferrer">Konsumentverket: Food (2026)</a> · <a href="https://ltr.se/biljetter/59973.priser-zoner.html" target="_blank" rel="noopener noreferrer">Länstrafiken Jämtland: tickets</a> · <a href="https://www.bredbandsval.se/" target="_blank" rel="noopener noreferrer">Bredbandsval: internet</a> · <a href="https://www.spotify.com/se/premium/" target="_blank" rel="noopener noreferrer">Spotify prices</a> · <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/finansmarknad/finansmarknadsstatistik/finansmarknadsstatistik/pong/statistiknyhet/finansmarknadsstatistik-september-2026/" target="_blank" rel="noopener noreferrer">SCB: Mortgage rates</a>.</p><p><strong>Important:</strong> These prices help students practise budgeting. They are not real offers. Bedroom counts mean actual bedrooms. Some homes include electricity. For home loans, students are using simple first-year examples, without a down payment. The app works in the browser and does not send the budget to a server.</p></div></details>
+</div></section></aside>
+</div><p class="foot">Standalone concept preview · This is not yet installed on your production website.</p>
+</div>
+<script>
+'use strict';
+// All costs are configured here. The student can enter only annual take-home income.
+const money = n => Math.round(n).toLocaleString('sv-SE')+' SEK';
+const pct = n => n.toLocaleString('sv-SE',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+const pick = {
+ housing:[
+  ['A · Buy a home with 2 bedrooms',221900,'Includes home loan payments, home insurance and tax.'],
+  ['B · Buy a home with 3 bedrooms',363700,'Includes home loan payments, home insurance and tax.'],
+  ['C · Rent a home with 2 bedrooms',104400,'Includes rent and home insurance.'],
+  ['D · Rent a home with 3 bedrooms',135600,'Includes rent and home insurance.']
+ ],
+ transport:[
+  ['A · Buy a new car',106000,'Includes car payments, fuel, insurance and repairs.'],
+  ['B · Lease a new car',81000,'Includes leasing, fuel and insurance.'],
+  ['C · Buy an old car',64000,'First year: includes buying the car, fuel, insurance and repairs.'],
+  ['D1 · Bus/train · local area',9000,'Travel within 1 zone in Jämtland.'],
+  ['D2 · Bus/train · wider area',11700,'Travel within 2 zones in Jämtland.'],
+  ['D3 · Bus/train · whole county',18600,'Travel throughout Jämtland.']
+ ],
+ groceries:[
+  ['1 person',42000,'1 adult'],
+  ['2 people',82800,'2 adults'],
+  ['3 people',108000,'2 adults and 1 child']
+ ],
+ savings:[
+  ['Save 500 SEK each month',6000,'Money you keep for later.'],
+  ['Save 1,500 SEK each month',18000,'Money you keep for later.'],
+  ['Save 3,000 SEK each month',36000,'Money you keep for later.']
+ ],
+ vacation:[
+  ['Holiday in Sweden',9000,'For 1 person.'],
+  ['Holiday abroad',12500,'For 1 person.'],
+  ['Holiday in Sweden',17000,'For 2 people.'],
+  ['Holiday abroad',23000,'For 2 people.'],
+  ['Holiday in Sweden',20250,'For 3 people.'],
+  ['Holiday abroad',29500,'For 3 people.']
+ ],
+ debt:[
+  ['Small debt payment',12000,'Pay back 1,000 SEK each month.'],
+  ['Large debt payment',36000,'Pay back 3,000 SEK each month.']
+ ]
+};
+const checks = {
+ utilities:[['Mobile phone',250,'Monthly phone plan.'],['Home internet',350,'Internet at home.']],
+ insurance:[['Unemployment insurance (a-kassa)',150,'Helps protect your income if you lose your job.']],
+ fun:[['Netflix',169,'Standard plan.'],['HBO Max',149,'Standard plan.'],['Disney+',129,'Standard plan.'],['Spotify',149,'Individual plan.']],
+ extras:[['Clothing & shoes',800,'For the people in your home.'],['Doctor & dentist',300,'Money set aside for healthcare.'],['Furniture & home items',400,'Money set aside for replacing things.'],['Gifts',400,'Birthdays and holidays.'],['Eating out & takeaway',800,'Restaurants and takeaway food.'],['Gym',350,'Gym membership.']]
+};
+const cats=['Housing','Transportation','Food & essentials','Electricity & heating','Phone & internet','Insurance','Clothing & extras','Home upkeep','Entertainment','Vacation','Debt','Savings'];
+const color={Housing:'#557bc4',Transportation:'#e89b4d','Food & essentials':'#3ca58b','Electricity & heating':'#51a6cb','Phone & internet':'#7296c8',Insurance:'#9a7dd6','Clothing & extras':'#e1b45a','Home upkeep':'#957b62',Entertainment:'#d775a7',Vacation:'#aa94cb',Debt:'#b98759',Savings:'#72aa74'};
+const state={income:null,housing:null,transport:null,groceries:null,savings:null,vacation:null,debt:null,energy:null,utilities:new Set(),insurance:new Set(),fun:new Set(),extras:new Set(),homeUpkeep:new Set()};
+const $=id=>document.getElementById(id);
+const fmtMonthly= annual => money(annual/12);
+function priceDisplay(annual){
+ return `<span class="price-box" aria-label="Monthly: ${fmtMonthly(annual)}. Yearly: ${money(annual)}.">
+   <span class="price-row"><span class="price-label">Monthly</span><strong>${fmtMonthly(annual)}</strong></span>
+   <span class="price-row"><span class="price-label">Yearly</span><strong>${money(annual)}</strong></span>
+ </span>`;
+}
+const energyOpts=()=> {
+ if(state.housing===null) return [];
+ switch(state.housing){
+  case 0:return [['Electricity & heating for your 2-bedroom home',27600,'For homeowners.']];
+  case 1:return [['Electricity & heating for your 3-bedroom home',40800,'For homeowners.']];
+  case 2:return [['Pay for electricity separately',6000,'Heating is included in the rent.'],['Electricity included in rent',0,'No extra cost.']];
+  case 3:return [['Pay for electricity separately',8400,'Heating is included in the rent.'],['Electricity included in rent',0,'No extra cost.']];
+ }
+ return [];
+};
+function renderRadio(id, opts, sourceIds=null){
+ const list=$(id);const selected=state[id];
+ if(!opts.length){list.innerHTML='<div class="placeholder">'+(id==='energy'?'Choose your home first.':'Choose how many people live in your home first.')+'</div>';return;}
+ list.innerHTML=opts.map(([title,annual,description],i)=>{
+ const idx=sourceIds?sourceIds[i]:i;
+ return `<label class="opt"><input type="radio" name="${id}" value="${idx}" ${selected===idx?'checked':''}><span class="opt-label">${title}<span class="detail">${description}</span></span>${priceDisplay(annual)}</label>`;
+ }).join('');
+ list.querySelectorAll('input').forEach(el=>el.addEventListener('change',()=>{
+  state[id]=Number(el.value);
+  if(id==='housing'){state.energy=null;state.homeUpkeep.clear();}
+  if(id==='groceries'&&state.vacation!==null&&Math.floor(state.vacation/2)!==state.groceries)state.vacation=null;
+  renderOptions();updateSummary();
+ }));
+}
+function dynamicMonthly(item,group){
+ if(group==='extras'&&item[0]==='Clothing & shoes')return [800,1600,2000][state.groceries??0];
+ return item[1];
+}
+function renderChecks(id,arr){
+ $(id).innerHTML=arr.map(item=>{
+  const [name,_,desc]=item;const monthly=dynamicMonthly(item,id);
+  return `<label class="opt"><input type="checkbox" value="${name}" ${state[id].has(name)?'checked':''}><span class="opt-label">${name}<span class="detail">${desc||''}</span></span>${priceDisplay(monthly*12)}</label>`;
+ }).join('');
+ $(id).querySelectorAll('input').forEach(el=>el.addEventListener('change',()=>{
+  if(el.checked)state[id].add(el.value);else state[id].delete(el.value);
+  updateSummary();
+ }));
+}
+function upkeepOptions(){
+ if(state.housing===0)return [['Home repairs',1500,'Money for fixing things in your home.'],['Water & rubbish collection',500,'Costs paid by homeowners.']];
+ if(state.housing===1)return [['Home repairs',2500,'Money for fixing things in your home.'],['Water & rubbish collection',650,'Costs paid by homeowners.']];
+ return [];
+}
+function renderUpkeep(){
+ const arr=upkeepOptions();
+ if(!arr.length){$('homeUpkeep').innerHTML='<div class="placeholder">Choose a home to see any extra home costs. Renters usually pay these through their rent.</div>';return;}
+ $('homeUpkeep').innerHTML=arr.map(([name,monthly,detail])=>`<label class="opt"><input type="checkbox" value="${name}" ${state.homeUpkeep.has(name)?'checked':''}><span class="opt-label">${name}<span class="detail">${detail}</span></span>${priceDisplay(monthly*12)}</label>`).join('');
+ $('homeUpkeep').querySelectorAll('input').forEach(el=>el.addEventListener('change',()=>{
+  if(el.checked)state.homeUpkeep.add(el.value);else state.homeUpkeep.delete(el.value);updateSummary();
+ }));
+}
+function renderOptions(){
+ ['housing','transport','groceries','savings','debt'].forEach(id=>renderRadio(id,pick[id]));
+ const vacationIds=state.groceries===null?[]:[state.groceries*2,state.groceries*2+1];
+ renderRadio('vacation',vacationIds.map(i=>pick.vacation[i]),vacationIds);
+ renderRadio('energy',energyOpts());
+ Object.entries(checks).forEach(([id,arr])=>renderChecks(id,arr));
+ renderUpkeep();
+ document.querySelectorAll('[data-clear]').forEach(button=>{button.hidden=state[button.dataset.clear]===null;});
+}
+function calc(){
+ const annual=id=>state[id]===null?0:pick[id][state[id]][1];
+ const ck=id=>checks[id].reduce((sum,item)=>sum+(state[id].has(item[0])?dynamicMonthly(item,id)*12:0),0);
+ const energy=state.energy===null?0:(energyOpts()[state.energy]?.[1]||0);
+ const upkeep=upkeepOptions().reduce((sum,[name,v])=>sum+(state.homeUpkeep.has(name)?v*12:0),0);
+ return {Housing:annual('housing'),Transportation:annual('transport'),'Food & essentials':annual('groceries'),'Electricity & heating':energy,'Phone & internet':ck('utilities'),Insurance:ck('insurance'),'Clothing & extras':ck('extras'),'Home upkeep':upkeep,Entertainment:ck('fun'),Vacation:annual('vacation'),Debt:annual('debt'),Savings:annual('savings')};
+}
+const ns='http://www.w3.org/2000/svg';const nodes={};let visible=Object.fromEntries(cats.map(k=>[k,0]));let frame=null;
+cats.forEach(key=>{let n=document.createElementNS(ns,'circle');n.setAttribute('class','arc');n.setAttribute('cx','160');n.setAttribute('cy','160');n.setAttribute('r','121');n.setAttribute('pathLength','100');n.setAttribute('stroke',color[key]);n.setAttribute('stroke-dasharray','0 100');$('arcs').append(n);nodes[key]=n;});
+function paint(v){let start=0;cats.forEach(k=>{let width=Math.max(0,Math.min(100,v[k]||0));nodes[k].setAttribute('stroke-dasharray',`${width} ${100-width}`);nodes[k].setAttribute('stroke-dashoffset',String(-start));start+=width;});}
+function animation(target){
+ if(frame!==null){cancelAnimationFrame(frame);frame=null;}
+ let origin={...visible};
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){visible={...target};paint(visible);return;}
+ const speed=850;let t0=null;
+ function run(t){if(t0===null)t0=t;let r=Math.min(1,(t-t0)/speed),e=1-Math.pow(1-r,3);let v={};cats.forEach(k=>v[k]=origin[k]+(target[k]-origin[k])*e);visible=v;paint(v);if(r<1)frame=requestAnimationFrame(run);else frame=null;}
+ frame=requestAnimationFrame(run);
+}
+function updateSummary(){
+ const amounts=calc(),total=Object.values(amounts).reduce((a,b)=>a+b,0),income=state.income||0,valid=income>0,remaining=income-total,over=valid&&total>income;
+ const spending=total-amounts.Savings;
+ $('totalMonth').textContent='Monthly total: '+money(total/12);
+ $('totalYear').textContent='Yearly total: '+money(total);
+ $('spentYear').textContent=money(total);$('spentPercent').textContent=valid?pct(total/income*100)+' of your income':'Enter your income first';
+ $('remainingYear').textContent=valid?money(remaining):'—';$('remainingYear').style.color=over?'#b42318':'';
+ $('remainingMonth').textContent=valid?'Monthly: '+money(remaining/12):'—';
+ $('centerLabel').textContent=over?'Over budget by':'Money left this year';
+ $('centerValue').textContent=valid?money(Math.abs(remaining)):'0 SEK';$('centerValue').classList.toggle('negative',over);
+ $('centerSub').textContent=over?'Your choices cost too much':valid?(total===0?'All your income is left':pct(Math.max(0,remaining/income*100))+' left'):'Enter income to start';
+ // Never misleadingly clip sectors: when budget exceeds income, chart becomes 100% of allocations.
+ // The legend always retains percentage of income and can exceed 100% in total.
+ const denom=valid?(over?total:income):0;
+ animation(Object.fromEntries(cats.map(k=>[k,denom?amounts[k]/denom*100:0])));
+ const status=$('status');status.className='status';
+ if(!valid)status.textContent=total?'Your choices add up to '+money(total)+' each year. Enter your yearly income.':'Enter your yearly income, then choose your expenses.';
+ else if(over){status.classList.add('bad');status.innerHTML='<strong>You are over budget!</strong> Your choices cost '+money(total-income)+' too much each year. The full circle now shows how your costs are split.';}
+ else if(total===0)status.textContent='You have all your money left. Choose an expense to begin.';
+ else {status.classList.add('good');status.textContent='You have '+money(remaining)+' left this year.'+(amounts.Savings>0?' You are saving '+money(amounts.Savings)+' this year.':'');}
+ $('legend').innerHTML=cats.filter(k=>amounts[k]>0).map(k=>`<div class="legend-row"><span class="dot" style="background:${color[k]}"></span><div>${k}<small>Yearly: ${money(amounts[k])}</small></div><strong>${valid?pct(amounts[k]/income*100):'—'}</strong></div>`).join('')||'<div class="empty">Nothing selected yet. Your circle is empty.</div>';
+ $('donut').setAttribute('aria-label',valid?`Annual income ${money(income)}; total allocated ${money(total)}; ${over?'shortfall '+money(-remaining):'remaining '+money(remaining)}.`:'Enter annual take-home income to begin.');
+}
+$('annualIncome').addEventListener('input',ev=>{
+ const val=ev.target.value.trim(),n=Number(val);
+ state.income=val&&Number.isFinite(n)&&n>0?n:null;
+ updateSummary();
+});
+document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',()=>{
+ let id=b.dataset.clear;state[id]=null;
+ if(id==='housing'){state.energy=null;state.homeUpkeep.clear();}
+ if(id==='groceries')state.vacation=null;
+ renderOptions();updateSummary();
+}));
+$('reset').addEventListener('click',()=>{
+ for(const key of Object.keys(state))state[key] instanceof Set?state[key].clear():state[key]=null;
+ $('annualIncome').value='';renderOptions();updateSummary();window.scrollTo({top:0,behavior:'smooth'});
+});
+$('print').addEventListener('click',()=>window.print());
+renderOptions();updateSummary();
+</script>
+</body>
+</html>
