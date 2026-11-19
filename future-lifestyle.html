@@ -23,6 +23,17 @@
 .clear-debt{margin:0 18px 14px}.opt-label .detail{font-weight:400}
 @media print{.sources{display:block}.sources-body{display:block!important}}
 
+/* Downloadable student report */
+.report-identity{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.report-identity .fieldlabel{font-size:13px;margin-bottom:6px}
+.report-name-field{display:block;width:100%;background:#fff;border:1px solid #c4c4d6;border-radius:10px;padding:10px 12px;color:var(--ink);font:inherit;font-size:14px}
+.report-identity .help{margin-top:5px;font-size:11px}
+.report-actions{flex-wrap:wrap;margin-top:12px}
+.report-actions .btn{min-height:43px;white-space:nowrap;flex:1 1 auto}
+.report-actions .save-btn{flex:1 1 100%;background:#3f39a2;color:white;font-size:14px}
+.save-feedback{font-size:11px;line-height:1.5;color:var(--muted);margin-top:9px}
+@media print{.report-identity,.report-actions,.save-feedback{display:none!important}}
+
 /* Student-friendly monthly/yearly prices: each number has a label on the SAME line. */
 .opt-label{font-size:14px;line-height:1.3}
 .opt-label .detail{font-size:11.5px;line-height:1.45;margin-top:5px}
@@ -254,13 +265,19 @@ body > header.site-global-header .site-global-social svg{
 <div class="two-col"><section class="panel" data-topic="other"><div class="panel-head"><h2>👕 Other everyday costs</h2><span class="muted">Extra choices</span></div><div class="option-list" id="extras"></div><p class="card-note">Clothing costs change with the number of people in your home.</p></section><section class="panel" data-topic="home"><div class="panel-head"><h2>🧰 Home repairs &amp; debt</h2><span class="muted">Only if needed</span></div><div class="option-list" id="homeUpkeep"></div><div class="section-title">Money you owe</div><div class="option-list" id="debt"></div><button class="clear clear-debt" data-clear="debt" hidden="" type="button">Clear choice</button></section></div>
 </main>
 <aside class="side"><section class="panel"><div class="summary">
-<div class="income-card"><label class="fieldlabel" for="annualIncome">1. Your yearly income after tax</label><div class="income-field"><input aria-describedby="incomeHint" autocomplete="off" id="annualIncome" inputmode="numeric" min="0" placeholder="e.g. 420000" step="1000" type="number"/><span>SEK</span></div><p class="help" id="incomeHint">Enter the money you earn in one year <strong>after tax</strong>. If you only know your salary before tax, calculate your after-tax salary first.</p></div>
+<div class="income-card"><label class="fieldlabel" for="annualIncome">1. Your yearly income after tax</label><div class="income-field"><input aria-describedby="incomeHint" autocomplete="off" id="annualIncome" inputmode="numeric" min="0" placeholder="e.g. 420000" step="1000" type="number"/><span>SEK</span></div><p class="help" id="incomeHint">Enter the money you earn in one year <strong>after tax</strong>. If you do not know your future job yet, enter 0. Otherwise, use your salary after tax.</p></div>
 <div class="summary-head"><div class="smallcaps">2. Watch your money</div><div class="summary-cost" id="totalMonth">0 SEK / month</div><div class="subcost" id="totalYear">Total per year: 0 SEK</div></div>
 <div class="donut-wrap"><svg aria-label="Income allocation chart. No annual income or expenses selected yet." class="donut" id="donut" role="img" viewbox="0 0 320 320" xmlns="http://www.w3.org/2000/svg"><circle class="track" cx="160" cy="160" r="121"></circle><g id="arcs"></g><text class="center-title" id="centerLabel" x="160" y="132">Money left this year</text><text class="center-money" id="centerValue" x="160" y="166">0 SEK</text><text class="center-hint" id="centerSub" x="160" y="188">Enter income to start</text></svg></div>
 <div class="balance"><div class="balance-cell"><div class="smallcaps">Chosen costs / year</div><strong id="spentYear">0 SEK</strong><small id="spentPercent">0% of income</small></div><div class="balance-cell"><div class="smallcaps">Money left / year</div><strong id="remainingYear">0 SEK</strong><small id="remainingMonth">0 SEK / month</small></div></div>
 <div aria-live="polite" class="status" id="status" role="status">Enter your yearly income, then select your expenses.</div>
 <div class="smallcaps legend-title">Where your income goes · % of income</div><div class="legend" id="legend"><div class="empty">Nothing selected yet.</div></div>
-<div class="actions"><button class="btn outline" id="reset" type="button">↺ Start again</button><button class="btn" id="print" type="button">Print my budget</button></div>
+<div class="report-identity">
+<label class="fieldlabel" for="reportName">Your name (for your report)</label>
+<input id="reportName" class="report-name-field" type="text" maxlength="80" autocomplete="name" placeholder="First and last name" aria-describedby="reportHelp"/>
+<p class="help" id="reportHelp">Your name appears on the PDF you save. Nothing is sent automatically.</p>
+</div>
+<div class="actions report-actions"><button class="btn save-btn" id="saveResults" type="button">↓ Save results (PDF)</button><button class="btn outline" id="reset" type="button">↺ Start again</button><button class="btn outline" id="print" type="button">Print</button></div>
+<div class="save-feedback" id="saveFeedback" role="status" aria-live="polite">Save the PDF to your Chromebook, then attach it to your email to your teacher.</div>
 <p class="disclaimer">Prices are examples. Home costs include insurance, and car costs include fuel. Buying a used car costs more in the first year.</p>
 
 </div></section></aside>
@@ -405,31 +422,31 @@ function animation(target){
  frame=requestAnimationFrame(run);
 }
 function updateSummary(){
- const amounts=calc(),total=Object.values(amounts).reduce((a,b)=>a+b,0),income=state.income||0,valid=income>0,remaining=income-total,over=valid&&total>income;
+ const amounts=calc(),total=Object.values(amounts).reduce((a,b)=>a+b,0),income=state.income??0,valid=state.income!==null,remaining=income-total,over=valid&&total>income;
  const spending=total-amounts.Savings;
  $('totalMonth').textContent='Monthly total: '+money(total/12);
  $('totalYear').textContent='Yearly total: '+money(total);
- $('spentYear').textContent=money(total);$('spentPercent').textContent=valid?pct(total/income*100)+' of your income':'Enter your income first';
+ $('spentYear').textContent=money(total);$('spentPercent').textContent=valid&&income>0?pct(total/income*100)+' of your income':valid?'Income: 0 SEK':'Enter your income first';
  $('remainingYear').textContent=valid?money(remaining):'—';$('remainingYear').style.color=over?'#b42318':'';
  $('remainingMonth').textContent=valid?'Monthly: '+money(remaining/12):'—';
  $('centerLabel').textContent=over?'Over budget by':'Money left this year';
  $('centerValue').textContent=valid?money(Math.abs(remaining)):'0 SEK';$('centerValue').classList.toggle('negative',over);
- $('centerSub').textContent=over?'Your choices cost too much':valid?(total===0?'All your income is left':pct(Math.max(0,remaining/income*100))+' left'):'Enter income to start';
+ $('centerSub').textContent=over?'Your choices cost too much':valid?(income===0?'Choose expenses to see the cost':total===0?'All your income is left':pct(Math.max(0,remaining/income*100))+' left'):'Enter income to start';
  // Never misleadingly clip sectors: when budget exceeds income, chart becomes 100% of allocations.
  // The legend always retains percentage of income and can exceed 100% in total.
  const denom=valid?(over?total:income):0;
  animation(Object.fromEntries(cats.map(k=>[k,denom?amounts[k]/denom*100:0])));
  const status=$('status');status.className='status';
  if(!valid)status.textContent=total?'Your choices add up to '+money(total)+' each year. Enter your yearly income.':'Enter your yearly income, then choose your expenses.';
- else if(over){status.classList.add('bad');status.innerHTML='<strong>You are over budget!</strong> Your choices cost '+money(total-income)+' too much each year. The full circle now shows how your costs are split.';}
+ else if(over){status.classList.add('bad');status.innerHTML=income===0?'<strong>Your lifestyle costs '+money(total)+' per year.</strong> Find a career that pays at least this much after tax.':'<strong>You are over budget!</strong> Your choices cost '+money(total-income)+' too much each year. The full circle now shows how your costs are split.';}
  else if(total===0)status.textContent='You have all your money left. Choose an expense to begin.';
  else {status.classList.add('good');status.textContent='You have '+money(remaining)+' left this year.'+(amounts.Savings>0?' You are saving '+money(amounts.Savings)+' this year.':'');}
- $('legend').innerHTML=cats.filter(k=>amounts[k]>0).map(k=>`<div class="legend-row"><span class="dot" style="background:${color[k]}"></span><div>${k}<small>Yearly: ${money(amounts[k])}</small></div><strong>${valid?pct(amounts[k]/income*100):'—'}</strong></div>`).join('')||'<div class="empty">Nothing selected yet. Your circle is empty.</div>';
+ $('legend').innerHTML=cats.filter(k=>amounts[k]>0).map(k=>`<div class="legend-row"><span class="dot" style="background:${color[k]}"></span><div>${k}<small>Yearly: ${money(amounts[k])}</small></div><strong>${valid&&income>0?pct(amounts[k]/income*100):total?pct(amounts[k]/total*100)+' of costs':'—'}</strong></div>`).join('')||'<div class="empty">Nothing selected yet. Your circle is empty.</div>';
  $('donut').setAttribute('aria-label',valid?`Annual income ${money(income)}; total allocated ${money(total)}; ${over?'shortfall '+money(-remaining):'remaining '+money(remaining)}.`:'Enter annual take-home income to begin.');
 }
 $('annualIncome').addEventListener('input',ev=>{
  const val=ev.target.value.trim(),n=Number(val);
- state.income=val&&Number.isFinite(n)&&n>0?n:null;
+ state.income=val!==''&&Number.isFinite(n)&&n>=0?n:null;
  updateSummary();
 });
 document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',()=>{
@@ -440,7 +457,118 @@ document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',
 }));
 $('reset').addEventListener('click',()=>{
  for(const key of Object.keys(state))state[key] instanceof Set?state[key].clear():state[key]=null;
- $('annualIncome').value='';renderOptions();updateSummary();window.scrollTo({top:0,behavior:'smooth'});
+ $('annualIncome').value='';$('reportName').value='';$('saveFeedback').textContent='Save the PDF to your Chromebook, then attach it to your email to your teacher.';renderOptions();updateSummary();window.scrollTo({top:0,behavior:'smooth'});
+});
+// Creates a PDF directly in the browser. No account, server, CDN or external library.
+function selectedReportRows(){
+ const groups=[];
+ const add=(group,title,amount)=>groups.push({group,title,amount});
+ for(const [group,id] of [['Housing','housing'],['Transportation','transport'],['Food & essentials','groceries'],['Savings','savings'],['Vacation','vacation'],['Debt','debt']]){
+  if(state[id]!==null){const x=pick[id][state[id]];add(group,x[0],x[1]);}
+ }
+ if(state.energy!==null){const x=energyOpts()[state.energy];if(x)add('Electricity & heating',x[0],x[1]);}
+ for(const [group,id] of [['Phone & internet','utilities'],['Insurance','insurance'],['Clothing & extras','extras'],['Entertainment','fun']]){
+  for(const x of checks[id])if(state[id].has(x[0]))add(group,x[0],dynamicMonthly(x,id)*12);
+ }
+ for(const x of upkeepOptions())if(state.homeUpkeep.has(x[0]))add('Home upkeep',x[0],x[1]*12);
+ return groups;
+}
+function makePdfReport(name){
+ const rows=selectedReportRows(),totals=calc(),cost=Object.values(totals).reduce((a,b)=>a+b,0);
+ const income=state.income,hasIncome=income!==null,remaining=hasIncome?income-cost:null;
+ const amount=n=>Math.round(n).toLocaleString('sv-SE').replace(/\u00a0|\u202f/g,' ')+' SEK';
+ const percent=n=>n.toFixed(1)+'%';
+ const created=new Date().toLocaleDateString('en-GB',{year:'numeric',month:'short',day:'numeric'});
+ // PDF strings use WinAnsi-compatible octal escapes; every byte of the file remains ASCII.
+ const safe=t=>String(t).replace(/[\u2010-\u2015\u2212]/g,'-').replace(/[\u2022\u00b7]/g,'-').replace(/[^\x20-\x7E\xA0-\xFF]/g,'?');
+ function lit(t){return '('+Array.from(safe(t)).map(c=>{let n=c.charCodeAt(0);if(c==='('||c===')'||c==='\\')return '\\'+c;if(n<32||n>126)return '\\'+n.toString(8).padStart(3,'0');return c;}).join('')+')';}
+ const objects=[''];const obj=v=>{objects.push(v);return objects.length-1;};
+ const regular=obj('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>');
+ const bold=obj('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>');
+ const mono=obj('<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>');
+ const pages=[],pageStreams=[];
+ const w=595,h=842,left=44,right=551;
+ let ops=[],y=790;
+ const rgb=v=>{let x=v.replace('#','');return [0,2,4].map(i=>(parseInt(x.slice(i,i+2),16)/255).toFixed(3)).join(' ');};
+ function fillRect(x,y,w,h,col){ops.push(rgb(col)+' rg',x+' '+y+' '+w+' '+h+' re f');}
+ function str(t,x,y,size=10,font=regular,col='#24304a'){
+  ops.push('BT /F'+font+' '+size+' Tf '+rgb(col)+' rg 1 0 0 1 '+x+' '+y+' Tm '+lit(t)+' Tj ET');
+ }
+ function rightText(t,x,y,size=10,font=mono,col='#24304a'){str(t,x-safe(t).length*size*.6,y,size,font,col);}
+ function line(y,col='#d9e1eb'){fillRect(left,y,right-left,.7,col);}
+ function page(){if(ops.length)pageStreams.push(ops.join('\n')+'\n');ops=[];y=790;}
+ function newPage(continued=false){page();str('MR. MCLEAN MATH',left,y,12,bold,'#40379b');rightText('MY FUTURE LIFESTYLE',right,y,10,bold,'#40379b');y-=25;line(y);y-=22;if(continued){str('Selected expenses - continued',left,y,13,bold);y-=24;}}
+ function ensure(needed){if(y<65+needed)newPage(true);}
+ function section(label){ensure(45);y-=6;fillRect(left,y-6,right-left,26,'#f0edff');str(label,left+10,y+2,11,bold,'#3a3388');y-=34;}
+ function wrap(t,maxChars=68){let words=safe(t).split(/\s+/),out=[''];for(const q of words){let cur=out[out.length-1];if(cur&&cur.length+q.length+1>maxChars)out.push(q);else out[out.length-1]=(cur?cur+' ':'')+q;}return out;}
+ // Page title
+ str('MR. MCLEAN MATH',left,y,12,bold,'#40379b');rightText(created,right,y,9,regular,'#65728b');y-=32;
+ str('My Future Lifestyle',left,y,23,bold,'#27225d');y-=23;
+ str('Student: '+name,left,y,11,regular);y-=24;line(y);y-=30;
+ // Summary cards
+ fillRect(left,y-71,right-left,80,'#f1f4fa');
+ str('ANNUAL INCOME (AFTER TAX)',left+12,y-7,9,bold,'#68748b');
+ str(hasIncome?amount(income):'Not entered',left+12,y-28,16,bold,'#30316a');
+ str('TOTAL CHOSEN COSTS',left+270,y-7,9,bold,'#68748b');
+ str(amount(cost),left+270,y-28,16,bold,'#30316a');
+ str('Money left: '+(hasIncome?amount(remaining):'Not calculated'),left+12,y-53,12,bold,remaining!==null&&remaining<0?'#ab3329':'#276449');
+ y-=104;
+ // Multi-color cost distribution bar, relative to total costs
+ section('Where your budget goes');
+ if(cost>0){let x=left;for(const k of cats){if(totals[k]>0){let len=(right-left)*(totals[k]/cost);fillRect(x,y-4,len,14,color[k]);x+=len;}}}
+ else fillRect(left,y-4,right-left,14,'#e3e5ec');
+ y-=27;
+ if(cost>0){str('YEARLY',right-215,y,7,bold,'#65728b');rightText('OF INCOME',right-92,y,7,bold,'#65728b');rightText('OF COSTS',right,y,7,bold,'#65728b');y-=18;}
+ for(const k of cats){if(totals[k]<=0)continue;ensure(22);
+  fillRect(left,y-1,10,10,color[k]);str(k,left+17,y,9.5,regular);
+  rightText(amount(totals[k]),right-184,y,9,mono);
+  rightText(hasIncome&&income>0?percent(totals[k]/income*100):'-',right-90,y,9,mono,'#52627b');
+  rightText(percent(totals[k]/cost*100),right,y,9,mono,'#52627b');y-=19;
+ }
+ y-=15;section('Your selected choices');
+ if(!rows.length){str('No expenses selected.',left,y,10);y-=23;}
+ else{
+  let group='';for(const r of rows){
+   if(r.group!==group){ensure(38);group=r.group;y-=4;str(group,left,y,10,bold,'#40379b');y-=19;}
+   for(const [index,t] of wrap(r.title,57).entries()){
+    ensure(16);
+    str((index===0?'- ':'  ')+t,left+9,y,9,regular);
+    if(index===0)rightText(amount(r.amount),right,y,9,mono);y-=15;
+   }
+   y-=4;
+  }
+ }
+ ensure(65);y-=6;line(y);y-=19;
+ str('TOTAL',left,y,11,bold);rightText(amount(cost),right,y,11,bold);y-=17;
+ str('Monthly average',left,y,10);rightText(amount(cost/12),right,y,10,mono);y-=19;
+ if(hasIncome){str('Remaining after choices',left,y,10,bold);rightText(amount(remaining),right,y,10,bold,remaining<0?'#ab3329':'#276449');y-=19;}
+ page();
+ // PDF object streams, page tree, deterministic cross-references.
+ const contentIds=pageStreams.map(stream=>obj('<< /Length '+new TextEncoder().encode(stream).length+' >>\nstream\n'+stream+'endstream'));
+ const pagesId=obj('');
+ const ids=contentIds.map(cid=>obj('<< /Type /Page /Parent '+pagesId+' 0 R /MediaBox [0 0 '+w+' '+h+'] /Resources << /Font << /F'+regular+' '+regular+' 0 R /F'+bold+' '+bold+' 0 R /F'+mono+' '+mono+' 0 R >> >> /Contents '+cid+' 0 R >>'));
+ objects[pagesId]='<< /Type /Pages /Kids ['+ids.map(i=>i+' 0 R').join(' ')+'] /Count '+ids.length+' >>';
+ const catalog=obj('<< /Type /Catalog /Pages '+pagesId+' 0 R >>');
+ let pdf='%PDF-1.4\n%PDF generated by Mr McLean Math\n',offsets=[0];
+ for(let i=1;i<objects.length;i++){offsets.push(new TextEncoder().encode(pdf).length);pdf+=i+' 0 obj\n'+objects[i]+'\nendobj\n';}
+ const xref=new TextEncoder().encode(pdf).length;
+ pdf+='xref\n0 '+objects.length+'\n0000000000 65535 f \n';
+ for(let i=1;i<objects.length;i++)pdf+=String(offsets[i]).padStart(10,'0')+' 00000 n \n';
+ pdf+='trailer\n<< /Size '+objects.length+' /Root '+catalog+' 0 R >>\nstartxref\n'+xref+'\n%%EOF\n';
+ return new Blob([pdf],{type:'application/pdf'});
+}
+$('saveResults').addEventListener('click',()=>{
+ const name=$('reportName').value.trim().replace(/\s+/g,' ');
+ const info=$('saveFeedback');
+ if(!name){info.textContent='Enter your name before saving your report.';$('reportName').focus();return;}
+ if(state.income===null){info.textContent='Enter your yearly income first. You can enter 0 if you have not chosen a career.';$('annualIncome').focus();return;}
+ try{
+  const file=makePdfReport(name),url=URL.createObjectURL(file);
+  const link=document.createElement('a');const filename=name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').slice(0,60)||'student';
+  link.href=url;link.download='Future-Lifestyle-'+filename+'.pdf';document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  info.textContent='PDF downloaded! Find it in Files > Downloads on your Chromebook, then attach it to an email to your teacher.';
+ }catch(err){console.error('Unable to save PDF',err);info.textContent='Could not save the PDF. Try the Print button and choose Save as PDF.';}
 });
 $('print').addEventListener('click',()=>window.print());
 renderOptions();updateSummary();
