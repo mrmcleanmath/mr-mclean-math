@@ -1,1 +1,2 @@
-Mr. McLean Math v334 | Approved Fast Five release with Calculating Interest v331 update.
+Mr. McLean Math v338 — Complete publish-ready website.
+Approved v337 content; temporary Worksheet QA and diagnostic hooks removed.

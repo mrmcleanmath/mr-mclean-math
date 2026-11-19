@@ -30,6 +30,11 @@
   const editOnly=['⌫','Enter'];
 
   const configs={
+"converting-numbers-to-scientific-notation.html":{selector:'input.weekly-input',activateOnClick:true,keys:signedDecimal,cols:5,enterSpan:2,caption:"Converting Numbers to Scientific Notation answer buttons"},
+"comparing-fractions.html":{selector:'input.weekly-input',activateOnClick:true,keys:['<','=','>','⌫','Enter'],cols:5,enterSpan:2,caption:"Comparing Fractions answer buttons"},
+"calculations-with-powers.html":{selector:'input.weekly-input',activateOnClick:true,keys:signedDecimal,cols:5,enterSpan:2,caption:"Calculations with Powers answer buttons"},
+"time-and-distance-journey-graphs.html":{selector:'input.weekly-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Time and Distance: Journey Graphs answer buttons"},
+"is-it-proportional.html":{selector:'input.weekly-input',activateOnClick:true,keys:[...positiveDecimal,'Yes','No'],cols:5,enterSpan:2,caption:"Proportionality: Is It Proportional? answer buttons"},
     "time-difference-practice.html":{selector:'input.batch-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Time Difference Practice answer buttons"},
     "finding-equivalent-fractions.html":{selector:'input.batch-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Finding Equivalent Fractions answer buttons"},
     "unitary-method-proportions.html":{selector:'input.batch-input',activateOnClick:true,keys:positiveDecimal,cols:5,enterSpan:2,caption:"Unitary Method Proportions answer buttons"},
