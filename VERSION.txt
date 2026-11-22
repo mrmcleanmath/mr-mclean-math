@@ -1,2 +1,2 @@
-Mr. McLean Math v338 — Complete publish-ready website.
-Approved v337 content; temporary Worksheet QA and diagnostic hooks removed.
+Mr. McLean Math v339 — Complete publish-ready website.
+The Order: prevent duplicate touch/compatibility-click actions; timer rules unchanged.
