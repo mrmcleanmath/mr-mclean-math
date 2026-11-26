@@ -30,6 +30,11 @@
   const editOnly=['⌫','Enter'];
 
   const configs={
+"converting-scientific-notation-to-ordinary-numbers.html":{selector:'input.weekly-input',activateOnClick:true,keys:positiveDecimal,cols:5,enterSpan:2,caption:"Scientific Notation to Ordinary Numbers answer buttons"},
+"expressions-with-exponents.html":{selector:'input.weekly-input',activateOnClick:true,keys:[...signedInteger,'^','a','b','c','x','y','z'],cols:5,enterSpan:2,caption:"Multiplying Algebraic Expressions — Same Variable answer buttons"},
+"fraction-number-line-challenge.html":{selector:'input.weekly-input',activateOnClick:true,keys:integer,cols:5,enterSpan:2,caption:"Fraction Number Line Challenge answer buttons"},
+"multiplying-algebraic-expressions.html":{selector:'input.weekly-input',activateOnClick:true,keys:[...signedDecimal,'a','b','c','x','y','z'],cols:5,enterSpan:2,caption:"Multiplying Algebraic Expressions — Different Variables answer buttons"},
+"expanding-single-brackets.html":{selector:'input.weekly-input',activateOnClick:true,keys:[...signedDecimal,'+','a','b','c','x','y','z'],cols:5,enterSpan:2,caption:"Expanding Single Brackets answer buttons"},
 "converting-numbers-to-scientific-notation.html":{selector:'input.weekly-input',activateOnClick:true,keys:signedDecimal,cols:5,enterSpan:2,caption:"Converting Numbers to Scientific Notation answer buttons"},
 "comparing-fractions.html":{selector:'input.weekly-input',activateOnClick:true,keys:['<','=','>','⌫','Enter'],cols:5,enterSpan:2,caption:"Comparing Fractions answer buttons"},
 "calculations-with-powers.html":{selector:'input.weekly-input',activateOnClick:true,keys:signedDecimal,cols:5,enterSpan:2,caption:"Calculations with Powers answer buttons"},
